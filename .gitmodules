@@ -1,0 +1,3 @@
+[submodule "JSILEx"]
+	path = JSILEx
+	url = https://github.com/exaphaser/JSILEx.git

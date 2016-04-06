@@ -40,23 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Themes\CSSUITheme.cs" />
     <Compile Include="WebApplication.cs" />
     <Compile Include="WebForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Meta\Meta.csproj">
-      <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
-      <Name>Meta</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\JSIL.Dom\JSIL.Dom.csproj">
-      <Project>{60ac246f-639d-453c-99e7-b59093a4f0de}</Project>
-      <Name>JSIL.Dom</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\JSIL.UI\JSIL.UI.csproj">
-      <Project>{7e9c8670-8db7-4764-b2c7-29c910c19479}</Project>
-      <Name>JSIL.UI</Name>
-    </ProjectReference>
+    <Folder Include="Themes" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
