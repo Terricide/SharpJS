@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ExaPhaser.WebForms</id>
-        <version>1.0.12</version>
+        <version>1.0.13</version>
         <title>ExaPhaser WebForms</title>
         <authors>ExaPhaser Industries,0xFireball</authors>
         <owners>ExaPhaser Industries,0xFireball</owners>
@@ -15,6 +15,8 @@
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
         <file src="..\bin\ExaPhaser.WebForms.pdb" target="jsil\ExaPhaser.WebForms.pdb" />
+        <file src="..\bin\ExaPhaser.WebUI.dll" target="jsil\ExaPhaser.WebUI.dll" />
+        <file src="..\bin\ExaPhaser.WebUI.pdb" target="jsil\ExaPhaser.WebUI.pdb" />
         <file src="..\bin\FSharp.Compiler.CodeDom.dll" target="jsil\FSharp.Compiler.CodeDom.dll" />
         <file src="..\bin\FSharp.Compiler.CodeDom.xml" target="jsil\FSharp.Compiler.CodeDom.xml" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
@@ -32,7 +34,6 @@
         <file src="..\bin\JSIL.Analysis.DCE.dll" target="jsil\JSIL.Analysis.DCE.dll" />
         <file src="..\bin\JSIL.Analysis.DCE.pdb" target="jsil\JSIL.Analysis.DCE.pdb" />
         <file src="..\bin\JSIL.dll" target="jsil\JSIL.dll" />
-        <file src="..\bin\JSIL.dll.config" target="jsil\JSIL.dll.config" />
         <file src="..\bin\JSIL.Dom.dll" target="jsil\JSIL.Dom.dll" />
         <file src="..\bin\JSIL.Dom.pdb" target="jsil\JSIL.Dom.pdb" />
         <file src="..\bin\JSIL.ExpressionInterpreter.dll" target="jsil\JSIL.ExpressionInterpreter.dll" />
@@ -50,8 +51,6 @@
         <file src="..\bin\JSIL.Proxies.Bcl.pdb" target="jsil\JSIL.Proxies.Bcl.pdb" />
         <file src="..\bin\JSIL.Proxies.XNA4.dll" target="jsil\JSIL.Proxies.XNA4.dll" />
         <file src="..\bin\JSIL.Proxies.XNA4.pdb" target="jsil\JSIL.Proxies.XNA4.pdb" />
-        <file src="..\bin\JSIL.UI.dll" target="jsil\JSIL.UI.dll" />
-        <file src="..\bin\JSIL.UI.pdb" target="jsil\JSIL.UI.pdb" />
         <file src="..\bin\JSILc.AnyCPU.exe" target="jsil\JSILc.AnyCPU.exe" />
         <file src="..\bin\JSILc.AnyCPU.exe.config" target="jsil\JSILc.AnyCPU.exe.config" />
         <file src="..\bin\JSILc.AnyCPU.pdb" target="jsil\JSILc.AnyCPU.pdb" />
@@ -85,16 +84,16 @@
         <file src="..\bin\Xap.pdb" target="jsil\Xap.pdb" />
         <file src="..\bin\zlib1.dll" target="jsil\zlib1.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="lib\ExaPhaser.WebForms.dll" />
-        <file src="lib\ICSharpCode.Decompiler.dll" target="lib\ICSharpCode.Decompiler.dll" />
-        <file src="lib\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
-        <file src="lib\ICSharpCode.NRefactory.dll" target="lib\ICSharpCode.NRefactory.dll" />
-        <file src="lib\JSIL.dll" target="lib\JSIL.dll" />
-        <file src="lib\JSIL.Dom.dll" target="lib\JSIL.Dom.dll" />
-        <file src="lib\JSIL.Meta.dll" target="lib\JSIL.Meta.dll" />
-        <file src="lib\JSIL.UI.dll" target="lib\JSIL.UI.dll" />
-        <file src="lib\Mono.Cecil.dll" target="lib\Mono.Cecil.dll" />
-        <file src="lib\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />
-        <file src="lib\Mono.Cecil.Pdb.dll" target="lib\Mono.Cecil.Pdb.dll" />
+        <file src="..\bin\ExaPhaser.WebUI.dll" target="lib\ExaPhaser.WebUI.dll" />
+        <file src="..\bin\ICSharpCode.Decompiler.dll" target="lib\ICSharpCode.Decompiler.dll" />
+        <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
+        <file src="..\bin\ICSharpCode.NRefactory.dll" target="lib\ICSharpCode.NRefactory.dll" />
+        <file src="..\bin\JSIL.dll" target="lib\JSIL.dll" />
+        <file src="..\bin\JSIL.Dom.dll" target="lib\JSIL.Dom.dll" />
+        <file src="..\bin\JSIL.Meta.dll" target="lib\JSIL.Meta.dll" />
+        <file src="..\bin\Mono.Cecil.dll" target="lib\Mono.Cecil.dll" />
+        <file src="..\bin\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />
+        <file src="..\bin\Mono.Cecil.Pdb.dll" target="lib\Mono.Cecil.Pdb.dll" />
         <file src="tools\install.ps1" target="tools\install.ps1" />
     </files>
 </package>

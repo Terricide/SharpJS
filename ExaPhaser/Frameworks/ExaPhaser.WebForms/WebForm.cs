@@ -1,9 +1,10 @@
 ﻿namespace ExaPhaser.WebForms
 {
-    public class WebForm
+    public class WebForm : Control
     {
         public WebForm()
         {
+
         }
     }
 }

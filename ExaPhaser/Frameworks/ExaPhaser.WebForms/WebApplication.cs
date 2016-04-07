@@ -21,7 +21,8 @@ namespace ExaPhaser.WebForms
 
         public void Run(WebForm webForm, Element hostElement)
         {
-            CreateApplication(hostElement);
+            CreateApplication(hostElement); //Create containers
+            webForm.ContainerElement = _formHost; //Set container to new element
         }
 
         protected void CreateApplication(Element applicationHostElement)
