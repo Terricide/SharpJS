@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{9E72A1B0-6BAA-463A-AFE5-909B88BA5161}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebFormsTemplate</RootNamespace>
     <AssemblyName>WebFormsTemplate</AssemblyName>
@@ -33,9 +33,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MainForm.cs" />
@@ -210,9 +207,8 @@
     <Content Include="Libraries\XNA\XNA4.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="_project.vstemplate.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="_preprocess.xml" />
+    <Content Include="_project.vstemplate.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExaPhaser.WebForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

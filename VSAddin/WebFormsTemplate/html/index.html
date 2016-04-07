@@ -9,7 +9,7 @@
 	<script type="text/javascript">
 	  var jsilConfig = {
 		manifests:[
-			"webformsttest.exe",
+			"WebFormsTemplate.exe",
 		],
 		libraryRoot: "../Libraries/",
 		showProgressBar: true
@@ -27,7 +27,7 @@
 		//Hide canvas
 		var canvas = document.getElementById('canvas');
 		canvas.parentNode.removeChild(canvas);
-		var asm = JSIL.GetAssembly("webformsttest");
+		var asm = JSIL.GetAssembly("WebFormsTemplate");
 		JSIL.InvokeEntryPoint(asm, []);
 	  };
 	</script>
