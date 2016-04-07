@@ -70,7 +70,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <TemplateReference Include="WebFormsTemplate.csproj" />
+    <TemplateReference Include="WebFormsTemplate.csproj">
+      <PathToProject>../WebFormsTemplate/WebFormsTemplate.csproj</PathToProject>
+    </TemplateReference>
     <TemplateReference Include="WebFormsTemplate.csproj">
       <PathToProject>../WebFormsTemplate/WebFormsTemplate.csproj</PathToProject>
     </TemplateReference>
