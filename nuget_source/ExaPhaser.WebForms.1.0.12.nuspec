@@ -11,7 +11,7 @@
         <copyright>(c) 2016, ExaPhaser Industries, 0xFireball</copyright>
     </metadata>
     <files>
-        <file src="build\_._" target="build\_._" />
+        <file src="build\ExaPhaser.WebForms.targets" target="build\ExaPhaser.WebForms.targets" />
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
         <file src="..\bin\ExaPhaser.WebForms.pdb" target="jsil\ExaPhaser.WebForms.pdb" />
