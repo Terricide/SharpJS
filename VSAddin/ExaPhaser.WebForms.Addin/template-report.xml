@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TemplateReport>
+  <ItemTemplates />
+  <ProjectTemplates>
+    <ProjectTemplate Path="..\WebFormsTemplate\_Definitions\_project.vstemplate.xml" Name="ExaPhaser.WebForms Application" Description="An application that is built on ExaPhaser.WebForms, and will be compiled to pure JavaScript/HTML5" ProjectType="CSharp" ProjectSubType="" />
+  </ProjectTemplates>
+  <Snippets />
+</TemplateReport>

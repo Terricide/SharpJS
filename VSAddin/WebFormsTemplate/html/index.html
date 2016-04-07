@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="index.css"></link>
+	<link rel="stylesheet" href="browser.css"></link>
+  </head>
+  <body onload="onLoad()">    
+	<script type="text/javascript">
+	  var jsilConfig = {
+		manifests:[
+			"webformsttest.exe",
+		],
+		libraryRoot: "./Libraries/",
+		showProgressBar: true
+	  };
+	</script>
+	<script src="./Libraries/JSIL.js" type="text/javascript"></script>
+
+	<canvas id="canvas" width="400" height="300">
+    </canvas><br>
+	<div id="log"></div>
+	<div id="formhost"></div>
+
+	<script type="text/javascript">
+	  function runMain () {
+		//Hide canvas
+		var canvas = document.getElementById('canvas');
+		canvas.parentNode.removeChild(canvas);
+		var asm = JSIL.GetAssembly("webformsttest");
+		JSIL.InvokeEntryPoint(asm, []);
+	  };
+	</script>
+  </body>
+</html>
