@@ -1,8 +1,8 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
   <TemplateData>
     <Name>ExaPhaser.WebForms Application</Name>
-    <Description>An application that is built on ExaPhaser.WebForms. It will be compiled to pure JavaScript/HTML5</Description>
-    <DefaultName>WebFormsApp</DefaultName>
+    <Description>An application that is built on ExaPhaser.WebForms, and will be compiled to pure JavaScript/HTML5</Description>
+    <DefaultName>WebFormsApp1</DefaultName>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>
     </ProjectSubType>

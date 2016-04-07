@@ -210,6 +210,7 @@
     <Content Include="Libraries\XNA\XNA4.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="_preprocess.xml" />
     <Content Include="_project.vstemplate.xml">
       <SubType>Designer</SubType>
     </Content>
