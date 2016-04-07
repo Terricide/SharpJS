@@ -1,10 +1,10 @@
-# ExaPhaser.WebForms
-A Web GUI framework programmed in C# and translated to HTML5/JS with JSIL
+# ExaPhaser.SharpJS
+A set of frameworks, ranging from DOM to GUI written in C# and translated to HTML5/JS with JSIL
 
 Acknowledgements
 ========
 
-ExaPhaser.WebForms depends upon or is based on the following open source projects:
+ExaPhaser.SharpJS depends upon or is based on the following open source projects:
 
  * JSIL.Hacks MIT/X11 (Markus Johnson)
  * JSIL: MIT/X11 (K. Gadd)
