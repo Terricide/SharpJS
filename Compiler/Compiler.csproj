@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C7BF4561-20DD-4E49-8B5A-4E8AF032C47A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <OutputPath>..\bin\</OutputPath>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSIL.Compiler</RootNamespace>
+    <AssemblyName>JSILc.AnyCPU</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>jsil.ico</ApplicationIcon>
+  </PropertyGroup>
+  <!-- Set platform specific defines to allow basic feature detection. -->
+  <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
+    <DefineConstants>$(DefineConstants);WINDOWS</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' == 'Unix' ">
+    <DefineConstants>$(DefineConstants);UNIX</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' == 'OSX' ">
+    <DefineConstants>$(DefineConstants);OSX</DefineConstants>
+  </PropertyGroup>
+  <!-- MSBuild is not available in Mono yet as an API, so we disable it on non-windows platforms -->
+  <ItemGroup Condition=" '$(OS)' == 'Windows_NT' ">
+    <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Build.Engine" />
+    <Reference Include="Microsoft.Build.Framework" />
+    <Reference Include="Microsoft.Build.Utilities.v4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Upstream\Options.cs" />
+    <Compile Include="BuildGroup.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Extensibility\ICompilerExtension.cs" />
+    <Compile Include="Profiles\Base.cs" />
+    <Compile Include="Profiles\ContentManifestWriter.cs" />
+    <Compile Include="Profiles\CopiedOutputGatherer.cs" />
+    <Compile Include="Profiles\Default.cs" />
+    <Compile Include="Extensibility\IProfile.cs" />
+    <Compile Include="Profiles\ResourceConverter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="SolutionBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VariableSet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JSIL\JSIL.csproj">
+      <Project>{DA03D241-B70C-44D7-A465-3CEB5A9416AE}</Project>
+      <Name>JSIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\cecil\Mono.Cecil.csproj">
+      <Project>{D68133BD-1E63-496E-9EDE-4FBDBF77B486}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jsil.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="defaults.jsilconfig">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent Condition="'$(OS)' != 'Unix'">copy "$(ProjectDir)\..\Upstream\Spidermonkey\*.*" "$(OutDir)"
+copy "$(ProjectDir)\..\Upstream\PNGQuant\*.dll" "$(OutDir)"
+copy "$(ProjectDir)\..\Upstream\PNGQuant\*.exe" "$(OutDir)"
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

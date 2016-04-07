@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2DBBCB24-54AD-4C66-B7D6-911811CEB185}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSIL.Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputPath>..\bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FSharp.Compiler.CodeDom, Version=0.9.3.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Compiler.CodeDom.0.9.3.0\lib\net40\FSharp.Compiler.CodeDom.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AnalysisTestCases\ReturnStructArgument.cs" />
+    <None Include="AnalysisTestCases\PureStructOperator.cs" />
+    <None Include="AnalysisTestCases\FieldAssignmentDetection.cs" />
+    <None Include="AnalysisTestCases\IncrementArgumentField.cs" />
+    <None Include="AnalysisTestCases\NestedReturn.cs" />
+    <None Include="AnalysisTestCases\ReturnMutatedStructArgument.cs" />
+    <None Include="AnalysisTestCases\ReturnMutatedNestedStruct.cs" />
+    <None Include="AnalysisTestCases\MutateNestedStruct.cs" />
+    <None Include="AnalysisTestCases\Issue667.cs" />
+    <None Include="AnalysisTestCases\NestedReturnNew.cs" />
+    <None Include="AnalysisTestCases\StructTemporaries.cs" />
+    <None Include="AnalysisTestCases\LocalCopyOfGlobal.cs" />
+    <None Include="EncodingTestCases\ASCIIGetBytes.cs" />
+    <None Include="EncodingTestCases\ASCIIGetString.cs" />
+    <None Include="EncodingTestCases\UTF8GetBytes.cs" />
+    <None Include="EncodingTestCases\UTF8GetString.cs" />
+    <None Include="AnalysisTestCases\RecursivePureStructOperator.cs" />
+    <None Include="AnalysisTestCases\MakeCopyBeforeMutation.cs" />
+    <None Include="AnalysisTestCases\PointlessFinallyBlocks.cs" />
+    <None Include="AnalysisTestCases\OptimizeArrayEnumerators.cs" />
+    <None Include="AnalysisTestCases\StructLoopInteraction.cs" />
+    <None Include="AnalysisTestCases\ReuseEnumeratorLocal.cs" />
+    <None Include="AnalysisTestCases\PropertyTemporaries.cs" />
+    <None Include="AnalysisTestCases\TemporaryArraySize.cs" />
+    <None Include="AnalysisTestCases\AddToStructProperty.cs" />
+    <None Include="AnalysisTestCases\StructImmutabilityDetection.cs" />
+    <None Include="AnalysisTestCases\ImmutableStructThisAssignment.cs" />
+    <None Include="AnalysisTestCases\SwitchConstructorFolding.cs" />
+    <None Include="AnalysisTestCases\ReadStructFromReadonlyFieldThenMutate.cs" />
+    <None Include="AnalysisTestCases\UnfoldableStructConstructor.cs" />
+    <None Include="AnalysisTestCases\ImmutableStructReinitialization.cs" />
+    <None Include="AnalysisTestCases\ImmutableStructReinitializationInControlFlow.cs" />
+    <None Include="AnalysisTestCases\ImmutableStructReinitializationInLoop.cs" />
+    <None Include="AnalysisTestCases\Issue184.cs" />
+    <None Include="AnalysisTestCases\AffectedFieldThroughCall.cs" />
+    <None Include="AnalysisTestCases\AffectedFieldThroughRecursiveCall.cs" />
+    <None Include="AnalysisTestCases\TemporaryFunctionCallPurity.cs" />
+    <None Include="AnalysisTestCases\VerbatimVariableMutation.cs" />
+    <None Include="AnalysisTestCases\StructAllocationHoisting.cs" />
+    <None Include="AnalysisTestCases\PackedArrayInitializationHoisting.cs" />
+    <None Include="AnalysisTestCases\CopyForTemporaryStructInLoop.cs" />
+    <None Include="AnalysisTestCases\StructAllocationHoistingTwiceInStatement.cs" />
+    <None Include="AnalysisTestCases\Issue371.cs" />
+    <None Include="AnalysisTestCases\Issue494.cs" />
+    <None Include="AnalysisTestCases\Issue494_2.cs" />
+    <None Include="AnalysisTestCases\CopyGetEnumerator.cs" />
+    <None Include="EmscriptenTestCases\OutIntParameter.cs" />
+    <None Include="EmscriptenTestCases\RefIntParameter.cs" />
+    <None Include="EmscriptenTestCases\OutStructParameter.cs" />
+    <None Include="EmscriptenTestCases\ByValueStructParameter.cs" />
+    <None Include="EmscriptenTestCases\ByValueStructResult.cs" />
+    <None Include="EmscriptenTestCases\MutateStringArgument.cs" />
+    <None Include="EmscriptenTestCases\CopyStringArgument.cs" />
+    <None Include="EmscriptenTestCases\IntPtrRoundTrip.cs" />
+    <None Include="EmscriptenTestCases\PinnedStringBuffer.cs" />
+    <None Include="EmscriptenTestCases\ReturnFunctionPointer.cs" />
+    <None Include="EmscriptenTestCases\IntParameter.cs" />
+    <None Include="EmscriptenTestCases\PassFunctionPointer.cs" />
+    <None Include="EmscriptenTestCases\PassDelegate.cs" />
+    <None Include="EmscriptenTestCases\PassFunctionPointerForDelegate.cs" />
+    <None Include="EmscriptenTestCases\ReturnDelegate.cs" />
+    <None Include="EmscriptenTestCases\WrongDllName.cs" />
+    <None Include="EmscriptenTestCases\AlternateEntryPoint.cs" />
+    <None Include="EmscriptenTestCases\WrongEntryPoint.cs" />
+    <None Include="EmscriptenTestCases\PassDelegateInStruct.cs" />
+    <None Include="EmscriptenTestCases\PassFlagsInStruct.cs" />
+    <None Include="EmscriptenTestCases\OutUshortArrayParameter.cs" />
+    <None Include="EmscriptenTestCases\ByValueStructParameter_Small.cs" />
+    <None Include="EmscriptenTestCases\PassIntPtrInStruct.cs" />
+    <None Include="EmscriptenTestCases\StructAlignment.cs" />
+    <None Include="EmscriptenTestCases\CustomStringMarshaler.cs" />
+    <None Include="EmscriptenTestCases\GetDelegateForFunctionPointer.cs" />
+    <None Include="EmscriptenTestCases\StaticStringFromIntPtr.cs" />
+    <None Include="EmscriptenTestCases\OutStructArrayParameter.cs" />
+    <None Include="EmscriptenTestCases\PassPtrToPinnedArray.cs" />
+    <None Include="AnalysisTestCases\Issue696.cs" />
+    <None Include="EmscriptenTestCases\EnumRoundTrip.cs" />
+    <None Include="AnalysisTestCases\FNABaseOffset.cs" />
+    <None Include="EmscriptenTestCases\OutUnionParameter.cs" />
+    <None Include="EmscriptenTestCases\OutComplexUnionParameter.cs" />
+    <None Include="EmscriptenTestCases\ReturnEnum.cs" />
+    <Compile Include="EmscriptenTestCases\ProxiedExternFunction.cs" />
+    <None Include="EmscriptenTestCases\IntPtrZeroEquality.cs" />
+    <None Include="EmscriptenTestCases\StringArrayParameter.cs" />
+    <None Include="EmscriptenTestCases\IntArrayParameter.cs" />
+    <Compile Include="EmscriptenTests.cs" />
+    <Compile Include="CodeProviders.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ComparisonTest.cs" />
+    <Compile Include="ComparisonTests.cs" />
+    <None Include="FailingTestCases\BaseFields.cs" />
+    <Compile Include="AnalysisTests.cs" />
+    <None Include="packages.config" />
+    <None Include="ReflectionTestCases\ListPublicStaticMethods.cs" />
+    <None Include="ReflectionTestCases\ListOverloadedPublicStaticMethods.cs" />
+    <None Include="ReflectionTestCases\Common.cs" />
+    <None Include="ReflectionTestCases\ListFilteredStaticMethods.cs" />
+    <None Include="ReflectionTestCases\ListFilteredMethods.cs" />
+    <None Include="SpecialTestCases\Issue199.fs" />
+    <None Include="ReflectionTestCases\ListInheritedMethods.cs" />
+    <None Include="ReflectionTestCases\ListFields.cs" />
+    <None Include="ReflectionTestCases\ListHiddenMethods.cs" />
+    <Compile Include="APITests.cs" />
+    <None Include="InterfaceTestCases\InterfaceInheritanceDifferentNames.cs" />
+    <None Include="BrowserXMLTestCases\SimpleDocument.cs" />
+    <None Include="BrowserXMLTestCases\Common.cs" />
+    <None Include="BrowserXMLTestCases\TextContent.cs" />
+    <None Include="BrowserXMLTestCases\Whitespace.cs" />
+    <None Include="BrowserXMLTestCases\AttributeCount.cs" />
+    <None Include="BrowserXMLTestCases\Comments.cs" />
+    <None Include="BrowserXMLTestCases\MoveToContent.cs" />
+    <None Include="BrowserXMLTestCases\Namespaces.cs" />
+    <None Include="BrowserXMLTestCases\GetAttributeByIndex.cs" />
+    <None Include="BrowserXMLTestCases\GetAttributeByName.cs" />
+    <None Include="BrowserXMLTestCases\NamespacedAttributes.cs" />
+    <None Include="BrowserXMLTestCases\NameTable.cs" />
+    <None Include="BrowserXMLTestCases\Skip.cs" />
+    <None Include="BrowserXMLTestCases\ReadElementString.cs" />
+    <None Include="TestCases\EnumComplexArithmetic.cs" />
+    <None Include="TestCases\NestedGenericInheritance.cs" />
+    <None Include="SpecialTestCases\EnumeratesAssemblyDependencies.cs" />
+    <None Include="TestCases\GenericStaticConstructorOrdering2.cs" />
+    <None Include="TestCases\StaticInitializersInGenericTypesSettingStaticFields2.cs" />
+    <None Include="TestCases\EnumCheckType.cs" />
+    <None Include="TestCases\NullableArithmetic.cs" />
+    <None Include="TestCases\NullableComparison.cs" />
+    <None Include="TestCases\NullableComparisonWithCast.cs" />
+    <None Include="TestCases\NullableObjectCast.cs" />
+    <None Include="EncodingTestCases\Common.cs" />
+    <None Include="EncodingTestCases\ToBase64String.cs" />
+    <None Include="EncodingTestCases\FromBase64String.cs" />
+    <None Include="DateTimeTestCases\TimeSpanArithmetic.cs" />
+    <None Include="DateTimeTestCases\Common.cs" />
+    <None Include="DateTimeTestCases\TimeSpanCtor.cs" />
+    <None Include="EncodingTestCases\UTF16GetBytes.cs" />
+    <None Include="EncodingTestCases\UTF16GetString.cs" />
+    <None Include="DateTimeTestCases\TimeSpanComparison.cs" />
+    <None Include="DateTimeTestCases\TimeSpanToStringAndParse.cs" />
+    <Compile Include="CompilerUtil.cs" />
+    <Compile Include="ConfigurationTests.cs" />
+    <Compile Include="EvaluatorPool.cs" />
+    <None Include="ReflectionTestCases\ListInterfaceMethods.cs" />
+    <None Include="ReflectionTestCases\ListGenericInterfaceMethods.cs" />
+    <None Include="PerformanceTestCases\InterfaceMethodCalls.cs" />
+    <None Include="PerformanceTestCases\GenericInterfaceMethodCalls.cs" />
+    <None Include="InterfaceTestCases\InterfaceCovariance.cs" />
+    <None Include="SpecialTestCases\InterfaceVariance.cs" />
+    <None Include="InterfaceTestCases\InterfaceCovariance2.cs" />
+    <None Include="InterfaceTestCases\MultipleGenericInterfaces2.cs" />
+    <None Include="FailingTestCases\StaticConstructorOrdering.cs" />
+    <None Include="PerformanceTestCases\VariantGenericInterfaceMethodCalls.cs" />
+    <None Include="ReflectionTestCases\ListClassConstructors.cs" />
+    <None Include="ReflectionTestCases\ListClassMethods.cs" />
+    <None Include="ReflectionTestCases\BindMethodAsDelegate.cs" />
+    <None Include="ReflectionTestCases\ConstructUsingSpecificConstructor.cs" />
+    <None Include="ReflectionTestCases\GenericTypeBaseType.cs" />
+    <None Include="InterfaceTestCases\GenericMethodInsideNonGenericInterface.cs" />
+    <None Include="InterfaceTestCases\GenericMethodInsideGenericInterface.cs" />
+    <None Include="InterfaceTestCases\OverloadedGenericMethodInsideNonGenericInterface.cs" />
+    <None Include="SpecialTestCases\AddNewField.cs" />
+    <None Include="PerformanceTestCases\RectangleIntersects.cs" />
+    <None Include="SpecialTestCases\SpuriousIntegerHints.cs" />
+    <None Include="SpecialTestCases\PropertyRecursion.cs" />
+    <None Include="PerformanceTestCases\PropertyVsField.cs" />
+    <None Include="SpecialTestCases\DepthStencilStateSwitchGoto.cs" />
+    <None Include="ReflectionTestCases\GetPrivateTypeUnqualified.cs" />
+    <None Include="ReflectionTestCases\AssemblyGetType.cs" />
+    <None Include="ReflectionTestCases\EnumFields.cs" />
+    <None Include="SpecialTestCases\PointerSignature.cs" />
+    <None Include="Int64TestCases\Issue162.cs" />
+    <None Include="Int64TestCases\Issue246.cs" />
+    <None Include="ReflectionTestCases\FieldGetValue.cs" />
+    <None Include="InterfaceTestCases\InterfaceOverloads2.cs" />
+    <None Include="PerformanceTestCases\Sieve.cs" />
+    <None Include="SpecialTestCases\VerbatimVariables.cs" />
+    <None Include="SpecialTestCases\VerbatimVariablesExistingArray.cs" />
+    <None Include="ReflectionTestCases\Issue274_1.cs" />
+    <None Include="ReflectionTestCases\Issue274_2.cs" />
+    <None Include="PerformanceTestCases\FuseePackedVertices.cs" />
+    <None Include="SpecialTestCases\InitializeStructClone.cs" />
+    <None Include="SpecialTestCases\ClosedGenericSignatures.cs" />
+    <None Include="ReflectionTestCases\NestedTypeNames.cs" />
+    <None Include="ReflectionTestCases\Issue310.cs" />
+    <None Include="TestCases\DictionaryKeysAndValues.cs" />
+    <None Include="FailingTestCases\LinqAggregate.cs" />
+    <None Include="ReflectionTestCases\GetInterfaceAttributes.cs" />
+    <None Include="ReflectionTestCases\GetParameterAttributes.cs" />
+    <None Include="ReflectionTestCases\GetConstructorAttributes.cs" />
+    <None Include="SpecialTestCases\JSReplacementTypeOfThisStatic.cs" />
+    <None Include="BinaryTestCases\RoslynUnaryPointerOperation.exe" />
+    <None Include="EmscriptenTestCases\exclude_common\common.cpp" />
+    <Content Include="JSTestCases\SameNameDifferentReturnTypes.js" />
+    <Content Include="JSTestCases\SameNameWithOverride.js" />
+    <None Include="AnalysisTestCases\Issue395.cs" />
+    <None Include="Int64TestCases\Int64ToString.cs" />
+    <None Include="PerformanceTestCases\EnumCasts.cs" />
+    <None Include="SpecialTestCases\DoubleFloatCasts.cs" />
+    <None Include="PerformanceTestCases\BaseMethodCalls.cs" />
+    <None Include="TestCases\EnumClone.cs" />
+    <None Include="SpecialTestCases\Issue548.cs" />
+    <None Include="SpecialTestCases\MgTextureReader.cs" />
+    <None Include="SpecialTestCases\MgDxtDecode.cs" />
+    <None Include="SpecialTestCases\TranslateTypeInStubbedAssembly.cs" />
+    <None Include="SpecialTestCases\TranslateMethodInStubbedAssembly.cs" />
+    <None Include="SpecialTestCases\TranslateMethodInStubbedType.cs" />
+    <None Include="FailingTestCases\DelegateMethod_ResolveInterface_Issue604.cs" />
+    <None Include="PerformanceTestCases\GenericMethodCalls.cs" />
+    <None Include="ReflectionTestCases\GetInheritedAttributesFromMethods.cs" />
+    <None Include="SpecialTestCases\RenameInterfaceMethod.cs" />
+    <None Include="SpecialTestCases\RenameInterface.cs" />
+    <None Include="ReflectionTestCases\FailsOnMono\GetParentDefinition.cs" />
+    <None Include="ReflectionTestCases\FailsOnMono\GetBaseDefinition.cs" />
+    <None Include="SpecialTestCases\RoslynBigStringSwitchWithStaticArray.cs" />
+    <Compile Include="TypeInformationTests.cs" />
+    <None Include="TestCases\LongArithmetic.cs" />
+    <None Include="InterfaceTestCases\NestedInterfaces.cs" />
+    <None Include="TestCases\EnumNullableArithmetic.cs" />
+    <None Include="TestCases\DynamicComplex.cs" />
+    <None Include="TestCases\MultipleGenericInterfaces.cs" />
+    <None Include="TestCases\HiddenMethodFromGenericClass.cs" />
+    <None Include="InterfaceTestCases\InterfaceOverloads.cs" />
+    <None Include="TestCases\ArrayFieldWithSelfReference.cs" />
+    <None Include="TestCases\CharField.cs" />
+    <None Include="TestCases\ArrayFieldOfThisType.cs" />
+    <None Include="BrowserXMLTestCases\GetItemByIndex.cs" />
+    <None Include="BrowserXMLTestCases\GetItemByName.cs" />
+    <None Include="TestCases\FailsOnMono\Dictionary.cs" />
+    <None Include="TestCases\EnumAnonymousMethod.cs" />
+    <None Include="BrowserXMLTestCases\ReadElementContentAsString.cs" />
+    <None Include="SpecialTestCases\OverloadedGenericMethodSignatures.cs" />
+    <None Include="Tests.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="XMLTestCases\WriteEmptyElement.cs" />
+    <None Include="XMLTestCases\Common.cs" />
+    <None Include="XMLTestCases\WriteStringElement.cs" />
+    <None Include="XMLTestCases\WriteAttributeString.cs" />
+    <None Include="XMLTestCases\WriteAttributeString2.cs" />
+    <None Include="XMLTestCases\WriteElementString.cs" />
+    <None Include="AnalysisTestCases\InitTemporaryArray.cs" />
+    <None Include="TestCases\HashSetCount.cs" />
+    <None Include="SpecialTestCases\OverloadedGenericMethodSignatures2.cs" />
+    <None Include="SpecialTestCases\CustomObjectMethods.cs" />
+    <None Include="SpecialTestCases\CustomEqualsDispatch.cs" />
+    <None Include="TestCases\RefStructThisWithInterface.cs" />
+    <None Include="TestCases\RefStructThisWithConstrainedInterface.cs" />
+    <None Include="TestCases\MutatedStructGenericParameter.cs" />
+    <None Include="XMLTestCases\WriteStartDocument.cs" />
+    <None Include="XMLTestCases\WriteEndDocument.cs" />
+    <None Include="TestCases\CompareFlagsEnums.cs" />
+    <None Include="SpecialTestCases\ReplaceConstructorAndFieldNames.cs" />
+    <None Include="TestCases\MethodGenericParameterAsTypeParameter.cs" />
+    <None Include="TestCases\MethodGenericParameterAsTypeParameter2.cs" />
+    <None Include="InterfaceTestCases\InterfaceOverride.cs" />
+    <None Include="TestCases\DictionaryKeyValuePairs.cs" />
+    <None Include="SpecialTestCases\AutoPropertyEfficiency.cs" />
+    <None Include="InterfaceTestCases\InterfacePropertyMatching.cs" />
+    <None Include="TestCases\StructBoxing.cs" />
+    <None Include="SpecialTestCases\AsyncStateMachineSwitchGoto.cs" />
+    <None Include="SpecialTestCases\CyclicTypeReferences.cs" />
+    <None Include="SpecialTestCases\CyclicTypeInheritance.cs" />
+    <None Include="TestCases\GenericMethodWithSameSignatureAsNonGenericMethod.cs" />
+    <None Include="SpecialTestCases\ReplaceMethodBodyAndCallOtherMethod.cs" />
+    <None Include="SpecialTestCases\PropertyIncrementEfficiency.cs" />
+    <None Include="SpecialTestCases\ReplaceConstructor.cs" />
+    <None Include="TestCases\LinqExpressionSimple.cs" />
+    <None Include="Int64TestCases\Int64Addition.cs" />
+    <None Include="Int64TestCases\UInt64Bitwise.cs" />
+    <None Include="Int64TestCases\Int64Boxing.cs" />
+    <None Include="Int64TestCases\Int64Comparisons.cs" />
+    <None Include="Int64TestCases\Int64DateTimeArithmetic.cs" />
+    <None Include="Int64TestCases\Int64Division.cs" />
+    <None Include="Int64TestCases\Int64Fields.cs" />
+    <None Include="Int64TestCases\Int64Literals.cs" />
+    <None Include="Int64TestCases\Int64Multiplication.cs" />
+    <None Include="Int64TestCases\Int64Interfaces.cs" />
+    <None Include="Int64TestCases\Int64Shifts.cs" />
+    <None Include="Int64TestCases\Int64Subtraction.cs" />
+    <None Include="Int64TestCases\Int64Parse.cs" />
+    <None Include="Int64TestCases\Int64Convert.cs" />
+    <None Include="Int64TestCases\UInt64Literals.cs" />
+    <None Include="Int64TestCases\UInt64Addition.cs" />
+    <None Include="Int64TestCases\UInt64Equality.cs" />
+    <None Include="Int64TestCases\UInt64Ref.cs" />
+    <None Include="Int64TestCases\Int64Nullable.cs" />
+    <None Include="Int64TestCases\Int64Type.cs" />
+    <None Include="InterfaceTestCases\CastArrayToIEnumerable.cs" />
+    <None Include="IOTestCases\StreamInt64Properties.cs" />
+    <None Include="Int64TestCases\Int64InPlaceAddition.cs" />
+    <None Include="Int64TestCases\Int64InPlaceArrayAddition.cs" />
+    <None Include="Int64TestCases\Int64ArrayLiterals.cs" />
+    <None Include="IOTestCases\Int64Serialization.cs" />
+    <None Include="SpecialTestCases\StructCtorInvocation.cs" />
+    <None Include="ReflectionTestCases\ListTypes.cs" />
+    <None Include="IOTestCases\ByteOrderMarkDetection.cs" />
+    <None Include="IOTestCases\Common.cs" />
+    <None Include="IOTestCases\ReadLine.cs" />
+    <None Include="IOTestCases\EndOfStream.cs" />
+    <None Include="ReflectionTestCases\GetFieldAttributes.cs" />
+    <None Include="ReflectionTestCases\GetPropertyAttributes.cs" />
+    <None Include="ReflectionTestCases\GetMethodAttributes.cs" />
+    <None Include="ReflectionTestCases\GetClassAttributes.cs" />
+    <None Include="ReflectionTestCases\GetStructAttributes.cs" />
+    <None Include="ReflectionTestCases\GetStaticClassAttributes.cs" />
+    <None Include="ReflectionTestCases\SelfTypedAttribute.cs" />
+    <None Include="ReflectionTestCases\GetFilteredAttributes.cs" />
+    <None Include="ReflectionTestCases\GetInheritedAttributes.cs" />
+    <None Include="Int64TestCases\Int64NullableCast.cs" />
+    <None Include="IOTestCases\BinaryWriterSeek.cs" />
+    <None Include="TestCases\DictionaryValueCollectionCount.cs" />
+    <None Include="IOTestCases\StreamRelativeSeek.cs" />
+    <None Include="TestCases\GetGenericTypeWithMultipleArgumentsByName.cs" />
+    <None Include="ReflectionTestCases\GetMemberTypes.cs" />
+    <None Include="ReflectionTestCases\GetPropertyMethods.cs" />
+    <None Include="ReflectionTestCases\FieldOrder.cs" />
+    <None Include="ReflectionTestCases\GetFilteredAttributesCaching.cs" />
+    <None Include="ReflectionTestCases\PropertyOrder.cs" />
+    <None Include="ReflectionTestCases\GetConstantAttributes.cs" />
+    <None Include="TestCases\NestedStructEquals.cs" />
+    <None Include="TestCases\ComplexStructEquals.cs" />
+    <None Include="InterfaceTestCases\AssignArrayToIEnumerable.cs" />
+    <None Include="SpecialTestCases\GetHostService.cs" />
+    <None Include="ReflectionTestCases\GetClassParamsArrayAttribute.cs" />
+    <None Include="ReflectionTestCases\GetClassArrayAttribute.cs" />
+    <None Include="ReflectionTestCases\AttributeTypeof.cs" />
+    <None Include="Int64TestCases\Int64CastToEnum.cs" />
+    <None Include="InterfaceTestCases\InterfaceEqualityComparison.cs" />
+    <None Include="SpecialTestCases\InheritedExternalStubError.cs" />
+    <None Include="InterfaceTestCases\CastArrayToIList.cs" />
+    <None Include="UnsafeTestCases\PinIntArrayAndRead.cs" />
+    <None Include="UnsafeTestCases\ReadAndWritePinnedIntArray.cs" />
+    <None Include="UnsafeTestCases\ReadIntsAsBytes.cs" />
+    <None Include="UnsafeTestCases\WriteIntsAsBytes.cs" />
+    <None Include="UnsafeTestCases\PinElementOfIntArray.cs" />
+    <None Include="UnsafeTestCases\IncrementPointer.cs" />
+    <None Include="UnsafeTestCases\DecrementPointer.cs" />
+    <None Include="UnsafeTestCases\SubtractPointers.cs" />
+    <None Include="UnsafeTestCases\PointerEquality.cs" />
+    <None Include="UnsafeTestCases\StackAlloc.cs" />
+    <None Include="UnsafeTestCases\PointerOrdering.cs" />
+    <None Include="UnsafeTestCases\PointerRefCast.cs" />
+    <None Include="UnsafeTestCases\ZeroLengthIntArray.cs" />
+    <None Include="FailingTestCases\PassPackedArrayAsNormalArrayArgument.cs" />
+    <None Include="FailingTestCases\PassNormalArrayAsPackedArrayArgument.cs" />
+    <None Include="FailingTestCases\ReturnNormalArrayAsPackedArray.cs" />
+    <None Include="FailingTestCases\ReturnPackedArrayAsNormalArray.cs" />
+    <Compile Include="GenericTestFixture.cs" />
+    <Compile Include="PerformanceAnalysis.cs" />
+    <None Include="PerformanceTestCases\Vector3.cs" />
+    <None Include="PerformanceTestCases\OverloadedMethodCalls.cs" />
+    <None Include="PerformanceTestCases\OverloadedConstructorsPerfomance.cs" />
+    <None Include="PerformanceTestCases\UncachedOverloadedMethodCalls.cs" />
+    <Compile Include="PerformanceTests.cs" />
+    <None Include="TestCases\GenericStaticMethods2.cs" />
+    <None Include="InterfaceTestCases\InterfaceMemberAsDelegate.cs" />
+    <None Include="SpecialTestCases\CreateNamedFunction.cs" />
+    <Compile Include="ThreadingTests.cs" />
+    <None Include="UnsafeTestCases\WriteSimpleStruct.cs" />
+    <None Include="UnsafeTestCases\ReadSimpleStruct.cs" />
+    <None Include="UnsafeTestCases\WriteNestedStruct.cs" />
+    <None Include="UnsafeTestCases\Common.cs" />
+    <None Include="UnsafeTestCases\ReadNestedStruct.cs" />
+    <None Include="PerformanceTestCases\UnsafeIntPerformanceComparison.cs" />
+    <None Include="UnsafeTestCases\IncrementStructPointer.cs" />
+    <None Include="UnsafeTestCases\AddToStructPointer.cs" />
+    <None Include="UnsafeTestCases\StructSizes.cs" />
+    <None Include="UnsafeTestCases\StructMemberOffsets.cs" />
+    <None Include="UnsafeTestCases\PinAndReadPackedStructArray.cs" />
+    <None Include="UnsafeTestCases\PackedStructArray.cs" />
+    <None Include="UnsafeTestCases\PinPackedStructArrayWithOffset.cs" />
+    <None Include="UnsafeTestCases\ModifyPackedStructArrayElement.cs" />
+    <None Include="UnsafeTestCases\FillPackedStructArray.cs" />
+    <None Include="UnsafeTestCases\PackedStructArrayArgument.cs" />
+    <None Include="UnsafeTestCases\PackedStructArrayNew.cs" />
+    <None Include="UnsafeTestCases\CastAddressOfValueToArray.cs" />
+    <None Include="UnsafeTestCases\IgnorePointerFields.cs" />
+    <None Include="UnsafeTestCases\PointerWriteConversion_Issue686.cs" />
+    <None Include="UnsafeTestCases\ModifyPackedStructArrayElementStructField.cs" />
+    <None Include="UnsafeTestCases\CustomPacking.cs" />
+    <None Include="UnsafeTestCases\CustomFieldOffset.cs" />
+    <None Include="UnsafeTestCases\CustomFieldOffsetUnion.cs" />
+    <None Include="UnsafeTestCases\UnionContainingEnum.cs" />
+    <None Include="UnsafeTestCases\SDLTouchStructLayout.cs" />
+    <None Include="UnsafeTestCases\ReadInt64InStruct.cs" />
+    <None Include="UnsafeTestCases\WriteUInt64InStruct.cs" />
+    <Compile Include="XMLTests.cs" />
+    <Compile Include="DependencyTests.cs" />
+    <None Include="TestCases\GenericParameterNameShadowing.cs" />
+    <Compile Include="FormattingTests.cs" />
+    <None Include="FailingTestCases\ArrayToString.cs" />
+    <Compile Include="FailingTests.cs" />
+    <Compile Include="MetadataTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="TestCases\BinaryTrees.cs" />
+    <None Include="TestCases\FannkuchRedux.cs" />
+    <None Include="TestCases\Goto.cs" />
+    <None Include="TestCases\HelloWorld.cs" />
+    <None Include="TestCases\NBody.cs" />
+    <None Include="TestCases\Switch.cs" />
+    <None Include="SpecialTestCases\Eval.cs" />
+    <None Include="SpecialTestCases\IgnoreField.cs" />
+    <None Include="SpecialTestCases\IgnoreMethod.cs" />
+    <None Include="SpecialTestCases\IgnoreProperty.cs" />
+    <None Include="SpecialTestCases\IgnoreType.cs" />
+    <None Include="SpecialTestCases\ReplaceMethod.cs" />
+    <None Include="TestCases\DynamicBinaryOperators.cs" />
+    <None Include="TestCases\DynamicConversion.cs" />
+    <None Include="TestCases\DynamicMethods.cs" />
+    <None Include="TestCases\DynamicPropertyGet.cs" />
+    <None Include="TestCases\DynamicPropertyGetAndCall.cs" />
+    <None Include="TestCases\DynamicPropertySet.cs" />
+    <None Include="TestCases\RefParameters.cs" />
+    <None Include="TestCases\StructDefaults.cs" />
+    <None Include="TestCases\DynamicOverloadedMethods.cs" />
+    <None Include="TestCases\Events.cs" />
+    <None Include="TestCases\MulticastDelegates.cs" />
+    <None Include="SpecialTestCases\IgnoreUnsafeCode.cs" />
+    <None Include="TestCases\Enums.cs" />
+    <None Include="SpecialTestCases\ChainedElseIf.cs" />
+    <None Include="InterfaceTestCases\FailsOnMono\Interfaces.cs" />
+    <None Include="InterfaceTestCases\InterfaceInheritance.cs" />
+    <None Include="TestCases\Lambdas.cs" />
+    <None Include="TestCases\ForEach.cs" />
+    <None Include="TestCases\YieldReturn.cs" />
+    <None Include="TestCases\StructAssignment.cs" />
+    <None Include="TestCases\ReturnStruct.cs" />
+    <None Include="TestCases\FailsOnMono\RefStruct.cs" />
+    <None Include="TestCases\IntegerArithmetic.cs" />
+    <None Include="TestCases\DynamicStaticOverloadedMethods.cs" />
+    <None Include="TestCases\DynamicReturnTypes.cs" />
+    <None Include="SpecialTestCases\IgnoreEvent.cs" />
+    <None Include="SpecialTestCases\IgnoreConstructor.cs" />
+    <None Include="SpecialTestCases\Verbatim.cs" />
+    <None Include="SpecialTestCases\IndexBuiltinByName.cs" />
+    <None Include="TestCases\DynamicUnaryOperators.cs" />
+    <None Include="TestCases\DynamicGetIndex.cs" />
+    <None Include="TestCases\DynamicSetIndex.cs" />
+    <None Include="TestCases\DynamicInvoke.cs" />
+    <None Include="SpecialTestCases\IgnoreLocal.cs" />
+    <None Include="SpecialTestCases\VerbatimThis.cs" />
+    <None Include="SpecialTestCases\StringConcat.cs" />
+    <None Include="SpecialTestCases\PostIncrement.cs" />
+    <None Include="SpecialTestCases\SingleUseTemporaries.cs" />
+    <None Include="TestCases\LambdasUsingLocals.cs" />
+    <None Include="TestCases\DelegatesReturningDelegates.cs" />
+    <None Include="TestCases\InterleavedTemporaries.cs" />
+    <None Include="TestCases\IndirectInterleavedTemporaries.cs" />
+    <None Include="SpecialTestCases\PrivateNames.cs" />
+    <None Include="TestCases\StructProperties.cs" />
+    <None Include="TestCases\StructInitializers.cs" />
+    <None Include="SpecialTestCases\NestedInitialization.cs" />
+    <None Include="TestCases\StructThisAssignment.cs" />
+    <None Include="TestCases\ValueTypeMethods.cs" />
+    <None Include="SpecialTestCases\IgnoreInterface.cs" />
+    <None Include="SpecialTestCases\IgnoreParameterType.cs" />
+    <None Include="TestCases\NestedGenericMethodCalls.cs" />
+    <None Include="TestCases\StructArrayLiteral.cs" />
+    <None Include="SpecialTestCases\SingleUseExceptionTemporaries.cs" />
+    <None Include="TestCases\LambdaRefParameters.cs" />
+    <None Include="InterfaceTestCases\InterfaceProperties.cs" />
+    <None Include="SpecialTestCases\IfBooleanProperty.cs" />
+    <None Include="SpecialTestCases\ReplacementArgumentNameMismatch.cs" />
+    <None Include="SpecialTestCases\IgnoreDerivedType.cs" />
+    <None Include="SpecialTestCases\StubbedMethodBodies.cs" />
+    <None Include="SpecialTestCases\ProxiedOperators.cs" />
+    <None Include="TestCases\EnumArrayLookup.cs" />
+    <None Include="TestCases\OverloadWithEnum.cs" />
+    <None Include="TestCases\RefClass.cs" />
+    <None Include="SpecialTestCases\StringSwitch.cs" />
+    <None Include="TestCases\EnumSwitch.cs" />
+    <None Include="TestCases\Chars.cs" />
+    <None Include="SpecialTestCases\DisplayClassFieldNames.cs" />
+    <None Include="SpecialTestCases\EnumeratorClassLocalNames.cs" />
+    <None Include="SpecialTestCases\ForLoops.cs" />
+    <None Include="SpecialTestCases\DoLoops.cs" />
+    <None Include="TestCases\CharSwitch.cs" />
+    <None Include="TestCases\MultiDimStructArrays.cs" />
+    <None Include="TestCases\SingleDimStructArrays.cs" />
+    <None Include="TestCases\GenericMethods.cs" />
+    <None Include="TestCases\OverloadWithGeneric.cs" />
+    <None Include="TestCases\OverloadWithMultipleGeneric.cs" />
+    <None Include="TestCases\GenericClasses.cs" />
+    <None Include="TestCases\GenericStaticMethods.cs" />
+    <None Include="TestCases\InheritGenericClass.cs" />
+    <None Include="TestCases\InheritOpenGenericClass.cs" />
+    <None Include="TestCases\GenericStructs.cs" />
+    <None Include="TestCases\GenericArgumentFromTypePassedToMethod.cs" />
+    <None Include="TestCases\GenericArgumentFromTypeReturnedByMethod.cs" />
+    <None Include="TestCases\GenericTypeCasts.cs" />
+    <None Include="SpecialTestCases\FlagsEnumsWithZeroValues.cs" />
+    <None Include="SpecialTestCases\RefParametersOnInstanceMethods.cs" />
+    <None Include="TestCases\StructPropertyThis.cs" />
+    <None Include="TestCases\FaultBlock.cs" />
+    <None Include="SpecialTestCases\ReplaceMethodBody.cs" />
+    <None Include="TestCases\GenericInnerClasses.cs" />
+    <None Include="TestCases\StructFields.cs" />
+    <None Include="TestCases\DirectTemporaryAssignment.cs" />
+    <None Include="TestCases\GenericStaticProperties.cs" />
+    <None Include="TestCases\LambdasUsingThis.cs" />
+    <None Include="TestCases\CastingFromNull.cs" />
+    <None Include="TestCases\GenericStaticConstructorOrdering.cs" />
+    <None Include="TestCases\StaticArrayInitializer.cs" />
+    <None Include="TestCases\TernaryArithmetic.cs" />
+    <None Include="SpecialTestCases\OuterThisDelegateNew.cs" />
+    <None Include="TestCases\Nullables.cs" />
+    <None Include="SpecialTestCases\NewParentheses.cs" />
+    <None Include="TestCases\StructEquals.cs" />
+    <None Include="SpecialTestCases\ProxiedMethodInheritance.cs" />
+    <None Include="SpecialTestCases\ProxiedMethodInheritance2.cs" />
+    <None Include="TestCases\StructLateDeclaration.cs" />
+    <None Include="TestCases\StructCompoundAssignment.cs" />
+    <None Include="TestCases\DictionaryInitializer.cs" />
+    <None Include="TestCases\DictionaryInitializer2.cs" />
+    <None Include="SpecialTestCases\RenameMethod.cs" />
+    <None Include="SpecialTestCases\RenameProperty.cs" />
+    <None Include="SpecialTestCases\RenameClass.cs" />
+    <None Include="SpecialTestCases\RenameEnum.cs" />
+    <None Include="SpecialTestCases\RenameStruct.cs" />
+    <None Include="SpecialTestCases\RenameStaticClass.cs" />
+    <None Include="SpecialTestCases\RenameField.cs" />
+    <None Include="SpecialTestCases\ExternalClass.cs" />
+    <None Include="SpecialTestCases\ExternalField.cs" />
+    <None Include="SpecialTestCases\ExternalMethod.cs" />
+    <None Include="SpecialTestCases\ExternalProperty.cs" />
+    <None Include="SpecialTestCases\ExternalStaticClass.cs" />
+    <None Include="SpecialTestCases\ExternalPropertyGetter.cs" />
+    <None Include="SpecialTestCases\ReplaceExternalClass.cs" />
+    <None Include="SpecialTestCases\ReplaceNonExternalClass.cs" />
+    <None Include="TestCases\RefParameterInitializedInConditional.cs" />
+    <None Include="SpecialTestCases\BigStringSwitch.cs" />
+    <None Include="TestCases\ComplexSwitch.cs" />
+    <None Include="TestCases\UntranslatableGotoOutParameters.cs" />
+    <None Include="TestCases\RepeatIterator.cs" />
+    <None Include="TestCases\CharArrayLookup.cs" />
+    <None Include="TestCases\CharArithmetic.cs" />
+    <None Include="TestCases\ContinueInsideSwitch.cs" />
+    <None Include="TestCases\CharConcat.cs" />
+    <None Include="TestCases\MethodOfGenericTypeAsGenericDelegate.cs" />
+    <None Include="TestCases\EnumIfStatement.cs" />
+    <None Include="TestCases\DelegateResultWithConstraints.cs" />
+    <None Include="TestCases\GenericNestedTypeConstructedInParentStaticConstructor.cs" />
+    <None Include="BinaryTestCases\DynamicComplex.exe" />
+    <None Include="TestCases\FailsOnMono\Events.vb" />
+    <None Include="TestCases\GenericMethodThisReference.cs" />
+    <None Include="TestCases\StringEmpty.cs" />
+    <None Include="TestCases\FailsOnMono\GetTypeByName.cs" />
+    <None Include="TestCases\OverloadWithMultipleGenericThis.cs" />
+    <None Include="TestCases\OverloadWithMultipleGenericThisRecursive.cs" />
+    <None Include="TestCases\FailsOnMono\GetGenericTypeByName.cs" />
+    <None Include="TestCases\InheritOpenGenericClassMultipleTimes.cs" />
+    <None Include="TestCases\InheritStructFields.cs" />
+    <None Include="TestCases\EnumBooleanLogic.cs" />
+    <None Include="TestCases\TernaryTypeInference.cs" />
+    <None Include="TestCases\FieldRecursiveInitialization.cs" />
+    <None Include="TestCases\EnumCasts.cs" />
+    <None Include="TestCases\EnumFieldDefaults.cs" />
+    <None Include="TestCases\EnumFieldAssignment.cs" />
+    <None Include="TestCases\CastToBoolean.cs" />
+    <None Include="TestCases\EnumNegation.cs" />
+    <None Include="TestCases\SealedMethods.cs" />
+    <None Include="TestCases\UnderivedMethods.cs" />
+    <None Include="SpecialTestCases\ElaborateSwitchControlFlow.cs" />
+    <None Include="TestCases\LinqSelect.cs" />
+    <None Include="TestCases\LinqToArray.cs" />
+    <None Include="SpecialTestCases\AlternateSwitchForm.cs" />
+    <None Include="TestCases\GenericMethodAsGenericDelegate.cs" />
+    <None Include="TestCases\DynamicGenericMethods.cs" />
+    <None Include="SpecialTestCases\GenericMethodSignatures.cs" />
+    <None Include="TestCases\InheritOpenGenericInterface.cs" />
+    <None Include="TestCases\GenericInstanceCallGenericMethod.cs" />
+    <None Include="SpecialTestCases\CorlibTypeRefs.cs" />
+    <None Include="SpecialTestCases\ExternalAbstractMethod.cs" />
+    <None Include="TestCases\SealedMethods2.cs" />
+    <None Include="TestCases\OverloadWithGenericArgCount.cs" />
+    <None Include="SpecialTestCases\FastOverloadDispatch.cs" />
+    <None Include="SpecialTestCases\FastConstructorOverloadDispatch.cs" />
+    <None Include="TestCases\DictionaryEnumerator.cs" />
+    <None Include="TestCases\CastEnumNullableToInt.cs" />
+    <None Include="TestCases\StaticInitializersInGenericTypesSettingStaticFields.cs" />
+    <None Include="DateTimeTestCases\TimeSpanFrom.cs" />
+    <None Include="IOTestCases\BasicStreamNavigation.cs" />
+    <Compile Include="TestUtil.cs" />
+    <Compile Include="VerbatimTests.cs" />
+    <None Include="InterfaceTestCases\InterfaceColliding.cs" />
+    <None Include="InterfaceTestCases\InterfaceCollidingImplicit.cs" />
+    <None Include="FailingTestCases\FSharp.Core.Printf.Simple.fs" />
+    <None Include="FailingTestCases\FSharp.Core.Printf.StringArg.fs" />
+    <None Include="FailingTestCases\VirtualAndNewMethods.cs" />
+    <None Include="InterfaceTestCases\InheritedInterfaces.cs" />
+    <None Include="FailingTestCases\InheritedAndNewMethod.cs" />
+    <None Include="InterfaceTestCases\DoubleInheritedInterface.cs" />
+    <None Include="InterfaceTestCases\DoubleInheritedInterfaceAndNew.cs" />
+    <None Include="BinaryTestCases\InheritedAndExplicitOverwrittenMethods.cs" />
+    <None Include="BinaryTestCases\InheritedInterfacesExplicit.cs" />
+    <None Include="SpecialTestCases\ClassMarkedWithMetaAttibutes.cs" />
+    <None Include="SpecialTestCases\InnerClassNameFormatting_Issue352.cs" />
+    <None Include="TestCases\DictionaryInterfaces.cs" />
+    <None Include="SpecialTestCases\PreventFastMethodDispatcherIfHideBase_Issue368.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JSIL\JSIL.csproj">
+      <Project>{DA03D241-B70C-44D7-A465-3CEB5A9416AE}</Project>
+      <Name>JSIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Meta\Meta.csproj">
+      <Project>{37C67C73-1F58-49B8-A39E-768AC88C2447}</Project>
+      <Name>Meta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Proxies\Proxies.4.0.csproj">
+      <Project>{12DBCC9A-50FE-43B1-BAD1-8029D4AD60C9}</Project>
+      <Name>Proxies.4.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\ICSharpCode.Decompiler\ICSharpCode.Decompiler.csproj">
+      <Project>{984CC812-9470-4A13-AFF9-CC44068D666C}</Project>
+      <Name>ICSharpCode.Decompiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\cecil\Mono.Cecil.csproj">
+      <Project>{D68133BD-1E63-496E-9EDE-4FBDBF77B486}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BinaryTestCases\ConsoleApplication8.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BinaryTestCases\MonoPinArray.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BinaryTestCases\InheritedAndExplicitOverwrittenMethods.dll" />
+    <Content Include="BinaryTestCases\InheritedInterfacesExplicit.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

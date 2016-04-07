@@ -1,0 +1,15 @@
+*.cs text
+*.sln text
+*.js text
+*.csproj text
+*.xaml text
+*.config text
+*.json text
+*.yml text
+
+*.exe binary
+*.dll binary
+*.gif binary
+*.png binary
+*.jpg binary
+*.ico binary

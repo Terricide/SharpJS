@@ -1,0 +1,12 @@
+[submodule "Upstream/Gamepad.js"]
+	path = Upstream/Gamepad.js
+	url = https://github.com/kg/gamepad.js.git
+[submodule "Upstream/ILSpy"]
+	path = Upstream/ILSpy
+	url = https://github.com/kg/ILSpy.git
+[submodule "Upstream/JSIL.ExpressionInterpreter"]
+	path = Upstream/JSIL.ExpressionInterpreter
+	url = https://github.com/iskiselev/JSIL.ExpressionInterpreter.git
+[submodule "Meta"]
+	path = Meta
+	url = https://github.com/sq/JSIL.Meta.git

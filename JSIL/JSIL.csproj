@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA03D241-B70C-44D7-A465-3CEB5A9416AE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSIL</RootNamespace>
+    <AssemblyName>JSIL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <OutputPath>bin\</OutputPath>
+    <TargetFrameworkProfile />
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>jsil.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyManifest.cs" />
+    <Compile Include="AST\Enumerators.cs" />
+    <Compile Include="AST\JSAstVisitor.cs" />
+    <Compile Include="AST\JSExpressionTypes.cs" />
+    <Compile Include="AST\JSIdentifierTypes.cs" />
+    <Compile Include="AST\JSLiteralTypes.cs" />
+    <Compile Include="AST\JSOperators.cs" />
+    <Compile Include="AST\JSNodeTypes.cs" />
+    <Compile Include="AST\JSStatementTypes.cs" />
+    <Compile Include="AST\StaticAnalysisAstVisitor.cs" />
+    <Compile Include="AST\Traversal.cs" />
+    <Compile Include="BugChecks.cs" />
+    <Compile Include="CILSupport.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="Extensibility\Emitter.cs" />
+    <Compile Include="Extensibility\IAnalyzer.cs" />
+    <Compile Include="FunctionCache.cs" />
+    <Compile Include="FunctionTransformPipeline.cs" />
+    <Compile Include="HTMLColor.cs" />
+    <Compile Include="JavascriptAssemblyEmitter.cs" />
+    <Compile Include="JavascriptAstEmitter.cs" />
+    <Compile Include="JavascriptFormatter.cs" />
+    <Compile Include="ILBlockTranslator.cs" />
+    <Compile Include="AssemblyTranslator.cs" />
+    <Compile Include="MemberIdentifier.cs" />
+    <Compile Include="MethodSignature.cs" />
+    <Compile Include="PackedStructArray.cs" />
+    <Compile Include="Progress.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourceMapBuilder.cs" />
+    <Compile Include="SpecialIdentifiers.cs" />
+    <Compile Include="Threading.cs" />
+    <Compile Include="Transforms\CacheTypeExpressions.cs" />
+    <Compile Include="Transforms\CacheSignatures.cs" />
+    <Compile Include="Transforms\CacheBaseMethods.cs" />
+    <Compile Include="Transforms\AttachSymbolInfoToStatements.cs" />
+    <Compile Include="Transforms\FixSymbolInfo.cs" />
+    <Compile Include="Transforms\SynthesizePropertySetterReturnValues.cs" />
+    <Compile Include="Transforms\IntroducePackedArrays.cs" />
+    <Compile Include="Transforms\StaticAnalysis\AllocationHoisting.cs" />
+    <Compile Include="Transforms\StaticAnalysis\EliminatePointlessRetargeting.cs" />
+    <Compile Include="Transforms\UnsafeCodeTransforms.cs" />
+    <Compile Include="Transforms\DecomposeMutationOperators.cs" />
+    <Compile Include="Transforms\FixupStructConstructorInvocations.cs" />
+    <Compile Include="Transforms\EmulateInt64.cs" />
+    <Compile Include="Transforms\CollapseNulls.cs" />
+    <Compile Include="Transforms\ConvertPropertyAccessesToInvocations.cs" />
+    <Compile Include="Transforms\OptimizePropertyMutationAssignments.cs" />
+    <Compile Include="Transforms\HandleBooleanAsInteger.cs" />
+    <Compile Include="Transforms\StaticAnalysis\ControlFlowSimplifier.cs" />
+    <Compile Include="Transforms\ExpandCastExpressions.cs" />
+    <Compile Include="Transforms\IntroduceCharCasts.cs" />
+    <Compile Include="Transforms\RemoveUnusedLoopNames.cs" />
+    <Compile Include="Transforms\LabelGroupBuilder.cs" />
+    <Compile Include="Transforms\DeoptimizeSwitchStatements.cs" />
+    <Compile Include="Transforms\ReplaceMethodCalls.cs" />
+    <Compile Include="Transforms\IntroduceEnumCasts.cs" />
+    <Compile Include="Transforms\SimplifyLoops.cs" />
+    <Compile Include="Transforms\StaticAnalysis\OptimizeArrayEnumerators.cs" />
+    <Compile Include="Transforms\StaticAnalysis\EliminatePointlessFinallyBlocks.cs" />
+    <Compile Include="Transforms\StaticAnalysis\StaticAnalyzer.cs" />
+    <Compile Include="Transforms\StaticAnalysis\EliminateSingleUseTemporaries.cs" />
+    <Compile Include="Transforms\SimplifyOperators.cs" />
+    <Compile Include="Transforms\IntroduceVariableReferences.cs" />
+    <Compile Include="Transforms\StaticAnalysis\EmulateStructAssignment.cs" />
+    <Compile Include="Transforms\IntroduceVariableDeclarations.cs" />
+    <Compile Include="TranslationResult.cs" />
+    <Compile Include="TypeUtil.cs" />
+    <Compile Include="TypeInfoProvider.cs" />
+    <Compile Include="TypeInformation.cs" />
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Meta\Meta.csproj">
+      <Project>{37C67C73-1F58-49B8-A39E-768AC88C2447}</Project>
+      <Name>Meta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Proxies\Proxies.4.0.csproj">
+      <Project>{12DBCC9A-50FE-43B1-BAD1-8029D4AD60C9}</Project>
+      <Name>Proxies.4.0</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\ICSharpCode.Decompiler\ICSharpCode.Decompiler.csproj">
+      <Project>{984CC812-9470-4A13-AFF9-CC44068D666C}</Project>
+      <Name>ICSharpCode.Decompiler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\cecil\Mono.Cecil.csproj">
+      <Project>{D68133BD-1E63-496E-9EDE-4FBDBF77B486}</Project>
+      <Name>Mono.Cecil</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\cecil\symbols\mdb\Mono.Cecil.Mdb.csproj">
+      <Project>{8559DD7F-A16F-46D0-A05A-9139FAEBA8FD}</Project>
+      <Name>Mono.Cecil.Mdb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\cecil\symbols\pdb\Mono.Cecil.Pdb.csproj">
+      <Project>{63E6915C-7EA4-4D76-AB28-0D7191EEA626}</Project>
+      <Name>Mono.Cecil.Pdb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\NRefactory\ICSharpCode.NRefactory.CSharp\ICSharpCode.NRefactory.CSharp.csproj">
+      <Project>{53DCA265-3C3C-42F9-B647-F72BA678122B}</Project>
+      <Name>ICSharpCode.NRefactory.CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Upstream\ILSpy\NRefactory\ICSharpCode.NRefactory\ICSharpCode.NRefactory.csproj">
+      <Project>{3B2A5653-EC97-4001-BB9B-D90F1AF2C371}</Project>
+      <Name>ICSharpCode.NRefactory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Libraries\JSIL.Core.js">
+      <Link>JS Libraries\JSIL.Core.js</Link>
+    </None>
+    <None Include="JSIL.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Libraries\JSIL.Bootstrap.js">
+      <Link>JS Libraries\JSIL.Bootstrap.js</Link>
+    </None>
+    <None Include="..\Libraries\JSIL.Browser.js">
+      <Link>JS Libraries\JSIL.Browser.js</Link>
+    </None>
+    <None Include="..\Libraries\JSIL.XNA3.js">
+      <Link>JS Libraries\JSIL.XNA3.js</Link>
+    </None>
+    <None Include="..\Libraries\JSIL.XNA4.js">
+      <Link>JS Libraries\JSIL.XNA4.js</Link>
+    </None>
+    <None Include="..\Libraries\System.Drawing.js">
+      <Link>JS Libraries\System.Drawing.js</Link>
+    </None>
+    <None Include="..\Libraries\System.Windows.js">
+      <Link>JS Libraries\System.Windows.js</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Libraries\JSIL.IO.js">
+      <Link>JS Libraries\JSIL.IO.js</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Libraries\JSIL.XNACore.js">
+      <Link>JS Libraries\JSIL.XNACore.js</Link>
+    </Content>
+    <Content Include="jsil.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

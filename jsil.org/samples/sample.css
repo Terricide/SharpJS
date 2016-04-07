@@ -1,0 +1,30 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.gist, .gist-data {
+	background-color: transparent !important;
+	tab-size: 2;
+	-moz-tab-size: 2;
+}
+
+.gist-meta {
+	font-size: 0.7em !important;
+	tab-size: 2;
+	-moz-tab-size: 2;
+}
+
+#csharp, #javascript {
+	position: absolute;
+	width: 50%;
+}
+
+#csharp {
+	left: 0em;
+}
+
+#javascript {
+	right: 0em;
+}

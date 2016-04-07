@@ -1,0 +1,29 @@
+body, html {
+	overflow: hidden;
+}
+#canvas {
+	left: 0px;
+	top: 0px;
+	-moz-transform-origin: 0 0;
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+#loadingProgress {
+	width: 300px;
+	height: 30px;
+	left: 40px;
+	top: 40px;
+}
+#progressBar {
+	height: 30px;
+}
+#log {
+	width: 800px;
+	height: 150px;
+	left: 0px;
+	top: 482px;
+}
+#stats {
+	left: 802px;
+	top: 50px;
+}

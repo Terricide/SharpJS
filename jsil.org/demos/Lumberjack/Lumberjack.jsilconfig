@@ -1,0 +1,24 @@
+{
+  "UseThreads": true,
+  "OutputDirectory": "%configdirectory%",
+  "Assemblies": {
+    "Proxies": [
+      "C:\\Users\\Kevin\\Documents\\Projects\\lumberjack\\Lumberjack\\Lumberjack\\bin\\x86\\Debug\\Proxies.dll"
+    ],
+    "Ignored": [
+      "System.Data.*",
+      "System.Deployment",
+      "Proxies"
+    ]
+  },
+  "ProfileSettings": {
+    "OverwriteExistingContent": true,
+    "ContentOutputDirectory": "%configdirectory%/Content",
+    "UsePNGQuant": true,
+    "FileSettings": {
+      "Textures\\Panels\\intro*.png": "ForceJPEG",
+      "Textures\\Panels\\outro*.png": "ForceJPEG",
+      "Textures\\sellScreen.png": "ForceJPEG"
+    }
+  }
+}

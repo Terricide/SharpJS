@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <title>XNA4 Touch Thumbsticks Example</title>
+
+    <link rel="stylesheet" href="../Common/browser.css">
+    <link rel="stylesheet" href="TouchThumbSticks.css">
+    
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, target-densitydpi=device-dpi">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  </head>
+  <body onload="scaleViewport(); onLoad()" onresize="scaleViewport();">
+    <script type="text/javascript">
+      // Mobile HTML5 sucks :(
+      function scaleViewport () {
+        // Why is this even necessary? CSS transformed elements get clipped to the height of the document? WHAT?!
+        var body = document.getElementsByTagName("body")[0];
+        body.style.width = window.innerWidth + "px";
+        body.style.height = window.innerHeight + "px";
+        
+        var canvas = document.getElementById("canvas");
+        if (!canvas)
+          return;
+        
+        var scaleX = window.innerWidth / canvas.width;
+        var scaleY = window.innerHeight / canvas.height;
+        var scaleFactor = Math.min(scaleX, scaleY);
+        var scaleText = "scale(" + scaleFactor + ")";
+        
+        canvas.style.mozTransform = scaleText;
+        canvas.style.webkitTransform = scaleText;
+        canvas.style.transform = scaleText;
+      }
+    </script>
+    <script type="text/javascript">
+      var jsilConfig = {
+        xna: 4,
+        touch: true,
+        manifests: [
+          "TouchThumbSticks.exe",
+          "Content/TouchThumbSticksContent.contentproj"
+        ],
+        
+        showProgressBar: true,
+
+        scriptRoot: "",
+        libraryRoot: "../Libraries/",
+        fileRoot: "",
+        contentRoot: "Content/"
+      };
+    </script>
+    <script src="../Libraries/JSIL.js" type="text/javascript"></script>    
+        
+    <canvas id="canvas" width="800" height="480">
+    </canvas><br>
+    <div id="log"></div>
+    
+    <script type="text/javascript">      
+      var assetsToLoad = [
+      ];
+            
+      function runMain () {
+        // We can't invoke Main() since it disposes the Game immediately, breaking everything.
+        var asm = JSIL.GetAssembly("TouchThumbSticks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+        var game = new asm.TouchThumbsticks.TouchThumbsticksGame();
+        game.Run();
+        document.getElementById("log").style.display = "none";
+      };
+    </script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-6375004-2']);
+    _gaq.push(['_setDomainName', '.luminance.org']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+  </body>
+</html>
