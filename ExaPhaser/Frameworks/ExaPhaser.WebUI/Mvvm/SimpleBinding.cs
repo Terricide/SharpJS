@@ -1,6 +1,7 @@
-﻿using System;
+﻿using JSIL;
+using System;
 
-namespace JSIL.UI.Mvvm
+namespace ExaPhaser.WebUI.Mvvm
 {
     public class SimpleBinding : IDisposable
     {

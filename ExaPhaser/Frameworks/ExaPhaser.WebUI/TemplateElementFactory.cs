@@ -1,6 +1,7 @@
-﻿using JSIL.Dom;
+﻿using JSIL;
+using JSIL.Dom;
 
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     public class TemplateElementFactory<T> : IElementFactory<T>
     {

@@ -1,4 +1,4 @@
-﻿namespace JSIL.UI.Input
+﻿namespace ExaPhaser.WebUI.Input
 {
     public class TextInput : InputBase
     {

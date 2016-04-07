@@ -1,6 +1,6 @@
 ﻿using JSIL.Dom;
 
-namespace JSIL.UI.Primitives
+namespace ExaPhaser.WebUI.Primitives
 {
     public class ElementWrapper : Element
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JSIL.UI.Mvvm
+namespace ExaPhaser.WebUI.Mvvm
 {
     public delegate void PropertyChangedEventHandler(object sender, PropertyChangedEventArgs args);
 

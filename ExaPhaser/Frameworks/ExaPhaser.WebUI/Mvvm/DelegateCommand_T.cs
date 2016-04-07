@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JSIL.UI.Mvvm
+namespace ExaPhaser.WebUI.Mvvm
 {
     public class DelegateCommand<T> : ICommand where T : class
     {

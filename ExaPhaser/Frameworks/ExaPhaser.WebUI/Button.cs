@@ -1,7 +1,7 @@
 ﻿using JSIL.Dom;
 using System;
 
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     public class Button : Element
     {

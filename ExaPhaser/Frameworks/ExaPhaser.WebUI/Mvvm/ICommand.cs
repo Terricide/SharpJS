@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     public interface ICommand
     {

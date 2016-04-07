@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     internal class HookList<T> : IList<T>
     {

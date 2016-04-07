@@ -1,6 +1,6 @@
 using JSIL.Dom;
 
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     public class VBox : Container
     {

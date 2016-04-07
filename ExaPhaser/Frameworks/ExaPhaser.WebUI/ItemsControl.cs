@@ -1,7 +1,7 @@
 using JSIL.Dom;
 using System.Collections.Generic;
 
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     public class ItemsControl<T> : Element
     {

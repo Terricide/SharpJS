@@ -1,4 +1,4 @@
-﻿namespace JSIL.UI.Mvvm
+﻿namespace ExaPhaser.WebUI.Mvvm
 {
     public interface INotifyPropertyChanged
     {

@@ -1,8 +1,8 @@
 using JSIL.Dom;
-using JSIL.UI.Primitives;
+using ExaPhaser.WebUI.Primitives;
 using System.Collections.Generic;
 
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     public class Container : Element
     {

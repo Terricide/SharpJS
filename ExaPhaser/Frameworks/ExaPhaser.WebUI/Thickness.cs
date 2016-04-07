@@ -1,4 +1,4 @@
-namespace JSIL.UI
+namespace ExaPhaser.WebUI
 {
     public struct Thickness
     {

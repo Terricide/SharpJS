@@ -1,8 +1,8 @@
 using JSIL.Dom;
-using JSIL.UI.Mvvm;
+using ExaPhaser.WebUI.Mvvm;
 using System;
 
-namespace JSIL.UI.Input
+namespace ExaPhaser.WebUI.Input
 {
     public abstract class InputBase : Element, INotifyPropertyChanged
     {
