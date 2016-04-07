@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\bin\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\bin\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -40,13 +40,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Themes\CSSFramework.cs" />
     <Compile Include="Themes\CSSUITheme.cs" />
     <Compile Include="WebApplication.cs" />
     <Compile Include="WebForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Themes" />
+    <ProjectReference Include="..\ExaPhaser\JSIL.Dom\JSIL.Dom.csproj">
+      <Project>{60ac246f-639d-453c-99e7-b59093a4f0de}</Project>
+      <Name>JSIL.Dom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExaPhaser\JSIL.UI\JSIL.UI.csproj">
+      <Project>{7e9c8670-8db7-4764-b2c7-29c910c19479}</Project>
+      <Name>JSIL.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSIL\JSIL.csproj">
+      <Project>{da03d241-b70c-44d7-a465-3ceb5a9416ae}</Project>
+      <Name>JSIL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Meta\Meta.csproj">
+      <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
+      <Name>Meta</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

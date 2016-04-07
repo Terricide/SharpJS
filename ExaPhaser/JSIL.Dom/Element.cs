@@ -337,8 +337,8 @@ namespace JSIL.Dom
             set { Verbatim.Expression("this._element.outerHTML = value"); }
         }
 
-        [JSReplacement("$this._element.className = \" \" + $className")]
-        public void AddClass(string value)
+        [JSReplacement("$this._element.className += \" \" + $className")]
+        public void AddClass(string className)
         {
         }
 
