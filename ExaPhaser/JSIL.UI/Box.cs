@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JSIL.Dom;
+﻿using JSIL.Dom;
 
 namespace JSIL.UI.Primitives
 {
@@ -15,7 +11,9 @@ namespace JSIL.UI.Primitives
         }
 
         #region Content
+
         private Element _Content;
+
         public Element Content
         {
             get
@@ -37,6 +35,7 @@ namespace JSIL.UI.Primitives
                 }
             }
         }
-        #endregion
+
+        #endregion Content
     }
 }

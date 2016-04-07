@@ -1,5 +1,4 @@
-﻿using System;
-using JSIL.Dom;
+﻿using JSIL.Dom;
 
 namespace JSIL.UI
 {
@@ -44,5 +43,4 @@ namespace JSIL.UI
             return this;
         }
     }
-
 }

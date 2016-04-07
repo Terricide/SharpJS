@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JSIL.Dom;
-using JSIL;
+﻿using JSIL.Dom;
 
 namespace JSIL.UI
 {
-    public class Border: Element
+    public class Border : Element
     {
         private Thickness _BorderThickness;
+
         public Thickness BorderWidth
         {
             get
@@ -26,6 +22,7 @@ namespace JSIL.UI
         }
 
         private Color _BorderColor;
+
         public Color BorderColor
         {
             get
@@ -40,6 +37,7 @@ namespace JSIL.UI
         }
 
         private Color _BackgroundColor;
+
         public Color BackgroundColor
         {
             get
@@ -54,6 +52,7 @@ namespace JSIL.UI
         }
 
         private Element _Content;
+
         public Element Content
         {
             get
@@ -76,7 +75,7 @@ namespace JSIL.UI
             }
         }
 
-        public Border(): base("div")
+        public Border() : base("div")
         {
             SetStyle("borderStyle", "solid");
             SetStyle("display", "inline-block");

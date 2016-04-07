@@ -1,22 +1,20 @@
-using System.Collections;
 using JSIL.Dom;
-using JSIL.UI;
 using System.Collections.Generic;
 
 namespace JSIL.UI
 {
-    public class ItemsControl<T>: Element
+    public class ItemsControl<T> : Element
     {
         private Container _container;
-        
-        public ItemsControl(Container container): base("div")
+
+        public ItemsControl(Container container) : base("div")
         {
             _container = container;
             _itemElementFactory = new DefaultElementFactory();
             AppendChild(container);
         }
 
-        class DefaultElementFactory : IElementFactory<T>
+        private class DefaultElementFactory : IElementFactory<T>
         {
             public Element CreateElement(T o)
             {
@@ -29,7 +27,9 @@ namespace JSIL.UI
         }
 
         #region ItemElementFactory
+
         private IElementFactory<T> _itemElementFactory;
+
         public IElementFactory<T> ItemElementFactory
         {
             get
@@ -42,10 +42,13 @@ namespace JSIL.UI
                 Update();
             }
         }
-        #endregion
+
+        #endregion ItemElementFactory
 
         #region ItemsSource
+
         private IEnumerable<T> _ItemsSource;
+
         public IEnumerable<T> ItemsSource
         {
             get
@@ -58,7 +61,8 @@ namespace JSIL.UI
                 Update();
             }
         }
-        #endregion
+
+        #endregion ItemsSource
 
         public void Update()
         {
@@ -72,6 +76,5 @@ namespace JSIL.UI
                 _container.AppendChild(ItemElementFactory.CreateElement(item));
             }
         }
-
     }
 }

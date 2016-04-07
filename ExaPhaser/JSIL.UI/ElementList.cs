@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JSIL.Dom;
+﻿using System.Collections.Generic;
 
 namespace JSIL.UI
 {
-    class HookList<T>: IList<T>
+    internal class HookList<T> : IList<T>
     {
         private List<T> _inner = new List<T>();
 
@@ -52,7 +48,7 @@ namespace JSIL.UI
                 OnSet(index, oldElement, value);
             }
         }
-        
+
         protected virtual void OnAdd(T item)
         {
         }

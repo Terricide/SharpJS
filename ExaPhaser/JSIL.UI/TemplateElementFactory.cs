@@ -1,15 +1,12 @@
-﻿using System;
-using JSIL.UI;
-using JSIL.Dom;
-using JSIL;
+﻿using JSIL.Dom;
 
 namespace JSIL.UI
 {
-    public class TemplateElementFactory<T>: IElementFactory<T>
+    public class TemplateElementFactory<T> : IElementFactory<T>
     {
         private string _templateName;
         private string _htmlText;
-        
+
         public TemplateElementFactory(string templateName)
         {
             _templateName = templateName;
@@ -22,8 +19,8 @@ namespace JSIL.UI
 
             Verbatim.Expression(@"
             var regex = new RegExp(""{([a-zA-Z]*[a-zA-Z0-9]*)}"", ""g"");
-            
-            var matcher = function (match, property, offset, str) 
+
+            var matcher = function (match, property, offset, str)
             {
                 return item[property];
             };

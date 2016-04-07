@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace JSIL.UI.Mvvm
 {
-    public class DelegateCommand<T>: ICommand where T: class
+    public class DelegateCommand<T> : ICommand where T : class
     {
         private Action<T> _executeAction;
         private Func<T, bool> _canExecuteFunc;

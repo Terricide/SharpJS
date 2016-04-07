@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using JSIL.Dom;
 using JSIL.UI.Mvvm;
+using System;
 
 namespace JSIL.UI.Input
 {

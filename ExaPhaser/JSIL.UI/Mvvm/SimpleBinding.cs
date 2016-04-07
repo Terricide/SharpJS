@@ -2,7 +2,7 @@
 
 namespace JSIL.UI.Mvvm
 {
-    public class SimpleBinding: IDisposable
+    public class SimpleBinding : IDisposable
     {
         private INotifyPropertyChanged _sourceHost;
         private object _targetHost;

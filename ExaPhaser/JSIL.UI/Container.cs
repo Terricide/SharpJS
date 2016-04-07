@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using JSIL.Dom;
 using JSIL.UI.Primitives;
+using System.Collections.Generic;
 
 namespace JSIL.UI
 {
@@ -15,17 +12,20 @@ namespace JSIL.UI
             Recreate();
         }
 
-        class ContainerList : HookList<Element>
+        private class ContainerList : HookList<Element>
         {
             private Container _parent;
+
             public ContainerList(Container parent)
             {
                 _parent = parent;
             }
+
             protected override void OnAdd(Element item)
             {
                 _parent.AppendChild(item);
             }
+
             protected override void OnRemove(Element item, bool success)
             {
                 if (success) _parent.RemoveChild(item);

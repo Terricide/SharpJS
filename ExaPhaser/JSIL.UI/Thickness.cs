@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JSIL.Dom;
-
 namespace JSIL.UI
 {
     public struct Thickness
@@ -12,7 +6,7 @@ namespace JSIL.UI
         public readonly int Left;
         public readonly int Right;
         public readonly int Bottom;
-        
+
         public Thickness(int left, int top, int right, int bottom)
         {
             Left = left;
@@ -21,10 +15,9 @@ namespace JSIL.UI
             Bottom = bottom;
         }
 
-        public Thickness(int uniformThickness): 
+        public Thickness(int uniformThickness) :
             this(uniformThickness, uniformThickness, uniformThickness, uniformThickness)
         {
-            
         }
     }
 }

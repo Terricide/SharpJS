@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JSIL.Dom;
+﻿using JSIL.Dom;
+using System;
 
 namespace JSIL.UI
 {
-    public class Button: Element
+    public class Button : Element
     {
-        public Button(): base("button")
+        public Button() : base("button")
         {
             Click += OnClick;
         }
 
         #region Command
+
         private ICommand _command;
+
         public ICommand Command
         {
             get
@@ -38,7 +37,8 @@ namespace JSIL.UI
                 OnCanExecuteChanged(this, EventArgs.Empty);
             }
         }
-        #endregion
+
+        #endregion Command
 
         public object CommandParameter { get; set; }
 

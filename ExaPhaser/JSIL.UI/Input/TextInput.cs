@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JSIL.Dom;
-
-namespace JSIL.UI.Input
+﻿namespace JSIL.UI.Input
 {
     public class TextInput : InputBase
     {
@@ -18,6 +12,5 @@ namespace JSIL.UI.Input
             get { return GetAttributeValue("placeholder"); }
             set { SetAttributeValue("placeholder", value); }
         }
-
     }
 }
