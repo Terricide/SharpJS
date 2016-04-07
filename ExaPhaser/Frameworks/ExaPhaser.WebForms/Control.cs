@@ -1,4 +1,5 @@
-﻿using JSIL.Dom;
+﻿using System;
+using JSIL.Dom;
 
 namespace ExaPhaser.WebForms
 {
@@ -11,5 +12,8 @@ namespace ExaPhaser.WebForms
             get { return _container; }
             set { _container = value; }
         }
+
+        public EventHandler OnCreated;
+        public EventHandler Loaded;
     }
 }
