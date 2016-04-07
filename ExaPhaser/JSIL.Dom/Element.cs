@@ -1,14 +1,16 @@
 ﻿using JSIL.Meta;
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JSIL.Dom
 {
     public class Element
     {
         #region Events
+
         private event EventHandler _change;
+
         public event EventHandler Change
         {
             add
@@ -27,6 +29,7 @@ namespace JSIL.Dom
         }
 
         private event EventHandler _mouseOver;
+
         public event EventHandler MouseOver
         {
             add
@@ -45,6 +48,7 @@ namespace JSIL.Dom
         }
 
         private event EventHandler _mouseOut;
+
         public event EventHandler MouseOut
         {
             add
@@ -63,6 +67,7 @@ namespace JSIL.Dom
         }
 
         private event EventHandler _click;
+
         public event EventHandler Click
         {
             add
@@ -80,9 +85,10 @@ namespace JSIL.Dom
             }
         }
 
-        #endregion
+        #endregion Events
 
         #region Generic event handling
+
         protected void RemoveNativehandler(string eventName)
         {
             var handler = _handlers[eventName];
@@ -96,7 +102,6 @@ namespace JSIL.Dom
 
         protected void AddNativeHandler(string eventName, Action<object> handler)
         {
-
             if (!_handlers.ContainsKey(eventName) || _handlers[eventName] == null)
             {
                 var proxy = new Proxy
@@ -112,7 +117,7 @@ namespace JSIL.Dom
             }
         }
 
-        class Proxy
+        private class Proxy
         {
             public int Counter = 0;
             public Action<object> Handler;
@@ -130,9 +135,10 @@ namespace JSIL.Dom
         {
         }
 
-        #endregion
+        #endregion Generic event handling
 
         #region Properties
+
         public bool Enabled
         {
             get { return (bool)Verbatim.Expression("!this._element.disabled"); }
@@ -168,7 +174,8 @@ namespace JSIL.Dom
             get { return this["class"]; }
             set { this["class"] = value; }
         }
-        #endregion
+
+        #endregion Properties
 
         public StyleCollection Style
         {
@@ -181,7 +188,6 @@ namespace JSIL.Dom
 
         protected Element()
         {
-
         }
 
         public Element(string type)
@@ -202,7 +208,7 @@ namespace JSIL.Dom
                 TemplateApplied();
         }
 
-        // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied 
+        // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied
         // in the constructor while creating elements from templates
         private static bool _creatingTemplate = false;
 
@@ -286,6 +292,14 @@ namespace JSIL.Dom
             }
         }
 
+        public Element Parent
+        {
+            get
+            {
+                return GetElement(Verbatim.Expression("this._element.parent"));
+            }
+        }
+
         public Element[] Children
         {
             get
@@ -347,7 +361,7 @@ namespace JSIL.Dom
             var classNames = GetAttributeValue("className")
                 .Split(' ', '\t')
                 .Where(s => s != className);
-            
+
             var names = string.Empty;
 
             foreach (var name in classNames)
@@ -361,11 +375,11 @@ namespace JSIL.Dom
         [JSReplacement("$this._element[$attributeName]")]
         public string GetAttributeValue(string attributeName)
         {
-            throw new NotSupportedException();
+            throw new NotSupportedException("This method must be run in the JSIL runtime."); //This exception not thrown because of the JSReplacement.
         }
 
         [JSReplacement("$this._element[$attributeName] = $value")]
-        protected void SetAttributeValue(string attributeName, dynamic value)
+        protected void SetAttributeValue(string attributeName, string value)
         {
         }
 
@@ -374,7 +388,7 @@ namespace JSIL.Dom
         {
         }
 
-        public dynamic this[string index]
+        public string this[string index]
         {
             get
             {

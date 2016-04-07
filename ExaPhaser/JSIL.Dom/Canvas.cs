@@ -3,9 +3,9 @@ using System;
 
 namespace JSIL.Dom
 {
-    public class Canvas: Element
+    public class Canvas : Element
     {
-        public Canvas(): base("canvas")
+        public Canvas() : base("canvas")
         {
         }
     }
@@ -64,6 +64,7 @@ namespace JSIL.Dom
         }
 
         #region Simple shapes
+
         /// <summary>
         /// Paints the given rectangle onto the canvas, using the current fill style.
         /// </summary>
@@ -87,9 +88,11 @@ namespace JSIL.Dom
         public void ClearRect(double x, double y, double width, double height)
         {
         }
-        #endregion
+
+        #endregion Simple shapes
 
         #region Context state
+
         /// <summary>
         /// Pushes the current state onto the stack.
         /// </summary>
@@ -105,9 +108,11 @@ namespace JSIL.Dom
         public void Restore()
         {
         }
-        #endregion
+
+        #endregion Context state
 
         #region Complex shapes (paths)
+
         /// <summary>
         /// Resets the current path.
         /// </summary>
@@ -122,7 +127,6 @@ namespace JSIL.Dom
         [JSReplacement("$this._context.closePath()")]
         public void ClosePath()
         {
-
         }
 
         /// <summary>
@@ -140,7 +144,6 @@ namespace JSIL.Dom
         [JSReplacement("$this._context.arcTo($x1, $y1, $x2, $y2, $radius)")]
         public void ArcTo(double x1, double y1, double x2, double y2, double radius)
         {
-
         }
 
         /// <summary>
@@ -150,7 +153,6 @@ namespace JSIL.Dom
         [JSReplacement("$this._context.arc($x, $y, $radius, $startAngle, $endAngle, $antiClockwise)")]
         public void Arc(double x, double y, double radius, double startAngle, double endAngle, bool antiClockwise = false)
         {
-
         }
 
         /// <summary>
@@ -177,6 +179,6 @@ namespace JSIL.Dom
         {
         }
 
-        #endregion
+        #endregion Complex shapes (paths)
     }
 }

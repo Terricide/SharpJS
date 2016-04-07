@@ -1,7 +1,6 @@
-﻿
-namespace JSIL.Dom
+﻿namespace JSIL.Dom
 {
-    public class StringStyle: Style
+    public class StringStyle : Style
     {
         private string s;
 

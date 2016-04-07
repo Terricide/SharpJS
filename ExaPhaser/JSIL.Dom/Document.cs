@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using JSIL.Meta;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using JSIL.Meta;
 
 namespace JSIL.Dom
 {
@@ -36,16 +31,22 @@ namespace JSIL.Dom
             return new Element(elementNodeName);
         }
 
+        public static Element Body
+        {
+            get
+            {
+                return GetElementsByTagName("body")[0]; //There should only be one body
+            }
+        }
+
         [JSReplacement("document.appendChild($node._element)")]
         public static void AppendChild(Element node)
         {
-            
         }
 
         [JSReplacement("document.insertBefore($node._element, $existingNode_element)")]
         public static void InsertBefore(Element node, Element existingNode)
         {
-
         }
     }
 }

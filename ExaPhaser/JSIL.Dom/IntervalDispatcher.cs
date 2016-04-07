@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using JSIL.Meta;
+﻿using JSIL.Meta;
+using System;
 
 namespace JSIL.Dom
 {

@@ -1,5 +1,4 @@
-﻿
-namespace JSIL.Dom
+﻿namespace JSIL.Dom
 {
     public abstract class Style
     {

@@ -1,4 +1,3 @@
-
 namespace JSIL.Dom
 {
     public class RgbStyle : Style

@@ -1,15 +1,13 @@
-﻿
-using System;
-
-namespace ExaPhaser.WebForms.Themes
+﻿namespace ExaPhaser.WebForms.Themes
 {
-	/// <summary>
-	/// The UI Theme, based on a CSS Framework
-	/// </summary>
+    /// <summary>
+    /// The UI Theme, based on a CSS Framework
+    /// </summary>
 
-	public class CSSUITheme
-	{
-        CSSFramework _stylesheet;
+    public class CSSUITheme
+    {
+        private CSSFramework _stylesheet;
+
         public CSSFramework Stylesheet
         {
             get
@@ -17,9 +15,10 @@ namespace ExaPhaser.WebForms.Themes
                 return _stylesheet;
             }
         }
-		public CSSUITheme(CSSFramework stylesheet)
-		{
+
+        public CSSUITheme(CSSFramework stylesheet)
+        {
             _stylesheet = stylesheet;
         }
-	}
+    }
 }
