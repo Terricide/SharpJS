@@ -22,11 +22,7 @@ namespace ExaPhaser.WebForms
 
         public Control()
         {
-        }
-
-        public Control(Control parentControl)
-        {
-            _parent = parentControl;
+            
         }
 
         #endregion Constructors
@@ -100,6 +96,8 @@ namespace ExaPhaser.WebForms
         #region Abstract Methods
 
         public abstract void PerformLayout();
+
+        public virtual void UpdateContent() { }
 
         #endregion Virtual Methods
 
