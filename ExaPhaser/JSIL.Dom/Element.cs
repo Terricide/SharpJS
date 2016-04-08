@@ -77,6 +77,23 @@ namespace JSIL.Dom
             }
         }
 
+        public event EventHandler KeyDown
+        {
+            add
+            {
+                AddNativeHandler("keydown", e =>
+                {
+                    this._mouseOver(this, new EventArgs());
+                });
+                _mouseOver += value;
+            }
+            remove
+            {
+                RemoveNativehandler("keydown");
+                _mouseOver -= value;
+            }
+        }
+
         private event EventHandler _change;
 
         private event EventHandler _click;
@@ -84,6 +101,8 @@ namespace JSIL.Dom
         private event EventHandler _mouseOut;
 
         private event EventHandler _mouseOver;
+
+        private event EventHandler _keyDown;
 
         #endregion Events
 
