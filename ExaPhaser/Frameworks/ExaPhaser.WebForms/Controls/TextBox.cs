@@ -5,8 +5,6 @@ namespace ExaPhaser.WebForms.Controls
 {
     public class TextBox : Control
     {
-        private string _text;
-
         public TextBox() : base()
         {
             InternalElement = new InputElement()
@@ -23,14 +21,18 @@ namespace ExaPhaser.WebForms.Controls
 
         public string Text
         {
-            get { return _text; }
+            get { return GetText(); } //We are using GetText because the text
             set { SetText(value); }
+        }
+
+        private string GetText()
+        {
+            return InternalElement["value"];
         }
 
         private void SetText(string value)
         {
             InternalElement["value"] = value;
-            _text = value;
         }
 
         private void OnTextChanged(object sender, EventArgs e)

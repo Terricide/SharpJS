@@ -29,7 +29,7 @@ namespace ExaPhaser.WebForms.Controls
 
         private void SetText(string value)
         {
-            InternalElement["value"] = value;
+            InternalElement.TextContent = value;
             _text = value;
         }
 
