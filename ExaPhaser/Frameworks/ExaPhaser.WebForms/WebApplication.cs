@@ -1,6 +1,7 @@
 ﻿using ExaPhaser.WebForms.Themes;
 using JSIL.Dom;
 using JSIL.Dom.Elements;
+using JSIL.Dom.JSLibraries;
 
 namespace ExaPhaser.WebForms
 {
@@ -11,6 +12,10 @@ namespace ExaPhaser.WebForms
 
         public WebApplication(CSSUITheme theme)
         {
+            if (!JQuery.IsInitialized)
+            {
+                JQuery.Initialize();
+            }
             _uitheme = theme;
         }
 

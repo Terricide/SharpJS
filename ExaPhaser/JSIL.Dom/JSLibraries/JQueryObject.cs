@@ -8,15 +8,16 @@ namespace JSIL.Dom.JSLibraries
 
         internal JQueryObject(object handle)
         {
+            Verbatim.Expression("console.log(_jqobject)");
             _jqobject = handle;
         }
 
-        [JSReplacement("$_jqobject.css($name,$value)")]
+        [JSReplacement("$this._jqobject.css($name,$value)")]
         public void CSS(string name, string value)
         {
         }
 
-        [JSReplacement("$_jqobject.css($name)")]
+        [JSReplacement("$this._jqobject.css($name)")]
         public string CSS(string name)
         {
             throw new RequiresJSILRuntimeException();
