@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using JSIL.Dom;
-using JSIL.Dom.Elements;
-using ExaPhaser.WebForms;
+﻿using ExaPhaser.WebForms;
 using ExaPhaser.WebForms.Themes;
+using JSIL.Dom.Elements;
 
 namespace WebFormsTemplate
 {

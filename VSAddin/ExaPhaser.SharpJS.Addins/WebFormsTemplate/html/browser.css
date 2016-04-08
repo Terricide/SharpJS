@@ -12,10 +12,10 @@ body {
 	border: 0px;
 	padding: 0px;
 
-	image-rendering: optimizeSpeed; 
-	image-rendering: -moz-crisp-edges; 
-	image-rendering: -o-crisp-edges; 
-	image-rendering: -webkit-optimize-contrast; 
+	image-rendering: optimizeSpeed;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
 	-ms-interpolation-mode: nearest-neighbor;
 
 	-webkit-touch-callout: none;
@@ -25,8 +25,8 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 
-	-webkit-user-drag: none; 
-	-moz-user-drag: none; 
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
 	user-drag: none;
 }
 #welcomeMessage {
@@ -45,14 +45,14 @@ body {
 	color: #BFBFFF;
 }
 #fullscreenButton, #loadButton {
-	position: absolute;	
+	position: absolute;
 	z-index: 90;
 }
 #loadingProgress {
 	background-color: black;
 	border: 3px solid white;
 	border-radius: 6px;
-	position: absolute;	
+	position: absolute;
 	z-index: 99;
 }
 #progressBar {
@@ -102,7 +102,7 @@ body {
 	background-color: white;
 	color: black;
 }
-#stats {	
+#stats {
 	position: absolute;
 	font-family: Consolas, Courier New, Courier;
 	font-size: 9pt;
