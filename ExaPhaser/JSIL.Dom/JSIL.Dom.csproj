@@ -56,6 +56,7 @@
     <Compile Include="Elements\ScriptElement.cs" />
     <Compile Include="IntervalDispatcher.cs" />
     <Compile Include="JSConsole.cs" />
+    <Compile Include="JSLibraries\JQuery.cs" />
     <Compile Include="JSLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RgbStyle.cs" />
