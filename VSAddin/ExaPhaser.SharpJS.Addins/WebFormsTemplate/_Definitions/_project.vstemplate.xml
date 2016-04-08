@@ -2,7 +2,7 @@
   <TemplateData>
     <Name>ExaPhaser.WebForms Application</Name>
     <Description>An application that is built on ExaPhaser.WebForms, and will be compiled to pure JavaScript/HTML5</Description>
-    <DefaultName>WebFormsApp1</DefaultName>
+    <DefaultName>WebFormsApp</DefaultName>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>
     </ProjectSubType>
@@ -22,7 +22,7 @@
     <CustomParameters>
       <CustomParameter Name="SideWaffle Project Template Files" Value="ExaPhaser Industries" />
       <CustomParameter Name="8e0a6fff-7069-4384-9bb3-5e53d6cbb0b3" Value="f292d270-4e1c-416b-9434-1e3a6bb9b7a6" />
-	  <CustomParameter Name="Item" Value="Item" />
+      <CustomParameter Name="Item" Value="Item" />
     </CustomParameters>
   </TemplateContent>
   <WizardExtension>

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E72A1B0-6BAA-463A-AFE5-909B88BA5161}</ProjectGuid>
+    <ProjectGuid>{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebFormsTemplate</RootNamespace>
     <AssemblyName>WebFormsTemplate</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -31,12 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="MainForm.cs" />
     <Compile Include="WebFormsApplication.cs" />
@@ -210,68 +214,14 @@
     <Content Include="Libraries\XNA\XNA4.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="sw-file-icon.png" />
+    <Content Include="_Definitions\_project.vstemplate.xml" />
     <Content Include="_preprocess.xml" />
-    <Content Include="_project.vstemplate.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="ExaPhaser.WebForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\ExaPhaser.WebForms.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.Decompiler, Version=2.3.1.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\ICSharpCode.Decompiler.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\ICSharpCode.NRefactory.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory.CSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\ICSharpCode.NRefactory.CSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JSIL, Version=0.8.2.32972, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\JSIL.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JSIL.Dom, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\JSIL.Dom.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JSIL.Meta, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\JSIL.Meta.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JSIL.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\JSIL.UI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\Mono.Cecil.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil.Mdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\Mono.Cecil.Mdb.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Mono.Cecil.Pdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\ExaPhaser.WebForms.Addin\packages\ExaPhaser.WebForms.1.0.11\lib\Mono.Cecil.Pdb.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\ExaPhaser.WebForms.1.0.11\build\ExaPhaser.WebForms.targets" Condition="Exists('..\packages\ExaPhaser.WebForms.1.0.11\build\ExaPhaser.WebForms.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\ExaPhaser.WebForms.1.0.11\build\ExaPhaser.WebForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ExaPhaser.WebForms.1.0.11\build\ExaPhaser.WebForms.targets'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
