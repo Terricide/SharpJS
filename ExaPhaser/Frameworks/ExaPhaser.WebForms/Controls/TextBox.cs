@@ -1,5 +1,6 @@
-﻿using System;
-using JSIL.Dom.Elements;
+﻿using JSIL.Dom.Elements;
+using JSIL.Dom.JSLibraries;
+using System;
 
 namespace ExaPhaser.WebForms.Controls
 {
@@ -14,10 +15,7 @@ namespace ExaPhaser.WebForms.Controls
             InternalElement.Change += OnTextChanged;
         }
 
-        public override void PerformLayout()
-        {
-            base.PerformLayout();
-        }
+        public event EventHandler TextChanged;
 
         public string Text
         {
@@ -25,14 +23,49 @@ namespace ExaPhaser.WebForms.Controls
             set { SetText(value); }
         }
 
+        public InputType TextInputType
+        {
+            get { return GetInputType(); }
+            set { SetInputType(value); }
+        }
+
+        public int TextSize
+        {
+            set { JQuery.GetJQueryObject(InternalElement).CSS("fontSize", value.ToString() + "pt"); }
+        }
+
+        public override void PerformLayout()
+        {
+            base.PerformLayout();
+        }
+
+        private InputType GetInputType()
+        {
+            switch (InternalElement["type"])
+            {
+                case "text":
+                    return InputType.Text;
+
+                case "password":
+                    return InputType.Password;
+
+                case "email":
+                    return InputType.Email;
+
+                case "number":
+                    return InputType.Number;
+
+                case "search":
+                    return InputType.Search;
+
+                default:
+                    return InputType.Text;
+            }
+        }
+
         private string GetText()
         {
             return InternalElement["value"];
-        }
-
-        private void SetText(string value)
-        {
-            InternalElement["value"] = value;
         }
 
         private void OnTextChanged(object sender, EventArgs e)
@@ -44,6 +77,35 @@ namespace ExaPhaser.WebForms.Controls
             }
         }
 
-        public event EventHandler TextChanged;
+        private void SetInputType(InputType value)
+        {
+            switch (value)
+            {
+                case InputType.Text:
+                    InternalElement["type"] = "text";
+                    break;
+
+                case InputType.Password:
+                    InternalElement["type"] = "password";
+                    break;
+
+                case InputType.Email:
+                    InternalElement["type"] = "email";
+                    break;
+
+                case InputType.Number:
+                    InternalElement["type"] = "number";
+                    break;
+
+                case InputType.Search:
+                    InternalElement["type"] = "search";
+                    break;
+            }
+        }
+
+        private void SetText(string value)
+        {
+            InternalElement["value"] = value;
+        }
     }
 }

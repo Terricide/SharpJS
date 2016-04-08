@@ -57,8 +57,10 @@
     <Compile Include="IntervalDispatcher.cs" />
     <Compile Include="JSConsole.cs" />
     <Compile Include="JSLibraries\JQuery.cs" />
+    <Compile Include="JSLibraries\JQueryObject.cs" />
     <Compile Include="JSLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequiresJSILRuntimeException.cs" />
     <Compile Include="RgbStyle.cs" />
     <Compile Include="StringStyle.cs" />
     <Compile Include="Style.cs" />

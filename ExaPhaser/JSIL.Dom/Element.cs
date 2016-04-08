@@ -1,7 +1,7 @@
-﻿using System;
+﻿using JSIL.Meta;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using JSIL.Meta;
 
 namespace JSIL.Dom
 {
@@ -234,6 +234,11 @@ namespace JSIL.Dom
             }
         }
 
+        public object DOMRepresentation
+        {
+            get { return _element; }
+        }
+
         public Element FirstChild
         {
             get
@@ -330,7 +335,7 @@ namespace JSIL.Dom
         [JSReplacement("$this._element[$attributeName]")]
         public string GetAttributeValue(string attributeName)
         {
-            throw new NotSupportedException("This method must be run in the JSIL runtime."); //This exception not thrown because of the JSReplacement.
+            throw new RequiresJSILRuntimeException();
         }
 
         [JSReplacement("$this._element.removeChild($child._element)")]
