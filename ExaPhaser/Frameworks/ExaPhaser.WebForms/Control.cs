@@ -14,6 +14,6 @@ namespace ExaPhaser.WebForms
         }
 
         public EventHandler OnCreated;
-        public EventHandler Loaded;
+        public EventHandler OnLoaded;
     }
 }

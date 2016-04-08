@@ -34,41 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExaPhaser.WebForms">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ExaPhaser.WebForms.dll</HintPath>
-    </Reference>
-    <Reference Include="ExaPhaser.WebUI">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ExaPhaser.WebUI.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.Decompiler">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ICSharpCode.Decompiler.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ICSharpCode.NRefactory.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.NRefactory.CSharp">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ICSharpCode.NRefactory.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="JSIL">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\JSIL.dll</HintPath>
-    </Reference>
-    <Reference Include="JSIL.Dom">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\JSIL.Dom.dll</HintPath>
-    </Reference>
-    <Reference Include="JSIL.Meta">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\JSIL.Meta.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Mdb">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\Mono.Cecil.Mdb.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Cecil.Pdb">
-      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\Mono.Cecil.Pdb.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="MainForm.cs" />
     <Compile Include="WebFormsApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -244,7 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
