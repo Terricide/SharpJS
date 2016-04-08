@@ -1,15 +1,13 @@
-﻿using JSIL.Meta;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JSIL.Meta;
 
 namespace JSIL.Dom
 {
     public class Element
     {
         #region Events
-
-        private event EventHandler _change;
 
         public event EventHandler Change
         {
@@ -28,26 +26,22 @@ namespace JSIL.Dom
             }
         }
 
-        private event EventHandler _mouseOver;
-
-        public event EventHandler MouseOver
+        public event EventHandler Click
         {
             add
             {
-                AddNativeHandler("mouseover", e =>
+                AddNativeHandler("click", e =>
                 {
-                    this._mouseOver(this, new EventArgs());
+                    this._click(this, new EventArgs());
                 });
-                _mouseOver += value;
+                _click += value;
             }
             remove
             {
-                RemoveNativehandler("mouseover");
-                _mouseOver -= value;
+                RemoveNativehandler("click");
+                _click -= value;
             }
         }
-
-        private event EventHandler _mouseOut;
 
         public event EventHandler MouseOut
         {
@@ -66,39 +60,36 @@ namespace JSIL.Dom
             }
         }
 
-        private event EventHandler _click;
-
-        public event EventHandler Click
+        public event EventHandler MouseOver
         {
             add
             {
-                AddNativeHandler("click", e =>
+                AddNativeHandler("mouseover", e =>
                 {
-                    this._click(this, new EventArgs());
+                    this._mouseOver(this, new EventArgs());
                 });
-                _click += value;
+                _mouseOver += value;
             }
             remove
             {
-                RemoveNativehandler("click");
-                _click -= value;
+                RemoveNativehandler("mouseover");
+                _mouseOver -= value;
             }
         }
+
+        private event EventHandler _change;
+
+        private event EventHandler _click;
+
+        private event EventHandler _mouseOut;
+
+        private event EventHandler _mouseOver;
 
         #endregion Events
 
         #region Generic event handling
 
-        protected void RemoveNativehandler(string eventName)
-        {
-            var handler = _handlers[eventName];
-            handler.Counter--;
-            if (handler.Counter <= 0)
-            {
-                RemoveEventListener(eventName, handler.Handler);
-                _handlers[eventName] = null;
-            }
-        }
+        private Dictionary<object, Proxy> _handlers = new Dictionary<object, Proxy>();
 
         protected void AddNativeHandler(string eventName, Action<object> handler)
         {
@@ -117,13 +108,16 @@ namespace JSIL.Dom
             }
         }
 
-        private class Proxy
+        protected void RemoveNativehandler(string eventName)
         {
-            public int Counter = 0;
-            public Action<object> Handler;
+            var handler = _handlers[eventName];
+            handler.Counter--;
+            if (handler.Counter <= 0)
+            {
+                RemoveEventListener(eventName, handler.Handler);
+                _handlers[eventName] = null;
+            }
         }
-
-        private Dictionary<object, Proxy> _handlers = new Dictionary<object, Proxy>();
 
         [JSReplacement("$this._element.addEventListener($name, $handler)")]
         private void AddEventListener(string name, Action<object> handler)
@@ -135,20 +129,26 @@ namespace JSIL.Dom
         {
         }
 
+        private class Proxy
+        {
+            public int Counter = 0;
+            public Action<object> Handler;
+        }
+
         #endregion Generic event handling
 
         #region Properties
+
+        public string Class
+        {
+            get { return this["className"]; }
+            set { this["className"] = value; }
+        }
 
         public bool Enabled
         {
             get { return (bool)Verbatim.Expression("!this._element.disabled"); }
             set { Verbatim.Expression("this._element.disabled = !value"); }
-        }
-
-        public double Width
-        {
-            get { return (double)Verbatim.Expression("this._element.width"); }
-            set { Verbatim.Expression("this._element.width = value"); }
         }
 
         public double Height
@@ -169,29 +169,28 @@ namespace JSIL.Dom
             set { Verbatim.Expression("this._element.tagName = value"); }
         }
 
-        public string Class
+        public double Width
         {
-            get { return this["className"]; }
-            set { this["className"] = value; }
+            get { return (double)Verbatim.Expression("this._element.width"); }
+            set { Verbatim.Expression("this._element.width = value"); }
         }
 
         #endregion Properties
 
-        public StyleCollection Style
-        {
-            get;
-            private set;
-        }
-
         protected object _element;
+
         protected Element _selfReference;
 
-        protected Element()
-        {
-        }
+        // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied
+        // in the constructor while creating elements from templates
+        private static bool _creatingTemplate = false;
 
         public Element(string type)
             : this(Verbatim.Expression("document.createElement(type)"))
+        {
+        }
+
+        protected Element()
         {
         }
 
@@ -208,9 +207,80 @@ namespace JSIL.Dom
                 TemplateApplied();
         }
 
-        // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied
-        // in the constructor while creating elements from templates
-        private static bool _creatingTemplate = false;
+        public Element[] Children
+        {
+            get
+            {
+                return ((object[])Verbatim.Expression("Array.prototype.slice.call(this._element.children)")).Select(elementObject => GetElement(elementObject)).ToArray();
+            }
+        }
+
+        public Element FirstChild
+        {
+            get
+            {
+                return GetElement(Verbatim.Expression("this._element.firstChild"));
+            }
+        }
+
+        public string InnerHtml
+        {
+            get { return (string)Verbatim.Expression("this._element.innerHTML"); }
+            set { Verbatim.Expression("this._element.innerHTML = value"); }
+        }
+
+        public Element NextSibling
+        {
+            get
+            {
+                return GetElement(Verbatim.Expression("this._element.nextSibling"));
+            }
+        }
+
+        [JSReplacement("$this._element.nodeType")]
+        public int NodeType
+        {
+            get;
+            private set;
+        }
+
+        public string OuterHtml
+        {
+            get { return (string)Verbatim.Expression("this._element.outerHTML"); }
+            set { Verbatim.Expression("this._element.outerHTML = value"); }
+        }
+
+        public Element Parent
+        {
+            get
+            {
+                return GetElement(Verbatim.Expression("this._element.parent"));
+            }
+        }
+
+        public StyleCollection Style
+        {
+            get;
+            private set;
+        }
+
+        public string TextContent
+        {
+            get { return (string)Verbatim.Expression("this._element.textContent"); }
+            set { Verbatim.Expression("this._element.textContent = value"); }
+        }
+
+        public string this[string index]
+        {
+            get
+            {
+                return GetAttributeValue(index);
+            }
+            set
+            {
+                SetAttributeValue(index, value);
+            }
+        }
 
         public static T CreateFromTemplate<T>(string templateId) where T : Element, new()
         {
@@ -223,7 +293,50 @@ namespace JSIL.Dom
             return element;
         }
 
-        protected virtual void TemplateApplied()
+        [JSReplacement("$this._element.className += \" \" + $className")]
+        public void AddClass(string className)
+        {
+        }
+
+        [JSReplacement("$this._element.appendChild($childElement._element)")]
+        public virtual void AppendChild(Element childElement)
+        {
+        }
+
+        [JSReplacement("$this._element.blur()")]
+        public virtual void Blur()
+        {
+        }
+
+        [JSReplacement("$this._element[$attributeName]")]
+        public string GetAttributeValue(string attributeName)
+        {
+            throw new NotSupportedException("This method must be run in the JSIL runtime."); //This exception not thrown because of the JSReplacement.
+        }
+
+        [JSReplacement("$this._element.removeChild($child._element)")]
+        public virtual void RemoveChild(Element child)
+        {
+        }
+
+        public void RemoveClass(string className)
+        {
+            var classNames = GetAttributeValue("className")
+                .Split(' ', '\t')
+                .Where(s => s != className);
+
+            var names = string.Empty;
+
+            foreach (var name in classNames)
+            {
+                names += " " + name;
+            }
+
+            SetAttributeValue("className", names);
+        }
+
+        [JSReplacement("$this._element.style[$styleName]=$value")]
+        public void SetStyle(string styleName, string value)
         {
         }
 
@@ -279,125 +392,13 @@ namespace JSIL.Dom
             }
         }
 
-        [JSReplacement("$this._element.removeChild($child._element)")]
-        public virtual void RemoveChild(Element child)
-        {
-        }
-
-        public Element FirstChild
-        {
-            get
-            {
-                return GetElement(Verbatim.Expression("this._element.firstChild"));
-            }
-        }
-
-        public Element Parent
-        {
-            get
-            {
-                return GetElement(Verbatim.Expression("this._element.parent"));
-            }
-        }
-
-        public Element[] Children
-        {
-            get
-            {
-                return ((object[])Verbatim.Expression("Array.prototype.slice.call(this._element.children)")).Select(elementObject => GetElement(elementObject)).ToArray();
-            }
-        }
-
-        public Element NextSibling
-        {
-            get
-            {
-                return GetElement(Verbatim.Expression("this._element.nextSibling"));
-            }
-        }
-
-        [JSReplacement("$this._element.nodeType")]
-        public int NodeType
-        {
-            get;
-            private set;
-        }
-
-        [JSReplacement("$this._element.style[$styleName]=$value")]
-        public void SetStyle(string styleName, string value)
-        {
-        }
-
-        [JSReplacement("$this._element.appendChild($childElement._element)")]
-        public virtual void AppendChild(Element childElement)
-        {
-        }
-
-        public string TextContent
-        {
-            get { return (string)Verbatim.Expression("this._element.textContent"); }
-            set { Verbatim.Expression("this._element.textContent = value"); }
-        }
-
-        public string InnerHtml
-        {
-            get { return (string)Verbatim.Expression("this._element.innerHTML"); }
-            set { Verbatim.Expression("this._element.innerHTML = value"); }
-        }
-
-        public string OuterHtml
-        {
-            get { return (string)Verbatim.Expression("this._element.outerHTML"); }
-            set { Verbatim.Expression("this._element.outerHTML = value"); }
-        }
-
-        [JSReplacement("$this._element.className += \" \" + $className")]
-        public void AddClass(string className)
-        {
-        }
-
-        public void RemoveClass(string className)
-        {
-            var classNames = GetAttributeValue("className")
-                .Split(' ', '\t')
-                .Where(s => s != className);
-
-            var names = string.Empty;
-
-            foreach (var name in classNames)
-            {
-                names += " " + name;
-            }
-
-            SetAttributeValue("className", names);
-        }
-
-        [JSReplacement("$this._element[$attributeName]")]
-        public string GetAttributeValue(string attributeName)
-        {
-            throw new NotSupportedException("This method must be run in the JSIL runtime."); //This exception not thrown because of the JSReplacement.
-        }
-
         [JSReplacement("$this._element[$attributeName] = $value")]
         protected void SetAttributeValue(string attributeName, string value)
         {
         }
 
-        [JSReplacement("$this._element.blur()")]
-        public virtual void Blur()
+        protected virtual void TemplateApplied()
         {
-        }
-
-        public string this[string index]
-        {
-            get
-            {
-                return GetAttributeValue(index);
-            }
-            set
-            {
-                SetAttributeValue(index, value);
-            }
         }
     }
 }
