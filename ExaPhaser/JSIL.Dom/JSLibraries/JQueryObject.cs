@@ -12,7 +12,7 @@ namespace JSIL.Dom.JSLibraries
             _jqobject = handle;
         }
 
-        [JSReplacement("$this._jqobject.css($name,$value)")]
+        [JSReplacement("$this._jqobject.css($name, $value)")]
         public void CSS(string name, string value)
         {
         }
