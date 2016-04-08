@@ -209,8 +209,62 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ExaPhaser.WebForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ExaPhaser.WebForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ExaPhaser.WebUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ExaPhaser.WebUI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.Decompiler, Version=2.3.1.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ICSharpCode.Decompiler.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ICSharpCode.NRefactory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory.CSharp, Version=5.0.0.0, Culture=neutral, PublicKeyToken=d4bfe873e7598c49, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\ICSharpCode.NRefactory.CSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JSIL, Version=0.8.2.27167, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\JSIL.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JSIL.Dom, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\JSIL.Dom.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JSIL.Meta, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\JSIL.Meta.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\Mono.Cecil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\Mono.Cecil.Mdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExaPhaser.WebForms.1.0.13\lib\Mono.Cecil.Pdb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\ExaPhaser.WebForms.1.0.13\build\ExaPhaser.WebForms.targets" Condition="Exists('..\packages\ExaPhaser.WebForms.1.0.13\build\ExaPhaser.WebForms.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\ExaPhaser.WebForms.1.0.13\build\ExaPhaser.WebForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\ExaPhaser.WebForms.1.0.13\build\ExaPhaser.WebForms.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
