@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Canvas.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Elements\AnchorElement.cs" />

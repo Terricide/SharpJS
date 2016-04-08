@@ -1,7 +1,6 @@
 ﻿using ExaPhaser.WebForms.Themes;
 using JSIL.Dom;
 using JSIL.Dom.Elements;
-using System;
 
 namespace ExaPhaser.WebForms
 {

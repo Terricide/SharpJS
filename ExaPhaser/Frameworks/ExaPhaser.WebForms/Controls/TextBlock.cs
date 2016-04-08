@@ -1,5 +1,4 @@
-﻿using System;
-using JSIL.Dom.Elements;
+﻿using JSIL.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {

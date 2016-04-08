@@ -1,5 +1,4 @@
-﻿using System;
-using JSIL.Dom.Elements;
+﻿using JSIL.Dom.Elements;
 
 namespace ExaPhaser.WebForms
 {
@@ -7,7 +6,6 @@ namespace ExaPhaser.WebForms
     {
         public WebForm()
         {
-
         }
 
         public override void PerformLayout()

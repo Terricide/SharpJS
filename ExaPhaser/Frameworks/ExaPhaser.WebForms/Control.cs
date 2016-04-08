@@ -100,11 +100,15 @@ namespace ExaPhaser.WebForms
 
         #region Abstract Methods
 
-        public virtual void PerformLayout() { }
+        public virtual void PerformLayout()
+        {
+        }
 
-        public virtual void UpdateContent() { }
+        public virtual void UpdateContent()
+        {
+        }
 
-        #endregion Virtual Methods
+        #endregion Abstract Methods
 
         #region Internal Logic
 
