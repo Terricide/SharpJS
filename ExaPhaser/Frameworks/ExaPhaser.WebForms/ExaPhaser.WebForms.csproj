@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control.cs" />
+    <Compile Include="ControlCollection.cs" />
+    <Compile Include="Controls\TextBlock.cs" />
     <Compile Include="Themes\CSSFramework.cs" />
     <Compile Include="Themes\CSSUITheme.cs" />
     <Compile Include="WebApplication.cs" />
@@ -61,6 +63,7 @@
       <Name>ExaPhaser.WebUI</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
