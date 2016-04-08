@@ -37,7 +37,7 @@ namespace JSIL.Dom.JSLibraries
             return new JQueryObject(GetJQueryRawObject(element.DOMRepresentation));
         }
 
-        [JSReplacement("jq($rawDOMobject)")]
+        [JSReplacement("$this.jq($rawDOMobject)")]
         private static object GetJQueryRawObject(object rawDOMobject)
         {
             throw new RequiresJSILRuntimeException();
