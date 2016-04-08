@@ -16,11 +16,13 @@ namespace ExaPhaser.WebForms
         {
             if (control.Parent == null)
                 control.Parent = _parentControl;
+            _parentControl.InternalElement.AppendChild(control.InternalElement); //Append internal element
             _controls.Add(control);
         }
 
         public void Remove(Control control)
         {
+            _parentControl.InternalElement.RemoveChild(control.InternalElement); //Remove internal element
             _controls.Remove(control);
         }
 

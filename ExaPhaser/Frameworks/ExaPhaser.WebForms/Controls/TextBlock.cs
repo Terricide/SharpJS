@@ -8,7 +8,6 @@ namespace ExaPhaser.WebForms.Controls
 
         public override void PerformLayout()
         {
-            base.PerformLayout();
             InternalElement = new ParagraphElement();
         }
 

@@ -44,6 +44,12 @@ namespace ExaPhaser.WebForms
             get { return _subControls; }
         }
 
+        public Element InternalElement
+        {
+            get { return _internalElement; }
+            set { _internalElement = value; }
+        }
+
         public int Left
         {
             get
@@ -89,19 +95,11 @@ namespace ExaPhaser.WebForms
             }
         }
 
-        protected Element InternalElement
-        {
-            get { return _internalElement; }
-            set { _internalElement = value; }
-        }
-
         #endregion Properties
 
-        #region Virtual Methods
+        #region Abstract Methods
 
-        public virtual void PerformLayout()
-        {
-        }
+        public abstract void PerformLayout();
 
         #endregion Virtual Methods
 
