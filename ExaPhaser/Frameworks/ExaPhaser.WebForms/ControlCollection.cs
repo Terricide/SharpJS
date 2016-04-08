@@ -10,6 +10,7 @@ namespace ExaPhaser.WebForms
         public ControlCollection(Control parentControl)
         {
             _parentControl = parentControl;
+            _controls = new List<Control>();
         }
 
         public void Add(Control control)

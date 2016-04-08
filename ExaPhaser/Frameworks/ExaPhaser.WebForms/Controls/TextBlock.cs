@@ -1,4 +1,5 @@
-﻿using JSIL.Dom.Elements;
+﻿using System;
+using JSIL.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
@@ -6,9 +7,14 @@ namespace ExaPhaser.WebForms.Controls
     {
         private string _text;
 
-        public override void PerformLayout()
+        public TextBlock() : base()
         {
             InternalElement = new ParagraphElement();
+        }
+
+        public override void PerformLayout()
+        {
+            base.PerformLayout();
         }
 
         public string Text

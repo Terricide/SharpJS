@@ -47,7 +47,7 @@
     <Compile Include="Container.cs" />
     <Compile Include="ElementList.cs" />
     <Compile Include="IElementFactory.cs" />
-    <Compile Include="Input\Input.cs" />
+    <Compile Include="Input\InputBase.cs" />
     <Compile Include="Input\TextInput.cs" />
     <Compile Include="ItemsControl.cs" />
     <Compile Include="Label.cs" />

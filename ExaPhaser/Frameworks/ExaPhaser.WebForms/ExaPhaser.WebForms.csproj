@@ -43,6 +43,7 @@
     <Compile Include="Control.cs" />
     <Compile Include="ControlCollection.cs" />
     <Compile Include="Controls\TextBlock.cs" />
+    <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Themes\CSSFramework.cs" />
     <Compile Include="Themes\CSSUITheme.cs" />
     <Compile Include="WebApplication.cs" />

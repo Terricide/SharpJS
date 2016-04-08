@@ -22,7 +22,12 @@ namespace ExaPhaser.WebForms
 
         public Control()
         {
-            
+            InitializeControl();
+        }
+
+        private void InitializeControl()
+        {
+            _subControls = new ControlCollection(this);
         }
 
         #endregion Constructors
@@ -95,7 +100,7 @@ namespace ExaPhaser.WebForms
 
         #region Abstract Methods
 
-        public abstract void PerformLayout();
+        public virtual void PerformLayout() { }
 
         public virtual void UpdateContent() { }
 
@@ -128,6 +133,7 @@ namespace ExaPhaser.WebForms
                 handler(this, e);
             }
             PerformLayout();
+            UpdateContent();
         }
 
         #endregion Events

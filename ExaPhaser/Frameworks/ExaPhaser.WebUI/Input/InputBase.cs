@@ -1,6 +1,6 @@
-using JSIL.Dom;
-using ExaPhaser.WebUI.Mvvm;
 using System;
+using ExaPhaser.WebUI.Mvvm;
+using JSIL.Dom;
 
 namespace ExaPhaser.WebUI.Input
 {
@@ -12,10 +12,7 @@ namespace ExaPhaser.WebUI.Input
             Change += OnChange;
         }
 
-        private void OnChange(object sender, EventArgs args)
-        {
-            RaisePropertyChanged("Value");
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public string Value
         {
@@ -23,14 +20,17 @@ namespace ExaPhaser.WebUI.Input
             set { SetAttributeValue("value", value); }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
         protected void RaisePropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        private void OnChange(object sender, EventArgs args)
+        {
+            RaisePropertyChanged("Value");
         }
     }
 }

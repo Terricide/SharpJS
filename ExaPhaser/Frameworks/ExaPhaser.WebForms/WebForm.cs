@@ -12,6 +12,7 @@ namespace ExaPhaser.WebForms
 
         public override void PerformLayout()
         {
+            base.PerformLayout();
             InternalElement = new DivElement();
             ContainerElement.AppendChild(InternalElement);
         }
