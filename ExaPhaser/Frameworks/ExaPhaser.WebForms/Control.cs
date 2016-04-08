@@ -129,6 +129,7 @@ namespace ExaPhaser.WebForms
             {
                 handler(this, e);
             }
+            PerformLayout();
         }
 
         #endregion Events
