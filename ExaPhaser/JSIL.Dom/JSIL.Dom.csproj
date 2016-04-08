@@ -56,6 +56,7 @@
     <Compile Include="Elements\PreformattedElement.cs" />
     <Compile Include="Elements\ScriptElement.cs" />
     <Compile Include="IntervalDispatcher.cs" />
+    <Compile Include="JSConsole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RgbStyle.cs" />
     <Compile Include="StringStyle.cs" />
