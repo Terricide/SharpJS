@@ -15,7 +15,13 @@ namespace ExaPhaser.WebForms.Controls
         public string Text
         {
             get { return _text; }
-            set { _text = value; }
+            set { SetText(value); }
+        }
+
+        private void SetText(string value)
+        {
+            InternalElement.TextContent = value;
+            _text = value;
         }
     }
 }
