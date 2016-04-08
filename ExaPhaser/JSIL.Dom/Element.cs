@@ -171,8 +171,8 @@ namespace JSIL.Dom
 
         public string Class
         {
-            get { return this["class"]; }
-            set { this["class"] = value; }
+            get { return this["className"]; }
+            set { this["className"] = value; }
         }
 
         #endregion Properties
