@@ -8,7 +8,6 @@ namespace JSIL.Dom.JSLibraries
 
         internal JQueryObject(object handle)
         {
-            Verbatim.Expression("console.log(_jqobject)");
             _jqobject = handle;
         }
 
@@ -22,5 +21,6 @@ namespace JSIL.Dom.JSLibraries
         {
             throw new RequiresJSILRuntimeException();
         }
+
     }
 }

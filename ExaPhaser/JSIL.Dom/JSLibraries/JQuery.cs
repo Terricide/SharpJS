@@ -1,5 +1,5 @@
-﻿using JSIL.Meta;
-using System;
+﻿using System;
+using JSIL.Meta;
 
 namespace JSIL.Dom.JSLibraries
 {
@@ -33,12 +33,11 @@ namespace JSIL.Dom.JSLibraries
 
         public static JQueryObject GetJQueryObject(Element element)
         {
-            Verbatim.Expression("console.log(element.DOMRepresentation)");
-            return new JQueryObject(GetJQueryRawObject(element.DOMRepresentation));
+            return new JQueryObject(GetJQueryRawObject(jq, element.DOMRepresentation));
         }
 
-        [JSReplacement("$this.jq($rawDOMobject)")]
-        private static object GetJQueryRawObject(object rawDOMobject)
+        [JSReplacement("$_jq($rawDOMobject)")]
+        private static object GetJQueryRawObject(object _jq, object rawDOMobject)
         {
             throw new RequiresJSILRuntimeException();
         }
