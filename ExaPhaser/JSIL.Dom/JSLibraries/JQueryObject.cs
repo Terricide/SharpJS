@@ -7,7 +7,34 @@ namespace JSIL.Dom.JSLibraries
     /// </summary>
     public class JQueryObject
     {
-        protected object _jqobject;
+        private object _jqobject;
+
+        public object JavaScriptJQueryHandle
+        {
+            get
+            {
+                return _jqobject;
+            }
+
+            set
+            {
+                _jqobject = value;
+            }
+        }
+
+        public Element DOMRepresentation
+        {
+            get
+            {
+                return new Element(GetDOMHandle());
+            }
+        }
+
+        [JSReplacement("$this._jqobject[0]")]
+        private object GetDOMHandle()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
 
         internal JQueryObject(object handle)
         {
@@ -35,6 +62,21 @@ namespace JSIL.Dom.JSLibraries
         public string RemoveClass(string className)
         {
             throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.append($elementHtml)")]
+        public void Append(string elementHtml)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.append($jqElement.JQueryObjectHandle.JavaScriptJQueryHandle)")]
+        public void Append(JQElement jqElement)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.append($element.DOMRepresentation)")]
+        public void Append(Element element)
+        {
         }
     }
 }

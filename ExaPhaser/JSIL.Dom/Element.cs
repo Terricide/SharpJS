@@ -216,7 +216,7 @@ namespace JSIL.Dom
         {
         }
 
-        protected Element(object element)
+        internal Element(object element)
         {
             if (element == null)
                 throw new ArgumentNullException("element");

@@ -4,7 +4,7 @@ using JSIL.Meta;
 namespace JSIL.Dom.JSLibraries
 {
     /// <summary>
-    /// A static jQuery class wrapping basic jQuery functionality
+    /// A static jQuery class wrapping basic jQuery functionality, and providing access to static jQuery functions.
     /// </summary>
     public static class JQuery
     {
@@ -43,6 +43,14 @@ namespace JSIL.Dom.JSLibraries
         private static object GetJQueryRawObject(object _jq, object rawDOMobject)
         {
             throw new RequiresJSILRuntimeException();
+        }
+
+        public delegate void AJAXResponseCallback(string data, string status, object xhr);
+
+
+        public static void Get(string url, AJAXResponseCallback callback)
+        {
+
         }
     }
 }

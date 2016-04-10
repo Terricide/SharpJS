@@ -28,7 +28,7 @@ namespace ExaPhaser.WebForms
         public void Run(WebForm webForm, JQElement hostElement)
         {
             CreateApplication(hostElement); //Create containers
-            webForm.ContainerElement = _formHost; //Set container to new element
+            webForm.ContainerElement = _formHost.DOMRepresentation; //Set container to new element
         }
 
         protected void CreateApplication(JQElement applicationHostElement)
@@ -40,7 +40,7 @@ namespace ExaPhaser.WebForms
         {
             var formHostContainer = new JQDivElement();
             _formHost = new JQDivElement();
-            formHostContainer.AppendChild(_formHost);
+            formHostContainer.Append(_formHost);
             switch (_uitheme.Stylesheet)
             {
                 case CSSFramework.Foundation6:
@@ -49,7 +49,7 @@ namespace ExaPhaser.WebForms
                     _formHost.AddClass("columns");
                     break;
             }
-            formHostParent.AppendChild(formHostContainer);
+            formHostParent.Append(formHostContainer);
         }
     }
 }
