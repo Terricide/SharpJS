@@ -33,7 +33,7 @@ namespace JSIL.Dom.JSLibraries
 
         public static JQueryObject GetJQueryObject(Element element)
         {
-            Verbatim.Expression("console.log(jq)");
+            Verbatim.Expression("console.log(element.DOMRepresentation)");
             return new JQueryObject(GetJQueryRawObject(element.DOMRepresentation));
         }
 
