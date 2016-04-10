@@ -2,13 +2,14 @@
 using JSIL.Dom;
 using JSIL.Dom.Elements;
 using JSIL.Dom.JSLibraries;
+using JSIL.Dom.JSLibraries.JQElements;
 
 namespace ExaPhaser.WebForms
 {
     public class WebApplication
     {
         private CSSUITheme _uitheme;
-        private DivElement _formHost;
+        private JQDivElement _formHost;
 
         public WebApplication(CSSUITheme theme)
         {
@@ -21,24 +22,24 @@ namespace ExaPhaser.WebForms
 
         public void Run(WebForm webForm, string hostElementId)
         {
-            Run(webForm, Document.GetElementById(hostElementId));
+            Run(webForm, new JQElement(Document.GetElementById(hostElementId)));
         }
 
-        public void Run(WebForm webForm, Element hostElement)
+        public void Run(WebForm webForm, JQElement hostElement)
         {
             CreateApplication(hostElement); //Create containers
             webForm.ContainerElement = _formHost; //Set container to new element
         }
 
-        protected void CreateApplication(Element applicationHostElement)
+        protected void CreateApplication(JQElement applicationHostElement)
         {
             CreateFormHostElement(applicationHostElement);
         }
 
-        private void CreateFormHostElement(Element formHostParent)
+        private void CreateFormHostElement(JQElement formHostParent)
         {
-            var formHostContainer = new DivElement();
-            _formHost = new DivElement();
+            var formHostContainer = new JQDivElement();
+            _formHost = new JQDivElement();
             formHostContainer.AppendChild(_formHost);
             switch (_uitheme.Stylesheet)
             {

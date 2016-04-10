@@ -3,6 +3,9 @@ using JSIL.Meta;
 
 namespace JSIL.Dom.JSLibraries
 {
+    /// <summary>
+    /// A static jQuery class wrapping basic jQuery functionality
+    /// </summary>
     public static class JQuery
     {
         private static bool _isInitialized;

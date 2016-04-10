@@ -2,6 +2,9 @@
 
 namespace JSIL.Dom.JSLibraries
 {
+    /// <summary>
+    /// A C# class that represents a jQuery object obtained by $(element) in JS. It redirects managed C# calls to jQuery.
+    /// </summary>
     public class JQueryObject
     {
         protected object _jqobject;
@@ -22,5 +25,16 @@ namespace JSIL.Dom.JSLibraries
             throw new RequiresJSILRuntimeException();
         }
 
+        [JSReplacement("$this._jqobject.addClass($className)")]
+        public string AddClass(string className)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.removeClass($className)")]
+        public string RemoveClass(string className)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
     }
 }

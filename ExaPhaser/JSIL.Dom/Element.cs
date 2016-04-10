@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace JSIL.Dom
 {
+    /// <summary>
+    /// The base Element class for a managed C# interface to DOM.
+    /// </summary>
     public class Element
     {
         #region Events
@@ -318,7 +321,7 @@ namespace JSIL.Dom
         }
 
         [JSReplacement("$this._element.className += \" \" + $className")]
-        public void AddClass(string className)
+        public virtual void AddClass(string className)
         {
         }
 
@@ -333,7 +336,7 @@ namespace JSIL.Dom
         }
 
         [JSReplacement("$this._element[$attributeName]")]
-        public string GetAttributeValue(string attributeName)
+        public virtual string GetAttributeValue(string attributeName)
         {
             throw new RequiresJSILRuntimeException();
         }
@@ -343,7 +346,7 @@ namespace JSIL.Dom
         {
         }
 
-        public void RemoveClass(string className)
+        public virtual void RemoveClass(string className)
         {
             var classNames = GetAttributeValue("className")
                 .Split(' ', '\t')
@@ -417,7 +420,7 @@ namespace JSIL.Dom
         }
 
         [JSReplacement("$this._element[$attributeName] = $value")]
-        protected void SetAttributeValue(string attributeName, string value)
+        protected virtual void SetAttributeValue(string attributeName, string value)
         {
         }
 
