@@ -51,6 +51,7 @@
     <Compile Include="Controls\TextControl.cs" />
     <Compile Include="Controls\WebView.cs" />
     <Compile Include="FontStyle.cs" />
+    <Compile Include="Layout.cs" />
     <Compile Include="Themes\CSSFramework.cs" />
     <Compile Include="Themes\CSSUITheme.cs" />
     <Compile Include="WebApplication.cs" />

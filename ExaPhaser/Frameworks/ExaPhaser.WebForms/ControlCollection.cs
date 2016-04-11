@@ -1,11 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ExaPhaser.WebForms
 {
-    public class ControlCollection
+    public class ControlCollection : Collection<Control>
     {
         private List<Control> _controls;
         private Control _parentControl;
+
+        public ControlCollection(Control parentControl)
+        {
+            _parentControl = parentControl;
+            _controls = new List<Control>();
+        }
+
+        public ControlCollection() : this(null)
+        {
+        }
 
         public Control ParentControl
         {
@@ -20,14 +31,15 @@ namespace ExaPhaser.WebForms
             }
         }
 
-        public ControlCollection(Control parentControl)
+        protected override void ClearItems()
         {
-            _parentControl = parentControl;
-            _controls = new List<Control>();
+            base.ClearItems();
+            _controls.Clear();
         }
 
-        public void Add(Control control)
+        protected override void InsertItem(int index, Control control)
         {
+            base.InsertItem(index, control);
             if (control.Parent == null)
                 control.Parent = _parentControl;
             else
@@ -39,15 +51,12 @@ namespace ExaPhaser.WebForms
             _controls.Add(control);
         }
 
-        public void Remove(Control control)
+        protected override void RemoveItem(int index)
         {
+            var control = base[index];
             _parentControl.InternalElement.RemoveChild(control.InternalElement); //Remove internal element
             _controls.Remove(control);
-        }
-
-        public void Clear()
-        {
-            _controls.Clear();
+            base.RemoveItem(index);
         }
     }
 }

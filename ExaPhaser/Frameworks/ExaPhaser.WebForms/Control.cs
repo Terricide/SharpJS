@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using JSIL.Dom;
 using JSIL.Dom.JSLibraries;
 
@@ -48,14 +49,10 @@ namespace ExaPhaser.WebForms
             set { SetContainer(value); }
         }
 
-        public Control[] Contents
-        {
-            set { SetControls(value); }
-        }
-
-        public ControlCollection Controls
+        public Collection<Control> Controls
         {
             get { return _subControls; }
+            set { SetControls(value); }
         }
 
         public int Height
@@ -126,11 +123,20 @@ namespace ExaPhaser.WebForms
             set { InternalElement.Width = value; }
         }
 
-        private void SetControls(Control[] value)
+        private void SetControls(Collection<Control> value)
         {
+            if (_subControls.ParentControl == null)
+            {
+                //Parent is currently null, update controls
+                _subControls.ParentControl = this;
+                foreach (Control control in value)
+                {
+                    control.Parent = this;
+                }
+            }
             foreach (Control control in value)
             {
-                Controls.Add(control);
+                _subControls.Add(control);
             }
         }
 
@@ -140,11 +146,14 @@ namespace ExaPhaser.WebForms
             _internaljqElement = new JQElement(_internalElement);
         }
 
-        private void SetParent(Control value)
+        private void SetParent(Control parentControl)
         {
-            _parent = value;
-            _subControls.ParentControl = _parent;
-            ApplicationContext = _parent.ApplicationContext;
+            if (parentControl != null)
+            {
+                _parent = parentControl;
+                _subControls.ParentControl = _parent;
+                ApplicationContext = _parent.ApplicationContext;
+            }
         }
 
         #endregion Properties
