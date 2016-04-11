@@ -76,6 +76,12 @@ namespace JSIL.Dom.JSLibraries
         {
         }
 
+        [JSReplacement("$this._jqobject.contents()")]
+        public object Contents()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
         [JSReplacement("$this._jqobject.css($name, $value)")]
         public void CSS(string name, string value)
         {
@@ -83,6 +89,23 @@ namespace JSIL.Dom.JSLibraries
 
         [JSReplacement("$this._jqobject.css($name)")]
         public string CSS(string name)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.find($selector)")]
+        public object Find(string selector)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.html($htmlString)")]
+        public void HTML(string htmlString)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.html()")]
+        public string HTML()
         {
             throw new RequiresJSILRuntimeException();
         }

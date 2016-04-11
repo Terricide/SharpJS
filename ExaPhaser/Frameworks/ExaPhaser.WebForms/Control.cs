@@ -6,6 +6,8 @@ namespace ExaPhaser.WebForms
 {
     public abstract class Control
     {
+        #region Private Fields
+
         //Identity
         private Element _container;
 
@@ -19,6 +21,8 @@ namespace ExaPhaser.WebForms
         private Control _parent;
         private ControlCollection _subControls;
         private int _top;
+
+        #endregion Private Fields
 
         #region Constructors
 
@@ -60,12 +64,6 @@ namespace ExaPhaser.WebForms
             get { return _internaljqElement; }
         }
 
-        private void SetInternalElement(Element value)
-        {
-            _internalElement = value;
-            _internaljqElement = new JQElement(_internalElement);
-        }
-
         public int Left
         {
             get
@@ -98,12 +96,6 @@ namespace ExaPhaser.WebForms
             set { SetParent(value); }
         }
 
-        private void SetParent(Control value)
-        {
-            _parent = value;
-            ApplicationContext = _parent.ApplicationContext;
-        }
-
         public int Top
         {
             get
@@ -115,6 +107,18 @@ namespace ExaPhaser.WebForms
             {
                 _top = value;
             }
+        }
+
+        private void SetInternalElement(Element value)
+        {
+            _internalElement = value;
+            _internaljqElement = new JQElement(_internalElement);
+        }
+
+        private void SetParent(Control value)
+        {
+            _parent = value;
+            ApplicationContext = _parent.ApplicationContext;
         }
 
         #endregion Properties
@@ -163,6 +167,23 @@ namespace ExaPhaser.WebForms
 
         #endregion Events
 
+        #region Public Events
+
         public event EventHandler Loaded;
+
+        #endregion Public Events
+
+        #region Public Methods
+
+        /// <summary>
+        /// Docks the control by filling the parent container
+        /// </summary>
+        public void DockInParentContainer()
+        {
+            InternalJQElement.JQueryObjectHandle.CSS("width", "100%");
+            InternalJQElement.JQueryObjectHandle.CSS("height", "100%");
+        }
+
+        #endregion Public Methods
     }
 }

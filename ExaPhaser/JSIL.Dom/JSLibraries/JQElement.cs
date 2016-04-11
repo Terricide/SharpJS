@@ -134,6 +134,36 @@ namespace JSIL.Dom.JSLibraries
             jqObject.Bind(eventName, handler);
         }
 
+        public object Contents()
+        {
+            return jqObject.Contents();
+        }
+
+        public void CSS(string name, string value)
+        {
+            jqObject.CSS(name, value);
+        }
+
+        public string CSS(string name)
+        {
+            return jqObject.CSS(name);
+        }
+
+        public object Find(string selector)
+        {
+            return jqObject.Find(selector);
+        }
+
+        public void HTML(string htmlString)
+        {
+            jqObject.HTML(htmlString);
+        }
+
+        public string HTML()
+        {
+            return jqObject.HTML();
+        }
+
         public void RemoveClass(string className)
         {
             jqObject.RemoveClass(className);
