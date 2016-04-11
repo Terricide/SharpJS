@@ -1,16 +1,13 @@
-﻿using System;
-using JSIL.Meta;
+﻿using JSIL.Meta;
 
 namespace System.Xml
 {
-	
-	[JSStubOnly]
-	public sealed class XmlReaderSettings
-	{
-		
-		public XmlReaderSettings()
-		{
-			throw new NotImplementedException();
-		}
-	}
+    [JSStubOnly]
+    public sealed class XmlReaderSettings
+    {
+        public XmlReaderSettings()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

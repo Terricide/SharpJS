@@ -1,178 +1,148 @@
-﻿using System;
-using System.Xml.Schema;
+﻿using System.Xml.Schema;
 
 namespace System.Xml.Serialization
 {
-	
-	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.ReturnValue, AllowMultiple = true)]
-	public class XmlElementAttribute : Attribute
-	{
-		
-		public XmlElementAttribute()
-		{
-		}
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.ReturnValue, AllowMultiple = true)]
+    public class XmlElementAttribute : Attribute
+    {
+        public XmlElementAttribute()
+        {
+        }
 
-		
-		public XmlElementAttribute(string elementName)
-		{
-			this.elementName = elementName;
-		}
+        public XmlElementAttribute(string elementName)
+        {
+            this.elementName = elementName;
+        }
 
-		
-		public XmlElementAttribute(Type type)
-		{
-			this.type = type;
-		}
+        public XmlElementAttribute(Type type)
+        {
+            this.type = type;
+        }
 
-		
-		public XmlElementAttribute(string elementName, Type type)
-		{
-			this.elementName = elementName;
-			this.type = type;
-		}
+        public XmlElementAttribute(string elementName, Type type)
+        {
+            this.elementName = elementName;
+            this.type = type;
+        }
 
-		
-		public string DataType
-		{
-			
-			get
-			{
-				return (this.dataType == null) ? string.Empty : this.dataType;
-			}
-			
-			set
-			{
-				this.dataType = value;
-			}
-		}
+        public string DataType
+        {
+            get
+            {
+                return (this.dataType == null) ? string.Empty : this.dataType;
+            }
 
-		
-		public string ElementName
-		{
-			
-			get
-			{
-				return (this.elementName == null) ? string.Empty : this.elementName;
-			}
-			
-			set
-			{
-				this.elementName = value;
-			}
-		}
+            set
+            {
+                this.dataType = value;
+            }
+        }
 
-		
-		public XmlSchemaForm Form
-		{
-			
-			get
-			{
-				return this.form;
-			}
-			
-			set
-			{
-				this.form = value;
-			}
-		}
+        public string ElementName
+        {
+            get
+            {
+                return (this.elementName == null) ? string.Empty : this.elementName;
+            }
 
-		
-		public bool IsNullable
-		{
-			
-			get
-			{
-				return this.nullable;
-			}
-			
-			set
-			{
-				this.nullable = value;
-				this.nullableSpecified = true;
-			}
-		}
+            set
+            {
+                this.elementName = value;
+            }
+        }
 
-		
-		internal bool IsNullableSpecified
-		{
-			
-			get
-			{
-				return this.nullableSpecified;
-			}
-		}
+        public XmlSchemaForm Form
+        {
+            get
+            {
+                return this.form;
+            }
 
-		
-		public string Namespace
-		{
-			
-			get
-			{
-				return this.ns;
-			}
-			
-			set
-			{
-				this.ns = value;
-			}
-		}
+            set
+            {
+                this.form = value;
+            }
+        }
 
-		
-		public int Order
-		{
-			
-			get
-			{
-				return this.order;
-			}
-			
-			set
-			{
-				if (value < 0)
-				{
-					throw new ArgumentException("Order cannot be negative.");
-				}
-				this.order = value;
-			}
-		}
+        public bool IsNullable
+        {
+            get
+            {
+                return this.nullable;
+            }
 
-		
-		public Type Type
-		{
-			
-			get
-			{
-				return this.type;
-			}
-			
-			set
-			{
-				this.type = value;
-			}
-		}
+            set
+            {
+                this.nullable = value;
+                this.nullableSpecified = true;
+            }
+        }
 
-		
-		private string dataType;
+        internal bool IsNullableSpecified
+        {
+            get
+            {
+                return this.nullableSpecified;
+            }
+        }
 
-		
-		private string elementName;
+        public string Namespace
+        {
+            get
+            {
+                return this.ns;
+            }
 
-		
-		private XmlSchemaForm form = XmlSchemaForm.None;
+            set
+            {
+                this.ns = value;
+            }
+        }
 
-		
-		private string ns;
+        public int Order
+        {
+            get
+            {
+                return this.order;
+            }
 
-		
-		private bool nullable;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Order cannot be negative.");
+                }
+                this.order = value;
+            }
+        }
 
-		
-		private bool nullableSpecified;
+        public Type Type
+        {
+            get
+            {
+                return this.type;
+            }
 
-		
-		private int order = -1;
+            set
+            {
+                this.type = value;
+            }
+        }
 
-		
-		private Type type;
-	}
+        private string dataType;
+
+        private string elementName;
+
+        private XmlSchemaForm form = XmlSchemaForm.None;
+
+        private string ns;
+
+        private bool nullable;
+
+        private bool nullableSpecified;
+
+        private int order = -1;
+
+        private Type type;
+    }
 }

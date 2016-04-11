@@ -1,17 +1,13 @@
-﻿using System;
-
-namespace System.Xml
+﻿namespace System.Xml
 {
-	
-	public enum XmlDateTimeSerializationMode
-	{
-		
-		Local,
-		
-		Utc,
-		
-		Unspecified,
-		
-		RoundtripKind
-	}
+    public enum XmlDateTimeSerializationMode
+    {
+        Local,
+
+        Utc,
+
+        Unspecified,
+
+        RoundtripKind
+    }
 }

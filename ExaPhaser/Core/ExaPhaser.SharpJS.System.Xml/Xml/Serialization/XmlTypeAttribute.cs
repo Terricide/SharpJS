@@ -1,92 +1,75 @@
-﻿using System;
-
-namespace System.Xml.Serialization
+﻿namespace System.Xml.Serialization
 {
-	
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Interface)]
-	public class XmlTypeAttribute : Attribute
-	{
-		
-		public XmlTypeAttribute()
-		{
-		}
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Interface)]
+    public class XmlTypeAttribute : Attribute
+    {
+        public XmlTypeAttribute()
+        {
+        }
 
-		
-		public XmlTypeAttribute(string typeName)
-		{
-			this.typeName = typeName;
-		}
+        public XmlTypeAttribute(string typeName)
+        {
+            this.typeName = typeName;
+        }
 
-		
-		public bool AnonymousType
-		{
-			
-			get
-			{
-				return this.anonymousType;
-			}
-			
-			set
-			{
-				this.anonymousType = value;
-			}
-		}
+        public bool AnonymousType
+        {
+            get
+            {
+                return this.anonymousType;
+            }
 
-		
-		public bool IncludeInSchema
-		{
-			
-			get
-			{
-				return this.includeInSchema;
-			}
-			
-			set
-			{
-				this.includeInSchema = value;
-			}
-		}
+            set
+            {
+                this.anonymousType = value;
+            }
+        }
 
-		
-		public string Namespace
-		{
-			
-			get
-			{
-				return this.ns;
-			}
-			
-			set
-			{
-				this.ns = value;
-			}
-		}
+        public bool IncludeInSchema
+        {
+            get
+            {
+                return this.includeInSchema;
+            }
 
-		
-		public string TypeName
-		{
-			
-			get
-			{
-				return (this.typeName == null) ? string.Empty : this.typeName;
-			}
-			
-			set
-			{
-				this.typeName = value;
-			}
-		}
+            set
+            {
+                this.includeInSchema = value;
+            }
+        }
 
-		
-		private bool anonymousType;
+        public string Namespace
+        {
+            get
+            {
+                return this.ns;
+            }
 
-		
-		private bool includeInSchema = true;
+            set
+            {
+                this.ns = value;
+            }
+        }
 
-		
-		private string ns;
+        public string TypeName
+        {
+            get
+            {
+                return (this.typeName == null) ? string.Empty : this.typeName;
+            }
 
-		
-		private string typeName;
-	}
+            set
+            {
+                this.typeName = value;
+            }
+        }
+
+        private bool anonymousType;
+
+        private bool includeInSchema = true;
+
+        private string ns;
+
+        private string typeName;
+    }
 }

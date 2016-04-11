@@ -1,123 +1,101 @@
-﻿using System;
-
-namespace System.Xml.Serialization
+﻿namespace System.Xml.Serialization
 {
-	
-	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Interface | AttributeTargets.ReturnValue)]
-	public class XmlRootAttribute : Attribute
-	{
-		
-		public XmlRootAttribute()
-		{
-		}
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Enum | AttributeTargets.Interface | AttributeTargets.ReturnValue)]
+    public class XmlRootAttribute : Attribute
+    {
+        public XmlRootAttribute()
+        {
+        }
 
-		
-		public XmlRootAttribute(string elementName)
-		{
-			this.elementName = elementName;
-		}
+        public XmlRootAttribute(string elementName)
+        {
+            this.elementName = elementName;
+        }
 
-		
-		public string DataType
-		{
-			
-			get
-			{
-				return (this.dataType == null) ? string.Empty : this.dataType;
-			}
-			
-			set
-			{
-				this.dataType = value;
-			}
-		}
+        public string DataType
+        {
+            get
+            {
+                return (this.dataType == null) ? string.Empty : this.dataType;
+            }
 
-		
-		public string ElementName
-		{
-			
-			get
-			{
-				return (this.elementName == null) ? string.Empty : this.elementName;
-			}
-			
-			set
-			{
-				this.elementName = value;
-			}
-		}
+            set
+            {
+                this.dataType = value;
+            }
+        }
 
-		
-		public bool IsNullable
-		{
-			
-			get
-			{
-				return this.nullable;
-			}
-			
-			set
-			{
-				this.nullable = value;
-				this.nullableSpecified = true;
-			}
-		}
+        public string ElementName
+        {
+            get
+            {
+                return (this.elementName == null) ? string.Empty : this.elementName;
+            }
 
-		
-		internal bool IsNullableSpecified
-		{
-			
-			get
-			{
-				return this.nullableSpecified;
-			}
-		}
+            set
+            {
+                this.elementName = value;
+            }
+        }
 
-		
-		internal string Key
-		{
-			
-			get
-			{
-				return string.Concat(new string[]
-				{
-					(this.ns == null) ? string.Empty : this.ns,
-					":",
-					this.ElementName,
-					":",
-					this.nullable.ToString()
-				});
-			}
-		}
+        public bool IsNullable
+        {
+            get
+            {
+                return this.nullable;
+            }
 
-		
-		public string Namespace
-		{
-			
-			get
-			{
-				return this.ns;
-			}
-			
-			set
-			{
-				this.ns = value;
-			}
-		}
+            set
+            {
+                this.nullable = value;
+                this.nullableSpecified = true;
+            }
+        }
 
-		
-		private string dataType;
+        internal bool IsNullableSpecified
+        {
+            get
+            {
+                return this.nullableSpecified;
+            }
+        }
 
-		
-		private string elementName;
+        internal string Key
+        {
+            get
+            {
+                return string.Concat(new string[]
+                {
+                    (this.ns == null) ? string.Empty : this.ns,
+                    ":",
+                    this.ElementName,
+                    ":",
+                    this.nullable.ToString()
+                });
+            }
+        }
 
-		
-		private string ns;
+        public string Namespace
+        {
+            get
+            {
+                return this.ns;
+            }
 
-		
-		private bool nullable = true;
+            set
+            {
+                this.ns = value;
+            }
+        }
 
-		
-		private bool nullableSpecified;
-	}
+        private string dataType;
+
+        private string elementName;
+
+        private string ns;
+
+        private bool nullable = true;
+
+        private bool nullableSpecified;
+    }
 }

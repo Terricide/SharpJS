@@ -1,11 +1,9 @@
-﻿using System;
-using JSIL.Meta;
+﻿using JSIL.Meta;
 
 namespace System.Xml
 {
-	
-	[JSStubOnly]
-	public class XmlParserContext
-	{
-	}
+    [JSStubOnly]
+    public class XmlParserContext
+    {
+    }
 }

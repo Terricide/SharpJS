@@ -1,55 +1,42 @@
-﻿using System;
-
-namespace System.Xml.Serialization
+﻿namespace System.Xml.Serialization
 {
-	
-	[AttributeUsage(AttributeTargets.Assembly)]
-	public sealed class XmlSerializerVersionAttribute : Attribute
-	{
-		
-		public XmlSerializerVersionAttribute()
-		{
-		}
+    [AttributeUsage(AttributeTargets.Assembly)]
+    public sealed class XmlSerializerVersionAttribute : Attribute
+    {
+        public XmlSerializerVersionAttribute()
+        {
+        }
 
-		
-		public XmlSerializerVersionAttribute(Type type)
-		{
-		}
+        public XmlSerializerVersionAttribute(Type type)
+        {
+        }
 
-		
-		public string Namespace
-		{
-			
-			get;
-			
-			set;
-		}
+        public string Namespace
+        {
+            get;
 
-		
-		public string ParentAssemblyId
-		{
-			
-			get;
-			
-			set;
-		}
+            set;
+        }
 
-		
-		public Type Type
-		{
-			
-			get;
-			
-			set;
-		}
+        public string ParentAssemblyId
+        {
+            get;
 
-		
-		public string Version
-		{
-			
-			get;
-			
-			set;
-		}
-	}
+            set;
+        }
+
+        public Type Type
+        {
+            get;
+
+            set;
+        }
+
+        public string Version
+        {
+            get;
+
+            set;
+        }
+    }
 }

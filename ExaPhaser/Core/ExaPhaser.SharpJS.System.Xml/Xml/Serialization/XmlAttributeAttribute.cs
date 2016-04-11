@@ -1,124 +1,103 @@
-﻿using System;
-using System.Xml.Schema;
+﻿using System.Xml.Schema;
 
 namespace System.Xml.Serialization
 {
-	
-	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.ReturnValue)]
-	public class XmlAttributeAttribute : Attribute
-	{
-		
-		public XmlAttributeAttribute()
-		{
-		}
+    [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter | AttributeTargets.ReturnValue)]
+    public class XmlAttributeAttribute : Attribute
+    {
+        public XmlAttributeAttribute()
+        {
+        }
 
-		
-		public XmlAttributeAttribute(string attributeName)
-		{
-			this.attributeName = attributeName;
-		}
+        public XmlAttributeAttribute(string attributeName)
+        {
+            this.attributeName = attributeName;
+        }
 
-		
-		public XmlAttributeAttribute(Type type)
-		{
-			this.type = type;
-		}
+        public XmlAttributeAttribute(Type type)
+        {
+            this.type = type;
+        }
 
-		
-		public XmlAttributeAttribute(string attributeName, Type type)
-		{
-			this.attributeName = attributeName;
-			this.type = type;
-		}
+        public XmlAttributeAttribute(string attributeName, Type type)
+        {
+            this.attributeName = attributeName;
+            this.type = type;
+        }
 
-		
-		public string AttributeName
-		{
-			
-			get
-			{
-				return (this.attributeName == null) ? string.Empty : this.attributeName;
-			}
-			
-			set
-			{
-				this.attributeName = value;
-			}
-		}
+        public string AttributeName
+        {
+            get
+            {
+                return (this.attributeName == null) ? string.Empty : this.attributeName;
+            }
 
-		
-		public string DataType
-		{
-			
-			get
-			{
-				return (this.dataType == null) ? string.Empty : this.dataType;
-			}
-			
-			set
-			{
-				this.dataType = value;
-			}
-		}
+            set
+            {
+                this.attributeName = value;
+            }
+        }
 
-		
-		public XmlSchemaForm Form
-		{
-			
-			get
-			{
-				return this.form;
-			}
-			
-			set
-			{
-				this.form = value;
-			}
-		}
+        public string DataType
+        {
+            get
+            {
+                return (this.dataType == null) ? string.Empty : this.dataType;
+            }
 
-		
-		public string Namespace
-		{
-			
-			get
-			{
-				return this.ns;
-			}
-			
-			set
-			{
-				this.ns = value;
-			}
-		}
+            set
+            {
+                this.dataType = value;
+            }
+        }
 
-		
-		public Type Type
-		{
-			
-			get
-			{
-				return this.type;
-			}
-			
-			set
-			{
-				this.type = value;
-			}
-		}
+        public XmlSchemaForm Form
+        {
+            get
+            {
+                return this.form;
+            }
 
-		
-		private string attributeName;
+            set
+            {
+                this.form = value;
+            }
+        }
 
-		
-		private string dataType;
+        public string Namespace
+        {
+            get
+            {
+                return this.ns;
+            }
 
-		
-		private XmlSchemaForm form = XmlSchemaForm.None;
+            set
+            {
+                this.ns = value;
+            }
+        }
 
-		
-		private string ns;
+        public Type Type
+        {
+            get
+            {
+                return this.type;
+            }
 
-		
-		private Type type;
-	}
+            set
+            {
+                this.type = value;
+            }
+        }
+
+        private string attributeName;
+
+        private string dataType;
+
+        private XmlSchemaForm form = XmlSchemaForm.None;
+
+        private string ns;
+
+        private Type type;
+    }
 }
