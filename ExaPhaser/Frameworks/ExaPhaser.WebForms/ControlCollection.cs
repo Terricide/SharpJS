@@ -7,6 +7,19 @@ namespace ExaPhaser.WebForms
         private List<Control> _controls;
         private Control _parentControl;
 
+        public Control ParentControl
+        {
+            get
+            {
+                return _parentControl;
+            }
+
+            set
+            {
+                _parentControl = value;
+            }
+        }
+
         public ControlCollection(Control parentControl)
         {
             _parentControl = parentControl;
