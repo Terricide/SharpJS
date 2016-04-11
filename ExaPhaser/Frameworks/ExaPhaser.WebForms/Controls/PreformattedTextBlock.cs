@@ -2,7 +2,7 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class TextBlock : TextControl
+    public class PreformattedTextBlock : Control
     {
         #region Private Fields
 
@@ -12,9 +12,9 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Constructors
 
-        public TextBlock() : base()
+        public PreformattedTextBlock() : base()
         {
-            InternalElement = new ParagraphElement();
+            InternalElement = new PreformattedElement();
         }
 
         #endregion Public Constructors

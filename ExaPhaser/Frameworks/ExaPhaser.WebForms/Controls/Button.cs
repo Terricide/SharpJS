@@ -5,7 +5,13 @@ namespace ExaPhaser.WebForms.Controls
 {
     public class Button : TextControl
     {
+        #region Private Fields
+
         private string _text;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public Button() : base()
         {
@@ -16,10 +22,15 @@ namespace ExaPhaser.WebForms.Controls
             InternalElement.Click += OnClick;
         }
 
-        public override void PerformLayout()
-        {
-            base.PerformLayout();
-        }
+        #endregion Public Constructors
+
+        #region Public Events
+
+        public event EventHandler Click;
+
+        #endregion Public Events
+
+        #region Public Properties
 
         public string Text
         {
@@ -27,11 +38,18 @@ namespace ExaPhaser.WebForms.Controls
             set { SetText(value); }
         }
 
-        private void SetText(string value)
+        #endregion Public Properties
+
+        #region Public Methods
+
+        public override void PerformLayout()
         {
-            InternalElement.TextContent = value;
-            _text = value;
+            base.PerformLayout();
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         private void OnClick(object sender, EventArgs e)
         {
@@ -42,6 +60,12 @@ namespace ExaPhaser.WebForms.Controls
             }
         }
 
-        public event EventHandler Click;
+        private void SetText(string value)
+        {
+            InternalElement.TextContent = value;
+            _text = value;
+        }
+
+        #endregion Private Methods
     }
 }

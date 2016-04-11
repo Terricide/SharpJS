@@ -1,5 +1,6 @@
 ﻿using System;
 using JSIL.Dom;
+using JSIL.Dom.JSLibraries;
 
 namespace ExaPhaser.WebForms
 {
@@ -9,6 +10,7 @@ namespace ExaPhaser.WebForms
         private Element _container;
 
         private Element _internalElement;
+        private JQElement _internaljqElement;
 
         //Layout
         private int _left;
@@ -50,7 +52,18 @@ namespace ExaPhaser.WebForms
         public Element InternalElement
         {
             get { return _internalElement; }
-            set { _internalElement = value; }
+            set { SetInternalElement(value); }
+        }
+
+        public JQElement InternalJQElement
+        {
+            get { return _internaljqElement; }
+        }
+
+        private void SetInternalElement(Element value)
+        {
+            _internalElement = value;
+            _internaljqElement = new JQElement(_internalElement);
         }
 
         public int Left

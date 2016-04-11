@@ -54,12 +54,12 @@ namespace JSIL.Dom
                 {
                     this._mouseOver(this, new EventArgs());
                 });
-                _mouseOver += value;
+                _keyDown += value;
             }
             remove
             {
                 RemoveNativehandler("keydown");
-                _mouseOver -= value;
+                _keyDown -= value;
             }
         }
 
@@ -153,8 +153,12 @@ namespace JSIL.Dom
 
         private class Proxy
         {
+            #region Public Fields
+
             public int Counter = 0;
             public Action<object> Handler;
+
+            #endregion Public Fields
         }
 
         #endregion Generic event handling
@@ -199,22 +203,32 @@ namespace JSIL.Dom
 
         #endregion Properties
 
+        #region Protected Fields
+
         protected object _element;
 
         protected Element _selfReference;
 
+        #endregion Protected Fields
+
+        #region Private Fields
+
         // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied
         // in the constructor while creating elements from templates
         private static bool _creatingTemplate = false;
+
+        #endregion Private Fields
+
+        #region Public Constructors
 
         public Element(string type)
             : this(Verbatim.Expression("document.createElement(type)"))
         {
         }
 
-        protected Element()
-        {
-        }
+        #endregion Public Constructors
+
+        #region Internal Constructors
 
         internal Element(object element)
         {
@@ -228,6 +242,18 @@ namespace JSIL.Dom
             if (!_creatingTemplate)
                 TemplateApplied();
         }
+
+        #endregion Internal Constructors
+
+        #region Protected Constructors
+
+        protected Element()
+        {
+        }
+
+        #endregion Protected Constructors
+
+        #region Public Properties
 
         public Element[] Children
         {
@@ -297,6 +323,10 @@ namespace JSIL.Dom
             set { Verbatim.Expression("this._element.textContent = value"); }
         }
 
+        #endregion Public Properties
+
+        #region Public Indexers
+
         public string this[string index]
         {
             get
@@ -308,6 +338,10 @@ namespace JSIL.Dom
                 SetAttributeValue(index, value);
             }
         }
+
+        #endregion Public Indexers
+
+        #region Public Methods
 
         public static T CreateFromTemplate<T>(string templateId) where T : Element, new()
         {
@@ -367,6 +401,10 @@ namespace JSIL.Dom
         {
         }
 
+        #endregion Public Methods
+
+        #region Internal Methods
+
         internal static Element GetById(string id)
         {
             var element = GetElement(Verbatim.Expression("document.getElementById(id)"));
@@ -419,6 +457,10 @@ namespace JSIL.Dom
             }
         }
 
+        #endregion Internal Methods
+
+        #region Protected Methods
+
         [JSReplacement("$this._element[$attributeName] = $value")]
         protected virtual void SetAttributeValue(string attributeName, string value)
         {
@@ -427,5 +469,7 @@ namespace JSIL.Dom
         protected virtual void TemplateApplied()
         {
         }
+
+        #endregion Protected Methods
     }
 }

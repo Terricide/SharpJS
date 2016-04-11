@@ -1,4 +1,5 @@
-﻿using JSIL.Meta;
+﻿using System;
+using JSIL.Meta;
 
 namespace JSIL.Dom.JSLibraries
 {
@@ -7,7 +8,30 @@ namespace JSIL.Dom.JSLibraries
     /// </summary>
     public class JQueryObject
     {
+        #region Private Fields
+
         private object _jqobject;
+
+        #endregion Private Fields
+
+        #region Internal Constructors
+
+        internal JQueryObject(object handle)
+        {
+            _jqobject = handle;
+        }
+
+        #endregion Internal Constructors
+
+        #region Public Properties
+
+        public Element DOMRepresentation
+        {
+            get
+            {
+                return new Element(GetDOMHandle());
+            }
+        }
 
         public object JavaScriptJQueryHandle
         {
@@ -22,44 +46,12 @@ namespace JSIL.Dom.JSLibraries
             }
         }
 
-        public Element DOMRepresentation
-        {
-            get
-            {
-                return new Element(GetDOMHandle());
-            }
-        }
+        #endregion Public Properties
 
-        [JSReplacement("$this._jqobject[0]")]
-        private object GetDOMHandle()
-        {
-            throw new RequiresJSILRuntimeException();
-        }
-
-        internal JQueryObject(object handle)
-        {
-            _jqobject = handle;
-        }
-
-        [JSReplacement("$this._jqobject.css($name, $value)")]
-        public void CSS(string name, string value)
-        {
-        }
-
-        [JSReplacement("$this._jqobject.css($name)")]
-        public string CSS(string name)
-        {
-            throw new RequiresJSILRuntimeException();
-        }
+        #region Public Methods
 
         [JSReplacement("$this._jqobject.addClass($className)")]
         public string AddClass(string className)
-        {
-            throw new RequiresJSILRuntimeException();
-        }
-
-        [JSReplacement("$this._jqobject.removeClass($className)")]
-        public string RemoveClass(string className)
         {
             throw new RequiresJSILRuntimeException();
         }
@@ -78,5 +70,44 @@ namespace JSIL.Dom.JSLibraries
         public void Append(Element element)
         {
         }
+
+        [JSReplacement("$this._jqobject.on($eventName, $handler)")] //Using on because it is preferred to bind
+        public void Bind(string eventName, Action<object> handler)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.css($name, $value)")]
+        public void CSS(string name, string value)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.css($name)")]
+        public string CSS(string name)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.removeClass($className)")]
+        public string RemoveClass(string className)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.off($eventName)")] //Using off because it is preferred to unbind
+        public void Unbind(string eventName)
+        {
+        }
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        [JSReplacement("$this._jqobject[0]")]
+        private object GetDOMHandle()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        #endregion Private Methods
     }
 }

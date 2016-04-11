@@ -5,7 +5,13 @@ namespace ExaPhaser.WebForms.Controls
 {
     public class TextControl : Control
     {
+        #region Private Fields
+
         private FontStyle _fontStyle;
+
+        #endregion Private Fields
+
+        #region Public Properties
 
         public FontStyle FontStyle
         {
@@ -20,11 +26,19 @@ namespace ExaPhaser.WebForms.Controls
             set { JQuery.GetJQueryObject(InternalElement).CSS("text-align", value.ToString().ToLower()); }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         public override void PerformLayout()
         {
             base.PerformLayout();
             FontStyle = new FontStyle(); //Set font style to defaults
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         private void SetFontStyle(FontStyle newFontStyle)
         {
@@ -32,5 +46,7 @@ namespace ExaPhaser.WebForms.Controls
             JQuery.GetJQueryObject(InternalElement).CSS("font-weight", newFontStyle.FontWeight.ToString().ToLower());
             _fontStyle = newFontStyle;
         }
+
+        #endregion Private Methods
     }
 }

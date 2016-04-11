@@ -1,10 +1,13 @@
 ﻿using System;
 using JSIL.Dom.Elements;
+using JSIL.Dom.JSLibraries;
 
 namespace ExaPhaser.WebForms.Controls
 {
     public class TextBox : TextControl
     {
+        #region Public Constructors
+
         public TextBox() : base()
         {
             InternalElement = new InputElement()
@@ -12,9 +15,19 @@ namespace ExaPhaser.WebForms.Controls
                 Type = "text",
             };
             InternalElement.Change += OnTextChanged;
+            InternalJQElement.EnterKeyPressed += OnEnterPressed;
         }
 
+        #endregion Public Constructors
+
+        #region Public Events
+
         public event EventHandler TextChanged;
+        public event EventHandler EnterPressed;
+
+        #endregion Public Events
+
+        #region Public Properties
 
         public string Text
         {
@@ -28,10 +41,18 @@ namespace ExaPhaser.WebForms.Controls
             set { SetInputType(value); }
         }
 
+        #endregion Public Properties
+
+        #region Public Methods
+
         public override void PerformLayout()
         {
             base.PerformLayout();
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         private InputType GetInputType()
         {
@@ -71,6 +92,15 @@ namespace ExaPhaser.WebForms.Controls
             }
         }
 
+        private void OnEnterPressed(object sender, EventArgs e)
+        {
+            EventHandler handler = EnterPressed;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
         private void SetInputType(InputType value)
         {
             switch (value)
@@ -101,5 +131,7 @@ namespace ExaPhaser.WebForms.Controls
         {
             InternalElement["value"] = value;
         }
+
+        #endregion Private Methods
     }
 }
