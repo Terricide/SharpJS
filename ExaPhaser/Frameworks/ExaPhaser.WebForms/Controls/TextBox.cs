@@ -1,6 +1,5 @@
 ﻿using System;
 using JSIL.Dom.Elements;
-using JSIL.Dom.JSLibraries;
 
 namespace ExaPhaser.WebForms.Controls
 {
@@ -22,8 +21,9 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Events
 
-        public event EventHandler TextChanged;
         public event EventHandler EnterPressed;
+
+        public event EventHandler TextChanged;
 
         #endregion Public Events
 
@@ -83,18 +83,18 @@ namespace ExaPhaser.WebForms.Controls
             return InternalElement["value"];
         }
 
-        private void OnTextChanged(object sender, EventArgs e)
+        private void OnEnterPressed(object sender, EventArgs e)
         {
-            EventHandler handler = TextChanged;
+            EventHandler handler = EnterPressed;
             if (handler != null)
             {
                 handler(this, e);
             }
         }
 
-        private void OnEnterPressed(object sender, EventArgs e)
+        private void OnTextChanged(object sender, EventArgs e)
         {
-            EventHandler handler = EnterPressed;
+            EventHandler handler = TextChanged;
             if (handler != null)
             {
                 handler(this, e);
