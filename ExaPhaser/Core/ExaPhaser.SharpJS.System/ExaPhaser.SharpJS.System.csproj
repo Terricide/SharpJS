@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C0660A86-C3B3-4DB3-8646-E573EF8FC97D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System</RootNamespace>
+    <AssemblyName>ExaPhaser.SharpJS.System</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NoWin32Manifest>False</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeDom\Compiler\GeneratedCodeAttribute.cs" />
+    <Compile Include="Collections\Generic\Stack.cs" />
+    <Compile Include="Collections\ObjectModel\ObservableCollection.cs" />
+    <Compile Include="Collections\Specialized\INotifyCollectionChanged.cs" />
+    <Compile Include="Collections\Specialized\NotifyCollectionChangedAction.cs" />
+    <Compile Include="Collections\Specialized\NotifyCollectionChangedEventArgs.cs" />
+    <Compile Include="Collections\Specialized\NotifyCollectionChangedEventHandler.cs" />
+    <Compile Include="ComponentModel\BrowsableAttribute.cs" />
+    <Compile Include="ComponentModel\CategoryAttribute.cs" />
+    <Compile Include="ComponentModel\DefaultValueAttribute.cs" />
+    <Compile Include="ComponentModel\DescriptionAttribute.cs" />
+    <Compile Include="ComponentModel\DesignerCategoryAttribute.cs" />
+    <Compile Include="ComponentModel\EditorBrowsableAttribute.cs" />
+    <Compile Include="ComponentModel\EditorBrowsableState.cs" />
+    <Compile Include="ComponentModel\INotifyPropertyChanged.cs" />
+    <Compile Include="ComponentModel\PropertyChangedEventArgs.cs" />
+    <Compile Include="ComponentModel\PropertyChangedEventHandler.cs" />
+    <Compile Include="Diagnostics\Debug.cs" />
+    <Compile Include="System\Uri.cs" />
+    <Compile Include="System\UriKind.cs" />
+    <Compile Include="System\InternalWebRequestHelper.cs" />
+    <Compile Include="Net\CSharpHeaderToHtmlHeaderConverter.cs" />
+    <Compile Include="Net\DownloadStringCompletedEventArgs.cs" />
+    <Compile Include="Net\DownloadStringCompletedEventHandler.cs" />
+    <Compile Include="Net\HttpRequestHeader.cs" />
+    <Compile Include="Net\HttpResponseHeader.cs" />
+    <Compile Include="Net\HttpStatusCode.cs" />
+    <Compile Include="Net\HttpWebResponse.cs" />
+    <Compile Include="Net\Security\ProtectionLevel.cs" />
+    <Compile Include="Net\UploadStringCompletedEventArgs.cs" />
+    <Compile Include="Net\UploadStringCompletedEventHandler.cs" />
+    <Compile Include="Net\WebClient.cs" />
+    <Compile Include="Net\WebHeaderCollection.cs" />
+    <Compile Include="Net\WebResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text\RegularExpressions\Group.cs" />
+    <Compile Include="Text\RegularExpressions\GroupCollection.cs" />
+    <Compile Include="Text\RegularExpressions\Match.cs" />
+    <Compile Include="Text\RegularExpressions\MatchCollection.cs" />
+    <Compile Include="Text\RegularExpressions\MatchEvaluator.cs" />
+    <Compile Include="Text\RegularExpressions\Regex.cs" />
+    <Compile Include="Text\RegularExpressions\RegexOptions.cs" />
+    <Compile Include="Windows\Input\ICommand.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Meta\Meta.csproj">
+      <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
+      <Name>Meta</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
