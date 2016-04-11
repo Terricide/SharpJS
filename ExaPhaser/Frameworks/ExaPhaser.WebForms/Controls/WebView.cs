@@ -29,6 +29,12 @@ namespace ExaPhaser.WebForms.Controls
             set { LoadHTML(value); }
         }
 
+        public string SourceURI
+        {
+            get { return _sourceURI; }
+            set { LoadURI(value); }
+        }
+
         #endregion Public Properties
 
         #region Private Methods
