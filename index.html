@@ -1,67 +1,147 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>#JS by exaphaser</title>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">#JS</h1>
-      <h2 class="project-tagline">A set of frameworks for writing HTML5/JavaScript applications with C#</h2>
-      <a href="https://github.com/exaphaser/SharpJS" class="btn">View on GitHub</a>
-      <a href="https://github.com/exaphaser/SharpJS/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/exaphaser/SharpJS/tarball/master" class="btn">Download .tar.gz</a>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SharpJS - C# to HTML5/JS</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">SharpJS</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#page-top">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Download</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">SharpJS</h1>
+                        <p class="intro-text">Create cross-platform HTML5/JS apps with C#/.NET</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="text-center">
+                    <h2>About SharpJS</h2>
+                </div>
+                <p>SharpJS is a framework that compiles C# code into HTML and JavaScript to run anywhere.</p>
+                <p>
+                    Its .NET runtime engine is powered by <a href="http://jsil.org">JSIL</a>. While JSIL was written to easily port XNA games to run on the Web, SharpJS adds a set of APIs and classes for building GUI applications, with C# classes that
+                    are later mapped to native HTML5 elements. The HTML5 applications also utilize modern CSS frameworks such as Foundation 6 and Bootstrap.
+                </p>
+                <p>
+                    SharpJS's simple structure makes it relatively straightforward to port existing Silverlight and Windows Forms applicaations directly to HTML5.
+                </p>
+                <p>
+                    SharpJS is completely open-source! The source is available on <a href="https://github.com/exaphaser/SharpJS">GitHub</a>. SharpJS is maintained by 0xFireball from ExaPhaser Industries.
+                </p>
+            </div>
+        </div>
     </section>
 
-    <section class="main-content">
-      <h1>
-<a id="exaphaser-sharpjs" class="anchor" href="#exaphaser-sharpjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ExaPhaser SharpJS</h1>
-
-<p>A set of frameworks for writing HTML5/JavaScript applications with C#</p>
-
-<p>The runtime is powered by JSIL, an application that translates compiled IL to JavaScript. The SharpJS frameworks are built on top of JSIL and provide classes for building web applications that run in the browser.</p>
-
-<p>Currently supported APIs and Frameworks:</p>
-
-<ul>
-<li>
-<strong>ExaPhaser.WebForms</strong> - A GUI framework for creating HTML5 applications styled with modern CSS frameworks such as Foundation and Bootstrap.</li>
-<li>
-<strong>ExaPhaser.WebUI</strong> - Another GUI framework for designing simple HTML/JS applications.</li>
-<li>
-<strong>JSIL.Dom</strong> - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime</li>
-</ul>
-
-<h1>
-<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h1>
-
-<p>ExaPhaser.SharpJS depends upon or is based on the following open source projects:</p>
-
-<ul>
-<li>JSIL.Hacks MIT/X11 (Markus Johnson)</li>
-<li>JSIL: MIT/X11 (K. Gadd)</li>
-<li>Mono.Cecil: MIT/X11 (thanks to Jb Evain)</li>
-<li>ICSharpCode.Decompiler: MIT/X11 (developed as part of ILSpy)</li>
-<li>Mono.Options: MIT/X11 (Jonathan Pryor &amp; Federico Di Gregorio)</li>
-<li>printStackTrace: Public Domain (Eric Wendelin and others)</li>
-<li>XAPParse: Microsoft Public License/Ms-PL (Andy Patrick)</li>
-<li>webgl-2d: MIT (Corban Brook, Bobby Richter, Charles J. Cliffe, and others)</li>
-<li>S3TC DXT1 / DXT5 Texture Decompression Routines (Benjamin Dobell)</li>
-</ul>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/exaphaser/SharpJS">#JS</a> is maintained by <a href="https://github.com/exaphaser">exaphaser</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Download SharpJS</h2>
+                    <p>
+                        SharpJS can be installed and used in numerous ways. You can install the NuGet package and build an application based on the templates <a href="https://github.com/exaphaser/SharpJS/tree/master/VSAddin/">here</a>, install the Visual
+                        Studio extension, or build the source yourself and reference it in your application. See <a href="https://github.com/exaphaser/SharpJS/wiki/Building-from-Source">the instructions</a> for information on how to build SharpJS from source. 
+                    </p>
+                    <h3>SharpJS WebForms extension</h3>
+                    <a href="https://visualstudiogallery.msdn.microsoft.com/f6683447-a7d1-4d2f-bb16-71da0dc41d9a" class="btn btn-default btn-lg">View in Visual Studio Gallery</a>
+                </div>
+            </div>
+        </div>
     </section>
 
-  
-  </body>
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; 0xFireball, ExaPhaser Industries 2015-2016</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+</body>
+
 </html>
