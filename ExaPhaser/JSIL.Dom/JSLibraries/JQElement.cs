@@ -49,6 +49,23 @@ namespace JSIL.Dom.JSLibraries
 
         #region Public Events
 
+        public event EventHandler Click
+        {
+            add
+            {
+                BindEventListener("click", e =>
+                {
+                    this._click(this, new EventArgs());
+                });
+                _click += value;
+            }
+            remove
+            {
+                UnbindEventListener("click");
+                _click -= value;
+            }
+        }
+
         public event EventHandler EnterKeyPressed
         {
             add
@@ -83,32 +100,15 @@ namespace JSIL.Dom.JSLibraries
             }
         }
 
-        public event EventHandler Click
-        {
-            add
-            {
-                BindEventListener("click", e =>
-                {
-                    this._click(this, new EventArgs());
-                });
-                _click += value;
-            }
-            remove
-            {
-                UnbindEventListener("click");
-                _click -= value;
-            }
-        }
-
         #endregion Public Events
 
         #region Private Events
 
+        private event EventHandler _click;
+
         private event EventHandler _enterKeyPressed;
 
         private event EventHandler _focus;
-
-        private event EventHandler _click;
 
         #endregion Private Events
 

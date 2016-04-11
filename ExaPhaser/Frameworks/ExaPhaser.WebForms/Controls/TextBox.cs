@@ -15,6 +15,7 @@ namespace ExaPhaser.WebForms.Controls
             };
             InternalElement.Change += OnTextChanged;
             InternalJQElement.EnterKeyPressed += OnEnterPressed;
+            InternalJQElement.Focus += OnFocus;
         }
 
         #endregion Public Constructors
@@ -22,6 +23,8 @@ namespace ExaPhaser.WebForms.Controls
         #region Public Events
 
         public event EventHandler EnterPressed;
+
+        public event EventHandler Focus;
 
         public event EventHandler TextChanged;
 
@@ -86,6 +89,15 @@ namespace ExaPhaser.WebForms.Controls
         private void OnEnterPressed(object sender, EventArgs e)
         {
             EventHandler handler = EnterPressed;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        private void OnFocus(object sender, EventArgs e)
+        {
+            EventHandler handler = Focus;
             if (handler != null)
             {
                 handler(this, e);
