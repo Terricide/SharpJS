@@ -2,39 +2,39 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class TextBlock : TextControl
+    public class ImageView : Control
     {
         #region Private Fields
 
-        private string _text;
+        private string _sourceURI;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public TextBlock() : base()
+        public ImageView() : base()
         {
-            InternalElement = new ParagraphElement();
+            InternalElement = new ImageElement();
         }
 
         #endregion Public Constructors
 
         #region Public Properties
 
-        public string Text
+        public string SourceURI
         {
-            get { return _text; }
-            set { SetText(value); }
+            get { return _sourceURI; }
+            set { SetImageSource(value); }
         }
 
         #endregion Public Properties
 
         #region Private Methods
 
-        private void SetText(string value)
+        private void SetImageSource(string sourceURI)
         {
-            InternalElement.TextContent = value;
-            _text = value;
+            InternalElement["src"] = sourceURI;
+            _sourceURI = sourceURI;
         }
 
         #endregion Private Methods

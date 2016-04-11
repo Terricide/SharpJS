@@ -53,6 +53,12 @@ namespace ExaPhaser.WebForms
             get { return _subControls; }
         }
 
+        public int Height
+        {
+            get { return (int)InternalElement.Height; }
+            set { InternalElement.Height = value; }
+        }
+
         public Element InternalElement
         {
             get { return _internalElement; }
@@ -107,6 +113,12 @@ namespace ExaPhaser.WebForms
             {
                 _top = value;
             }
+        }
+
+        public int Width
+        {
+            get { return (int)InternalElement.Width; }
+            set { InternalElement.Width = value; }
         }
 
         private void SetInternalElement(Element value)

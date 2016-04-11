@@ -6,9 +6,21 @@ namespace ExaPhaser.WebForms.Controls
     {
         #region Private Fields
 
+        #region Private Fields
+
+        #region Private Fields
+
         private string _text;
 
         #endregion Private Fields
+
+        #endregion Private Fields
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        #region Public Constructors
 
         #region Public Constructors
 
@@ -18,6 +30,14 @@ namespace ExaPhaser.WebForms.Controls
         }
 
         #endregion Public Constructors
+
+        #endregion Public Constructors
+
+        #endregion Public Constructors
+
+        #region Public Properties
+
+        #region Public Properties
 
         #region Public Properties
 
@@ -29,14 +49,13 @@ namespace ExaPhaser.WebForms.Controls
 
         #endregion Public Properties
 
-        #region Public Methods
+        #endregion Public Properties
 
-        public override void PerformLayout()
-        {
-            base.PerformLayout();
-        }
+        #endregion Public Properties
 
-        #endregion Public Methods
+        #region Private Methods
+
+        #region Private Methods
 
         #region Private Methods
 
@@ -45,6 +64,10 @@ namespace ExaPhaser.WebForms.Controls
             InternalElement.TextContent = value;
             _text = value;
         }
+
+        #endregion Private Methods
+
+        #endregion Private Methods
 
         #endregion Private Methods
     }

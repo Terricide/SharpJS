@@ -40,15 +40,6 @@ namespace ExaPhaser.WebForms.Controls
 
         #endregion Public Properties
 
-        #region Public Methods
-
-        public override void PerformLayout()
-        {
-            base.PerformLayout();
-        }
-
-        #endregion Public Methods
-
         #region Private Methods
 
         private void OnClick(object sender, EventArgs e)
