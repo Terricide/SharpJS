@@ -196,7 +196,7 @@ namespace ExaPhaser.WebForms
         /// <summary>
         /// Docks the control by filling the parent container
         /// </summary>
-        public void DockInParentContainer()
+        public void DockControlInParentContainer()
         {
             InternalJQElement.JQueryObjectHandle.CSS("width", "100%");
             InternalJQElement.JQueryObjectHandle.CSS("height", "100%");
