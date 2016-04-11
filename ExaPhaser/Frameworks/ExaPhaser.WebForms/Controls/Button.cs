@@ -3,7 +3,7 @@ using JSIL.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class Button : Control
+    public class Button : TextControl
     {
         private string _text;
 

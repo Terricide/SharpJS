@@ -34,6 +34,8 @@ namespace ExaPhaser.WebForms
 
         #region Properties
 
+        public WebApplication ApplicationContext { get; internal set; }
+
         public Element ContainerElement
         {
             get { return _container; }
@@ -80,7 +82,13 @@ namespace ExaPhaser.WebForms
         public Control Parent
         {
             get { return _parent; }
-            set { _parent = value; }
+            set { SetParent(value); }
+        }
+
+        private void SetParent(Control value)
+        {
+            _parent = value;
+            ApplicationContext = _parent.ApplicationContext;
         }
 
         public int Top

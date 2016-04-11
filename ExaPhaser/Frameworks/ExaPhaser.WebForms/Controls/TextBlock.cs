@@ -1,9 +1,8 @@
 ﻿using JSIL.Dom.Elements;
-using JSIL.Dom.JSLibraries;
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class TextBlock : Control
+    public class TextBlock : TextControl
     {
         private string _text;
 
@@ -21,11 +20,6 @@ namespace ExaPhaser.WebForms.Controls
         {
             get { return _text; }
             set { SetText(value); }
-        }
-
-        public int TextSize
-        {
-            set { JQuery.GetJQueryObject(InternalElement).CSS("fontSize", value.ToString()+"pt"); }
         }
 
         private void SetText(string value)

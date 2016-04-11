@@ -1,10 +1,9 @@
-﻿using JSIL.Dom.Elements;
-using JSIL.Dom.JSLibraries;
-using System;
+﻿using System;
+using JSIL.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class TextBox : Control
+    public class TextBox : TextControl
     {
         public TextBox() : base()
         {
@@ -27,11 +26,6 @@ namespace ExaPhaser.WebForms.Controls
         {
             get { return GetInputType(); }
             set { SetInputType(value); }
-        }
-
-        public int TextSize
-        {
-            set { JQuery.GetJQueryObject(InternalElement).CSS("fontSize", value.ToString() + "pt"); }
         }
 
         public override void PerformLayout()

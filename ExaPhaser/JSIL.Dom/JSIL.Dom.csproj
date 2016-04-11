@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\InputType.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Elements\AnchorElement.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="StringStyle.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="StyleCollection.cs" />
+    <Compile Include="Styles\FontStyles.cs" />
+    <Compile Include="Styles\TextStyles.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Meta\Meta.csproj">

@@ -1,6 +1,5 @@
 ﻿using ExaPhaser.WebForms.Themes;
 using JSIL.Dom;
-using JSIL.Dom.Elements;
 using JSIL.Dom.JSLibraries;
 using JSIL.Dom.JSLibraries.JQElements;
 
@@ -10,6 +9,19 @@ namespace ExaPhaser.WebForms
     {
         private CSSUITheme _uitheme;
         private JQDivElement _formHost;
+
+        public CSSUITheme UITheme
+        {
+            get
+            {
+                return _uitheme;
+            }
+
+            set
+            {
+                _uitheme = value;
+            }
+        }
 
         public WebApplication(CSSUITheme theme)
         {
@@ -29,6 +41,7 @@ namespace ExaPhaser.WebForms
         {
             CreateApplication(hostElement); //Create containers
             webForm.ContainerElement = _formHost.DOMRepresentation; //Set container to new element
+            webForm.ApplicationContext = this;
         }
 
         protected void CreateApplication(JQElement applicationHostElement)
