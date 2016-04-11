@@ -17,4 +17,4 @@ using System.Runtime.InteropServices;
 [assembly: CompilationRelaxations(8)]
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
 [assembly: ComVisible(false)]
-[assembly: Guid("2a5adb89-f6df-420e-a1b9-bf64a00de38b")]
+[assembly: Guid("161e9a51-68e5-437c-9716-70977503ca0a")]
