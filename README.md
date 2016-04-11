@@ -1,5 +1,13 @@
-# ExaPhaser.SharpJS
-A set of frameworks, ranging from DOM to GUI written in C# and translated to HTML5/JS with JSIL
+# ExaPhaser SharpJS
+A set of frameworks for writing HTML5/JavaScript applications with C#
+
+The runtime is powered by JSIL, an application that translates compiled IL to JavaScript. The SharpJS frameworks are built on top of JSIL and provide classes for building web applications that run in the browser.
+
+Currently supported APIs and Frameworks:
+- **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks such as Foundation and Bootstrap.
+- **ExaPhaser.WebUI** - Another GUI framework for designing simple HTML/JS applications.
+- **JSIL.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime
+
 
 Acknowledgements
 ========
