@@ -48,6 +48,11 @@ namespace ExaPhaser.WebForms
             set { SetContainer(value); }
         }
 
+        public Control[] Contents
+        {
+            set { SetControls(value); }
+        }
+
         public ControlCollection Controls
         {
             get { return _subControls; }
@@ -119,6 +124,14 @@ namespace ExaPhaser.WebForms
         {
             get { return (int)InternalElement.Width; }
             set { InternalElement.Width = value; }
+        }
+
+        private void SetControls(Control[] value)
+        {
+            foreach (Control control in value)
+            {
+                Controls.Add(control);
+            }
         }
 
         private void SetInternalElement(Element value)
