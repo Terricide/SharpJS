@@ -52,7 +52,7 @@ namespace JSIL.Dom
             {
                 AddNativeHandler("keydown", e =>
                 {
-                    this._mouseOver(this, new EventArgs());
+                    this._keyDown(this, new EventArgs());
                 });
                 _keyDown += value;
             }
