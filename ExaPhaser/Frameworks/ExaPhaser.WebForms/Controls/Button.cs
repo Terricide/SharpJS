@@ -20,6 +20,7 @@ namespace ExaPhaser.WebForms.Controls
                 Class = "button",
             };
             InternalElement.Click += OnClick;
+            PerformLayout();
         }
 
         #endregion Public Constructors

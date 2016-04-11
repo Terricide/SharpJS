@@ -28,16 +28,6 @@ namespace ExaPhaser.WebForms.Controls
 
         #endregion Public Properties
 
-        #region Public Methods
-
-        public override void PerformLayout()
-        {
-            base.PerformLayout();
-            FontStyle = new FontStyle(); //Set font style to defaults
-        }
-
-        #endregion Public Methods
-
         #region Private Methods
 
         private void SetFontStyle(FontStyle newFontStyle)

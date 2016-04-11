@@ -15,6 +15,7 @@ namespace ExaPhaser.WebForms.Controls
         public ImageView() : base()
         {
             InternalElement = new ImageElement();
+            PerformLayout();
         }
 
         #endregion Public Constructors

@@ -331,7 +331,7 @@ namespace JSIL.Dom
         {
             get
             {
-                return GetAttributeValue(index);
+                return GetAttributeValue(index) ?? String.Empty;
             }
             set
             {

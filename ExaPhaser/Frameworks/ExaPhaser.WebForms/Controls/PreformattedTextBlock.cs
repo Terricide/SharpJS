@@ -10,7 +10,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Private Fields
 
-        private string _text;
+        private string _text = "";
 
         #endregion Private Fields
 
@@ -27,6 +27,7 @@ namespace ExaPhaser.WebForms.Controls
         public PreformattedTextBlock() : base()
         {
             InternalElement = new PreformattedElement();
+            PerformLayout();
         }
 
         #endregion Public Constructors

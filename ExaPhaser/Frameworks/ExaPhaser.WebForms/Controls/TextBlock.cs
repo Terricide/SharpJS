@@ -15,6 +15,7 @@ namespace ExaPhaser.WebForms.Controls
         public TextBlock() : base()
         {
             InternalElement = new ParagraphElement();
+            PerformLayout();
         }
 
         #endregion Public Constructors

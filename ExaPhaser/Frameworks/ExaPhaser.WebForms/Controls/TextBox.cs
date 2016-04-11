@@ -16,6 +16,7 @@ namespace ExaPhaser.WebForms.Controls
             InternalElement.Change += OnTextChanged;
             InternalJQElement.EnterKeyPressed += OnEnterPressed;
             InternalJQElement.Focus += OnFocus;
+            PerformLayout();
         }
 
         #endregion Public Constructors

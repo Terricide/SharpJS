@@ -130,6 +130,7 @@ namespace ExaPhaser.WebForms
         private void SetParent(Control value)
         {
             _parent = value;
+            _subControls.ParentControl = _parent;
             ApplicationContext = _parent.ApplicationContext;
         }
 
@@ -137,10 +138,16 @@ namespace ExaPhaser.WebForms
 
         #region Abstract Methods
 
+        /// <summary>
+        /// A control should call PerformLayout when it is ready to receive child controls.
+        /// </summary>
         public virtual void PerformLayout()
         {
         }
 
+        /// <summary>
+        /// This method is called when the parent control is set.
+        /// </summary>
         public virtual void UpdateContent()
         {
         }
@@ -173,7 +180,6 @@ namespace ExaPhaser.WebForms
             {
                 handler(this, e);
             }
-            PerformLayout();
             UpdateContent();
         }
 
