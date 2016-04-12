@@ -50,6 +50,8 @@ namespace ExaPhaser.WebForms.Controls
             {
                 handler(this, e);
             }
+            if (Command != null)
+                Command.Execute(CommandParameter);
         }
 
         private void SetText(string value)
@@ -59,5 +61,20 @@ namespace ExaPhaser.WebForms.Controls
         }
 
         #endregion Private Methods
+
+        #region Command
+
+        private ICommand _command;
+
+        public ICommand Command
+        {
+            get { return _command; }
+            set
+            { _command = value; }
+        }
+
+        public object CommandParameter { get; set; }
+
+        #endregion Command
     }
 }

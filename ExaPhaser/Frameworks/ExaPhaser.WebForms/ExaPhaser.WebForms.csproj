@@ -50,7 +50,9 @@
     <Compile Include="Controls\TextBox.cs" />
     <Compile Include="Controls\TextControl.cs" />
     <Compile Include="Controls\WebView.cs" />
+    <Compile Include="DelegateCommand.cs" />
     <Compile Include="FontStyle.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="Layout.cs" />
     <Compile Include="Themes\CSSFramework.cs" />
     <Compile Include="Themes\CSSUITheme.cs" />
@@ -66,10 +68,6 @@
     <ProjectReference Include="..\..\..\Meta\Meta.csproj">
       <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
       <Name>Meta</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExaPhaser.WebUI\ExaPhaser.WebUI.csproj">
-      <Project>{7e9c8670-8db7-4764-b2c7-29c910c19479}</Project>
-      <Name>ExaPhaser.WebUI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
