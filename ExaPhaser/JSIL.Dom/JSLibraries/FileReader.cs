@@ -1,12 +1,22 @@
 ﻿using System;
+using JSIL.Meta;
 
 namespace JSIL.Dom.JSLibraries
 {
     public class FileReader
     {
+        #region Private Fields
+
+        private object _fileReaderHandle;
+
+        private Action<object> OnLoadAction;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
         public FileReader()
         {
-            object _fileReaderHandle;
             bool fileReaderSupported = Builtins.IsTruthy(Verbatim.Expression("'FileReader' in window"));
             if (!fileReaderSupported)
             {
@@ -20,10 +30,37 @@ namespace JSIL.Dom.JSLibraries
                     Target = Verbatim.Expression("o.target"),
                 });
             };
-            Verbatim.Expression("_fileReaderHandle.onload = OnLoadAction");
+            Verbatim.Expression("this._fileReaderHandle.onload = this.OnLoadAction");
         }
 
-        private Action<object> OnLoadAction;
+        #endregion Public Constructors
+
+        #region Public Events
+
+        public event FileLoadedEventHandler Load;
+
+        #endregion Public Events
+
+        #region Public Methods
+
+        [JSReplacement("$this._fileReaderHandle.readAsText($fileHandle)")]
+        public void ReadAsText(object fileHandle)
+        {
+        }
+
+        [JSReplacement("$this._fileReaderHandle.readAsDataURL($fileHandle)")]
+        public void ReadAsDataURL(object fileHandle)
+        {
+        }
+
+        [JSReplacement("$this._fileReaderHandle.readAsArrayBuffer($fileHandle)")]
+        public void ReadAsArrayBuffer(object fileHandle)
+        {
+        }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         private void OnLoad(object sender, FileLoadedEventArgs e)
         {
@@ -34,6 +71,6 @@ namespace JSIL.Dom.JSLibraries
             }
         }
 
-        public event FileLoadedEventHandler Load;
+        #endregion Private Methods
     }
 }
