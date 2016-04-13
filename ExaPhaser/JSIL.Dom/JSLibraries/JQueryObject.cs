@@ -116,6 +116,11 @@ namespace JSIL.Dom.JSLibraries
             throw new RequiresJSILRuntimeException();
         }
 
+        [JSReplacement("$this._jqobject.trigger($eventName)")]
+        public void Trigger(string eventName)
+        {
+        }
+
         [JSReplacement("$this._jqobject.off($eventName)")] //Using off because it is preferred to unbind
         public void Unbind(string eventName)
         {

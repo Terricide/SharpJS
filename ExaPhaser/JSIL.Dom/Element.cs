@@ -237,7 +237,7 @@ namespace JSIL.Dom
 
             _element = element;
             _selfReference = this;
-            Style = new StyleCollection(this);
+            StyleCollection = new StyleCollection(this);
 
             if (!_creatingTemplate)
                 TemplateApplied();
@@ -311,10 +311,16 @@ namespace JSIL.Dom
             }
         }
 
-        public StyleCollection Style
+        public StyleCollection StyleCollection
         {
             get;
             private set;
+        }
+
+        public string Style
+        {
+            get { return GetAttributeValue("style"); }
+            set { SetAttributeValue("style", value); }
         }
 
         public string TextContent

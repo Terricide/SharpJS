@@ -159,6 +159,11 @@ namespace JSIL.Dom.JSLibraries
             jqObject.HTML(htmlString);
         }
 
+        public void Trigger(string eventName)
+        {
+            jqObject.Trigger(eventName);
+        }
+
         public string HTML()
         {
             return jqObject.HTML();
