@@ -13,7 +13,17 @@ namespace JSIL.Dom.JSLibraries
                 throw new InvalidOperationException("The browser does not support the HTML5 FileReader API!");
             }
             _fileReaderHandle = Verbatim.Expression("new FileReader()");
+            OnLoadAction = (o) =>
+            {
+                OnLoad(this, new FileLoadedEventArgs()
+                {
+                    Target = Verbatim.Expression("o.target"),
+                });
+            };
+            Verbatim.Expression("_fileReaderHandle.onload = OnLoadAction");
         }
+
+        private Action<object> OnLoadAction;
 
         private void OnLoad(object sender, FileLoadedEventArgs e)
         {
