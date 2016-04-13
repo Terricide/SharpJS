@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Dynamic;
 using JSIL.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
@@ -97,12 +96,12 @@ namespace ExaPhaser.WebForms.Controls
             }
         }
 
-        private void OnTextChanged(object sender, ExpandoObject e)
+        private void OnTextChanged(object sender, EventArgs e)
         {
             EventHandler handler = TextChanged;
             if (handler != null)
             {
-                handler(this, EventArgs.Empty);
+                handler(this, e);
             }
         }
 

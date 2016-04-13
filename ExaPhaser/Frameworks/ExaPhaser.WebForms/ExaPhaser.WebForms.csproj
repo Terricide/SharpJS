@@ -43,7 +43,6 @@
     <Compile Include="Control.cs" />
     <Compile Include="ControlCollection.cs" />
     <Compile Include="Controls\Button.cs" />
-    <Compile Include="Controls\DynamoObject.cs" />
     <Compile Include="Controls\ElementGroup.cs" />
     <Compile Include="Controls\Internal\HtmlElementCollection.cs" />
     <Compile Include="Controls\HtmlControl.cs" />

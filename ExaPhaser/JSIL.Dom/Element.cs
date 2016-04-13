@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using JSIL.Meta;
-using System.Dynamic;
 
 namespace JSIL.Dom
 {
@@ -13,15 +12,13 @@ namespace JSIL.Dom
     {
         #region Events
 
-        public event EventHandler<ExpandoObject> Change
+        public event EventHandler Change
         {
             add
             {
                 AddNativeHandler("change", e =>
                 {
-                    dynamic expandoArgs = new ExpandoObject();
-                    expandoArgs.Event = e;
-                    this._change(this, expandoArgs);
+                    this._change(this, new EventArgs());
                 });
                 _change += value;
             }
@@ -100,7 +97,7 @@ namespace JSIL.Dom
             }
         }
 
-        private event EventHandler<ExpandoObject> _change;
+        private event EventHandler _change;
 
         private event EventHandler _click;
 
