@@ -43,6 +43,9 @@
     <Compile Include="Control.cs" />
     <Compile Include="ControlCollection.cs" />
     <Compile Include="Controls\Button.cs" />
+    <Compile Include="Controls\ElementGroup.cs" />
+    <Compile Include="Controls\Internal\HtmlElementCollection.cs" />
+    <Compile Include="Controls\HtmlControl.cs" />
     <Compile Include="Controls\ImageView.cs" />
     <Compile Include="Controls\InputType.cs" />
     <Compile Include="Controls\PreformattedTextBlock.cs" />

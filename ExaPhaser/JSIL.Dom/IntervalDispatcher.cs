@@ -1,5 +1,5 @@
-﻿using JSIL.Meta;
-using System;
+﻿using System;
+using JSIL.Meta;
 
 namespace JSIL.Dom
 {

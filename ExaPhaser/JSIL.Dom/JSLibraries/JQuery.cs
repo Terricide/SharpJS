@@ -11,6 +11,11 @@ namespace JSIL.Dom.JSLibraries
         private static bool _isInitialized;
         private static object jq = null;
 
+        static JQuery()
+        {
+            Initialize();
+        }
+
         public static bool IsInitialized
         {
             get
@@ -47,10 +52,8 @@ namespace JSIL.Dom.JSLibraries
 
         public delegate void AJAXResponseCallback(string data, string status, object xhr);
 
-
         public static void Get(string url, AJAXResponseCallback callback)
         {
-
         }
     }
 }

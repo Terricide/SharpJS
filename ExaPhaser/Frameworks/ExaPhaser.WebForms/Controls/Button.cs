@@ -69,8 +69,7 @@ namespace ExaPhaser.WebForms.Controls
         public ICommand Command
         {
             get { return _command; }
-            set
-            { _command = value; }
+            set { _command = value; }
         }
 
         public object CommandParameter { get; set; }
