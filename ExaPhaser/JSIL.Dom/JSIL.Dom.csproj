@@ -51,6 +51,7 @@
     <Compile Include="Elements\HeaderElement.cs" />
     <Compile Include="Elements\IFrameElement.cs" />
     <Compile Include="Elements\ImageElement.cs" />
+    <Compile Include="Elements\FileUploadElement.cs" />
     <Compile Include="Elements\InputElement.cs" />
     <Compile Include="Elements\LinkElement.cs" />
     <Compile Include="Elements\TextAreaElement.cs" />
