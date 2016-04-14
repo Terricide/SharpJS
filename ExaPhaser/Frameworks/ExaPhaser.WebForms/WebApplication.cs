@@ -23,13 +23,16 @@ namespace ExaPhaser.WebForms
             }
         }
 
+        public static CSSUITheme CurrentTheme { get; private set; }
+
         public WebApplication(CSSUITheme theme)
         {
-            if (!JQuery.IsInitialized)
+            if (JSIL.Verbatim.Expression("0") == null)
             {
-                JQuery.Initialize();
+                throw new JSIL.RequiresJSILRuntimeException();
             }
             _uitheme = theme;
+            CurrentTheme = this.UITheme;
         }
 
         public void Run(WebForm webForm, string hostElementId)
@@ -41,7 +44,6 @@ namespace ExaPhaser.WebForms
         {
             CreateApplication(hostElement); //Create containers
             webForm.ContainerElement = _formHost.DOMRepresentation; //Set container to new element
-            webForm.ApplicationContext = this;
         }
 
         protected void CreateApplication(JQElement applicationHostElement)
@@ -60,6 +62,11 @@ namespace ExaPhaser.WebForms
                     formHostContainer.AddClass("row");
                     _formHost.AddClass("large-12");
                     _formHost.AddClass("columns");
+                    break;
+
+                case CSSFramework.PolyUI:
+                    formHostContainer.AddClass("grid");
+                    _formHost.AddClass("centered grid__col--12");
                     break;
             }
             formHostParent.Append(formHostContainer);

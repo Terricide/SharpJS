@@ -4,6 +4,7 @@
     {
         Foundation6,
         Bootstrap,
-        Materialize
+        Materialize,
+        PolyUI,
     }
 }

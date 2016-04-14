@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace JSIL.Dom
+namespace JSIL
 {
-    internal class RequiresJSILRuntimeException : Exception
+    public class RequiresJSILRuntimeException : Exception
     {
         public RequiresJSILRuntimeException() : base("This method must be run in the JSIL runtime.")
         {

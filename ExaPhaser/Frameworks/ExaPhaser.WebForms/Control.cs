@@ -41,8 +41,6 @@ namespace ExaPhaser.WebForms
 
         #region Properties
 
-        public WebApplication ApplicationContext { get; internal set; }
-
         public Element ContainerElement
         {
             get { return _container; }
@@ -152,7 +150,6 @@ namespace ExaPhaser.WebForms
             {
                 _parent = parentControl;
                 _subControls.ParentControl = _parent;
-                ApplicationContext = _parent.ApplicationContext;
             }
         }
 

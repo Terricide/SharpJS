@@ -15,10 +15,21 @@ namespace ExaPhaser.WebForms.Controls
 
         public Button() : base()
         {
-            InternalElement = new ButtonElement()
+            switch (WebApplication.CurrentTheme.Stylesheet)
             {
-                Class = "button",
-            };
+                case Themes.CSSFramework.Foundation6:
+                    InternalElement = new AnchorElement()
+                    {
+                        Class = "button",
+                    };
+                    break;
+                case Themes.CSSFramework.PolyUI:
+                    InternalElement = new AnchorElement()
+                    {
+                        Class = "btn--default",
+                    };
+                    break;
+            }
             InternalElement.Click += OnClick;
             PerformLayout();
         }
