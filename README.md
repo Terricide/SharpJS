@@ -1,22 +1,20 @@
-# ExaPhaser SharpJS
+# SharpJS
 A set of frameworks for writing HTML5/JavaScript applications with C#.
 
-ExaPhaser.SharpJS is completely free for personal use. By using this software, you agree
+<<<<<<< HEAD
+SharpJS is completely free for personal use. By using this software, you agree
 to abide by the terms of the license provided with this software, which can
 be found in the LICENSE.html file. Commercial use of this software is strictly
 prohibited, unless explicit permission is granted by me, the author of the software. Requests
-to use this commercially can be delivered by email. 
+to use this commercially can be delivered by email.
 
 The runtime is powered by JSIL, an application that translates compiled IL to JavaScript. The SharpJS frameworks are built on top of JSIL and provide classes for building web applications that run in the browser.
 
 Currently supported APIs and Frameworks:
 - **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks such as Foundation and Bootstrap.
-- **ExaPhaser.WebUI** - Another GUI framework for designing simple HTML/JS applications.
 - **JSIL.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime
 
-
 Acknowledgements
-========
 
 ExaPhaser.SharpJS depends upon or is based on the following open source projects:
 
