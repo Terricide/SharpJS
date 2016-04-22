@@ -7,7 +7,7 @@ namespace ExaPhaser.WebForms.Controls
     {
         #region Public Constructors
 
-        public TextArea() : base()
+        public TextArea()
         {
             InternalElement = new TextAreaElement();
             InternalElement.Change += OnTextChanged;
@@ -34,7 +34,7 @@ namespace ExaPhaser.WebForms.Controls
         {
             get { return GetText(); } //We are using GetText because the text
             set { SetText(value); }
-        }   
+        }
 
         public int Rows
         {
@@ -59,7 +59,7 @@ namespace ExaPhaser.WebForms.Controls
 
         private void OnEnterPressed(object sender, EventArgs e)
         {
-            EventHandler handler = EnterPressed;
+            var handler = EnterPressed;
             if (handler != null)
             {
                 handler(this, e);
@@ -68,7 +68,7 @@ namespace ExaPhaser.WebForms.Controls
 
         private void OnFocus(object sender, EventArgs e)
         {
-            EventHandler handler = Focus;
+            var handler = Focus;
             if (handler != null)
             {
                 handler(this, e);
@@ -77,7 +77,7 @@ namespace ExaPhaser.WebForms.Controls
 
         private void OnTextChanged(object sender, EventArgs e)
         {
-            EventHandler handler = TextChanged;
+            var handler = TextChanged;
             if (handler != null)
             {
                 handler(this, e);
