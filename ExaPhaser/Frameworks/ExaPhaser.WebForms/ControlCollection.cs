@@ -5,12 +5,11 @@ namespace ExaPhaser.WebForms
 {
     public class ControlCollection : Collection<Control>
     {
-        private List<Control> _controls;
-        private Control _parentControl;
+        private readonly List<Control> _controls;
 
         public ControlCollection(Control parentControl)
         {
-            _parentControl = parentControl;
+            ParentControl = parentControl;
             _controls = new List<Control>();
         }
 
@@ -18,18 +17,7 @@ namespace ExaPhaser.WebForms
         {
         }
 
-        public Control ParentControl
-        {
-            get
-            {
-                return _parentControl;
-            }
-
-            set
-            {
-                _parentControl = value;
-            }
-        }
+        public Control ParentControl { get; set; }
 
         protected override void ClearItems()
         {
@@ -41,20 +29,20 @@ namespace ExaPhaser.WebForms
         {
             base.InsertItem(index, control);
             if (control.Parent == null)
-                control.Parent = _parentControl;
+                control.Parent = ParentControl;
             else
             {
                 //Parent is not null, so set the outer container as well
-                control.ContainerElement = _parentControl.InternalElement;
+                control.ContainerElement = ParentControl.InternalElement;
             }
-            _parentControl.InternalElement.AppendChild(control.InternalElement); //Append internal element
+            ParentControl.InternalElement.AppendChild(control.InternalElement); //Append internal element
             _controls.Add(control);
         }
 
         protected override void RemoveItem(int index)
         {
             var control = base[index];
-            _parentControl.InternalElement.RemoveChild(control.InternalElement); //Remove internal element
+            ParentControl.InternalElement.RemoveChild(control.InternalElement); //Remove internal element
             _controls.Remove(control);
             base.RemoveItem(index);
         }

@@ -7,11 +7,11 @@ namespace ExaPhaser.WebForms.Controls
     {
         #region Public Constructors
 
-        public TextBox() : base()
+        public TextBox()
         {
-            InternalElement = new InputElement()
+            InternalElement = new InputElement
             {
-                Type = "text",
+                Type = "text"
             };
             InternalElement.Change += OnTextChanged;
             InternalJQElement.EnterKeyPressed += OnEnterPressed;
@@ -80,7 +80,7 @@ namespace ExaPhaser.WebForms.Controls
 
         private void OnEnterPressed(object sender, EventArgs e)
         {
-            EventHandler handler = EnterPressed;
+            var handler = EnterPressed;
             if (handler != null)
             {
                 handler(this, e);
@@ -89,7 +89,7 @@ namespace ExaPhaser.WebForms.Controls
 
         private void OnFocus(object sender, EventArgs e)
         {
-            EventHandler handler = Focus;
+            var handler = Focus;
             if (handler != null)
             {
                 handler(this, e);
@@ -98,7 +98,7 @@ namespace ExaPhaser.WebForms.Controls
 
         private void OnTextChanged(object sender, EventArgs e)
         {
-            EventHandler handler = TextChanged;
+            var handler = TextChanged;
             if (handler != null)
             {
                 handler(this, e);

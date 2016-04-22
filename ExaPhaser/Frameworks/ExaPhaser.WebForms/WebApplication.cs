@@ -1,4 +1,5 @@
 ﻿using ExaPhaser.WebForms.Themes;
+using JSIL;
 using JSIL.Dom;
 using JSIL.Dom.JSLibraries;
 using JSIL.Dom.JSLibraries.JQElements;
@@ -7,33 +8,21 @@ namespace ExaPhaser.WebForms
 {
     public class WebApplication
     {
-        private CSSUITheme _uitheme;
         private JQDivElement _formHost;
-
-        public CSSUITheme UITheme
-        {
-            get
-            {
-                return _uitheme;
-            }
-
-            set
-            {
-                _uitheme = value;
-            }
-        }
-
-        public static CSSUITheme CurrentTheme { get; private set; }
 
         public WebApplication(CSSUITheme theme)
         {
-            if (JSIL.Verbatim.Expression("0") == null)
+            if (Verbatim.Expression("0") == null)
             {
-                throw new JSIL.RequiresJSILRuntimeException();
+                throw new RequiresJSILRuntimeException();
             }
-            _uitheme = theme;
-            CurrentTheme = this.UITheme;
+            UITheme = theme;
+            CurrentTheme = UITheme;
         }
+
+        public CSSUITheme UITheme { get; set; }
+
+        public static CSSUITheme CurrentTheme { get; private set; }
 
         public void Run(WebForm webForm, string hostElementId)
         {
@@ -56,7 +45,7 @@ namespace ExaPhaser.WebForms
             var formHostContainer = new JQDivElement();
             _formHost = new JQDivElement();
             formHostContainer.Append(_formHost);
-            switch (_uitheme.Stylesheet)
+            switch (UITheme.Stylesheet)
             {
                 case CSSFramework.Foundation6:
                     formHostContainer.AddClass("row");

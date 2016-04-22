@@ -12,7 +12,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Constructors
 
-        public TextBlock() : base()
+        public TextBlock()
         {
             InternalElement = new ParagraphElement();
             PerformLayout();

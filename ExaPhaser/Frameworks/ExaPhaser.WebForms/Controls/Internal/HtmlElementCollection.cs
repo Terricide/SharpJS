@@ -7,13 +7,13 @@ namespace ExaPhaser.WebForms.Controls.Internal
     {
         #region Private Fields
 
-        private Element _parentElement;
+        private readonly Element _parentElement;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public HtmlElementCollection(Element parentElement) : base()
+        public HtmlElementCollection(Element parentElement)
         {
             _parentElement = parentElement;
         }

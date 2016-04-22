@@ -13,7 +13,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Constructors
 
-        public WebView() : base()
+        public WebView()
         {
             InternalElement = new IFrameElement();
             PerformLayout();

@@ -1,5 +1,4 @@
-﻿using System;
-using ExaPhaser.WebForms;
+﻿using ExaPhaser.WebForms;
 using ExaPhaser.WebForms.Controls;
 using JSIL.Dom;
 using JSIL.Dom.Styles;
@@ -38,9 +37,13 @@ namespace WebFormsTemplate
                     Text = "OK",
                     CommandParameter = null,
                     Command = new DelegateCommand(()=>JSLibrary.Alert("You clicked the button")),
-                }
+                },
+                new TextArea()
+                {
+                    Text = "Cool! TextArea is now supported!",
+                    Rows = 20,
+                },
             };
         }
-        
     }
 }

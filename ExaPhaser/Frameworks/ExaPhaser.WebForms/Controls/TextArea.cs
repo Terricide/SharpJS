@@ -34,7 +34,7 @@ namespace ExaPhaser.WebForms.Controls
         {
             get { return GetText(); } //We are using GetText because the text
             set { SetText(value); }
-        }
+        }   
 
         public int Rows
         {

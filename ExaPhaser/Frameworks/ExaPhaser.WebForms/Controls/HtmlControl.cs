@@ -7,9 +7,20 @@ namespace ExaPhaser.WebForms.Controls
     {
         #region Private Fields
 
-        private HtmlElementCollection _elements;
+        private readonly HtmlElementCollection _elements;
 
         #endregion Private Fields
+
+        #region Public Constructors
+
+        public HtmlControl()
+        {
+            InternalElement = new DivElement();
+            _elements = new HtmlElementCollection(InternalElement);
+            PerformLayout();
+        }
+
+        #endregion Public Constructors
 
         #region Public Properties
 
@@ -32,16 +43,5 @@ namespace ExaPhaser.WebForms.Controls
         }
 
         #endregion Private Methods
-
-        #region Public Constructors
-
-        public HtmlControl() : base()
-        {
-            InternalElement = new DivElement();
-            _elements = new HtmlElementCollection(InternalElement);
-            PerformLayout();
-        }
-
-        #endregion Public Constructors
     }
 }

@@ -11,23 +11,6 @@ namespace ExaPhaser.WebForms.Controls
 
         #endregion Private Fields
 
-        #region Public Properties
-
-        public FontStyle FontStyle
-        {
-            set
-            {
-                SetFontStyle(value);
-            }
-        }
-
-        public TextAlign TextAlign
-        {
-            set { JQuery.GetJQueryObject(InternalElement).CSS("text-align", value.ToString().ToLower()); }
-        }
-
-        #endregion Public Properties
-
         #region Private Methods
 
         private void SetFontStyle(FontStyle newFontStyle)
@@ -38,5 +21,19 @@ namespace ExaPhaser.WebForms.Controls
         }
 
         #endregion Private Methods
+
+        #region Public Properties
+
+        public FontStyle FontStyle
+        {
+            set { SetFontStyle(value); }
+        }
+
+        public TextAlign TextAlign
+        {
+            set { JQuery.GetJQueryObject(InternalElement).CSS("text-align", value.ToString().ToLower()); }
+        }
+
+        #endregion Public Properties
     }
 }

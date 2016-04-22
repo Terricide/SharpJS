@@ -9,7 +9,7 @@ namespace ExaPhaser.WebForms.Controls
         {
         }
 
-        public ElementGroup() : base()
+        public ElementGroup()
         {
         }
     }

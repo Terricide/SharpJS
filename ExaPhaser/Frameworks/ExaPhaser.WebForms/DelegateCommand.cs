@@ -6,7 +6,7 @@ namespace ExaPhaser.WebForms
     {
         #region Private Fields
 
-        private Action _executeAction;
+        private readonly Action _executeAction;
 
         #endregion Private Fields
 

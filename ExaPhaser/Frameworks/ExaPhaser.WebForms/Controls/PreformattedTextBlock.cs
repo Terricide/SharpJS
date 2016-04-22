@@ -24,7 +24,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Constructors
 
-        public PreformattedTextBlock() : base()
+        public PreformattedTextBlock()
         {
             InternalElement = new PreformattedElement();
             PerformLayout();

@@ -1,4 +1,5 @@
 ﻿using System;
+using ExaPhaser.WebForms.Themes;
 using JSIL.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
@@ -13,20 +14,20 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Constructors
 
-        public Button() : base()
+        public Button()
         {
             switch (WebApplication.CurrentTheme.Stylesheet)
             {
-                case Themes.CSSFramework.Foundation6:
-                    InternalElement = new AnchorElement()
+                case CSSFramework.Foundation6:
+                    InternalElement = new AnchorElement
                     {
-                        Class = "button",
+                        Class = "button"
                     };
                     break;
-                case Themes.CSSFramework.PolyUI:
-                    InternalElement = new AnchorElement()
+                case CSSFramework.PolyUI:
+                    InternalElement = new AnchorElement
                     {
-                        Class = "btn--default",
+                        Class = "btn--default"
                     };
                     break;
             }
@@ -35,12 +36,6 @@ namespace ExaPhaser.WebForms.Controls
         }
 
         #endregion Public Constructors
-
-        #region Public Events
-
-        public event EventHandler Click;
-
-        #endregion Public Events
 
         #region Public Properties
 
@@ -52,11 +47,17 @@ namespace ExaPhaser.WebForms.Controls
 
         #endregion Public Properties
 
+        #region Public Events
+
+        public event EventHandler Click;
+
+        #endregion Public Events
+
         #region Private Methods
 
         private void OnClick(object sender, EventArgs e)
         {
-            EventHandler handler = Click;
+            var handler = Click;
             if (handler != null)
             {
                 handler(this, e);
@@ -75,13 +76,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Command
 
-        private ICommand _command;
-
-        public ICommand Command
-        {
-            get { return _command; }
-            set { _command = value; }
-        }
+        public ICommand Command { get; set; }
 
         public object CommandParameter { get; set; }
 
