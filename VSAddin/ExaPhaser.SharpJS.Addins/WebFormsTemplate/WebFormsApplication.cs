@@ -10,7 +10,7 @@ namespace WebFormsTemplate
         public static void Main(string[] args)
         {
             //Run the application
-            new WebApplication(new CSSUITheme(CSSFramework.PolyUI)).Run(new MainForm(), "webform-container");
+            new WebApplication(new CSSUITheme(CSSFramework.Kubism)).Run(new MainForm(), "webform-container");
         }
     }
 }
