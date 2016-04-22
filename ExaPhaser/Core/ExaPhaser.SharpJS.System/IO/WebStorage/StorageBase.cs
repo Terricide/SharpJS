@@ -7,9 +7,17 @@ namespace System.IO.WebStorage
     {
         private object _storageHandle;
 
-        public StorageBase(string jsStorageHandle)
+        public StorageBase(WebStorageType storageType)
         {
-            this._storageHandle = Verbatim.Expression(jsStorageHandle);
+            switch (storageType)
+            {
+                case WebStorageType.LocalStorage:
+                    _storageHandle = Verbatim.Expression("window.localStorage");
+                    break;
+                case WebStorageType.SessionStorage:
+                    _storageHandle = Verbatim.Expression("window.sessionStorage");
+                    break;
+            }
         }
 
         [JSReplacement("$this._storageHandle.key($keyNum)")]
