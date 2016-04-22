@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
@@ -58,6 +59,9 @@
     <Compile Include="ComponentModel\PropertyChangedEventArgs.cs" />
     <Compile Include="ComponentModel\PropertyChangedEventHandler.cs" />
     <Compile Include="Diagnostics\Debug.cs" />
+    <Compile Include="IO\WebStorage\LocalStorage.cs" />
+    <Compile Include="IO\WebStorage\SessionStorage.cs" />
+    <Compile Include="IO\WebStorage\StorageBase.cs" />
     <Compile Include="System\Uri.cs" />
     <Compile Include="System\UriKind.cs" />
     <Compile Include="System\InternalWebRequestHelper.cs" />
@@ -86,6 +90,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
+      <Project>{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}</Project>
+      <Name>ExaPhaser.SharpJS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Meta\Meta.csproj">
       <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
       <Name>Meta</Name>

@@ -57,6 +57,10 @@ namespace ExaPhaser.WebForms
                     formHostContainer.AddClass("grid");
                     _formHost.AddClass("centered grid__col--12");
                     break;
+
+                case CSSFramework.Kubism:
+                    formHostContainer.AddClass("wrap");
+                    break;
             }
             formHostParent.Append(formHostContainer);
         }

@@ -24,10 +24,25 @@ namespace ExaPhaser.WebForms.Controls
                         Class = "button"
                     };
                     break;
+
                 case CSSFramework.PolyUI:
                     InternalElement = new AnchorElement
                     {
                         Class = "btn--default"
+                    };
+                    break;
+
+                case CSSFramework.Kubism:
+                    InternalElement = new AnchorElement
+                    {
+                        Class = "btn"
+                    };
+                    break;
+
+                default:
+                    InternalElement = new AnchorElement
+                    {
+                        Class = "button"
                     };
                     break;
             }
@@ -58,12 +73,8 @@ namespace ExaPhaser.WebForms.Controls
         private void OnClick(object sender, EventArgs e)
         {
             var handler = Click;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
-            if (Command != null)
-                Command.Execute(CommandParameter);
+            handler?.Invoke(this, e);
+            Command?.Execute(CommandParameter);
         }
 
         private void SetText(string value)

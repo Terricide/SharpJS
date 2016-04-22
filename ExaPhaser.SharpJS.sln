@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compiler", "Compiler\Compiler.csproj", "{C7BF4561-20DD-4E49-8B5A-4E8AF032C47A}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -85,6 +85,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExaPhaser.SharpJS.System.Xaml", "ExaPhaser\Core\ExaPhaser.SharpJS.System.Xaml\ExaPhaser.SharpJS.System.Xaml.csproj", "{98FEFB4F-9E72-41F6-80CB-4E0AB40D5D4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExaPhaser.SharpJS.System.Xml", "ExaPhaser\Core\ExaPhaser.SharpJS.System.Xml\ExaPhaser.SharpJS.System.Xml.csproj", "{C42C2147-F124-4698-B4BD-558D8546C431}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{0E591F65-553D-44B9-BCF4-81040193A4AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExaPhaser.SharpJS.Common", "ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj", "{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -314,6 +318,14 @@ Global
 		{C42C2147-F124-4698-B4BD-558D8546C431}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C42C2147-F124-4698-B4BD-558D8546C431}.Release|NoXNA.ActiveCfg = Release|Any CPU
 		{C42C2147-F124-4698-B4BD-558D8546C431}.Release|NoXNA.Build.0 = Release|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Debug|NoXNA.ActiveCfg = Debug|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Debug|NoXNA.Build.0 = Debug|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Release|NoXNA.ActiveCfg = Release|Any CPU
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Release|NoXNA.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -340,5 +352,7 @@ Global
 		{C0660A86-C3B3-4DB3-8646-E573EF8FC97D} = {AB9B2023-A4C1-4334-90F9-AD65B4CB56F9}
 		{98FEFB4F-9E72-41F6-80CB-4E0AB40D5D4E} = {AB9B2023-A4C1-4334-90F9-AD65B4CB56F9}
 		{C42C2147-F124-4698-B4BD-558D8546C431} = {AB9B2023-A4C1-4334-90F9-AD65B4CB56F9}
+		{0E591F65-553D-44B9-BCF4-81040193A4AD} = {15FAFE7C-EC2B-401E-8652-638CE7B13B56}
+		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72} = {0E591F65-553D-44B9-BCF4-81040193A4AD}
 	EndGlobalSection
 EndGlobal

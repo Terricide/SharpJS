@@ -5,6 +5,7 @@
         Foundation6,
         Bootstrap,
         Materialize,
-        PolyUI
+        PolyUI,
+        Kubism,
     }
 }
