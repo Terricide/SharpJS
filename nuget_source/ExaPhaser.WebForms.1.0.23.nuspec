@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ExaPhaser.WebForms</id>
-        <version>1.0.22</version>
+        <version>1.0.23</version>
         <title>ExaPhaser WebForms</title>
         <authors>ExaPhaser Industries,0xFireball</authors>
         <owners>ExaPhaser Industries,0xFireball</owners>
@@ -14,6 +14,7 @@
         <file src="build\ExaPhaser.WebForms.targets" target="build\ExaPhaser.WebForms.targets" />
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
+		<file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\FSharp.Compiler.CodeDom.dll" target="jsil\FSharp.Compiler.CodeDom.dll" />
         <file src="..\bin\FSharp.Compiler.CodeDom.xml" target="jsil\FSharp.Compiler.CodeDom.xml" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
