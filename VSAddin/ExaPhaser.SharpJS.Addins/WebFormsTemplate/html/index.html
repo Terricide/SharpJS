@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="index.css"></link>
     <link rel="stylesheet" href="browser.css"></link>
     <script src="jquery.min.js"></script>
 </head>
+
 <body onload="onLoad()">
     <script type="text/javascript">
         var jsilConfig = {
@@ -20,21 +22,26 @@
     <canvas id="canvas" width="0" height="0">
         <!--It will be resized by index.js-->
     </canvas><br>
+
     <!--Uncomment the log div to see Console output.-->
     <!--<div id="log"></div>-->
-    <div id="formhost"></div>
+    <div class="grid">
+        <div class="centered grid__col--12">
+            <div id="webform-container"></div>
+        </div>
+    </div>
 
     <script src="../Libraries/JSIL.js" type="text/javascript"></script>
     <script src="index.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         function runMain() {
-            //Hide canvas
-            var canvas = document.getElementById('canvas');
-            canvas.parentNode.removeChild(canvas);
+            $("#canvas").remove(); //remove the canvas
+            $('head').append('<link rel="stylesheet" href="polyui.css"></link>');
             var asm = JSIL.GetAssembly("WebFormsTemplate");
             JSIL.InvokeEntryPoint(asm, []);
         };
     </script>
 </body>
+
 </html>

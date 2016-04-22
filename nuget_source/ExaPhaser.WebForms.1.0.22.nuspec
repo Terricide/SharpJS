@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>ExaPhaser.WebForms</id>
+        <version>1.0.22</version>
+        <title>ExaPhaser WebForms</title>
+        <authors>ExaPhaser Industries,0xFireball</authors>
+        <owners>ExaPhaser Industries,0xFireball</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>ExaPhaser.WebForms core libraries.</description>
+        <copyright>(c) 2016, ExaPhaser Industries, 0xFireball</copyright>
+    </metadata>
+    <files>
+        <file src="build\ExaPhaser.WebForms.targets" target="build\ExaPhaser.WebForms.targets" />
+        <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
+        <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
+        <file src="..\bin\FSharp.Compiler.CodeDom.dll" target="jsil\FSharp.Compiler.CodeDom.dll" />
+        <file src="..\bin\FSharp.Compiler.CodeDom.xml" target="jsil\FSharp.Compiler.CodeDom.xml" />
+        <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
+        <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="jsil\ICSharpCode.NRefactory.CSharp.dll" />
+        <file src="..\bin\ICSharpCode.NRefactory.CSharp.xml" target="jsil\ICSharpCode.NRefactory.CSharp.xml" />
+        <file src="..\bin\ICSharpCode.NRefactory.dll" target="jsil\ICSharpCode.NRefactory.dll" />
+        <file src="..\bin\ICSharpCode.NRefactory.xml" target="jsil\ICSharpCode.NRefactory.xml" />
+        <file src="..\bin\icudt52.dll" target="jsil\icudt52.dll" />
+        <file src="..\bin\icuin52.dll" target="jsil\icuin52.dll" />
+        <file src="..\bin\icuuc52.dll" target="jsil\icuuc52.dll" />
+        <file src="..\bin\js.exe" target="jsil\js.exe" />
+        <file src="..\bin\JSIL.Analysis.DCE.dll" target="jsil\JSIL.Analysis.DCE.dll" />
+        <file src="..\bin\JSIL.dll" target="jsil\JSIL.dll" />
+        <file src="..\bin\JSIL.Dom.dll" target="jsil\JSIL.Dom.dll" />
+        <file src="..\bin\JSIL.ExpressionInterpreter.dll" target="jsil\JSIL.ExpressionInterpreter.dll" />
+        <file src="..\bin\JSIL.ExpressionInterpreter.dll.jsilconfig" target="jsil\JSIL.ExpressionInterpreter.dll.jsilconfig" />
+        <file src="..\bin\JSIL.Meta.dll" target="jsil\JSIL.Meta.dll" />
+        <file src="..\bin\JSIL.Meta.xml" target="jsil\JSIL.Meta.xml" />
+        <file src="..\bin\JSIL.Profiles.XNA4.dll" target="jsil\JSIL.Profiles.XNA4.dll" />
+        <file src="..\bin\JSIL.Proxies.4.0.dll" target="jsil\JSIL.Proxies.4.0.dll" />
+        <file src="..\bin\JSIL.Proxies.Bcl.dll" target="jsil\JSIL.Proxies.Bcl.dll" />
+        <file src="..\bin\JSIL.Proxies.XNA4.dll" target="jsil\JSIL.Proxies.XNA4.dll" />
+        <file src="..\bin\JSILc.AnyCPU.exe" target="jsil\JSILc.AnyCPU.exe" />
+        <file src="..\bin\JSILc.AnyCPU.exe.config" target="jsil\JSILc.AnyCPU.exe.config" />
+        <file src="..\bin\JSILc.AnyCPU.pdb" target="jsil\JSILc.AnyCPU.pdb" />
+        <file src="..\bin\JSILc.exe" target="jsil\JSILc.exe" />
+        <file src="..\bin\JSILc.exe.config" target="jsil\JSILc.exe.config" />
+        <file src="..\bin\libpng3.dll" target="jsil\libpng3.dll" />
+        <file src="..\bin\Mono.Cecil.dll" target="jsil\Mono.Cecil.dll" />
+        <file src="..\bin\Mono.Cecil.Mdb.dll" target="jsil\Mono.Cecil.Mdb.dll" />
+        <file src="..\bin\Mono.Cecil.Pdb.dll" target="jsil\Mono.Cecil.Pdb.dll" />
+        <file src="..\bin\mozglue.dll" target="jsil\mozglue.dll" />
+        <file src="..\bin\msvcp100.dll" target="jsil\msvcp100.dll" />
+        <file src="..\bin\msvcr100.dll" target="jsil\msvcr100.dll" />
+        <file src="..\bin\nss3.dll" target="jsil\nss3.dll" />
+        <file src="..\bin\nunit.framework.dll" target="jsil\nunit.framework.dll" />
+        <file src="..\bin\nunit.framework.xml" target="jsil\nunit.framework.xml" />
+        <file src="..\bin\pngquant.exe" target="jsil\pngquant.exe" />
+        <file src="..\bin\SimpleTests.dll" target="jsil\SimpleTests.dll" />
+        <file src="..\bin\SimpleTests.dll.config" target="jsil\SimpleTests.dll.config" />
+        <file src="..\bin\Tests.DCE.dll" target="jsil\Tests.DCE.dll" />
+        <file src="..\bin\Tests.DCE.dll.config" target="jsil\Tests.DCE.dll.config" />
+        <file src="..\bin\Tests.dll" target="jsil\Tests.dll" />
+        <file src="..\bin\Tests.dll.config" target="jsil\Tests.dll.config" />
+        <file src="..\bin\Xap.dll" target="jsil\Xap.dll" />
+        <file src="..\bin\zlib1.dll" target="jsil\zlib1.dll" />
+        <file src="..\bin\ExaPhaser.SharpJS.System.dll" target="lib\ExaPhaser.SharpJS.System.dll" />
+        <file src="..\bin\ExaPhaser.SharpJS.System.Xaml.dll" target="lib\ExaPhaser.SharpJS.System.Xaml.dll" />
+        <file src="..\bin\ExaPhaser.SharpJS.System.Xml.dll" target="lib\ExaPhaser.SharpJS.System.Xml.dll" />
+        <file src="..\bin\ExaPhaser.WebForms.dll" target="lib\ExaPhaser.WebForms.dll" />
+        <file src="..\bin\ICSharpCode.Decompiler.dll" target="lib\ICSharpCode.Decompiler.dll" />
+        <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
+        <file src="..\bin\ICSharpCode.NRefactory.dll" target="lib\ICSharpCode.NRefactory.dll" />
+        <file src="..\bin\JSIL.dll" target="lib\JSIL.dll" />
+        <file src="..\bin\JSIL.Dom.dll" target="lib\JSIL.Dom.dll" />
+        <file src="..\bin\JSIL.Meta.dll" target="lib\JSIL.Meta.dll" />
+        <file src="..\bin\Mono.Cecil.dll" target="lib\Mono.Cecil.dll" />
+        <file src="..\bin\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />
+        <file src="..\bin\Mono.Cecil.Pdb.dll" target="lib\Mono.Cecil.Pdb.dll" />
+        <file src="tools\install.ps1" target="tools\install.ps1" />
+    </files>
+</package>
