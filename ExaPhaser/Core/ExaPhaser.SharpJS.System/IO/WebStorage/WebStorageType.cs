@@ -3,6 +3,6 @@
     public enum WebStorageType
     {
         LocalStorage,
-        SessionStorage,
+        SessionStorage
     }
 }
