@@ -1,7 +1,6 @@
 # SharpJS
 A set of frameworks for writing HTML5/JavaScript applications with C#.
 
-<<<<<<< HEAD
 SharpJS is completely free for personal use. By using this software, you agree
 to abide by the terms of the license provided with this software, which can
 be found in the LICENSE.html file. Commercial use of this software is strictly
