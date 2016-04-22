@@ -1,5 +1,7 @@
 # ExaPhaser SharpJS
-A set of frameworks for writing HTML5/JavaScript applications with C#
+A set of frameworks for writing HTML5/JavaScript applications with C#.
+
+SharpJS is completely free for non-commercial use.
 
 The runtime is powered by JSIL, an application that translates compiled IL to JavaScript. The SharpJS frameworks are built on top of JSIL and provide classes for building web applications that run in the browser.
 
