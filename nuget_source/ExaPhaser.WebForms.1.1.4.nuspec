@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ExaPhaser.WebForms</id>
-        <version>1.1.2</version>
+        <version>1.1.4</version>
         <title>SharpJS ExaPhaser.WebForms</title>
         <authors>ExaPhaser Industries,0xFireball</authors>
         <owners>ExaPhaser Industries,0xFireball</owners>
@@ -10,7 +10,7 @@
         <iconUrl>https://exaphaser.github.io/SharpJS/sharpjs.ico</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>SharpJS - Create cross-platform HTML5/JS apps with C#/.NET</description>
-        <summary>SharpJS with ExaPhaser.WebForms core libraries. This is the freeware license version of SharpJS.</summary>
+        <summary>SharpJS with ExaPhaser.WebForms core libraries. This is the GPLv3-licensed version of SharpJS.</summary>
         <copyright>(c) 2016, ExaPhaser Industries, 0xFireball</copyright>
         <language>en-US</language>
         <tags>SharpJS, ExaPhaser, OmniBean, WebForms, ExaPhaser.WebForms, 0xFireball</tags>
