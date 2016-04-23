@@ -6,8 +6,8 @@
 *   License does not expire.
 *   Can be distributed in any number of projects
 *   Can be packaged as a code or binary product
-*   The licensee can modify and distribute modified source-code in derivative works as long as the specified attribution requirements in this license (See `2.7` below) are met, and that the modified source code is published under this same license and modifications are stated.
-*   Non-commercial use only (See `2.5` for details)
+*   The licensee can modify and distribute modified source-code in derivative works as long as the specified attribution requirements in this license (See `2.vii` below) are met, and that the modified source code is published under this same license and modifications are stated.
+*   Non-commercial use only (See `2.v` for details)
 *   Attribution to software creator must be made as specified:
 
     You must include this license in all software containing modified or verbatim copies of SharpJS, including the compiled output from this program. Additionally, you must put a visible note stating, "Created with SharpJS" with a link to the SharpJS Website (https://exaphaser.github.io/SharpJS/). To remove this requirement, please purchase a commercial-use license from [the official SharpJS store](http://exaphaser.binpress.com/product/sharpjs/3760#pricing).
@@ -31,7 +31,7 @@
 
     5.  **Non-Commercial:** Licensee may __NOT__ use Software for commercial purposes. for the purpose of this license, commercial purposes means that a 3rd party has to pay in order to access Software or that the Website that runs Software is behind a paywall. The Licensee will not have any proprietary rights in and to the Software. The Licensee acknowledges and agrees that the Licensor retains all copyrights and other proprietary rights in and to the Software. Use within the scope of this License is free of charge and no royalty or licensing fees shall be paid by the Licensee.
 
-    6.  **Including the Right to Create Derivative Works:** Licensee may create derivative works based on Software, including amending Software’s source code, modifying it, integrating it into a larger work or removing portions of Software, as long as the specified attribution requirements (See `2.7` below) are met, and that the modified source code is published under this same license and modifications are stated.
+    6.  **Including the Right to Create Derivative Works:** Licensee may create derivative works based on Software, including amending Software’s source code, modifying it, integrating it into a larger work or removing portions of Software, as long as the specified attribution requirements (See `2.vii` below) are met, and that the modified source code is published under this same license and modifications are stated.
 
     7.  **With Attribution Requirements:** You must include this license in all software containing modified or verbatim copies of SharpJS, including the compiled output from this program. Additionally, you must put a visible note stating, "Created with SharpJS" with a link to the SharpJS Website (https://exaphaser.github.io/SharpJS/). To remove this requirement, please purchase a commercial-use license from [the official SharpJS store](http://exaphaser.binpress.com/product/sharpjs/3760#pricing).
 
