@@ -2,19 +2,24 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ExaPhaser.WebForms</id>
-        <version>1.1.0</version>
-        <title>ExaPhaser WebForms</title>
+        <version>1.1.1</version>
+        <title>SharpJS ExaPhaser.WebForms</title>
         <authors>ExaPhaser Industries,0xFireball</authors>
         <owners>ExaPhaser Industries,0xFireball</owners>
-        <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>ExaPhaser.WebForms core libraries.</description>
+        <licenseUrl>https://github.com/exaphaser/SharpJS/blob/master/LICENSE.md</licenseUrl>
+        <iconUrl>https://exaphaser.github.io/SharpJS/sharpjs.ico</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>SharpJS - Create cross-platform HTML5/JS apps with C#/.NET</description>
+        <summary>SharpJS with ExaPhaser.WebForms core libraries. This is the freeware license version of SharpJS.</summary>
         <copyright>(c) 2016, ExaPhaser Industries, 0xFireball</copyright>
+        <language>en-US</language>
+        <tags>SharpJS, ExaPhaser, OmniBean, WebForms, ExaPhaser.WebForms, 0xFireball</tags>
     </metadata>
     <files>
         <file src="build\ExaPhaser.WebForms.targets" target="build\ExaPhaser.WebForms.targets" />
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
+        <file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
-		<file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\FSharp.Compiler.CodeDom.dll" target="jsil\FSharp.Compiler.CodeDom.dll" />
         <file src="..\bin\FSharp.Compiler.CodeDom.xml" target="jsil\FSharp.Compiler.CodeDom.xml" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
@@ -28,7 +33,6 @@
         <file src="..\bin\js.exe" target="jsil\js.exe" />
         <file src="..\bin\JSIL.Analysis.DCE.dll" target="jsil\JSIL.Analysis.DCE.dll" />
         <file src="..\bin\JSIL.dll" target="jsil\JSIL.dll" />
-        <file src="..\bin\SharpJS.Dom.dll" target="jsil\SharpJS.Dom.dll" />
         <file src="..\bin\JSIL.ExpressionInterpreter.dll" target="jsil\JSIL.ExpressionInterpreter.dll" />
         <file src="..\bin\JSIL.ExpressionInterpreter.dll.jsilconfig" target="jsil\JSIL.ExpressionInterpreter.dll.jsilconfig" />
         <file src="..\bin\JSIL.Meta.dll" target="jsil\JSIL.Meta.dll" />
@@ -53,6 +57,7 @@
         <file src="..\bin\nunit.framework.dll" target="jsil\nunit.framework.dll" />
         <file src="..\bin\nunit.framework.xml" target="jsil\nunit.framework.xml" />
         <file src="..\bin\pngquant.exe" target="jsil\pngquant.exe" />
+        <file src="..\bin\SharpJS.Dom.dll" target="jsil\SharpJS.Dom.dll" />
         <file src="..\bin\SimpleTests.dll" target="jsil\SimpleTests.dll" />
         <file src="..\bin\SimpleTests.dll.config" target="jsil\SimpleTests.dll.config" />
         <file src="..\bin\Tests.DCE.dll" target="jsil\Tests.DCE.dll" />
@@ -69,11 +74,11 @@
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.dll" target="lib\ICSharpCode.NRefactory.dll" />
         <file src="..\bin\JSIL.dll" target="lib\JSIL.dll" />
-        <file src="..\bin\SharpJS.Dom.dll" target="lib\SharpJS.Dom.dll" />
         <file src="..\bin\JSIL.Meta.dll" target="lib\JSIL.Meta.dll" />
         <file src="..\bin\Mono.Cecil.dll" target="lib\Mono.Cecil.dll" />
         <file src="..\bin\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />
         <file src="..\bin\Mono.Cecil.Pdb.dll" target="lib\Mono.Cecil.Pdb.dll" />
+        <file src="..\bin\SharpJS.Dom.dll" target="lib\SharpJS.Dom.dll" />
         <file src="tools\install.ps1" target="tools\install.ps1" />
     </files>
 </package>
