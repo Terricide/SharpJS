@@ -4,8 +4,6 @@
 
 *   License does not expire.
 *   Can be distributed in any number of projects
-*   Non-commercial use only
-*   Cannot modify source-code for any purpose (cannot create derivative works)
 *   Attribution to software creator must be made as specified:
 
     SharpJS is completely free for non-commercial use. However, I ask that you put a little note that says something like (built on the SharpJS framework)
