@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("JSIL.Dom")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("SharpJS.Dom")]
+[assembly: AssemblyDescription("SharpJS Library for manipulating DOM.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("JSIL.Dom")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCompany("ExaPhaser Industries")]
+[assembly: AssemblyProduct("SharpJS.Dom")]
+[assembly: AssemblyCopyright("Copyright ©  2016 ExaPhaser Industries")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
