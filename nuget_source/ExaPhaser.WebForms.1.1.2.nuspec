@@ -20,8 +20,6 @@
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
         <file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
-        <file src="..\bin\FSharp.Compiler.CodeDom.dll" target="jsil\FSharp.Compiler.CodeDom.dll" />
-        <file src="..\bin\FSharp.Compiler.CodeDom.xml" target="jsil\FSharp.Compiler.CodeDom.xml" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="jsil\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.xml" target="jsil\ICSharpCode.NRefactory.CSharp.xml" />
@@ -54,16 +52,8 @@
         <file src="..\bin\msvcp100.dll" target="jsil\msvcp100.dll" />
         <file src="..\bin\msvcr100.dll" target="jsil\msvcr100.dll" />
         <file src="..\bin\nss3.dll" target="jsil\nss3.dll" />
-        <file src="..\bin\nunit.framework.dll" target="jsil\nunit.framework.dll" />
-        <file src="..\bin\nunit.framework.xml" target="jsil\nunit.framework.xml" />
         <file src="..\bin\pngquant.exe" target="jsil\pngquant.exe" />
         <file src="..\bin\SharpJS.Dom.dll" target="jsil\SharpJS.Dom.dll" />
-        <file src="..\bin\SimpleTests.dll" target="jsil\SimpleTests.dll" />
-        <file src="..\bin\SimpleTests.dll.config" target="jsil\SimpleTests.dll.config" />
-        <file src="..\bin\Tests.DCE.dll" target="jsil\Tests.DCE.dll" />
-        <file src="..\bin\Tests.DCE.dll.config" target="jsil\Tests.DCE.dll.config" />
-        <file src="..\bin\Tests.dll" target="jsil\Tests.dll" />
-        <file src="..\bin\Tests.dll.config" target="jsil\Tests.dll.config" />
         <file src="..\bin\Xap.dll" target="jsil\Xap.dll" />
         <file src="..\bin\zlib1.dll" target="jsil\zlib1.dll" />
         <file src="..\bin\ExaPhaser.SharpJS.System.dll" target="lib\ExaPhaser.SharpJS.System.dll" />
