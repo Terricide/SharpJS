@@ -1,4 +1,4 @@
-﻿using JSIL.Dom.Styles;
+﻿using SharpJS.Dom.Styles;
 
 namespace ExaPhaser.WebForms
 {

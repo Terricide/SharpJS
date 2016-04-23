@@ -1,25 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using JSIL;
 using JSIL.Meta;
 
-namespace JSIL.Dom
+namespace SharpJS.Dom
 {
     /// <summary>
-    /// The base Element class for a managed C# interface to DOM.
+    ///     The base Element class for a managed C# interface to DOM.
     /// </summary>
     public class Element
     {
+        #region Private Fields
+
+        // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied
+        // in the constructor while creating elements from templates
+        private static bool _creatingTemplate;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        public Element(string type)
+            : this(Verbatim.Expression("document.createElement(type)"))
+        {
+        }
+
+        #endregion Public Constructors
+
+        #region Internal Constructors
+
+        internal Element(object element)
+        {
+            if (element == null)
+                throw new ArgumentNullException("element");
+
+            _element = element;
+            _selfReference = this;
+            StyleCollection = new StyleCollection(this);
+
+            if (!_creatingTemplate)
+                TemplateApplied();
+        }
+
+        #endregion Internal Constructors
+
+        #region Protected Constructors
+
+        protected Element()
+        {
+        }
+
+        #endregion Protected Constructors
+
+        #region Public Indexers
+
+        public string this[string index]
+        {
+            get { return GetAttributeValue(index) ?? string.Empty; }
+            set { SetAttributeValue(index, value); }
+        }
+
+        #endregion Public Indexers
+
         #region Events
 
         public event EventHandler Change
         {
             add
             {
-                AddNativeHandler("change", e =>
-                {
-                    this._change(this, new EventArgs());
-                });
+                AddNativeHandler("change", e => { _change(this, new EventArgs()); });
                 _change += value;
             }
             remove
@@ -33,10 +83,7 @@ namespace JSIL.Dom
         {
             add
             {
-                AddNativeHandler("click", e =>
-                {
-                    this._click(this, new EventArgs());
-                });
+                AddNativeHandler("click", e => { _click(this, new EventArgs()); });
                 _click += value;
             }
             remove
@@ -50,10 +97,7 @@ namespace JSIL.Dom
         {
             add
             {
-                AddNativeHandler("keydown", e =>
-                {
-                    this._keyDown(this, new EventArgs());
-                });
+                AddNativeHandler("keydown", e => { _keyDown(this, new EventArgs()); });
                 _keyDown += value;
             }
             remove
@@ -67,10 +111,7 @@ namespace JSIL.Dom
         {
             add
             {
-                AddNativeHandler("mouseout", e =>
-                {
-                    this._mouseOut(this, new EventArgs());
-                });
+                AddNativeHandler("mouseout", e => { _mouseOut(this, new EventArgs()); });
                 _mouseOut += value;
             }
             remove
@@ -84,10 +125,7 @@ namespace JSIL.Dom
         {
             add
             {
-                AddNativeHandler("mouseover", e =>
-                {
-                    this._mouseOver(this, new EventArgs());
-                });
+                AddNativeHandler("mouseover", e => { _mouseOver(this, new EventArgs()); });
                 _mouseOver += value;
             }
             remove
@@ -111,7 +149,7 @@ namespace JSIL.Dom
 
         #region Generic event handling
 
-        private Dictionary<object, Proxy> _handlers = new Dictionary<object, Proxy>();
+        private readonly Dictionary<object, Proxy> _handlers = new Dictionary<object, Proxy>();
 
         protected void AddNativeHandler(string eventName, Action<object> handler)
         {
@@ -155,7 +193,7 @@ namespace JSIL.Dom
         {
             #region Public Fields
 
-            public int Counter = 0;
+            public int Counter;
             public Action<object> Handler;
 
             #endregion Public Fields
@@ -173,31 +211,31 @@ namespace JSIL.Dom
 
         public bool Enabled
         {
-            get { return (bool)Verbatim.Expression("!this._element.disabled"); }
+            get { return (bool) Verbatim.Expression("!this._element.disabled"); }
             set { Verbatim.Expression("this._element.disabled = !value"); }
         }
 
         public double Height
         {
-            get { return (double)Verbatim.Expression("this._element.height"); }
+            get { return (double) Verbatim.Expression("this._element.height"); }
             set { Verbatim.Expression("this._element.height = value"); }
         }
 
         public string Id
         {
-            get { return (string)Verbatim.Expression("this._element.id"); }
+            get { return (string) Verbatim.Expression("this._element.id"); }
             set { Verbatim.Expression("this._element.id = value"); }
         }
 
         public string TagName
         {
-            get { return (string)Verbatim.Expression("this._element.tagName"); }
+            get { return (string) Verbatim.Expression("this._element.tagName"); }
             set { Verbatim.Expression("this._element.tagName = value"); }
         }
 
         public double Width
         {
-            get { return (double)Verbatim.Expression("this._element.width"); }
+            get { return (double) Verbatim.Expression("this._element.width"); }
             set { Verbatim.Expression("this._element.width = value"); }
         }
 
@@ -211,55 +249,15 @@ namespace JSIL.Dom
 
         #endregion Protected Fields
 
-        #region Private Fields
-
-        // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied
-        // in the constructor while creating elements from templates
-        private static bool _creatingTemplate = false;
-
-        #endregion Private Fields
-
-        #region Public Constructors
-
-        public Element(string type)
-            : this(Verbatim.Expression("document.createElement(type)"))
-        {
-        }
-
-        #endregion Public Constructors
-
-        #region Internal Constructors
-
-        internal Element(object element)
-        {
-            if (element == null)
-                throw new ArgumentNullException("element");
-
-            _element = element;
-            _selfReference = this;
-            StyleCollection = new StyleCollection(this);
-
-            if (!_creatingTemplate)
-                TemplateApplied();
-        }
-
-        #endregion Internal Constructors
-
-        #region Protected Constructors
-
-        protected Element()
-        {
-        }
-
-        #endregion Protected Constructors
-
         #region Public Properties
 
         public Element[] Children
         {
             get
             {
-                return ((object[])Verbatim.Expression("Array.prototype.slice.call(this._element.children)")).Select(elementObject => GetElement(elementObject)).ToArray();
+                return
+                    ((object[]) Verbatim.Expression("Array.prototype.slice.call(this._element.children)")).Select(
+                        elementObject => GetElement(elementObject)).ToArray();
             }
         }
 
@@ -270,52 +268,35 @@ namespace JSIL.Dom
 
         public Element FirstChild
         {
-            get
-            {
-                return GetElement(Verbatim.Expression("this._element.firstChild"));
-            }
+            get { return GetElement(Verbatim.Expression("this._element.firstChild")); }
         }
 
         public string InnerHtml
         {
-            get { return (string)Verbatim.Expression("this._element.innerHTML"); }
+            get { return (string) Verbatim.Expression("this._element.innerHTML"); }
             set { Verbatim.Expression("this._element.innerHTML = value"); }
         }
 
         public Element NextSibling
         {
-            get
-            {
-                return GetElement(Verbatim.Expression("this._element.nextSibling"));
-            }
+            get { return GetElement(Verbatim.Expression("this._element.nextSibling")); }
         }
 
         [JSReplacement("$this._element.nodeType")]
-        public int NodeType
-        {
-            get;
-            private set;
-        }
+        public int NodeType { get; private set; }
 
         public string OuterHtml
         {
-            get { return (string)Verbatim.Expression("this._element.outerHTML"); }
+            get { return (string) Verbatim.Expression("this._element.outerHTML"); }
             set { Verbatim.Expression("this._element.outerHTML = value"); }
         }
 
         public Element Parent
         {
-            get
-            {
-                return GetElement(Verbatim.Expression("this._element.parent"));
-            }
+            get { return GetElement(Verbatim.Expression("this._element.parent")); }
         }
 
-        public StyleCollection StyleCollection
-        {
-            get;
-            private set;
-        }
+        public StyleCollection StyleCollection { get; private set; }
 
         public string Style
         {
@@ -325,27 +306,11 @@ namespace JSIL.Dom
 
         public string TextContent
         {
-            get { return (string)Verbatim.Expression("this._element.textContent"); }
+            get { return (string) Verbatim.Expression("this._element.textContent"); }
             set { Verbatim.Expression("this._element.textContent = value"); }
         }
 
         #endregion Public Properties
-
-        #region Public Indexers
-
-        public string this[string index]
-        {
-            get
-            {
-                return GetAttributeValue(index) ?? String.Empty;
-            }
-            set
-            {
-                SetAttributeValue(index, value);
-            }
-        }
-
-        #endregion Public Indexers
 
         #region Public Methods
 
@@ -419,10 +384,7 @@ namespace JSIL.Dom
             {
                 throw new ArgumentOutOfRangeException("id");
             }
-            else
-            {
-                return element;
-            }
+            return element;
         }
 
         internal static Element GetElement(object handle)
@@ -432,16 +394,13 @@ namespace JSIL.Dom
                 return null;
             }
 
-            object element = Verbatim.Expression("handle._selfReference");
+            var element = Verbatim.Expression("handle._selfReference");
 
             if (element == null || element == Verbatim.Expression("undefined"))
             {
                 return new Element(handle);
             }
-            else
-            {
-                return (Element)element;
-            }
+            return (Element) element;
         }
 
         internal static T GetElement<T>(object handle) where T : Element, new()
@@ -451,16 +410,13 @@ namespace JSIL.Dom
                 return null;
             }
 
-            object element = Verbatim.Expression("handle._selfReference");
+            var element = Verbatim.Expression("handle._selfReference");
 
             if (element == null || element == Verbatim.Expression("undefined"))
             {
-                return (T)Activator.CreateInstance(typeof(T), new object[] { handle }); // equivalent to: new T(handle);
+                return (T) Activator.CreateInstance(typeof(T), handle); // equivalent to: new T(handle);
             }
-            else
-            {
-                return (T)element;
-            }
+            return (T) element;
         }
 
         #endregion Internal Methods

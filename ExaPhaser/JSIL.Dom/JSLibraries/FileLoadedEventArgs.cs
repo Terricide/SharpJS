@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JSIL.Dom.JSLibraries
+namespace SharpJS.Dom.JSLibraries
 {
     public class FileLoadedEventArgs : EventArgs
     {

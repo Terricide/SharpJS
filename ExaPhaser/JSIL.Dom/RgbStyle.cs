@@ -1,4 +1,4 @@
-namespace JSIL.Dom
+namespace SharpJS.Dom
 {
     public class RgbStyle : Style
     {

@@ -1,4 +1,4 @@
-﻿namespace JSIL.Dom.Elements
+﻿namespace SharpJS.Dom.Elements
 {
     /// <summary>
     ///     A managed wrapper for a DOM element representing a <div> node.

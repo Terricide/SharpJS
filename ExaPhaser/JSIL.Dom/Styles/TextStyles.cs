@@ -1,4 +1,4 @@
-﻿namespace JSIL.Dom.Styles
+﻿namespace SharpJS.Dom.Styles
 {
     public enum TextAlign
     {

@@ -1,7 +1,8 @@
 ﻿using System;
+using JSIL;
 using JSIL.Meta;
 
-namespace JSIL.Dom.JSLibraries
+namespace SharpJS.Dom.JSLibraries
 {
     public class FileReader
     {

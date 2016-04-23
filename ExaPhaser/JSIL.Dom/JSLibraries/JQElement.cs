@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace JSIL.Dom.JSLibraries
+namespace SharpJS.Dom.JSLibraries
 {
     /// <summary>
     ///     An enhanced version of the Element class that utilizes jQuery.

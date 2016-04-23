@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using JSIL.Dom;
+using SharpJS.Dom;
 
 namespace ExaPhaser.WebForms.Controls
 {

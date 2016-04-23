@@ -1,4 +1,4 @@
-﻿namespace JSIL.Dom.Elements
+﻿namespace SharpJS.Dom.Elements
 {
     public class InputElement : Element
     {

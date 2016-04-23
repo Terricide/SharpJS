@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JSIL;
 
-namespace JSIL.Dom
+namespace SharpJS.Dom
 {
     public class StyleCollection : IEnumerable<object>
     {

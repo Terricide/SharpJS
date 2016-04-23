@@ -1,5 +1,5 @@
-﻿using JSIL.Dom.JSLibraries;
-using JSIL.Dom.Styles;
+﻿using SharpJS.Dom.JSLibraries;
+using SharpJS.Dom.Styles;
 
 namespace ExaPhaser.WebForms.Controls
 {

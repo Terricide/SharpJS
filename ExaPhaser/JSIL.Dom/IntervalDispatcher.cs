@@ -1,7 +1,7 @@
 ﻿using System;
 using JSIL.Meta;
 
-namespace JSIL.Dom
+namespace SharpJS.Dom
 {
     public class IntervalDispatcher
     {

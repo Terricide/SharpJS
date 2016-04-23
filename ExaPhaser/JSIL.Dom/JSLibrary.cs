@@ -1,6 +1,7 @@
-﻿using JSIL.Meta;
+﻿using JSIL;
+using JSIL.Meta;
 
-namespace JSIL.Dom
+namespace SharpJS.Dom
 {
     public static class JSLibrary
     {

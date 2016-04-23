@@ -1,7 +1,8 @@
 ﻿using System.Linq;
+using JSIL;
 using JSIL.Meta;
 
-namespace JSIL.Dom
+namespace SharpJS.Dom
 {
     public class Document
     {

@@ -1,7 +1,8 @@
 ﻿using System;
+using JSIL;
 using JSIL.Meta;
 
-namespace JSIL.Dom.JSLibraries
+namespace SharpJS.Dom.JSLibraries
 {
     /// <summary>
     ///     A C# class that represents a jQuery object obtained by $(element) in JS. It redirects managed C# calls to jQuery.

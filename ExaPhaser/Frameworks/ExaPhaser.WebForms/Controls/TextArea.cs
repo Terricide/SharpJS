@@ -1,5 +1,5 @@
 ﻿using System;
-using JSIL.Dom.Elements;
+using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {

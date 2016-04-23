@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ExaPhaser.WebForms</id>
-        <version>1.0.23</version>
+        <version>1.1.0</version>
         <title>ExaPhaser WebForms</title>
         <authors>ExaPhaser Industries,0xFireball</authors>
         <owners>ExaPhaser Industries,0xFireball</owners>
@@ -28,7 +28,7 @@
         <file src="..\bin\js.exe" target="jsil\js.exe" />
         <file src="..\bin\JSIL.Analysis.DCE.dll" target="jsil\JSIL.Analysis.DCE.dll" />
         <file src="..\bin\JSIL.dll" target="jsil\JSIL.dll" />
-        <file src="..\bin\JSIL.Dom.dll" target="jsil\JSIL.Dom.dll" />
+        <file src="..\bin\SharpJS.Dom.dll" target="jsil\SharpJS.Dom.dll" />
         <file src="..\bin\JSIL.ExpressionInterpreter.dll" target="jsil\JSIL.ExpressionInterpreter.dll" />
         <file src="..\bin\JSIL.ExpressionInterpreter.dll.jsilconfig" target="jsil\JSIL.ExpressionInterpreter.dll.jsilconfig" />
         <file src="..\bin\JSIL.Meta.dll" target="jsil\JSIL.Meta.dll" />
@@ -69,7 +69,7 @@
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.dll" target="lib\ICSharpCode.NRefactory.dll" />
         <file src="..\bin\JSIL.dll" target="lib\JSIL.dll" />
-        <file src="..\bin\JSIL.Dom.dll" target="lib\JSIL.Dom.dll" />
+        <file src="..\bin\SharpJS.Dom.dll" target="lib\SharpJS.Dom.dll" />
         <file src="..\bin\JSIL.Meta.dll" target="lib\JSIL.Meta.dll" />
         <file src="..\bin\Mono.Cecil.dll" target="lib\Mono.Cecil.dll" />
         <file src="..\bin\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />

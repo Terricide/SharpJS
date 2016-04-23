@@ -1,4 +1,4 @@
-﻿namespace JSIL.Dom.Attributes
+﻿namespace SharpJS.Dom.Attributes
 {
     public enum InputType
     {

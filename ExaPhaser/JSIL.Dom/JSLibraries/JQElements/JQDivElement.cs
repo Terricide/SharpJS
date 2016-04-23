@@ -1,4 +1,4 @@
-﻿namespace JSIL.Dom.JSLibraries.JQElements
+﻿namespace SharpJS.Dom.JSLibraries.JQElements
 {
     /// <summary>
     ///     A managed wrapper for a DOM element representing a <div> node, with jQuery functionality enabled.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using JSIL.Dom;
-using JSIL.Dom.JSLibraries;
+using SharpJS.Dom;
+using SharpJS.Dom.JSLibraries;
 
 namespace ExaPhaser.WebForms
 {
