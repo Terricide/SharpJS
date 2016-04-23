@@ -7,7 +7,7 @@
 *   Attribution to software creator must be made as specified:
 
     SharpJS is completely free for non-commercial use. However, I ask that you put a little note that says something like (built on the SharpJS framework)
-
+*   You MAY create derivative works based on this software as long as you 1) include this license, 2) publish the source code and state modifications to this work, and 3) Are NOT using it for any kind of commercial use.
 *   Parts of the software are provided under separate licenses, as follows:
 
     JSIL.Hacks MIT/X11 (Markus Johnson) JSIL: MIT/X11 (K. Gadd) Mono.Cecil: MIT/X11 (thanks to Jb Evain) ICSharpCode.Decompiler: MIT/X11 (developed as part of ILSpy) Mono.Options: MIT/X11 (Jonathan Pryor & Federico Di Gregorio) printStackTrace: Public Domain (Eric Wendelin and others) XAPParse: Microsoft Public License/Ms-PL (Andy Patrick) webgl-2d: MIT (Corban Brook, Bobby Richter, Charles J. Cliffe, and others) S3TC DXT1 / DXT5 Texture Decompression Routines (Benjamin Dobell)
