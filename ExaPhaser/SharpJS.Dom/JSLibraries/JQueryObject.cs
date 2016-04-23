@@ -13,7 +13,7 @@ namespace SharpJS.Dom.JSLibraries
 
         internal JQueryObject(object handle)
         {
-            JavaScriptJQueryHandle = handle;
+            _jqobject = handle;
         }
 
         #endregion Internal Constructors
@@ -35,7 +35,7 @@ namespace SharpJS.Dom.JSLibraries
             get { return new Element(GetDomHandle()); }
         }
 
-        public object JavaScriptJQueryHandle { get; set; }
+        public object _jqobject { get; set; }
 
         #endregion Public Properties
 
@@ -52,7 +52,7 @@ namespace SharpJS.Dom.JSLibraries
         {
         }
 
-        [JSReplacement("$this._jqobject.append($jqElement.JQueryObjectHandle.JavaScriptJQueryHandle)")]
+        [JSReplacement("$this._jqobject.append($jqElement.JQueryObjectHandle._jqobject)")]
         public void Append(JqElement jqElement)
         {
         }

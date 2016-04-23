@@ -25,8 +25,7 @@ namespace SharpJS.Dom.JSLibraries
             var jQueryHandle = Verbatim.Expression("jQuery.noConflict(true)");
             if (jQueryHandle == null)
             {
-                throw new InvalidOperationException(
-                    "Cannot use jQuery with SharpJS if the jQuery library has not been loaded.");
+                throw new InvalidOperationException("Cannot use jQuery with SharpJS if the jQuery library has not been loaded.");
             }
             //JQuery successfully initialized
             IsInitialized = true;
@@ -38,7 +37,7 @@ namespace SharpJS.Dom.JSLibraries
             return new JQueryObject(GetJQueryRawObject(_jq, element.DOMRepresentation));
         }
 
-        [JSReplacement("$_jq($rawDOMobject)")]
+        [JSReplacement("$_jq($rawDoMobject)")]
         private static object GetJQueryRawObject(object _jq, object rawDoMobject)
         {
             throw new RequiresJSILRuntimeException();

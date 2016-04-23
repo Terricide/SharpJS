@@ -1,10 +1,10 @@
 /*
  */
 using System;
-using JSIL.Dom;
-using JSIL.Dom.Elements;
-using JSIL.Dom.JSLibraries;
-using JSIL.Dom.Styles;
+using SharpJS.Dom;
+using SharpJS.Dom.Elements;
+using SharpJS.Dom.JSLibraries;
+using SharpJS.Dom.Styles;
 using ExaPhaser.WebForms;
 using ExaPhaser.WebForms.Controls;
 using System.IO.WebStorage;
@@ -64,7 +64,7 @@ namespace webformsttest
 		public override void UpdateContent()
 		{
 			base.UpdateContent();
-			var uploadBtn = new JQElement(Document.GetElementById("fileuploadbtn"));
+			var uploadBtn = new JqElement(Document.GetElementById("fileuploadbtn"));
 			uploadBtn.BindEventListener("change", (object o) => 
 			{
             	object[] files = (object[])JSLibrary.ObjectToArray(JSIL.Verbatim.Expression("o.target.files"));
@@ -79,7 +79,7 @@ namespace webformsttest
 		}
 		void UploadButtonClicked()
 		{
-			var uploadBtn = new JQElement(Document.GetElementById("fileuploadbtn"));
+			var uploadBtn = new JqElement(Document.GetElementById("fileuploadbtn"));
 			uploadBtn.Trigger("click");
 		}
 	}

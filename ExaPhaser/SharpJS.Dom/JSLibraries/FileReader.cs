@@ -23,7 +23,7 @@ namespace SharpJS.Dom.JSLibraries
                     Target = Verbatim.Expression("o.target")
                 });
             };
-            Verbatim.Expression("this._fileReaderHandle.onload = this.OnLoadAction");
+            Verbatim.Expression("this._fileReaderHandle.onload = this._onLoadAction");
         }
 
         #endregion Public Constructors
@@ -39,10 +39,7 @@ namespace SharpJS.Dom.JSLibraries
         private void OnLoad(object sender, FileLoadedEventArgs e)
         {
             var handler = Load;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+            handler?.Invoke(this, e);
         }
 
         #endregion Private Methods

@@ -211,31 +211,31 @@ namespace SharpJS.Dom
 
         public bool Enabled
         {
-            get { return (bool) Verbatim.Expression("!this._element.disabled"); }
+            get { return (bool)Verbatim.Expression("!this._element.disabled"); }
             set { Verbatim.Expression("this._element.disabled = !value"); }
         }
 
         public double Height
         {
-            get { return (double) Verbatim.Expression("this._element.height"); }
+            get { return (double)Verbatim.Expression("this._element.height"); }
             set { Verbatim.Expression("this._element.height = value"); }
         }
 
         public string Id
         {
-            get { return (string) Verbatim.Expression("this._element.id"); }
+            get { return (string)Verbatim.Expression("this._element.id"); }
             set { Verbatim.Expression("this._element.id = value"); }
         }
 
         public string TagName
         {
-            get { return (string) Verbatim.Expression("this._element.tagName"); }
+            get { return (string)Verbatim.Expression("this._element.tagName"); }
             set { Verbatim.Expression("this._element.tagName = value"); }
         }
 
         public double Width
         {
-            get { return (double) Verbatim.Expression("this._element.width"); }
+            get { return (double)Verbatim.Expression("this._element.width"); }
             set { Verbatim.Expression("this._element.width = value"); }
         }
 
@@ -256,7 +256,7 @@ namespace SharpJS.Dom
             get
             {
                 return
-                    ((object[]) Verbatim.Expression("Array.prototype.slice.call(this._element.children)")).Select(
+                    ((object[])Verbatim.Expression("Array.prototype.slice.call(this._element.children)")).Select(
                         elementObject => GetElement(elementObject)).ToArray();
             }
         }
@@ -273,7 +273,7 @@ namespace SharpJS.Dom
 
         public string InnerHtml
         {
-            get { return (string) Verbatim.Expression("this._element.innerHTML"); }
+            get { return (string)Verbatim.Expression("this._element.innerHTML"); }
             set { Verbatim.Expression("this._element.innerHTML = value"); }
         }
 
@@ -287,7 +287,7 @@ namespace SharpJS.Dom
 
         public string OuterHtml
         {
-            get { return (string) Verbatim.Expression("this._element.outerHTML"); }
+            get { return (string)Verbatim.Expression("this._element.outerHTML"); }
             set { Verbatim.Expression("this._element.outerHTML = value"); }
         }
 
@@ -306,24 +306,13 @@ namespace SharpJS.Dom
 
         public string TextContent
         {
-            get { return (string) Verbatim.Expression("this._element.textContent"); }
+            get { return (string)Verbatim.Expression("this._element.textContent"); }
             set { Verbatim.Expression("this._element.textContent = value"); }
         }
 
         #endregion Public Properties
 
         #region Public Methods
-
-        public static T CreateFromTemplate<T>(string templateId) where T : Element, new()
-        {
-            _creatingTemplate = true;
-            var element = new T();
-            _creatingTemplate = false;
-            element._element = Verbatim.Expression("document.getElementById(templateId)");
-            element._selfReference = element;
-            element.TemplateApplied();
-            return element;
-        }
 
         [JSReplacement("$this._element.className += \" \" + $className")]
         public virtual void AddClass(string className)
@@ -400,7 +389,7 @@ namespace SharpJS.Dom
             {
                 return new Element(handle);
             }
-            return (Element) element;
+            return (Element)element;
         }
 
         internal static T GetElement<T>(object handle) where T : Element, new()
@@ -414,9 +403,9 @@ namespace SharpJS.Dom
 
             if (element == null || element == Verbatim.Expression("undefined"))
             {
-                return (T) Activator.CreateInstance(typeof(T), handle); // equivalent to: new T(handle);
+                return (T)Activator.CreateInstance(typeof(T), handle); // equivalent to: new T(handle);
             }
-            return (T) element;
+            return (T)element;
         }
 
         #endregion Internal Methods
