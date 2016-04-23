@@ -692,6 +692,7 @@ namespace JSIL.Compiler {
 
         public static void Main (string[] arguments) {
             try {
+                Console.WriteLine("==== SharpJS Compiler ====");
                 InternalMain(arguments);
             } catch (Exception exc) {
                 Console.WriteLine(exc);

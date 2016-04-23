@@ -89,9 +89,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="jsil.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>

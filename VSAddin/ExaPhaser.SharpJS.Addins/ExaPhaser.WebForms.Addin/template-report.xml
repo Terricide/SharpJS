@@ -2,7 +2,7 @@
 <TemplateReport>
   <ItemTemplates />
   <ProjectTemplates>
-    <ProjectTemplate Path="..\WebFormsTemplate\_Definitions\_project.vstemplate.xml" Name="ExaPhaser.WebForms Application" Description="An application that is built on ExaPhaser.WebForms, and will be compiled to pure JavaScript/HTML5" ProjectType="CSharp" ProjectSubType="" />
+    <ProjectTemplate Path="..\WebFormsTemplate\_Definitions\_project.vstemplate.xml" Name="ExaPhaser.WebForms Application" Description="A SharpJS application that is built with an ExaPhaser.WebForms GUI, and will be compiled to pure JavaScript/HTML5" ProjectType="CSharp" ProjectSubType="" />
   </ProjectTemplates>
   <Snippets />
 </TemplateReport>
