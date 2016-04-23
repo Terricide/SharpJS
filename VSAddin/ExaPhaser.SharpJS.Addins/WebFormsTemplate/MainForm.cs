@@ -1,7 +1,7 @@
 ﻿using ExaPhaser.WebForms;
 using ExaPhaser.WebForms.Controls;
-using JSIL.Dom;
-using JSIL.Dom.Styles;
+using SharpJS.Dom;
+using SharpJS.Dom.Styles;
 
 namespace WebFormsTemplate
 {
