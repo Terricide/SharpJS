@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace JSIL.Dom
@@ -12,20 +13,20 @@ namespace JSIL.Dom
             _parent = element;
         }
 
-        //[JSReplacement("$this._parent._element.style[$name] = $value")]
-        public void Add(string name, string value)
-        {
-            Verbatim.Expression("this._parent._element.style[name] = value");
-        }
-
         public IEnumerator<object> GetEnumerator()
         {
             throw new NotImplementedException();
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
+        }
+
+        //[JSReplacement("$this._parent._element.style[$name] = $value")]
+        public void Add(string name, string value)
+        {
+            Verbatim.Expression("this._parent._element.style[name] = value");
         }
     }
 }

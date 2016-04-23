@@ -8,7 +8,7 @@
 
         public string HREF
         {
-            get { return (string)this["href"]; }
+            get { return this["href"]; }
             set { this["href"] = value; }
         }
     }

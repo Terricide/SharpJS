@@ -4,13 +4,11 @@ using JSIL.Meta;
 namespace JSIL.Dom.JSLibraries
 {
     /// <summary>
-    /// A C# class that represents a jQuery object obtained by $(element) in JS. It redirects managed C# calls to jQuery.
+    ///     A C# class that represents a jQuery object obtained by $(element) in JS. It redirects managed C# calls to jQuery.
     /// </summary>
     public class JQueryObject
     {
         #region Private Fields
-
-        private object _jqobject;
 
         #endregion Private Fields
 
@@ -18,33 +16,29 @@ namespace JSIL.Dom.JSLibraries
 
         internal JQueryObject(object handle)
         {
-            _jqobject = handle;
+            JavaScriptJQueryHandle = handle;
         }
 
         #endregion Internal Constructors
+
+        #region Private Methods
+
+        [JSReplacement("$this._jqobject[0]")]
+        private object GetDOMHandle()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        #endregion Private Methods
 
         #region Public Properties
 
         public Element DOMRepresentation
         {
-            get
-            {
-                return new Element(GetDOMHandle());
-            }
+            get { return new Element(GetDOMHandle()); }
         }
 
-        public object JavaScriptJQueryHandle
-        {
-            get
-            {
-                return _jqobject;
-            }
-
-            set
-            {
-                _jqobject = value;
-            }
-        }
+        public object JavaScriptJQueryHandle { get; set; }
 
         #endregion Public Properties
 
@@ -127,15 +121,5 @@ namespace JSIL.Dom.JSLibraries
         }
 
         #endregion Public Methods
-
-        #region Private Methods
-
-        [JSReplacement("$this._jqobject[0]")]
-        private object GetDOMHandle()
-        {
-            throw new RequiresJSILRuntimeException();
-        }
-
-        #endregion Private Methods
     }
 }

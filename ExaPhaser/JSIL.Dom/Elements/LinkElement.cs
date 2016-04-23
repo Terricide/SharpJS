@@ -8,13 +8,13 @@
 
         public string HREF
         {
-            get { return (string)this["href"]; }
+            get { return this["href"]; }
             set { this["href"] = value; }
         }
 
         public string Relation
         {
-            get { return (string)this["rel"]; }
+            get { return this["rel"]; }
             set { this["rel"] = value; }
         }
     }

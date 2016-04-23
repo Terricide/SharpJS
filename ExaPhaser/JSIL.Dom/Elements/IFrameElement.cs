@@ -8,7 +8,7 @@
 
         public string Source
         {
-            get { return (string)this["src"]; }
+            get { return this["src"]; }
             set { this["src"] = value; }
         }
     }

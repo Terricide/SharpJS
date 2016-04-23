@@ -4,39 +4,32 @@ using JSIL.Meta;
 namespace JSIL.Dom.JSLibraries
 {
     /// <summary>
-    /// A static jQuery class wrapping basic jQuery functionality, and providing access to static jQuery functions.
+    ///     A static jQuery class wrapping basic jQuery functionality, and providing access to static jQuery functions.
     /// </summary>
     public static class JQuery
     {
-        private static bool _isInitialized;
-        private static object jq = null;
+        public delegate void AJAXResponseCallback(string data, string status, object xhr);
+
+        private static object jq;
 
         static JQuery()
         {
             Initialize();
         }
 
-        public static bool IsInitialized
-        {
-            get
-            {
-                return _isInitialized;
-            }
-        }
+        public static bool IsInitialized { get; private set; }
 
         public static void Initialize()
         {
-            object jQueryHandle = Verbatim.Expression("jQuery.noConflict(true)");
+            var jQueryHandle = Verbatim.Expression("jQuery.noConflict(true)");
             if (jQueryHandle == null)
             {
-                throw new InvalidOperationException("Cannot use jQuery with SharpJS if the jQuery library has not been loaded.");
+                throw new InvalidOperationException(
+                    "Cannot use jQuery with SharpJS if the jQuery library has not been loaded.");
             }
-            else
-            {
-                //JQuery successfully initialized
-                _isInitialized = true;
-                jq = jQueryHandle;
-            }
+            //JQuery successfully initialized
+            IsInitialized = true;
+            jq = jQueryHandle;
         }
 
         public static JQueryObject GetJQueryObject(Element element)
@@ -49,8 +42,6 @@ namespace JSIL.Dom.JSLibraries
         {
             throw new RequiresJSILRuntimeException();
         }
-
-        public delegate void AJAXResponseCallback(string data, string status, object xhr);
 
         public static void Get(string url, AJAXResponseCallback callback)
         {

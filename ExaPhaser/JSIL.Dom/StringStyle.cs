@@ -2,7 +2,7 @@
 {
     public class StringStyle : Style
     {
-        private string s;
+        private readonly string s;
 
         public StringStyle(string s)
         {

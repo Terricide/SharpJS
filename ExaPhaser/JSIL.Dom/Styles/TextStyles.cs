@@ -5,6 +5,6 @@
         Left,
         Right,
         Center,
-        Justify,
+        Justify
     }
 }

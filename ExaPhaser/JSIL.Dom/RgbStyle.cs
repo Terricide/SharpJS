@@ -2,10 +2,6 @@ namespace JSIL.Dom
 {
     public class RgbStyle : Style
     {
-        public byte Red { get; set; }
-        public byte Green { get; set; }
-        public byte Blue { get; set; }
-
         public RgbStyle()
         {
         }
@@ -16,6 +12,10 @@ namespace JSIL.Dom
             Green = green;
             Blue = blue;
         }
+
+        public byte Red { get; set; }
+        public byte Green { get; set; }
+        public byte Blue { get; set; }
 
         public override string ToString()
         {

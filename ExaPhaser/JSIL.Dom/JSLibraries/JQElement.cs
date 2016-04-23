@@ -3,13 +3,11 @@
 namespace JSIL.Dom.JSLibraries
 {
     /// <summary>
-    /// An enhanced version of the Element class that utilizes jQuery.
+    ///     An enhanced version of the Element class that utilizes jQuery.
     /// </summary>
     public class JQElement
     {
         #region Private Fields
-
-        private JQueryObject jqObject;
 
         #endregion Private Fields
 
@@ -17,7 +15,7 @@ namespace JSIL.Dom.JSLibraries
 
         public JQElement(Element element)
         {
-            jqObject = JQuery.GetJQueryObject(element);
+            JQueryObjectHandle = JQuery.GetJQueryObject(element);
         }
 
         #endregion Public Constructors
@@ -26,24 +24,10 @@ namespace JSIL.Dom.JSLibraries
 
         public Element DOMRepresentation
         {
-            get
-            {
-                return jqObject.DOMRepresentation;
-            }
+            get { return JQueryObjectHandle.DOMRepresentation; }
         }
 
-        public JQueryObject JQueryObjectHandle
-        {
-            get
-            {
-                return jqObject;
-            }
-
-            set
-            {
-                jqObject = value;
-            }
-        }
+        public JQueryObject JQueryObjectHandle { get; set; }
 
         #endregion Public Properties
 
@@ -53,10 +37,7 @@ namespace JSIL.Dom.JSLibraries
         {
             add
             {
-                BindEventListener("click", e =>
-                {
-                    this._click(this, new EventArgs());
-                });
+                BindEventListener("click", e => { _click(this, new EventArgs()); });
                 _click += value;
             }
             remove
@@ -70,10 +51,7 @@ namespace JSIL.Dom.JSLibraries
         {
             add
             {
-                BindEventListener("change", e =>
-                {
-                    this._enterKeyPressed(this, new EventArgs());
-                });
+                BindEventListener("change", e => { _enterKeyPressed(this, new EventArgs()); });
                 _enterKeyPressed += value;
             }
             remove
@@ -87,10 +65,7 @@ namespace JSIL.Dom.JSLibraries
         {
             add
             {
-                BindEventListener("focus", e =>
-                {
-                    this._focus(this, new EventArgs());
-                });
+                BindEventListener("focus", e => { _focus(this, new EventArgs()); });
                 _focus += value;
             }
             remove
@@ -116,67 +91,67 @@ namespace JSIL.Dom.JSLibraries
 
         public void AddClass(string className)
         {
-            jqObject.AddClass(className);
+            JQueryObjectHandle.AddClass(className);
         }
 
         public void Append(string elementHtml)
         {
-            jqObject.Append(elementHtml);
+            JQueryObjectHandle.Append(elementHtml);
         }
 
         public void Append(JQElement jqElement)
         {
-            jqObject.Append(jqElement);
+            JQueryObjectHandle.Append(jqElement);
         }
 
         public void BindEventListener(string eventName, Action<object> handler)
         {
-            jqObject.Bind(eventName, handler);
+            JQueryObjectHandle.Bind(eventName, handler);
         }
 
         public object Contents()
         {
-            return jqObject.Contents();
+            return JQueryObjectHandle.Contents();
         }
 
         public void CSS(string name, string value)
         {
-            jqObject.CSS(name, value);
+            JQueryObjectHandle.CSS(name, value);
         }
 
         public string CSS(string name)
         {
-            return jqObject.CSS(name);
+            return JQueryObjectHandle.CSS(name);
         }
 
         public object Find(string selector)
         {
-            return jqObject.Find(selector);
+            return JQueryObjectHandle.Find(selector);
         }
 
         public void HTML(string htmlString)
         {
-            jqObject.HTML(htmlString);
+            JQueryObjectHandle.HTML(htmlString);
         }
 
         public void Trigger(string eventName)
         {
-            jqObject.Trigger(eventName);
+            JQueryObjectHandle.Trigger(eventName);
         }
 
         public string HTML()
         {
-            return jqObject.HTML();
+            return JQueryObjectHandle.HTML();
         }
 
         public void RemoveClass(string className)
         {
-            jqObject.RemoveClass(className);
+            JQueryObjectHandle.RemoveClass(className);
         }
 
         public void UnbindEventListener(string eventName)
         {
-            jqObject.Unbind(eventName);
+            JQueryObjectHandle.Unbind(eventName);
         }
 
         #endregion Public Methods

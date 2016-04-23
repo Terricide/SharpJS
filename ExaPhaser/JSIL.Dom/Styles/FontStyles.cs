@@ -5,6 +5,6 @@
         Normal,
         Bold,
         Bolder,
-        Lighter,
+        Lighter
     }
 }

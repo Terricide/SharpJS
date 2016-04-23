@@ -5,29 +5,21 @@ namespace JSIL.Dom.JSLibraries
 {
     public class FileReader
     {
-        #region Private Fields
-
-        private object _fileReaderHandle;
-
-        private Action<object> OnLoadAction;
-
-        #endregion Private Fields
-
         #region Public Constructors
 
         public FileReader()
         {
-            bool fileReaderSupported = Builtins.IsTruthy(Verbatim.Expression("'FileReader' in window"));
+            var fileReaderSupported = Builtins.IsTruthy(Verbatim.Expression("'FileReader' in window"));
             if (!fileReaderSupported)
             {
                 throw new InvalidOperationException("The browser does not support the HTML5 FileReader API!");
             }
             _fileReaderHandle = Verbatim.Expression("new FileReader()");
-            OnLoadAction = (o) =>
+            OnLoadAction = o =>
             {
-                OnLoad(this, new FileLoadedEventArgs()
+                OnLoad(this, new FileLoadedEventArgs
                 {
-                    Target = Verbatim.Expression("o.target"),
+                    Target = Verbatim.Expression("o.target")
                 });
             };
             Verbatim.Expression("this._fileReaderHandle.onload = this.OnLoadAction");
@@ -40,6 +32,27 @@ namespace JSIL.Dom.JSLibraries
         public event FileLoadedEventHandler Load;
 
         #endregion Public Events
+
+        #region Private Methods
+
+        private void OnLoad(object sender, FileLoadedEventArgs e)
+        {
+            var handler = Load;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion Private Methods
+
+        #region Private Fields
+
+        private object _fileReaderHandle;
+
+        private Action<object> OnLoadAction;
+
+        #endregion Private Fields
 
         #region Public Methods
 
@@ -59,18 +72,5 @@ namespace JSIL.Dom.JSLibraries
         }
 
         #endregion Public Methods
-
-        #region Private Methods
-
-        private void OnLoad(object sender, FileLoadedEventArgs e)
-        {
-            FileLoadedEventHandler handler = Load;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
-        }
-
-        #endregion Private Methods
     }
 }

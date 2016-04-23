@@ -2,7 +2,7 @@
 {
     public class HeaderElement : Element
     {
-        public HeaderElement(int size) : base("h" + size.ToString())
+        public HeaderElement(int size) : base("h" + size)
         {
         }
     }
