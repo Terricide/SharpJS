@@ -1,11 +1,7 @@
 # SharpJS
 A set of frameworks for writing HTML5/JavaScript applications with C#.
 
-SharpJS is completely free for personal use. By using this software, you agree
-to abide by the terms of the license provided with this software, which can
-be found in the [LICENSE.md](LICENSE.md) file. Commercial use of this software is strictly
-prohibited, unless explicit permission is granted by me, the author of the software. Requests
-to use this commercially can be delivered by email.
+SharpJS is open-source software licensed under the GPLv3, which can be found in the [LICENSE.md](LICENSE.md) file.
 
 The runtime is powered by JSIL, an application that translates compiled IL to JavaScript. The SharpJS frameworks are built on top of JSIL and provide classes for building web applications that run in the browser.
 
