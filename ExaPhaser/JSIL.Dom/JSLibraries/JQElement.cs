@@ -5,15 +5,11 @@ namespace SharpJS.Dom.JSLibraries
     /// <summary>
     ///     An enhanced version of the Element class that utilizes jQuery.
     /// </summary>
-    public class JQElement
+    public class JqElement
     {
-        #region Private Fields
-
-        #endregion Private Fields
-
         #region Public Constructors
 
-        public JQElement(Element element)
+        public JqElement(Element element)
         {
             JQueryObjectHandle = JQuery.GetJQueryObject(element);
         }
@@ -22,10 +18,7 @@ namespace SharpJS.Dom.JSLibraries
 
         #region Public Properties
 
-        public Element DOMRepresentation
-        {
-            get { return JQueryObjectHandle.DOMRepresentation; }
-        }
+        public Element DomRepresentation => JQueryObjectHandle.DomRepresentation;
 
         public JQueryObject JQueryObjectHandle { get; set; }
 
@@ -37,7 +30,7 @@ namespace SharpJS.Dom.JSLibraries
         {
             add
             {
-                BindEventListener("click", e => { _click(this, new EventArgs()); });
+                BindEventListener("click", e => { _click?.Invoke(this, new EventArgs()); });
                 _click += value;
             }
             remove
@@ -51,7 +44,7 @@ namespace SharpJS.Dom.JSLibraries
         {
             add
             {
-                BindEventListener("change", e => { _enterKeyPressed(this, new EventArgs()); });
+                BindEventListener("change", e => { _enterKeyPressed?.Invoke(this, new EventArgs()); });
                 _enterKeyPressed += value;
             }
             remove
@@ -65,7 +58,7 @@ namespace SharpJS.Dom.JSLibraries
         {
             add
             {
-                BindEventListener("focus", e => { _focus(this, new EventArgs()); });
+                BindEventListener("focus", e => { _focus?.Invoke(this, new EventArgs()); });
                 _focus += value;
             }
             remove
@@ -89,65 +82,41 @@ namespace SharpJS.Dom.JSLibraries
 
         #region Public Methods
 
-        public void AddClass(string className)
-        {
-            JQueryObjectHandle.AddClass(className);
-        }
+        public void AddClass(string className) => JQueryObjectHandle.AddClass(className);
 
-        public void Append(string elementHtml)
-        {
-            JQueryObjectHandle.Append(elementHtml);
-        }
+        public void Append(string elementHtml) => JQueryObjectHandle.Append(elementHtml);
 
-        public void Append(JQElement jqElement)
-        {
-            JQueryObjectHandle.Append(jqElement);
-        }
+        public void Append(JqElement jqElement) => JQueryObjectHandle.Append(jqElement);
 
-        public void BindEventListener(string eventName, Action<object> handler)
-        {
-            JQueryObjectHandle.Bind(eventName, handler);
-        }
+        public void BindEventListener(string eventName, Action<object> handler) => JQueryObjectHandle.Bind(eventName, handler);
 
-        public object Contents()
-        {
-            return JQueryObjectHandle.Contents();
-        }
+        public object Contents() => JQueryObjectHandle.Contents();
 
-        public void CSS(string name, string value)
-        {
-            JQueryObjectHandle.CSS(name, value);
-        }
+        public void Css(string name, string value) => JQueryObjectHandle.Css(name, value);
 
-        public string CSS(string name)
-        {
-            return JQueryObjectHandle.CSS(name);
-        }
+        public string Css(string name) => JQueryObjectHandle.Css(name);
 
-        public object Find(string selector)
-        {
-            return JQueryObjectHandle.Find(selector);
-        }
+        public void FadeIn() => JQueryObjectHandle.FadeIn();
 
-        public void HTML(string htmlString)
-        {
-            JQueryObjectHandle.HTML(htmlString);
-        }
+        public void FadeIn(int timeout) => JQueryObjectHandle.FadeIn(timeout);
 
-        public void Trigger(string eventName)
-        {
-            JQueryObjectHandle.Trigger(eventName);
-        }
+        public void FadeIn(int timeout, Action finishedCallback) => JQueryObjectHandle.FadeIn(timeout, finishedCallback);
 
-        public string HTML()
-        {
-            return JQueryObjectHandle.HTML();
-        }
+        public void FadeOut() => JQueryObjectHandle.FadeOut();
 
-        public void RemoveClass(string className)
-        {
-            JQueryObjectHandle.RemoveClass(className);
-        }
+        public void FadeOut(int timeout) => JQueryObjectHandle.FadeOut(timeout);
+
+        public void FadeOut(int timeout, Action finishedCallback) => JQueryObjectHandle.FadeOut(timeout, finishedCallback);
+
+        public object Find(string selector) => JQueryObjectHandle.Find(selector);
+
+        public void Html(string htmlString) => JQueryObjectHandle.Html(htmlString);
+
+        public string Html() => JQueryObjectHandle.Html();
+
+        public void RemoveClass(string className) => JQueryObjectHandle.RemoveClass(className);
+
+        public void Trigger(string eventName) => JQueryObjectHandle.Trigger(eventName);
 
         public void UnbindEventListener(string eventName)
         {

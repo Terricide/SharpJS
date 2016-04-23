@@ -9,9 +9,9 @@ namespace SharpJS.Dom.JSLibraries
     /// </summary>
     public static class JQuery
     {
-        public delegate void AJAXResponseCallback(string data, string status, object xhr);
+        public delegate void AjaxResponseCallback(string data, string status, object xhr);
 
-        private static object jq;
+        private static object _jq;
 
         static JQuery()
         {
@@ -30,21 +30,21 @@ namespace SharpJS.Dom.JSLibraries
             }
             //JQuery successfully initialized
             IsInitialized = true;
-            jq = jQueryHandle;
+            _jq = jQueryHandle;
         }
 
         public static JQueryObject GetJQueryObject(Element element)
         {
-            return new JQueryObject(GetJQueryRawObject(jq, element.DOMRepresentation));
+            return new JQueryObject(GetJQueryRawObject(_jq, element.DOMRepresentation));
         }
 
         [JSReplacement("$_jq($rawDOMobject)")]
-        private static object GetJQueryRawObject(object _jq, object rawDOMobject)
+        private static object GetJQueryRawObject(object _jq, object rawDoMobject)
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        public static void Get(string url, AJAXResponseCallback callback)
+        public static void Get(string url, AjaxResponseCallback callback)
         {
         }
     }

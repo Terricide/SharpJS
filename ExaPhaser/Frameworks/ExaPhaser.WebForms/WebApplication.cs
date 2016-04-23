@@ -8,7 +8,7 @@ namespace ExaPhaser.WebForms
 {
     public class WebApplication
     {
-        private JQDivElement _formHost;
+        private JqDivElement _formHost;
 
         public WebApplication(CSSUITheme theme)
         {
@@ -26,24 +26,24 @@ namespace ExaPhaser.WebForms
 
         public void Run(WebForm webForm, string hostElementId)
         {
-            Run(webForm, new JQElement(Document.GetElementById(hostElementId)));
+            Run(webForm, new JqElement(Document.GetElementById(hostElementId)));
         }
 
-        public void Run(WebForm webForm, JQElement hostElement)
+        public void Run(WebForm webForm, JqElement hostElement)
         {
             CreateApplication(hostElement); //Create containers
-            webForm.ContainerElement = _formHost.DOMRepresentation; //Set container to new element
+            webForm.ContainerElement = _formHost.DomRepresentation; //Set container to new element
         }
 
-        protected void CreateApplication(JQElement applicationHostElement)
+        protected void CreateApplication(JqElement applicationHostElement)
         {
             CreateFormHostElement(applicationHostElement);
         }
 
-        private void CreateFormHostElement(JQElement formHostParent)
+        private void CreateFormHostElement(JqElement formHostParent)
         {
-            var formHostContainer = new JQDivElement();
-            _formHost = new JQDivElement();
+            var formHostContainer = new JqDivElement();
+            _formHost = new JqDivElement();
             formHostContainer.Append(_formHost);
             switch (UITheme.Stylesheet)
             {

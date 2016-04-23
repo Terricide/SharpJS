@@ -16,7 +16,7 @@ namespace SharpJS.Dom.JSLibraries
                 throw new InvalidOperationException("The browser does not support the HTML5 FileReader API!");
             }
             _fileReaderHandle = Verbatim.Expression("new FileReader()");
-            OnLoadAction = o =>
+            _onLoadAction = o =>
             {
                 OnLoad(this, new FileLoadedEventArgs
                 {
@@ -51,7 +51,7 @@ namespace SharpJS.Dom.JSLibraries
 
         private object _fileReaderHandle;
 
-        private Action<object> OnLoadAction;
+        private Action<object> _onLoadAction;
 
         #endregion Private Fields
 
@@ -63,7 +63,7 @@ namespace SharpJS.Dom.JSLibraries
         }
 
         [JSReplacement("$this._fileReaderHandle.readAsDataURL($fileHandle)")]
-        public void ReadAsDataURL(object fileHandle)
+        public void ReadAsDataUrl(object fileHandle)
         {
         }
 

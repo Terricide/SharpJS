@@ -9,10 +9,6 @@ namespace SharpJS.Dom.JSLibraries
     /// </summary>
     public class JQueryObject
     {
-        #region Private Fields
-
-        #endregion Private Fields
-
         #region Internal Constructors
 
         internal JQueryObject(object handle)
@@ -25,7 +21,7 @@ namespace SharpJS.Dom.JSLibraries
         #region Private Methods
 
         [JSReplacement("$this._jqobject[0]")]
-        private object GetDOMHandle()
+        private object GetDomHandle()
         {
             throw new RequiresJSILRuntimeException();
         }
@@ -34,9 +30,9 @@ namespace SharpJS.Dom.JSLibraries
 
         #region Public Properties
 
-        public Element DOMRepresentation
+        public Element DomRepresentation
         {
-            get { return new Element(GetDOMHandle()); }
+            get { return new Element(GetDomHandle()); }
         }
 
         public object JavaScriptJQueryHandle { get; set; }
@@ -57,7 +53,7 @@ namespace SharpJS.Dom.JSLibraries
         }
 
         [JSReplacement("$this._jqobject.append($jqElement.JQueryObjectHandle.JavaScriptJQueryHandle)")]
-        public void Append(JQElement jqElement)
+        public void Append(JqElement jqElement)
         {
         }
 
@@ -78,12 +74,12 @@ namespace SharpJS.Dom.JSLibraries
         }
 
         [JSReplacement("$this._jqobject.css($name, $value)")]
-        public void CSS(string name, string value)
+        public void Css(string name, string value)
         {
         }
 
         [JSReplacement("$this._jqobject.css($name)")]
-        public string CSS(string name)
+        public string Css(string name)
         {
             throw new RequiresJSILRuntimeException();
         }
@@ -95,12 +91,12 @@ namespace SharpJS.Dom.JSLibraries
         }
 
         [JSReplacement("$this._jqobject.html($htmlString)")]
-        public void HTML(string htmlString)
+        public void Html(string htmlString)
         {
         }
 
         [JSReplacement("$this._jqobject.html()")]
-        public string HTML()
+        public string Html()
         {
             throw new RequiresJSILRuntimeException();
         }
@@ -118,6 +114,36 @@ namespace SharpJS.Dom.JSLibraries
 
         [JSReplacement("$this._jqobject.off($eventName)")] //Using off because it is preferred to unbind
         public void Unbind(string eventName)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeIn()")]
+        public void FadeIn()
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeIn($timeout)")]
+        public void FadeIn(int timeout)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeIn($timeout, $finishedCallback)")]
+        internal void FadeIn(int timeout, Action finishedCallback)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeOut()")]
+        public void FadeOut()
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeOut($timeout)")]
+        public void FadeOut(int timeout)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeOut($timeout, $finishedCallback)")]
+        internal void FadeOut(int timeout, Action finishedCallback)
         {
         }
 

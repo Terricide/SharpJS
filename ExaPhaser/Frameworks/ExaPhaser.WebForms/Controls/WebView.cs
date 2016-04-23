@@ -25,7 +25,7 @@ namespace ExaPhaser.WebForms.Controls
 
         public string DocumentSource
         {
-            get { return InternalJQElement.HTML(); }
+            get { return InternalJQElement.Html(); }
             set { LoadHTML(value); }
         }
 

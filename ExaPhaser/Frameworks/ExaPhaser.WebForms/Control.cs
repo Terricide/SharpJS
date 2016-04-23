@@ -51,8 +51,8 @@ namespace ExaPhaser.WebForms
         /// </summary>
         public void DockControlInParentContainer()
         {
-            InternalJQElement.JQueryObjectHandle.CSS("width", "100%");
-            InternalJQElement.JQueryObjectHandle.CSS("height", "100%");
+            InternalJQElement.JQueryObjectHandle.Css("width", "100%");
+            InternalJQElement.JQueryObjectHandle.Css("height", "100%");
         }
 
         #endregion Public Methods
@@ -111,7 +111,7 @@ namespace ExaPhaser.WebForms
             set { SetInternalElement(value); }
         }
 
-        public JQElement InternalJQElement { get; private set; }
+        public JqElement InternalJQElement { get; private set; }
 
         public int Left { get; set; }
 
@@ -151,7 +151,7 @@ namespace ExaPhaser.WebForms
         private void SetInternalElement(Element value)
         {
             _internalElement = value;
-            InternalJQElement = new JQElement(_internalElement);
+            InternalJQElement = new JqElement(_internalElement);
         }
 
         private void SetParent(Control parentControl)
