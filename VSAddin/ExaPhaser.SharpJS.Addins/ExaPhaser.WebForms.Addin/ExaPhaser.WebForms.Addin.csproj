@@ -51,6 +51,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\template-builder.props" />
+    <Content Include="sharpjs.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="sidewaffle.vsix">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -58,10 +66,6 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="stylesheet.css" />
-    <Content Include="webforms.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="TemplateBuilder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
