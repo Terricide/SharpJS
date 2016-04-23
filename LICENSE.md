@@ -6,15 +6,17 @@
 *   Can be distributed in any number of projects
 *   Attribution to software creator must be made as specified:
 
-    SharpJS is completely free for non-commercial use. However, I ask that you put a little note that says something like (built on the SharpJS framework)
-*   Licensee (holder of license) MAY create derivative works based on this software as long as you 1) include this license, 2) publish the source code and state modifications to this work, and 3) Are NOT using it for any kind of commercial use.
+    SharpJS is completely free for non-commercial use. However, I ask that you (the licensee) put a little note that says something like **"built on the SharpJS framework"**
+
+*   Holder of license MAY create derivative works based on this software as long as he/she observes these guidelines:
+ 1. Including this license
+ 2. Publishing the modified source code to this work and state modifications to this work
+ 3. The derived work is NOT being used for any kind of commercial use. If the holder of the license wishes to use this software for commercial use, he/she should purchase a
+ commercial-use license from [the official SharpJS store](http://exaphaser.binpress.com/product/sharpjs/3760#pricing).
+ 
 *   Parts of the software are provided under separate licenses, as follows:
 
     JSIL.Hacks MIT/X11 (Markus Johnson) JSIL: MIT/X11 (K. Gadd) Mono.Cecil: MIT/X11 (thanks to Jb Evain) ICSharpCode.Decompiler: MIT/X11 (developed as part of ILSpy) Mono.Options: MIT/X11 (Jonathan Pryor & Federico Di Gregorio) printStackTrace: Public Domain (Eric Wendelin and others) XAPParse: Microsoft Public License/Ms-PL (Andy Patrick) webgl-2d: MIT (Corban Brook, Bobby Richter, Charles J. Cliffe, and others) S3TC DXT1 / DXT5 Texture Decompression Routines (Benjamin Dobell)
-
-
-
-<div class="container terms">
 
 ## SharpJS - Terms and conditions
 
@@ -31,12 +33,19 @@
         3.  Publishing Software’s output to Licensee and 3rd Parties;
         4.  Distribute verbatim copies of Software’s output (including compiled binaries);
         5.  Modify Software to suit Licensee’s needs and specifications.
+        
     2.  This license is granted perpetually, as long as you do not materially breach it.
     3.  **Non Assignable & Non-Transferable:** Licensee may not assign or transfer his rights and duties under this license.
 
     4.  **Non-Commercial:** Licensee may not use Software for commercial purposes. for the purpose of this license, commercial purposes means that a 3rd party has to pay in order to access Software or that the Website that runs Software is behind a paywall.
 
-    5.  **With Attribution Requirementsï»¿:** SharpJS is completely free for non-commercial use. However, I ask that you put a little note that says something like (built on the SharpJS framework)
+    5.  **With Attribution Requirementsï»¿:** SharpJS is completely free for non-commercial use. However, I ask that you put a little note that says something like **"built on the SharpJS framework"**
+    
+    6. Holder of license MAY create derivative works based on this software as long as he/she observes these guidelines:
+        1. Including this license
+        2. Publishing the modified source code to this work and state modifications to this work
+        3. The derived work is NOT being used for any kind of commercial use. If the holder of the license wishes to use this software for commercial use, he/she should purchase a
+        commercial-use license from [the official SharpJS store](http://exaphaser.binpress.com/product/sharpjs/3760#pricing).
 
 3.  **Term & Termination:** The Term of this license shall be until terminated. Licensor may terminate this Agreement, including Licensee’s license in the case where Licensee :
     1.  became insolvent or otherwise entered into any liquidation process; or
