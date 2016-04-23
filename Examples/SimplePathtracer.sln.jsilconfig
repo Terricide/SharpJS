@@ -1,4 +1,0 @@
-{
-  "FrameworkVersion": 4.0,
-  "OutputDirectory": "%configdirectory%/../jsil.org/demos/Pathtracer"
-}

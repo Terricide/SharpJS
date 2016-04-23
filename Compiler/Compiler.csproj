@@ -33,7 +33,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>jsil.ico</ApplicationIcon>
+    <ApplicationIcon>sharpjs.ico</ApplicationIcon>
   </PropertyGroup>
   <!-- Set platform specific defines to allow basic feature detection. -->
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
