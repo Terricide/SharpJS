@@ -7,7 +7,7 @@ The runtime is powered by JSIL, an application that translates compiled IL to Ja
 
 Currently supported APIs and Frameworks:
 - **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks such as Foundation and Bootstrap.
-- **JSIL.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime
+- **SharpJS.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime
 
 Acknowledgements
 
