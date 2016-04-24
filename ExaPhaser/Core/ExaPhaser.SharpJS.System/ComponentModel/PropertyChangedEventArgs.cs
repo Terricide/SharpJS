@@ -7,22 +7,9 @@ namespace System.ComponentModel
     {
         public PropertyChangedEventArgs(string propertyName)
         {
-            this.PropertyName = propertyName;
+            PropertyName = propertyName;
         }
 
-        public string PropertyName
-        {
-            get
-            {
-                return this._propertyName;
-            }
-
-            internal set
-            {
-                this._propertyName = value;
-            }
-        }
-
-        private string _propertyName;
+        public string PropertyName { get; internal set; }
     }
 }

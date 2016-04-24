@@ -4,29 +4,7 @@ namespace System.Net
 {
     internal static class CSharpHeaderToHtmlHeaderConverter
     {
-        internal static string Convert(HttpRequestHeader header)
-        {
-            string header2 = header.ToString();
-            return CSharpHeaderToHtmlHeaderConverter.Convert(header2);
-        }
-
-        internal static string Convert(HttpResponseHeader header)
-        {
-            string header2 = header.ToString();
-            return CSharpHeaderToHtmlHeaderConverter.Convert(header2);
-        }
-
-        private static string Convert(string header)
-        {
-            string result = header;
-            if (CSharpHeaderToHtmlHeaderConverter._headerStringEquivalence.ContainsKey(header))
-            {
-                result = CSharpHeaderToHtmlHeaderConverter._headerStringEquivalence[header];
-            }
-            return result;
-        }
-
-        private static Dictionary<string, string> _headerStringEquivalence = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> _headerStringEquivalence = new Dictionary<string, string>
         {
             {
                 "CacheControl",
@@ -137,5 +115,27 @@ namespace System.Net
                 "Set-Cookie"
             }
         };
+
+        internal static string Convert(HttpRequestHeader header)
+        {
+            var header2 = header.ToString();
+            return Convert(header2);
+        }
+
+        internal static string Convert(HttpResponseHeader header)
+        {
+            var header2 = header.ToString();
+            return Convert(header2);
+        }
+
+        private static string Convert(string header)
+        {
+            var result = header;
+            if (_headerStringEquivalence.ContainsKey(header))
+            {
+                result = _headerStringEquivalence[header];
+            }
+            return result;
+        }
     }
 }

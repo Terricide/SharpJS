@@ -21,6 +21,36 @@ namespace System.Collections.Generic
             throw new NotImplementedException();
         }
 
+        void ICollection.CopyTo(Array array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Count
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        bool ICollection.IsSynchronized
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        object ICollection.SyncRoot
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Clear()
         {
             throw new NotImplementedException();
@@ -36,7 +66,7 @@ namespace System.Collections.Generic
             throw new NotImplementedException();
         }
 
-        public Stack<T>.Enumerator GetEnumerator()
+        public Enumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
@@ -56,21 +86,6 @@ namespace System.Collections.Generic
             throw new NotImplementedException();
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        void ICollection.CopyTo(Array array, int arrayIndex)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
         public T[] ToArray()
         {
             throw new NotImplementedException();
@@ -79,30 +94,6 @@ namespace System.Collections.Generic
         public void TrimExcess()
         {
             throw new NotImplementedException();
-        }
-
-        public int Count
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        bool ICollection.IsSynchronized
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        object ICollection.SyncRoot
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
         }
 
         [StructLayout(LayoutKind.Sequential, Size = 1)]
@@ -120,10 +111,7 @@ namespace System.Collections.Generic
 
             public T Current
             {
-                get
-                {
-                    throw new NotImplementedException();
-                }
+                get { throw new NotImplementedException(); }
             }
         }
     }

@@ -8,38 +8,18 @@
 
         internal DownloadStringCompletedEventArgs(DownloadStringCompletedEventArgs e)
         {
-            this.Result = e.Result;
-            this.UserState = e.UserState;
-            this.Error = e.Error;
-            this.Cancelled = e.Cancelled;
+            Result = e.Result;
+            UserState = e.UserState;
+            Error = e.Error;
+            Cancelled = e.Cancelled;
         }
 
-        public bool Cancelled
-        {
-            get;
+        public bool Cancelled { get; internal set; }
 
-            internal set;
-        }
+        public Exception Error { get; internal set; }
 
-        public Exception Error
-        {
-            get;
+        public string Result { get; internal set; }
 
-            internal set;
-        }
-
-        public string Result
-        {
-            get;
-
-            internal set;
-        }
-
-        public object UserState
-        {
-            get;
-
-            internal set;
-        }
+        public object UserState { get; internal set; }
     }
 }

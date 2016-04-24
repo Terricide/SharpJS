@@ -27,7 +27,7 @@ namespace System.Diagnostics
         [Conditional("DEBUG")]
         public static void WriteLine(string format, params object[] args)
         {
-            Debug.WriteLine(string.Format(format, args));
+            WriteLine(string.Format(format, args));
         }
 
         [JSReplacement("if ($condition) { console.log($message); }"), Conditional("DEBUG")]

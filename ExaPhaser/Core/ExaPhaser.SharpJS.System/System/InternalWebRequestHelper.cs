@@ -6,6 +6,8 @@ namespace System
 {
     public class InternalWebRequestHelper
     {
+        private dynamic _xmlHttpRequest;
+
         [JSReplacement("$xmlHttpRequest.open($method, $address, $isAsync)")]
         private void CreateRequest(object xmlHttpRequest, string address, string method, bool isAsync)
         {
@@ -38,37 +40,39 @@ namespace System
 
         internal object GetXmlHttpRequest()
         {
-            return this._xmlHttpRequest;
+            return _xmlHttpRequest;
         }
 
-        public string MakeRequest(Uri address, string Method, Dictionary<string, string> headers, string body, DownloadStringCompletedEventHandler callbackMethod, bool isAsync)
+        public string MakeRequest(Uri address, string Method, Dictionary<string, string> headers, string body,
+            DownloadStringCompletedEventHandler callbackMethod, bool isAsync)
         {
-            this._xmlHttpRequest = InternalWebRequestHelper.GetWebRequest();
+            _xmlHttpRequest = GetWebRequest();
             if (callbackMethod != null)
             {
-                this.DownloadStringCompleted -= callbackMethod;
-                this.DownloadStringCompleted += callbackMethod;
+                DownloadStringCompleted -= callbackMethod;
+                DownloadStringCompleted += callbackMethod;
             }
-            this.SetCallbackMethod(this._xmlHttpRequest, new Action<object, DownloadStringCompletedEventArgs>(this.OnDownloadStringCompleted));
-            this.CreateRequest(this._xmlHttpRequest, address.OriginalString, Method, isAsync);
+            this.SetCallbackMethod(_xmlHttpRequest,
+                new Action<object, DownloadStringCompletedEventArgs>(OnDownloadStringCompleted));
+            this.CreateRequest(_xmlHttpRequest, address.OriginalString, Method, isAsync);
             if (headers != null && headers.Count > 0)
             {
-                foreach (string current in headers.Keys)
+                foreach (var current in headers.Keys)
                 {
-                    this.SetRequestHeader(this._xmlHttpRequest, current, headers[current]);
+                    this.SetRequestHeader(_xmlHttpRequest, current, headers[current]);
                 }
             }
-            InternalWebRequestHelper.SendRequest(this._xmlHttpRequest, body);
-            return InternalWebRequestHelper.GetResult(this._xmlHttpRequest);
+            InternalWebRequestHelper.SendRequest(_xmlHttpRequest, body);
+            return InternalWebRequestHelper.GetResult(_xmlHttpRequest);
         }
 
         private void OnDownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
             e = new DownloadStringCompletedEventArgs();
-            this.SetEventArgs(e);
-            if (this.DownloadStringCompleted != null)
+            SetEventArgs(e);
+            if (DownloadStringCompleted != null)
             {
-                this.DownloadStringCompleted(sender, e);
+                DownloadStringCompleted(sender, e);
             }
         }
 
@@ -78,14 +82,15 @@ namespace System
         }
 
         [JSReplacement("$xmlHttpRequest.onload = $OnDownloadStatusCompleted")]
-        internal void SetCallbackMethod(object xmlHttpRequest, Action<object, DownloadStringCompletedEventArgs> OnDownloadStatusCompleted)
+        internal void SetCallbackMethod(object xmlHttpRequest,
+            Action<object, DownloadStringCompletedEventArgs> OnDownloadStatusCompleted)
         {
         }
 
         private void SetEventArgs(DownloadStringCompletedEventArgs e)
         {
-            int currentReadyState = InternalWebRequestHelper.GetCurrentReadyState(this._xmlHttpRequest);
-            int currentStatus = InternalWebRequestHelper.GetCurrentStatus(this._xmlHttpRequest);
+            int currentReadyState = InternalWebRequestHelper.GetCurrentReadyState(_xmlHttpRequest);
+            int currentStatus = InternalWebRequestHelper.GetCurrentStatus(_xmlHttpRequest);
             if (currentStatus == 404)
             {
                 e.Error = new Exception("Page not found");
@@ -96,13 +101,15 @@ namespace System
             }
             else if (currentReadyState == 1 && !e.Cancelled)
             {
-                e.Error = new Exception("An Error occured. Cross-Site Http Request might not be allowed at the target Url. If you own the domain of the Url, consider adding the header \"Access-Control-Allow-Origin\" to enable requests to be done at this Url.");
+                e.Error =
+                    new Exception(
+                        "An Error occured. Cross-Site Http Request might not be allowed at the target Url. If you own the domain of the Url, consider adding the header \"Access-Control-Allow-Origin\" to enable requests to be done at this Url.");
             }
             else if (currentReadyState != 4)
             {
                 e.Error = new Exception("An Error has occured while submitting your request.");
             }
-            e.Result = InternalWebRequestHelper.GetResult(this._xmlHttpRequest);
+            e.Result = InternalWebRequestHelper.GetResult(_xmlHttpRequest);
         }
 
         [JSReplacement("$xmlHttpRequest.setRequestHeader($key,$header)")]
@@ -112,7 +119,5 @@ namespace System
         }
 
         public event DownloadStringCompletedEventHandler DownloadStringCompleted;
-
-        private dynamic _xmlHttpRequest;
     }
 }

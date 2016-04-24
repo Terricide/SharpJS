@@ -5,66 +5,58 @@
     {
         public DefaultValueAttribute(bool value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(byte value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(char value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(double value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(short value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(int value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(long value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(object value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(float value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(string value)
         {
-            this.DefaultValue = value;
+            Value = value;
         }
 
         public DefaultValueAttribute(Type type, string value)
         {
         }
 
-        public object Value
-        {
-            get
-            {
-                return this.DefaultValue;
-            }
-        }
-
-        private object DefaultValue;
+        public object Value { get; }
     }
 }

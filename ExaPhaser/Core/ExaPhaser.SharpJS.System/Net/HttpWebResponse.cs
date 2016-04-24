@@ -6,9 +6,17 @@ namespace System.Net
     [Serializable]
     public class HttpWebResponse : WebResponse
     {
+        private dynamic _xmlHttpRequest;
+
         internal HttpWebResponse(object xmlHttpRequest)
         {
-            this._xmlHttpRequest = xmlHttpRequest;
+            _xmlHttpRequest = xmlHttpRequest;
+        }
+
+        [JSReplacement("$xmlHttpRequest.status")]
+        public virtual HttpStatusCode StatusCode
+        {
+            get { throw new NotImplementedException(); }
         }
 
         [JSReplacement("$xmlHttpRequest.responseText")]
@@ -21,16 +29,5 @@ namespace System.Net
         {
             return null;
         }
-
-        [JSReplacement("$xmlHttpRequest.status")]
-        public virtual HttpStatusCode StatusCode
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        private dynamic _xmlHttpRequest;
     }
 }

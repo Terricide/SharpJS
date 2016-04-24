@@ -16,29 +16,33 @@ namespace System.Collections.ObjectModel
             {
                 throw new ArgumentNullException("collection");
             }
-            this.CopyFrom(collection);
+            CopyFrom(collection);
         }
 
-        public ObservableCollection(List<T> list) : base((list != null) ? new List<T>(list.Count) : list)
+        public ObservableCollection(List<T> list) : base(list != null ? new List<T>(list.Count) : list)
         {
-            this.CopyFrom(list);
+            CopyFrom(list);
         }
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected override void ClearItems()
         {
             base.ClearItems();
-            this.RaisePropertyChanged("Count");
-            this.RaisePropertyChanged("Item[]");
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+            RaisePropertyChanged("Count");
+            RaisePropertyChanged("Item[]");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
 
         private void CopyFrom(IEnumerable<T> collection)
         {
             if (collection != null)
             {
-                foreach (T current in collection)
+                foreach (var current in collection)
                 {
-                    base.Add(current);
+                    Add(current);
                 }
             }
         }
@@ -46,46 +50,43 @@ namespace System.Collections.ObjectModel
         protected override void InsertItem(int index, T item)
         {
             base.InsertItem(index, item);
-            this.RaisePropertyChanged("Count");
-            this.RaisePropertyChanged("Item[]");
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));
+            RaisePropertyChanged("Count");
+            RaisePropertyChanged("Item[]");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item, index));
         }
 
         protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
-            if (this.CollectionChanged != null)
+            if (CollectionChanged != null)
             {
-                this.CollectionChanged(this, e);
+                CollectionChanged(this, e);
             }
         }
 
         protected void RaisePropertyChanged(string propertyName)
         {
-            if (this.PropertyChanged != null)
+            if (PropertyChanged != null)
             {
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
         protected override void RemoveItem(int index)
         {
-            T t = base[index];
+            var t = base[index];
             base.RemoveItem(index);
-            this.RaisePropertyChanged("Count");
-            this.RaisePropertyChanged("Item[]");
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, t, index));
+            RaisePropertyChanged("Count");
+            RaisePropertyChanged("Item[]");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, t, index));
         }
 
         protected override void SetItem(int index, T item)
         {
-            T t = base[index];
+            var t = base[index];
             base.SetItem(index, item);
-            this.RaisePropertyChanged("Item[]");
-            this.OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, item, t, index));
+            RaisePropertyChanged("Item[]");
+            OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Replace, item, t,
+                index));
         }
-
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

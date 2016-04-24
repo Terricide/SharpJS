@@ -6,6 +6,11 @@ namespace System.Text.RegularExpressions
     [JSStubOnly]
     public class MatchCollection : ICollection, IEnumerable
     {
+        public virtual Match this[int i]
+        {
+            get { return null; }
+        }
+
         public void CopyTo(Array array, int index)
         {
             throw new NotImplementedException();
@@ -18,34 +23,17 @@ namespace System.Text.RegularExpressions
 
         public int Count
         {
-            get
-            {
-                return -1;
-            }
+            get { return -1; }
         }
 
         public bool IsSynchronized
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public virtual Match this[int i]
-        {
-            get
-            {
-                return null;
-            }
+            get { throw new NotImplementedException(); }
         }
 
         public object SyncRoot
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { throw new NotImplementedException(); }
         }
     }
 }

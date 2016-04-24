@@ -3,54 +3,39 @@
     [AttributeUsage(AttributeTargets.All)]
     public class DescriptionAttribute : Attribute
     {
+        public static readonly DescriptionAttribute Default = new DescriptionAttribute();
+
         public DescriptionAttribute()
         {
-            this.desc = string.Empty;
+            DescriptionValue = string.Empty;
         }
 
         public DescriptionAttribute(string name)
         {
-            this.desc = name;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is DescriptionAttribute && (obj == this || ((DescriptionAttribute)obj).Description == this.desc);
-        }
-
-        public override int GetHashCode()
-        {
-            return this.desc.GetHashCode();
-        }
-
-        public override bool IsDefaultAttribute()
-        {
-            return this == DescriptionAttribute.Default;
+            DescriptionValue = name;
         }
 
         public virtual string Description
         {
-            get
-            {
-                return this.DescriptionValue;
-            }
+            get { return DescriptionValue; }
         }
 
-        protected string DescriptionValue
+        protected string DescriptionValue { get; set; }
+
+        public override bool Equals(object obj)
         {
-            get
-            {
-                return this.desc;
-            }
-
-            set
-            {
-                this.desc = value;
-            }
+            return obj is DescriptionAttribute &&
+                   (obj == this || ((DescriptionAttribute) obj).Description == DescriptionValue);
         }
 
-        public static readonly DescriptionAttribute Default = new DescriptionAttribute();
+        public override int GetHashCode()
+        {
+            return DescriptionValue.GetHashCode();
+        }
 
-        private string desc;
+        public override bool IsDefaultAttribute()
+        {
+            return this == Default;
+        }
     }
 }
