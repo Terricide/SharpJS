@@ -33,12 +33,17 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Properties
 
+        public string PlaceholderText
+        {
+            get { return InternalJQElement.Attr("placeholder"); }
+            set { InternalJQElement.Attr("placeholder", value); }
+        }
+
         public string Text
         {
             get { return GetText(); } //We are using GetText because the text
             set { SetText(value); }
         }
-
         public InputType TextInputType
         {
             get { return GetInputType(); }

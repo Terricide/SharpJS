@@ -30,10 +30,16 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Properties
 
-        public string Text
+        public int Columns
         {
-            get { return GetText(); } //We are using GetText because the text
-            set { SetText(value); }
+            get { return int.Parse(InternalElement["cols"]); }
+            set { InternalElement["cols"] = value.ToString(); }
+        }
+
+        public string PlaceholderText
+        {
+            get { return InternalJQElement.Attr("placeholder"); }
+            set { InternalJQElement.Attr("placeholder", value); }
         }
 
         public int Rows
@@ -42,12 +48,11 @@ namespace ExaPhaser.WebForms.Controls
             set { InternalElement["rows"] = value.ToString(); }
         }
 
-        public int Columns
+        public string Text
         {
-            get { return int.Parse(InternalElement["cols"]); }
-            set { InternalElement["cols"] = value.ToString(); }
+            get { return GetText(); } //We are using GetText because the text
+            set { SetText(value); }
         }
-
         #endregion Public Properties
 
         #region Private Methods

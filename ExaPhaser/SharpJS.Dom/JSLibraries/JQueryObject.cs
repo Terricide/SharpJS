@@ -30,13 +30,12 @@ namespace SharpJS.Dom.JSLibraries
 
         #region Public Properties
 
+        public object _jqobject { get; set; }
+
         public Element DomRepresentation
         {
             get { return new Element(GetDomHandle()); }
         }
-
-        public object _jqobject { get; set; }
-
         #endregion Public Properties
 
         #region Public Methods
@@ -62,6 +61,16 @@ namespace SharpJS.Dom.JSLibraries
         {
         }
 
+        [JSReplacement("$this._jqobject.attr($name)")]
+        public string Attr(string name)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.attr($name, $value)")]
+        public void Attr(string name, string value)
+        {
+        }
         [JSReplacement("$this._jqobject.on($eventName, $handler)")] //Using on because it is preferred to bind
         public void Bind(string eventName, Action<object> handler)
         {
@@ -82,6 +91,26 @@ namespace SharpJS.Dom.JSLibraries
         public string Css(string name)
         {
             throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.fadeIn()")]
+        public void FadeIn()
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeIn($timeout)")]
+        public void FadeIn(int timeout)
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeOut()")]
+        public void FadeOut()
+        {
+        }
+
+        [JSReplacement("$this._jqobject.fadeOut($timeout)")]
+        public void FadeOut(int timeout)
+        {
         }
 
         [JSReplacement("$this._jqobject.find($selector)")]
@@ -116,32 +145,10 @@ namespace SharpJS.Dom.JSLibraries
         public void Unbind(string eventName)
         {
         }
-
-        [JSReplacement("$this._jqobject.fadeIn()")]
-        public void FadeIn()
-        {
-        }
-
-        [JSReplacement("$this._jqobject.fadeIn($timeout)")]
-        public void FadeIn(int timeout)
-        {
-        }
-
         [JSReplacement("$this._jqobject.fadeIn($timeout, $finishedCallback)")]
         internal void FadeIn(int timeout, Action finishedCallback)
         {
         }
-
-        [JSReplacement("$this._jqobject.fadeOut()")]
-        public void FadeOut()
-        {
-        }
-
-        [JSReplacement("$this._jqobject.fadeOut($timeout)")]
-        public void FadeOut(int timeout)
-        {
-        }
-
         [JSReplacement("$this._jqobject.fadeOut($timeout, $finishedCallback)")]
         internal void FadeOut(int timeout, Action finishedCallback)
         {
