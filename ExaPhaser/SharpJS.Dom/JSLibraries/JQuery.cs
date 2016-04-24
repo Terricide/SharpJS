@@ -5,12 +5,10 @@ using JSIL.Meta;
 namespace SharpJS.Dom.JSLibraries
 {
     /// <summary>
-    ///     A static jQuery class wrapping basic jQuery functionality, and providing access to static jQuery functions.
+    /// A static jQuery class wrapping basic jQuery functionality, and providing access to static jQuery functions.
     /// </summary>
     public static class JQuery
     {
-        public delegate void AjaxResponseCallback(string data, string status, object xhr);
-
         private static object _jq;
 
         static JQuery()
@@ -46,10 +44,6 @@ namespace SharpJS.Dom.JSLibraries
         private static object GetJQueryRawObject(object jqHandle, object rawDoMobject)
         {
             throw new RequiresJSILRuntimeException();
-        }
-
-        public static void Get(string url, AjaxResponseCallback callback)
-        {
         }
     }
 }
