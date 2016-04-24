@@ -37,6 +37,11 @@ namespace SharpJS.Dom.JSLibraries
             return new JQueryObject(GetJQueryRawObject(_jq, element.DOMRepresentation));
         }
 
+        public static JQueryObject FromSelector(string selector)
+        {
+            return GetJQueryObject(Document.GetElementById(selector));
+        }
+
         [JSReplacement("$_jq($rawDoMobject)")]
         private static object GetJQueryRawObject(object _jq, object rawDoMobject)
         {
