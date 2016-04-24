@@ -3,7 +3,7 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class TextArea : TextControl
+    public sealed class TextArea : TextControl
     {
         #region Public Constructors
 

@@ -42,8 +42,8 @@ namespace SharpJS.Dom.JSLibraries
             return GetJQueryObject(Document.GetElementById(selector));
         }
 
-        [JSReplacement("$_jq($rawDoMobject)")]
-        private static object GetJQueryRawObject(object _jq, object rawDoMobject)
+        [JSReplacement("$jqHandle($rawDoMobject)")]
+        private static object GetJQueryRawObject(object jqHandle, object rawDoMobject)
         {
             throw new RequiresJSILRuntimeException();
         }

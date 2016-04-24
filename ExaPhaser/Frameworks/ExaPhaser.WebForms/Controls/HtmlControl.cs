@@ -3,7 +3,7 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class HtmlControl : Control
+    public sealed class HtmlControl : Control
     {
         #region Private Fields
 

@@ -2,7 +2,7 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class LinkLabel : TextControl
+    public sealed class LinkLabel : TextControl
     {
         #region Private Fields
 

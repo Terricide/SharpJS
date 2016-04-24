@@ -2,7 +2,7 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class TextBlock : TextControl
+    public sealed class TextBlock : TextControl
     {
         #region Private Fields
 

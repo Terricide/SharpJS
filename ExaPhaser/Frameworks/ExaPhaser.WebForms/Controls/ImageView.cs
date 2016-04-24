@@ -2,7 +2,7 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class ImageView : Control
+    public sealed class ImageView : Control
     {
         #region Private Fields
 

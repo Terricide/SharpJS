@@ -4,7 +4,7 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
-    public class Button : TextControl
+    public sealed class Button : TextControl
     {
         #region Private Fields
 
