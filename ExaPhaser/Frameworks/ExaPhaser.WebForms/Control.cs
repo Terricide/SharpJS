@@ -181,8 +181,8 @@ namespace ExaPhaser.WebForms
 
         private void SetConstantPosition(Point position)
         {
-            InternalJQElement.Css("left", position.X.ToString());
-            InternalJQElement.Css("top", position.Y.ToString());
+            InternalJQElement.Css("left", position.X);
+            InternalJQElement.Css("top", position.Y);
         }
 
         private void SetControls(Collection<Control> value)

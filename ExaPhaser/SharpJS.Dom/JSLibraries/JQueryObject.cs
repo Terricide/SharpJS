@@ -87,6 +87,11 @@ namespace SharpJS.Dom.JSLibraries
         {
         }
 
+        [JSReplacement("$this._jqobject.css($name, $value)")]
+        public void Css<T>(string name, T value)
+        {
+        }
+
         [JSReplacement("$this._jqobject.css($name)")]
         public string Css(string name)
         {
