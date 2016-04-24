@@ -4,8 +4,8 @@ namespace SharpJS.Dom
 {
     public static class JSConsole
     {
-        [JSReplacement("console.log($obj)")]
-        public static void Log(object obj)
+        [JSReplacement("console.log($args)")]
+        public static void Log(params object[] args)
         {
         }
     }

@@ -5,11 +5,11 @@ namespace SharpJS.Dom.JSLibraries
     /// <summary>
     ///     An enhanced version of the Element class that utilizes jQuery.
     /// </summary>
-    public class JqElement
+    public class JQElement
     {
         #region Public Constructors
 
-        public JqElement(Element element)
+        public JQElement(Element element)
         {
             JQueryObjectHandle = JQuery.GetJQueryObject(element);
         }
@@ -86,7 +86,7 @@ namespace SharpJS.Dom.JSLibraries
 
         public void Append(string elementHtml) => JQueryObjectHandle.Append(elementHtml);
 
-        public void Append(JqElement jqElement) => JQueryObjectHandle.Append(jqElement);
+        public void Append(JQElement jqElement) => JQueryObjectHandle.Append(jqElement);
 
         public string Attr(string name) => JQueryObjectHandle.Attr(name);
 
@@ -95,7 +95,7 @@ namespace SharpJS.Dom.JSLibraries
         public void BindEventListener(string eventName, Action<object> handler) => JQueryObjectHandle.Bind(eventName, handler);
 
         public object Contents() => JQueryObjectHandle.Contents();
-
+        
         public void Css(string name, string value) => JQueryObjectHandle.Css(name, value);
 
         public string Css(string name) => JQueryObjectHandle.Css(name);
@@ -114,11 +114,15 @@ namespace SharpJS.Dom.JSLibraries
 
         public object Find(string selector) => JQueryObjectHandle.Find(selector);
 
+        public void Hide() => JQueryObjectHandle.Hide();
+
         public void Html(string htmlString) => JQueryObjectHandle.Html(htmlString);
 
         public string Html() => JQueryObjectHandle.Html();
 
         public void RemoveClass(string className) => JQueryObjectHandle.RemoveClass(className);
+
+        public void Show() => JQueryObjectHandle.Show();
 
         public void Trigger(string eventName) => JQueryObjectHandle.Trigger(eventName);
 

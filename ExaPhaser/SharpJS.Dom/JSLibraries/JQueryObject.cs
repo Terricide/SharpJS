@@ -52,7 +52,7 @@ namespace SharpJS.Dom.JSLibraries
         }
 
         [JSReplacement("$this._jqobject.append($jqElement.JQueryObjectHandle._jqobject)")]
-        public void Append(JqElement jqElement)
+        public void Append(JQElement jqElement)
         {
         }
 
@@ -124,6 +124,12 @@ namespace SharpJS.Dom.JSLibraries
         {
         }
 
+        [JSReplacement("$this._jqobject.hide()")]
+        public void Hide()
+        {
+            
+        }
+
         [JSReplacement("$this._jqobject.html()")]
         public string Html()
         {
@@ -134,6 +140,12 @@ namespace SharpJS.Dom.JSLibraries
         public string RemoveClass(string className)
         {
             throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.show()")]
+        public void Show()
+        {
+
         }
 
         [JSReplacement("$this._jqobject.trigger($eventName)")]

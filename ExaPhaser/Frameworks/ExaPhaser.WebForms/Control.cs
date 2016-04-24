@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using ExaPhaser.WebForms.Drawing;
 using SharpJS.Dom;
 using SharpJS.Dom.JSLibraries;
 
@@ -55,6 +56,14 @@ namespace ExaPhaser.WebForms
             InternalJQElement.JQueryObjectHandle.Css("height", "100%");
         }
 
+        public void FadeIn() => InternalJQElement.FadeIn();
+
+        public void FadeOut() => InternalJQElement.FadeOut();
+
+        public void Hide() => InternalJQElement.Hide();
+
+        public void Show() => InternalJQElement.Show();
+
         #endregion Public Methods
 
         #region Private Fields
@@ -87,6 +96,14 @@ namespace ExaPhaser.WebForms
 
         #region Properties
 
+        /// <summary>
+        /// Sets the position of an element with a Point with constant values. For example, myControl.ConstantPosition = new Point(50, 50)
+        /// </summary>
+        public Point ConstantPosition
+        {
+            set { SetConstantPosition(value); }
+        }
+
         public Element ContainerElement
         {
             get { return _container; }
@@ -101,7 +118,7 @@ namespace ExaPhaser.WebForms
 
         public int Height
         {
-            get { return (int) InternalElement.Height; }
+            get { return (int)InternalElement.Height; }
             set { InternalElement.Height = value; }
         }
 
@@ -111,9 +128,7 @@ namespace ExaPhaser.WebForms
             set { SetInternalElement(value); }
         }
 
-        public JqElement InternalJQElement { get; private set; }
-
-        public int Left { get; set; }
+        public JQElement InternalJQElement { get; private set; }
 
         public int Margin { get; set; }
 
@@ -123,12 +138,51 @@ namespace ExaPhaser.WebForms
             set { SetParent(value); }
         }
 
-        public int Top { get; set; }
+        public PositioningType PositioningType
+        {
+            set { SetPositioningType(value); }
+        }
+
+        /// <summary>
+        /// Sets the position of an element with a Point with relative values. For example, myControl.RelativePosition = new RelativePoint("20%", "20%")
+        /// </summary>
+        public RelativePoint RelativePosition
+        {
+            set { SetRelativePosition(value); }
+        }
 
         public int Width
         {
-            get { return (int) InternalElement.Width; }
+            get { return (int)InternalElement.Width; }
             set { InternalElement.Width = value; }
+        }
+
+        #endregion Properties
+
+        #region Abstract Methods
+
+        /// <summary>
+        ///     A control should call PerformLayout when it is ready to receive child controls.
+        /// </summary>
+        public virtual void PerformLayout()
+        {
+        }
+
+        /// <summary>
+        ///     This method is called when the parent control is set.
+        /// </summary>
+        public virtual void UpdateContent()
+        {
+        }
+
+        #endregion Abstract Methods
+
+        #region Private Methods
+
+        private void SetConstantPosition(Point position)
+        {
+            InternalJQElement.Css("left", position.X.ToString());
+            InternalJQElement.Css("top", position.Y.ToString());
         }
 
         private void SetControls(Collection<Control> value)
@@ -151,7 +205,7 @@ namespace ExaPhaser.WebForms
         private void SetInternalElement(Element value)
         {
             _internalElement = value;
-            InternalJQElement = new JqElement(_internalElement);
+            InternalJQElement = new JQElement(_internalElement);
         }
 
         private void SetParent(Control parentControl)
@@ -163,24 +217,40 @@ namespace ExaPhaser.WebForms
             }
         }
 
-        #endregion Properties
-
-        #region Abstract Methods
-
-        /// <summary>
-        ///     A control should call PerformLayout when it is ready to receive child controls.
-        /// </summary>
-        public virtual void PerformLayout()
+        private void SetPositioningType(PositioningType positioningType)
         {
+            string cssPositionType;
+            switch (positioningType)
+            {
+                case PositioningType.Absolute:
+                    cssPositionType = "absolute";
+                    break;
+
+                case PositioningType.Fixed:
+                    cssPositionType = "fixed";
+                    break;
+
+                case PositioningType.Relative:
+                    cssPositionType = "relative";
+                    break;
+
+                case PositioningType.Static:
+                    cssPositionType = "static";
+                    break;
+
+                default:
+                    cssPositionType = "static";
+                    break;
+            }
+            InternalJQElement.Css("position", cssPositionType);
         }
 
-        /// <summary>
-        ///     This method is called when the parent control is set.
-        /// </summary>
-        public virtual void UpdateContent()
+        private void SetRelativePosition(RelativePoint position)
         {
+            InternalJQElement.Css("left", position.X);
+            InternalJQElement.Css("top", position.Y);
         }
 
-        #endregion Abstract Methods
+        #endregion Private Methods
     }
 }

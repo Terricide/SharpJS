@@ -54,9 +54,12 @@
     <Compile Include="Controls\TextControl.cs" />
     <Compile Include="Controls\WebView.cs" />
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Drawing\Point.cs" />
     <Compile Include="FontStyle.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="Layout.cs" />
+    <Compile Include="PositioningType.cs" />
+    <Compile Include="Drawing\RelativePoint.cs" />
     <Compile Include="Themes\CSSFramework.cs" />
     <Compile Include="Themes\CSSUITheme.cs" />
     <Compile Include="WebApplication.cs" />
