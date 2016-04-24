@@ -100,7 +100,7 @@ namespace SharpJS.Dom.JSLibraries
 
         public void Css<T>(string name, T value) => JQueryObjectHandle.Css<T>(name, value);
 
-        public string Css(string name) => JQueryObjectHandle.Css(name);
+        public T Css<T>(string name) => JQueryObjectHandle.Css<T>(name);
 
         public void FadeIn() => JQueryObjectHandle.FadeIn();
 

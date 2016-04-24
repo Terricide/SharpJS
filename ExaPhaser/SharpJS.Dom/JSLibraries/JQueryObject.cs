@@ -98,6 +98,11 @@ namespace SharpJS.Dom.JSLibraries
             throw new RequiresJSILRuntimeException();
         }
 
+        public T Css<T>(string name)
+        {
+            return (T)Verbatim.Expression("this._jqobject.css(name)");
+        }
+
         [JSReplacement("$this._jqobject.fadeIn()")]
         public void FadeIn()
         {
