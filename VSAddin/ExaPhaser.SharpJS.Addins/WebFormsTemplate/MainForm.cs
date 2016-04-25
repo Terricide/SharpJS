@@ -6,43 +6,43 @@ using SharpJS.Dom.Styles;
 namespace WebFormsTemplate
 {
     /// <summary>
-	/// Main WebForm
-	/// </summary>
-	public class MainForm : WebForm
+    ///     Main WebForm
+    /// </summary>
+    public class MainForm : WebForm
     {
         public MainForm()
         {
-            Controls = new Layout()
+            Controls = new Layout
             {
-                new TextBlock()
+                new TextBlock
                 {
                     Text = "ExaPhaser.WebForms Demo",
                     TextAlign = TextAlign.Center,
-                    FontStyle = new FontStyle()
+                    FontStyle = new FontStyle
                     {
                         FontSize = 24,
-                        FontWeight = FontWeight.Bold,
+                        FontWeight = FontWeight.Bold
                     }
                 },
-                new TextBlock()
+                new TextBlock
                 {
-                    Text = "A random TextBox is below",
+                    Text = "A random TextBox is below"
                 },
-                new TextBox()
+                new TextBox
                 {
-                    Text = "Some text",
+                    Text = "Some text"
                 },
-                new Button()
+                new Button
                 {
                     Text = "OK",
                     CommandParameter = null,
-                    Command = new DelegateCommand(()=>JSLibrary.Alert("You clicked the button")),
+                    Command = new DelegateCommand(() => JSLibrary.Alert("You clicked the button"))
                 },
-                new TextArea()
+                new TextArea
                 {
                     Text = "Cool! TextArea is now supported!",
-                    Rows = 20,
-                },
+                    Rows = 20
+                }
             };
         }
     }
