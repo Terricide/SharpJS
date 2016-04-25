@@ -10,7 +10,7 @@ Currently supported APIs and Frameworks:
 - **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks such as Foundation and Bootstrap.
 - **SharpJS.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime
 
-Acknowledgements
+Open-Source project Acknowledgements
 
 ExaPhaser.SharpJS depends upon or is based on the following open source projects:
 
