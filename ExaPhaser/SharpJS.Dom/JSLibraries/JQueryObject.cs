@@ -36,6 +36,7 @@ namespace SharpJS.Dom.JSLibraries
         {
             get { return new Element(GetDomHandle()); }
         }
+
         #endregion Public Properties
 
         #region Public Methods
@@ -71,6 +72,7 @@ namespace SharpJS.Dom.JSLibraries
         public void Attr(string name, string value)
         {
         }
+
         [JSReplacement("$this._jqobject.on($eventName, $handler)")] //Using on because it is preferred to bind
         public void Bind(string eventName, Action<object> handler)
         {
@@ -113,6 +115,11 @@ namespace SharpJS.Dom.JSLibraries
         {
         }
 
+        [JSReplacement("$this._jqobject.fadeIn($timeout, $finishedCallback)")]
+        public void FadeIn(int timeout, Action finishedCallback)
+        {
+        }
+
         [JSReplacement("$this._jqobject.fadeOut()")]
         public void FadeOut()
         {
@@ -123,10 +130,20 @@ namespace SharpJS.Dom.JSLibraries
         {
         }
 
+        [JSReplacement("$this._jqobject.fadeOut($timeout, $finishedCallback)")]
+        public void FadeOut(int timeout, Action finishedCallback)
+        {
+        }
+
         [JSReplacement("$this._jqobject.find($selector)")]
         public object Find(string selector)
         {
             throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.hide()")]
+        public void Hide()
+        {
         }
 
         [JSReplacement("$this._jqobject.html($htmlString)")]
@@ -134,14 +151,14 @@ namespace SharpJS.Dom.JSLibraries
         {
         }
 
-        [JSReplacement("$this._jqobject.hide()")]
-        public void Hide()
-        {
-            
-        }
-
         [JSReplacement("$this._jqobject.html()")]
         public string Html()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this._jqobject.is($query)")]
+        public bool Is(string query)
         {
             throw new RequiresJSILRuntimeException();
         }
@@ -155,7 +172,6 @@ namespace SharpJS.Dom.JSLibraries
         [JSReplacement("$this._jqobject.show()")]
         public void Show()
         {
-
         }
 
         [JSReplacement("$this._jqobject.trigger($eventName)")]
@@ -165,14 +181,6 @@ namespace SharpJS.Dom.JSLibraries
 
         [JSReplacement("$this._jqobject.off($eventName)")] //Using off because it is preferred to unbind
         public void Unbind(string eventName)
-        {
-        }
-        [JSReplacement("$this._jqobject.fadeIn($timeout, $finishedCallback)")]
-        internal void FadeIn(int timeout, Action finishedCallback)
-        {
-        }
-        [JSReplacement("$this._jqobject.fadeOut($timeout, $finishedCallback)")]
-        internal void FadeOut(int timeout, Action finishedCallback)
         {
         }
 

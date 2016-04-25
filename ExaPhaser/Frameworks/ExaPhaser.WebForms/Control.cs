@@ -151,6 +151,12 @@ namespace ExaPhaser.WebForms
             set { SetRelativePosition(value); }
         }
 
+        public bool Visible
+        {
+            get { return InternalJQElement.Is(":visible"); }
+            set { if (value) InternalJQElement.Show(); else InternalJQElement.Hide(); }
+        }
+
         public int Width
         {
             get { return (int)InternalElement.Width; }

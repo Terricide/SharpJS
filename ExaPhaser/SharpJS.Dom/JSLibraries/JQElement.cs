@@ -95,7 +95,7 @@ namespace SharpJS.Dom.JSLibraries
         public void BindEventListener(string eventName, Action<object> handler) => JQueryObjectHandle.Bind(eventName, handler);
 
         public object Contents() => JQueryObjectHandle.Contents();
-        
+
         public void Css(string name, string value) => JQueryObjectHandle.Css(name, value);
 
         public void Css<T>(string name, T value) => JQueryObjectHandle.Css<T>(name, value);
@@ -121,6 +121,8 @@ namespace SharpJS.Dom.JSLibraries
         public void Html(string htmlString) => JQueryObjectHandle.Html(htmlString);
 
         public string Html() => JQueryObjectHandle.Html();
+
+        public bool Is(string query) => JQueryObjectHandle.Is(query);
 
         public void RemoveClass(string className) => JQueryObjectHandle.RemoveClass(className);
 
