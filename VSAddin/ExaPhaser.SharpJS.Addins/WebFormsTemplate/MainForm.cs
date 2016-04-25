@@ -30,7 +30,7 @@ namespace WebFormsTemplate
                 },
                 new TextBox
                 {
-                    Text = "Some text"
+                    PlaceholderText = "Placeholder Stuff",
                 },
                 new Button
                 {
@@ -40,7 +40,7 @@ namespace WebFormsTemplate
                 },
                 new TextArea
                 {
-                    Text = "Cool! TextArea is now supported!",
+                    PlaceholderText = "This awesome placeholder!",
                     Rows = 20
                 }
             };
