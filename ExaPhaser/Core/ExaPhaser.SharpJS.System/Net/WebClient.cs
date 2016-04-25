@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using JSIL.Meta;
 
-namespace System.Net
+namespace SharpJS.System.Net
 {
     public class WebClient
     {
@@ -15,30 +17,26 @@ namespace System.Net
 
         public string DownloadString(string address)
         {
-            return DownloadString(new Uri(address));
+            return DownloadString(new SharpJS.System.Uri(address));
         }
 
-        public string DownloadString(Uri address)
+        public string DownloadString(SharpJS.System.Uri address)
         {
             if (address == null) throw new ArgumentNullException(nameof(address));
             _webRequestHelper.DownloadStringCompleted -= OnDownloadStringCompleted;
             _webRequestHelper.DownloadStringCompleted += OnDownloadStringCompleted;
-            var dictionary = new Dictionary<string, string>();
             var allKeys = Headers.AllKeys;
-            foreach (var text in allKeys)
-            {
-                dictionary.Add(text, Headers.Get(text));
-            }
+            var dictionary = allKeys.ToDictionary(text => text, text => Headers.Get(text));
             return _webRequestHelper.MakeRequest(address, "GET", dictionary, null, OnDownloadStringCompleted, false);
         }
 
-        public void DownloadStringAsync(Uri address)
+        public void DownloadStringAsync(SharpJS.System.Uri address)
         {
             if (address == null) throw new ArgumentNullException(nameof(address));
             DownloadStringAsync(address, null);
         }
 
-        private void DownloadStringAsync(Uri address, object userToken)
+        private void DownloadStringAsync(SharpJS.System.Uri address, object userToken)
         {
             if (address == null) throw new ArgumentNullException(nameof(address));
             var dictionary = new Dictionary<string, string>();
@@ -53,11 +51,12 @@ namespace System.Net
 
         public Task<string> DownloadStringTaskAsync(string address)
         {
-            return DownloadStringTaskAsync(new Uri(address));
+            return DownloadStringTaskAsync(new SharpJS.System.Uri(address));
         }
 
-        public Task<string> DownloadStringTaskAsync(Uri address)
+        public Task<string> DownloadStringTaskAsync(SharpJS.System.Uri address)
         {
+            if (address == null) throw new ArgumentNullException(nameof(address));
             if (address == null) throw new ArgumentNullException(nameof(address));
             var dictionary = new Dictionary<string, string>();
             var allKeys = Headers.AllKeys;
@@ -116,25 +115,25 @@ namespace System.Net
 
         public string UploadString(string address, string data)
         {
-            return UploadString(new Uri(address), "POST", data);
+            return UploadString(new SharpJS.System.Uri(address), "POST", data);
         }
 
-        public string UploadString(Uri address, string data)
+        public string UploadString(SharpJS.System.Uri address, string data)
         {
             return UploadString(address, "POST", data);
         }
 
         public string UploadString(string address, string method, string data)
         {
-            return UploadString(new Uri(address), method, data);
+            return UploadString(new SharpJS.System.Uri(address), method, data);
         }
 
-        public string UploadString(Uri address, string method, string data)
+        public string UploadString(SharpJS.System.Uri address, string method, string data)
         {
             return UploadString(address, method, data, null, false);
         }
 
-        private string UploadString(Uri address, string method, string data,
+        private string UploadString(SharpJS.System.Uri address, string method, string data,
             DownloadStringCompletedEventHandler onCompleted, bool isAsync)
         {
             var dictionary = new Dictionary<string, string>();
@@ -151,32 +150,32 @@ namespace System.Net
             return _webRequestHelper.MakeRequest(address, method, dictionary, data, onCompleted, isAsync);
         }
 
-        public void UploadStringAsync(Uri address, string data)
+        public void UploadStringAsync(SharpJS.System.Uri address, string data)
         {
             UploadStringAsync(address, "POST", data);
         }
 
-        public void UploadStringAsync(Uri address, string method, string data)
+        public void UploadStringAsync(SharpJS.System.Uri address, string method, string data)
         {
             UploadString(address, method, data, InternalOnUploadStringCompleted, true);
         }
 
         public Task<string> UploadStringTaskAsync(string address, string data)
         {
-            return UploadStringTaskAsync(new Uri(address), "POST", data);
+            return UploadStringTaskAsync(new SharpJS.System.Uri(address), "POST", data);
         }
 
-        public Task<string> UploadStringTaskAsync(Uri address, string data)
+        public Task<string> UploadStringTaskAsync(SharpJS.System.Uri address, string data)
         {
             return UploadStringTaskAsync(address, "POST", data);
         }
 
         public Task<string> UploadStringTaskAsync(string address, string method, string data)
         {
-            return UploadStringTaskAsync(new Uri(address), method, data);
+            return UploadStringTaskAsync(new SharpJS.System.Uri(address), method, data);
         }
 
-        public Task<string> UploadStringTaskAsync(Uri address, string method, string data)
+        public Task<string> UploadStringTaskAsync(SharpJS.System.Uri address, string method, string data)
         {
             var dictionary = new Dictionary<string, string>();
             if (!string.IsNullOrEmpty(data))

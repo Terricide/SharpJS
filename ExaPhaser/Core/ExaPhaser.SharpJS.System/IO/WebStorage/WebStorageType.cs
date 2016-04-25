@@ -1,4 +1,4 @@
-﻿namespace System.IO.WebStorage
+﻿namespace SharpJS.System.IO.WebStorage
 {
     public enum WebStorageType
     {

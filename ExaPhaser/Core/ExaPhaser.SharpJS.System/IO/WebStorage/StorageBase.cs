@@ -1,7 +1,7 @@
 ﻿using JSIL;
 using JSIL.Meta;
 
-namespace System.IO.WebStorage
+namespace SharpJS.System.IO.WebStorage
 {
     public class StorageBase
     {

@@ -1,7 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using JSIL.Meta;
 
-namespace System.Net
+namespace SharpJS.System.Net
 {
     [Serializable]
     public class HttpWebResponse : WebResponse

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Net;
+﻿using System;
+using System.Collections.Generic;
 using JSIL.Meta;
+using SharpJS.System.Net;
 
-namespace System
+namespace SharpJS.System
 {
     public class InternalWebRequestHelper
     {
@@ -43,7 +44,7 @@ namespace System
             return _xmlHttpRequest;
         }
 
-        public string MakeRequest(Uri address, string Method, Dictionary<string, string> headers, string body,
+        public string MakeRequest(SharpJS.System.Uri address, string method, Dictionary<string, string> headers, string body,
             DownloadStringCompletedEventHandler callbackMethod, bool isAsync)
         {
             _xmlHttpRequest = GetWebRequest();
@@ -54,7 +55,7 @@ namespace System
             }
             this.SetCallbackMethod(_xmlHttpRequest,
                 new Action<object, DownloadStringCompletedEventArgs>(OnDownloadStringCompleted));
-            this.CreateRequest(_xmlHttpRequest, address.OriginalString, Method, isAsync);
+            this.CreateRequest(_xmlHttpRequest, address.OriginalString, method, isAsync);
             if (headers != null && headers.Count > 0)
             {
                 foreach (var current in headers.Keys)
@@ -70,10 +71,7 @@ namespace System
         {
             e = new DownloadStringCompletedEventArgs();
             SetEventArgs(e);
-            if (DownloadStringCompleted != null)
-            {
-                DownloadStringCompleted(sender, e);
-            }
+            DownloadStringCompleted?.Invoke(sender, e);
         }
 
         [JSReplacement("$xmlHttpRequest.send($body)")]
@@ -83,7 +81,7 @@ namespace System
 
         [JSReplacement("$xmlHttpRequest.onload = $OnDownloadStatusCompleted")]
         internal void SetCallbackMethod(object xmlHttpRequest,
-            Action<object, DownloadStringCompletedEventArgs> OnDownloadStatusCompleted)
+            Action<object, DownloadStringCompletedEventArgs> onDownloadStatusCompleted)
         {
         }
 
@@ -103,7 +101,7 @@ namespace System
             {
                 e.Error =
                     new Exception(
-                        "An Error occured. Cross-Site Http Request might not be allowed at the target Url. If you own the domain of the Url, consider adding the header \"Access-Control-Allow-Origin\" to enable requests to be done at this Url.");
+                        "An Error occured. The target domain may be forbiding Cross-Origin requests. If you own the domain, consider adding the header \"Access-Control-Allow-Origin\" to enable cross-origin requests to this domain.");
             }
             else if (currentReadyState != 4)
             {

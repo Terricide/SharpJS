@@ -1,4 +1,6 @@
-﻿namespace System.CodeDom.Compiler
+﻿using System;
+
+namespace SharpJS.System.CodeDom.Compiler
 {
     [AttributeUsage(AttributeTargets.All, Inherited = false)]
     public sealed class GeneratedCodeAttribute : Attribute

@@ -1,4 +1,4 @@
-﻿namespace System.Net
+﻿namespace SharpJS.System.Net
 {
     public enum HttpStatusCode
     {

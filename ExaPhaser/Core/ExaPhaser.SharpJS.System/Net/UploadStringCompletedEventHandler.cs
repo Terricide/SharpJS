@@ -1,4 +1,4 @@
-﻿namespace System.Net
+﻿namespace SharpJS.System.Net
 {
     public delegate void UploadStringCompletedEventHandler(object sender, UploadStringCompletedEventArgs e);
 }

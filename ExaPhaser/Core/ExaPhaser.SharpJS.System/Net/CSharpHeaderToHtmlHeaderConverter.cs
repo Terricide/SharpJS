@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace System.Net
+namespace SharpJS.System.Net
 {
     internal static class CSharpHeaderToHtmlHeaderConverter
     {

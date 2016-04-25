@@ -1,4 +1,4 @@
-﻿namespace System.Net.Security
+﻿namespace SharpJS.System.Net.Security
 {
     public enum ProtectionLevel
     {

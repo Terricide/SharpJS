@@ -1,4 +1,6 @@
-﻿namespace System.Net
+﻿using System;
+
+namespace SharpJS.System.Net
 {
     public class DownloadStringCompletedEventArgs
     {

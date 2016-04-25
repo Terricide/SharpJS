@@ -1,6 +1,6 @@
 ﻿using JSIL;
 
-namespace System.IO.WebStorage
+namespace SharpJS.System.IO.WebStorage
 {
     public class IndexedDB
     {
