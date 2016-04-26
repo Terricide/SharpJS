@@ -13,10 +13,6 @@ namespace SharpJS.Dom
     {
         #region Private Fields
 
-        // this is a horrible thing: a flag that is used to prevent a call to TemplateApplied
-        // in the constructor while creating elements from templates
-        private static bool _creatingTemplate;
-
         #endregion Private Fields
 
         #region Public Constructors
@@ -38,9 +34,6 @@ namespace SharpJS.Dom
             ElementHandle = elementHandle;
             _selfReference = this;
             StyleCollection = new StyleCollection(this);
-
-            if (!_creatingTemplate)
-                TemplateApplied();
         }
 
         #endregion Internal Constructors
@@ -414,10 +407,6 @@ namespace SharpJS.Dom
 
         [JSReplacement("$this.ElementHandle[$attributeName] = $value")]
         protected virtual void SetAttributeValue(string attributeName, string value)
-        {
-        }
-
-        protected virtual void TemplateApplied()
         {
         }
 
