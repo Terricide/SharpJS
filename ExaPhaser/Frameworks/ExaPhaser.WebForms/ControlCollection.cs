@@ -28,21 +28,24 @@ namespace ExaPhaser.WebForms
         protected override void InsertItem(int index, Control control)
         {
             base.InsertItem(index, control);
-            if (control.Parent == null)
-                control.Parent = ParentControl;
-            else
+            if (ParentControl != null)
             {
-                //Parent is not null, so set the outer container as well
-                control.ContainerElement = ParentControl.InternalElement;
+                if (control.Parent == null)
+                    control.Parent = ParentControl;
+                else
+                {
+                    //Parent is not null, so set the outer container as well
+                    control.ContainerElement = ParentControl.InternalElement;
+                }
+                ParentControl.InternalElement.AppendChild(control.InternalElement); //Append internal element
             }
-            ParentControl.InternalElement.AppendChild(control.InternalElement); //Append internal element
             _controls.Add(control);
         }
 
         protected override void RemoveItem(int index)
         {
             var control = base[index];
-            ParentControl.InternalElement.RemoveChild(control.InternalElement); //Remove internal element
+            ParentControl?.InternalElement.RemoveChild(control.InternalElement); //Remove internal element
             _controls.Remove(control);
             base.RemoveItem(index);
         }
