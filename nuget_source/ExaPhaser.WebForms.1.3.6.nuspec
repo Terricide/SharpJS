@@ -59,8 +59,6 @@
         <file src="..\bin\Xap.dll" target="jsil\Xap.dll" />
         <file src="..\bin\zlib1.dll" target="jsil\zlib1.dll" />
         <file src="..\bin\ExaPhaser.SharpJS.System.dll" target="lib\ExaPhaser.SharpJS.System.dll" />
-        <file src="..\bin\ExaPhaser.SharpJS.System.Xaml.dll" target="lib\ExaPhaser.SharpJS.System.Xaml.dll" />
-        <file src="..\bin\ExaPhaser.SharpJS.System.Xml.dll" target="lib\ExaPhaser.SharpJS.System.Xml.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="lib\ExaPhaser.WebForms.dll" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="lib\ICSharpCode.Decompiler.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
