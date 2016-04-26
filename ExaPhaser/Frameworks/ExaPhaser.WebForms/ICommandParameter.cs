@@ -4,6 +4,7 @@ namespace ExaPhaser.WebForms
 	public class ICommandParameter
 	{
 		public object Parameter { get; private set; }
+
 		public ICommandParameter()
 		{
 		}
