@@ -3,6 +3,9 @@ using SharpJS.Dom.Styles;
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// The base class for controls that consist of text, allowing easy customization of font on inheriting controls.
+    /// </summary>
     public class TextControl : Control
     {
         #region Private Fields

@@ -6,6 +6,9 @@ using SharpJS.Dom.JSLibraries.JQElements;
 
 namespace ExaPhaser.WebForms
 {
+    /// <summary>
+    /// The class responsible for displaying a form. This class handles initialization of the webpage and begins the layout process for a WebForm.
+    /// </summary>
     public class WebApplication
     {
         private JQDivElement _formHost;

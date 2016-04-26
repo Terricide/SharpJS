@@ -3,6 +3,9 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// A box that a user can enter text into.
+    /// </summary>
     public sealed class TextBox : TextControl
     {
         #region Public Constructors

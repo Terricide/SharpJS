@@ -2,6 +2,9 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// An ImageView displays an image. This is represented by an IMG tag in HTML.
+    /// </summary>
     public sealed class ImageView : Control
     {
         #region Private Fields

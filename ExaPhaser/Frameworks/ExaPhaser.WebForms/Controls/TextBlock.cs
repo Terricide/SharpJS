@@ -2,6 +2,9 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// One of the most basic controls, representing a block of text. Represented by a paragraph tag in HTML.
+    /// </summary>
     public sealed class TextBlock : TextControl
     {
         #region Private Fields

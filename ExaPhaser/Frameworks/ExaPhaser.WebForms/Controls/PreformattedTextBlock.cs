@@ -2,6 +2,9 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// A preformatted text block represented by a PRE element in HTML
+    /// </summary>
     public sealed class PreformattedTextBlock : Control
     {
         #region Private Fields

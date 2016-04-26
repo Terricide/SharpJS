@@ -3,6 +3,9 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// A control with a multi-line textbox. Is represented by a TEXTAREA tag in HTML.
+    /// </summary>
     public sealed class TextArea : TextControl
     {
         #region Public Constructors

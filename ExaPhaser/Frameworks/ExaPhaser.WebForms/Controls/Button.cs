@@ -4,6 +4,9 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// A clickable rectangle that fires an event when clicked. Represented by an A element in most CSS frameworks.
+    /// </summary>
     public sealed class Button : TextControl
     {
         #region Private Fields

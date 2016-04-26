@@ -6,6 +6,9 @@ using SharpJS.Dom.JSLibraries;
 
 namespace ExaPhaser.WebForms
 {
+    /// <summary>
+    /// The base class for all ExaPhaser.WebForms controls. Contains basic functionality that can be customized in inheriting controls.
+    /// </summary>
     public abstract class Control
     {
         #region Internal Logic

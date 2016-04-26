@@ -3,6 +3,9 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// A control that can render an HTML document from source or a URI. This element is represented by an IFRAME tag
+    /// </summary>
     public sealed class WebView : Control
     {
         #region Private Fields

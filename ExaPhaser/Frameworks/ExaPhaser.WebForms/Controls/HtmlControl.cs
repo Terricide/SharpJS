@@ -3,6 +3,9 @@ using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// A special control used for building custom controls from HTML elements from the SharpJS.Dom namespace.
+    /// </summary>
     public sealed class HtmlControl : Control
     {
         #region Private Fields

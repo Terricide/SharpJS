@@ -2,6 +2,9 @@
 
 namespace ExaPhaser.WebForms.Controls
 {
+    /// <summary>
+    /// A link label is very similar to a label; however, it usually has a hyperlink destination.
+    /// </summary>
     public sealed class LinkLabel : TextControl
     {
         #region Private Fields
