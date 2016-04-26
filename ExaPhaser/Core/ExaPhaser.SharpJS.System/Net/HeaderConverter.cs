@@ -4,7 +4,8 @@ namespace SharpJS.System.Net
 {
     internal static class HeaderConverter
     {
-        private static readonly Dictionary<string, string> _headerStringEquivalence = new Dictionary<string, string>
+        #region Lookup Table
+        private static readonly Dictionary<string, string> HeaderStringLookupTable = new Dictionary<string, string>
         {
             {
                 "CacheControl",
@@ -115,6 +116,7 @@ namespace SharpJS.System.Net
                 "Set-Cookie"
             }
         };
+        #endregion
 
         internal static string Convert(HttpRequestHeader header)
         {
@@ -131,9 +133,9 @@ namespace SharpJS.System.Net
         private static string Convert(string header)
         {
             var result = header;
-            if (_headerStringEquivalence.ContainsKey(header))
+            if (HeaderStringLookupTable.ContainsKey(header))
             {
-                result = _headerStringEquivalence[header];
+                result = HeaderStringLookupTable[header];
             }
             return result;
         }

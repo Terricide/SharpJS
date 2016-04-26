@@ -48,7 +48,7 @@
     <Compile Include="IO\WebStorage\StorageBase.cs" />
     <Compile Include="IO\WebStorage\WebStorageType.cs" />
     <Compile Include="InternalWebRequestHelper.cs" />
-    <Compile Include="Net\CSharpHeaderToHtmlHeaderConverter.cs" />
+    <Compile Include="Net\HeaderConverter.cs" />
     <Compile Include="Net\DownloadStringCompletedEventArgs.cs" />
     <Compile Include="Net\DownloadStringCompletedEventHandler.cs" />
     <Compile Include="Net\HttpRequestHeader.cs" />
