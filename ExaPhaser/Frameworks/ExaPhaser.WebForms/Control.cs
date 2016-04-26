@@ -33,10 +33,7 @@ namespace ExaPhaser.WebForms
         private void OnLoaded(EventArgs e)
         {
             var handler = Loaded;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
+			handler?.Invoke(this, e);
             UpdateContent();
         }
 
@@ -240,6 +237,7 @@ namespace ExaPhaser.WebForms
             {
                 _parent = parentControl;
                 _subControls.ParentControl = _parent;
+				_container = _parent.InternalElement;
             }
         }
 
