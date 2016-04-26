@@ -237,7 +237,6 @@ namespace ExaPhaser.WebForms
             {
                 _parent = parentControl;
                 _subControls.ParentControl = _parent;
-				_container = _parent.InternalElement;
             }
         }
 

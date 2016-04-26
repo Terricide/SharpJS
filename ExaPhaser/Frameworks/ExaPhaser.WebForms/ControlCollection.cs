@@ -32,11 +32,7 @@ namespace ExaPhaser.WebForms
             {
                 if (control.Parent == null)
                     control.Parent = ParentControl;
-                else
-                {
-                    //Parent is not null, so set the outer container as well
-                    control.ContainerElement = ParentControl.InternalElement;
-                }
+                control.ContainerElement = ParentControl.InternalElement;
                 ParentControl.InternalElement.AppendChild(control.InternalElement); //Append internal element
             }
             _controls.Add(control);
