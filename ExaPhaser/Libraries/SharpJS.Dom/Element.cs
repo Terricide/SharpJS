@@ -30,12 +30,12 @@ namespace SharpJS.Dom
 
         #region Internal Constructors
 
-        internal Element(object element)
+        public Element(object elementHandle)
         {
-            if (element == null)
-                throw new ArgumentNullException("element");
+            if (elementHandle == null)
+                throw new ArgumentNullException(nameof(elementHandle));
 
-            _element = element;
+            ElementHandle = elementHandle;
             _selfReference = this;
             StyleCollection = new StyleCollection(this);
 
@@ -179,12 +179,12 @@ namespace SharpJS.Dom
             }
         }
 
-        [JSReplacement("$this._element.addEventListener($name, $handler)")]
+        [JSReplacement("$this.ElementHandle.addEventListener($name, $handler)")]
         private void AddEventListener(string name, Action<object> handler)
         {
         }
 
-        [JSReplacement("$this._element.removeEventListener($name, $handler)")]
+        [JSReplacement("$this.ElementHandle.removeEventListener($name, $handler)")]
         private void RemoveEventListener(string name, Action<object> handler)
         {
         }
@@ -211,39 +211,39 @@ namespace SharpJS.Dom
 
         public bool Enabled
         {
-            get { return (bool)Verbatim.Expression("!this._element.disabled"); }
-            set { Verbatim.Expression("this._element.disabled = !value"); }
+            get { return (bool)Verbatim.Expression("!this.ElementHandle.disabled"); }
+            set { Verbatim.Expression("this.ElementHandle.disabled = !value"); }
         }
 
         public double Height
         {
-            get { return (double)Verbatim.Expression("this._element.height"); }
-            set { Verbatim.Expression("this._element.height = value"); }
+            get { return (double)Verbatim.Expression("this.ElementHandle.height"); }
+            set { Verbatim.Expression("this.ElementHandle.height = value"); }
         }
 
         public string Id
         {
-            get { return (string)Verbatim.Expression("this._element.id"); }
-            set { Verbatim.Expression("this._element.id = value"); }
+            get { return (string)Verbatim.Expression("this.ElementHandle.id"); }
+            set { Verbatim.Expression("this.ElementHandle.id = value"); }
         }
 
         public string TagName
         {
-            get { return (string)Verbatim.Expression("this._element.tagName"); }
-            set { Verbatim.Expression("this._element.tagName = value"); }
+            get { return (string)Verbatim.Expression("this.ElementHandle.tagName"); }
+            set { Verbatim.Expression("this.ElementHandle.tagName = value"); }
         }
 
         public double Width
         {
-            get { return (double)Verbatim.Expression("this._element.width"); }
-            set { Verbatim.Expression("this._element.width = value"); }
+            get { return (double)Verbatim.Expression("this.ElementHandle.width"); }
+            set { Verbatim.Expression("this.ElementHandle.width = value"); }
         }
 
         #endregion Properties
 
         #region Protected Fields
 
-        protected object _element;
+        protected object ElementHandle;
 
         protected Element _selfReference;
 
@@ -256,44 +256,44 @@ namespace SharpJS.Dom
             get
             {
                 return
-                    ((object[])Verbatim.Expression("Array.prototype.slice.call(this._element.children)")).Select(
+                    ((object[])Verbatim.Expression("Array.prototype.slice.call(this.ElementHandle.children)")).Select(
                         elementObject => GetElement(elementObject)).ToArray();
             }
         }
 
         public object DOMRepresentation
         {
-            get { return _element; }
+            get { return ElementHandle; }
         }
 
         public Element FirstChild
         {
-            get { return GetElement(Verbatim.Expression("this._element.firstChild")); }
+            get { return GetElement(Verbatim.Expression("this.ElementHandle.firstChild")); }
         }
 
         public string InnerHtml
         {
-            get { return (string)Verbatim.Expression("this._element.innerHTML"); }
-            set { Verbatim.Expression("this._element.innerHTML = value"); }
+            get { return (string)Verbatim.Expression("this.ElementHandle.innerHTML"); }
+            set { Verbatim.Expression("this.ElementHandle.innerHTML = value"); }
         }
 
         public Element NextSibling
         {
-            get { return GetElement(Verbatim.Expression("this._element.nextSibling")); }
+            get { return GetElement(Verbatim.Expression("this.ElementHandle.nextSibling")); }
         }
 
-        [JSReplacement("$this._element.nodeType")]
+        [JSReplacement("$this.ElementHandle.nodeType")]
         public int NodeType { get; private set; }
 
         public string OuterHtml
         {
-            get { return (string)Verbatim.Expression("this._element.outerHTML"); }
-            set { Verbatim.Expression("this._element.outerHTML = value"); }
+            get { return (string)Verbatim.Expression("this.ElementHandle.outerHTML"); }
+            set { Verbatim.Expression("this.ElementHandle.outerHTML = value"); }
         }
 
         public Element Parent
         {
-            get { return GetElement(Verbatim.Expression("this._element.parent")); }
+            get { return GetElement(Verbatim.Expression("this.ElementHandle.parent")); }
         }
 
         public StyleCollection StyleCollection { get; private set; }
@@ -306,36 +306,36 @@ namespace SharpJS.Dom
 
         public string TextContent
         {
-            get { return (string)Verbatim.Expression("this._element.textContent"); }
-            set { Verbatim.Expression("this._element.textContent = value"); }
+            get { return (string)Verbatim.Expression("this.ElementHandle.textContent"); }
+            set { Verbatim.Expression("this.ElementHandle.textContent = value"); }
         }
 
         #endregion Public Properties
 
         #region Public Methods
 
-        [JSReplacement("$this._element.className += \" \" + $className")]
+        [JSReplacement("$this.ElementHandle.className += \" \" + $className")]
         public virtual void AddClass(string className)
         {
         }
 
-        [JSReplacement("$this._element.appendChild($childElement._element)")]
+        [JSReplacement("$this.ElementHandle.appendChild($childElement.ElementHandle)")]
         public virtual void AppendChild(Element childElement)
         {
         }
 
-        [JSReplacement("$this._element.blur()")]
+        [JSReplacement("$this.ElementHandle.blur()")]
         public virtual void Blur()
         {
         }
 
-        [JSReplacement("$this._element[$attributeName]")]
+        [JSReplacement("$this.ElementHandle[$attributeName]")]
         public virtual string GetAttributeValue(string attributeName)
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._element.removeChild($child._element)")]
+        [JSReplacement("$this.ElementHandle.removeChild($child.ElementHandle)")]
         public virtual void RemoveChild(Element child)
         {
         }
@@ -356,7 +356,7 @@ namespace SharpJS.Dom
             SetAttributeValue("className", names);
         }
 
-        [JSReplacement("$this._element.style[$styleName]=$value")]
+        [JSReplacement("$this.ElementHandle.style[$styleName]=$value")]
         public void SetStyle(string styleName, string value)
         {
         }
@@ -412,7 +412,7 @@ namespace SharpJS.Dom
 
         #region Protected Methods
 
-        [JSReplacement("$this._element[$attributeName] = $value")]
+        [JSReplacement("$this.ElementHandle[$attributeName] = $value")]
         protected virtual void SetAttributeValue(string attributeName, string value)
         {
         }

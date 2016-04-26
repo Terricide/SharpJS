@@ -48,12 +48,12 @@ namespace SharpJS.Dom
             return new Element(elementNodeName);
         }
 
-        [JSReplacement("document.appendChild($node._element)")]
+        [JSReplacement("document.appendChild($node.ElementHandle)")]
         public static void AppendChild(Element node)
         {
         }
 
-        [JSReplacement("document.insertBefore($node._element, $existingNode_element)")]
+        [JSReplacement("document.insertBefore($node.ElementHandle, $existingNode_element)")]
         public static void InsertBefore(Element node, Element existingNode)
         {
         }

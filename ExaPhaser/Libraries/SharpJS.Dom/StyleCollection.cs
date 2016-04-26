@@ -24,10 +24,10 @@ namespace SharpJS.Dom
             throw new NotImplementedException();
         }
 
-        //[JSReplacement("$this._parent._element.style[$name] = $value")]
+        //[JSReplacement("$this._parent.ElementHandle.style[$name] = $value")]
         public void Add(string name, string value)
         {
-            Verbatim.Expression("this._parent._element.style[name] = value");
+            Verbatim.Expression("this._parent.ElementHandle.style[name] = value");
         }
     }
 }

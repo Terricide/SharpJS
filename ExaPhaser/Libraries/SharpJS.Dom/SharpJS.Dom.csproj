@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\..\..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>..\..\..\bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -55,12 +55,6 @@
     <Compile Include="Elements\ScriptElement.cs" />
     <Compile Include="IntervalDispatcher.cs" />
     <Compile Include="JSConsole.cs" />
-    <Compile Include="JSLibraries\FileLoadedEventArgs.cs" />
-    <Compile Include="JSLibraries\FileReader.cs" />
-    <Compile Include="JSLibraries\JQElement.cs" />
-    <Compile Include="JSLibraries\JQElements\JQDivElement.cs" />
-    <Compile Include="JSLibraries\JQuery.cs" />
-    <Compile Include="JSLibraries\JQueryObject.cs" />
     <Compile Include="JSLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RgbStyle.cs" />
@@ -71,11 +65,11 @@
     <Compile Include="Styles\TextStyles.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
+    <ProjectReference Include="..\..\..\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
       <Project>{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}</Project>
       <Name>ExaPhaser.SharpJS.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Meta\Meta.csproj">
+    <ProjectReference Include="..\..\..\Meta\Meta.csproj">
       <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
       <Name>Meta</Name>
     </ProjectReference>

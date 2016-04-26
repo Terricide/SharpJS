@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F8AB49DE-7804-49E4-B0C3-34B078FFC891}</ProjectGuid>
+    <ProjectGuid>{D7F84A77-7A04-4FAE-87D6-C4A3F58418FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExaPhaser.WebForms</RootNamespace>
-    <AssemblyName>ExaPhaser.WebForms</AssemblyName>
+    <RootNamespace>SharpJS.JSLibraries</RootNamespace>
+    <AssemblyName>SharpJS.JSLibraries</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,63 +29,38 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>sharpjs.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Control.cs" />
-    <Compile Include="ControlCollection.cs" />
-    <Compile Include="Controls\Button.cs" />
-    <Compile Include="Controls\ElementGroup.cs" />
-    <Compile Include="Controls\Internal\HtmlElementCollection.cs" />
-    <Compile Include="Controls\HtmlControl.cs" />
-    <Compile Include="Controls\ImageView.cs" />
-    <Compile Include="Controls\InputType.cs" />
-    <Compile Include="Controls\LinkLabel.cs" />
-    <Compile Include="Controls\Panel.cs" />
-    <Compile Include="Controls\PreformattedTextBlock.cs" />
-    <Compile Include="Controls\TextArea.cs" />
-    <Compile Include="Controls\TextBlock.cs" />
-    <Compile Include="Controls\TextBox.cs" />
-    <Compile Include="Controls\TextControl.cs" />
-    <Compile Include="Controls\WebView.cs" />
-    <Compile Include="DelegateCommand.cs" />
-    <Compile Include="Drawing\Point.cs" />
-    <Compile Include="FontStyle.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="Layout.cs" />
-    <Compile Include="PositioningType.cs" />
-    <Compile Include="Drawing\RelativePoint.cs" />
-    <Compile Include="Themes\CSSFramework.cs" />
-    <Compile Include="Themes\CSSUITheme.cs" />
-    <Compile Include="WebApplication.cs" />
-    <Compile Include="WebForm.cs" />
+    <Compile Include="FileLoadedEventArgs.cs" />
+    <Compile Include="FileReader.cs" />
+    <Compile Include="JQuery\JQElement.cs" />
+    <Compile Include="JQuery\JQElements\JQDivElement.cs" />
+    <Compile Include="JQuery\JQuery.cs" />
+    <Compile Include="JQuery\JQueryObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
-      <Project>{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}</Project>
+      <Project>{5c3b6aac-aea4-4ff3-9a9c-05a040f12e72}</Project>
       <Name>ExaPhaser.SharpJS.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Meta\Meta.csproj">
       <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
       <Name>Meta</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Libraries\SharpJS.Dom\SharpJS.Dom.csproj">
+    <ProjectReference Include="..\SharpJS.Dom\SharpJS.Dom.csproj">
       <Project>{60ac246f-639d-453c-99e7-b59093a4f0de}</Project>
       <Name>SharpJS.Dom</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Libraries\SharpJS.JSLibraries\SharpJS.JSLibraries.csproj">
-      <Project>{d7f84a77-7a04-4fae-87d6-c4a3f58418fb}</Project>
-      <Name>SharpJS.JSLibraries</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="sharpjs.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
