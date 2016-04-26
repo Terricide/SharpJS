@@ -46,6 +46,7 @@
     <Compile Include="JQuery\JQElements\JQDivElement.cs" />
     <Compile Include="JQuery\JQuery.cs" />
     <Compile Include="JQuery\JQueryObject.cs" />
+    <Compile Include="PrintHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebSocket.cs" />
   </ItemGroup>

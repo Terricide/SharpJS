@@ -15,7 +15,7 @@ namespace SharpJS.JSLibraries
 
         public OnErrorEventArgs(string data)
         {
-            this.Data = data;
+            Data = data;
         }
 
         #endregion Public Constructors
@@ -33,7 +33,7 @@ namespace SharpJS.JSLibraries
 
         public OnMessageEventArgs(string data)
         {
-            this.Data = data;
+            Data = data;
         }
 
         #endregion Public Constructors
@@ -54,15 +54,15 @@ namespace SharpJS.JSLibraries
             _webSocketObjectHandle = Verbatim.Expression("new WebSocket($0)", uri);
 
             Verbatim.Expression(
-                    @"$0.onopen = $1;
+                @"$0.onopen = $1;
                       $0.onclose = $2;
                       $0.onmessage = $3;
                       $0.onerror = $4",
                 _webSocketObjectHandle,
-                (Action<object>)this.OnOpenCallback,
-                (Action<object>)this.OnCloseCallback,
-                (Action<object>)this.OnMessageCallback,
-                (Action<object>)this.OnErrorCallback);
+                (Action<object>) OnOpenCallback,
+                (Action<object>) OnCloseCallback,
+                (Action<object>) OnMessageCallback,
+                (Action<object>) OnErrorCallback);
         }
 
         #endregion Public Constructors
@@ -97,7 +97,7 @@ namespace SharpJS.JSLibraries
 
         private void OnCloseCallback(object e)
         {
-            if (this.OnClose != null)
+            if (OnClose != null)
                 OnClose(this, new EventArgs());
         }
 
@@ -105,7 +105,7 @@ namespace SharpJS.JSLibraries
         {
             var data = Convert.ToString(Verbatim.Expression("$0.data", e));
 
-            if (this.OnError != null)
+            if (OnError != null)
                 OnError(this, new OnErrorEventArgs(data));
         }
 
@@ -113,13 +113,13 @@ namespace SharpJS.JSLibraries
         {
             var data = Convert.ToString(Verbatim.Expression("$0.data", e));
 
-            if (this.OnMessage != null)
+            if (OnMessage != null)
                 OnMessage(this, new OnMessageEventArgs(data));
         }
 
         private void OnOpenCallback(object e)
         {
-            if (this.OnOpen != null)
+            if (OnOpen != null)
                 OnOpen(this, new EventArgs());
         }
 
