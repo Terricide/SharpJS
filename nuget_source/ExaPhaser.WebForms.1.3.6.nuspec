@@ -55,6 +55,7 @@
         <file src="..\bin\nss3.dll" target="jsil\nss3.dll" />
         <file src="..\bin\pngquant.exe" target="jsil\pngquant.exe" />
         <file src="..\bin\SharpJS.Dom.dll" target="jsil\SharpJS.Dom.dll" />
+		<file src="..\bin\SharpJS.JSLibraries.dll" target="jsil\SharpJS.JSLibraries.dll" />
         <file src="..\bin\Xap.dll" target="jsil\Xap.dll" />
         <file src="..\bin\zlib1.dll" target="jsil\zlib1.dll" />
         <file src="..\bin\ExaPhaser.SharpJS.System.dll" target="lib\ExaPhaser.SharpJS.System.dll" />
@@ -70,6 +71,7 @@
         <file src="..\bin\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />
         <file src="..\bin\Mono.Cecil.Pdb.dll" target="lib\Mono.Cecil.Pdb.dll" />
         <file src="..\bin\SharpJS.Dom.dll" target="lib\SharpJS.Dom.dll" />
+		<file src="..\bin\SharpJS.JSLibraries.dll" target="lib\SharpJS.JSLibraries.dll" />
 		<file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="lib\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
         <file src="tools\install.ps1" target="tools\install.ps1" />
     </files>
