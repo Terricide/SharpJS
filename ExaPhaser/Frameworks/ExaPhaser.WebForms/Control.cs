@@ -51,7 +51,7 @@ namespace ExaPhaser.WebForms
         #region Public Methods
 
         /// <summary>
-        ///     Docks the control by filling the parent container
+        /// Docks the control by filling the parent container
         /// </summary>
         public void DockControlInParentContainer()
         {
@@ -59,13 +59,30 @@ namespace ExaPhaser.WebForms
             InternalJQElement.JQueryObjectHandle.Css("height", "100%");
         }
 
-        public void FadeIn() => InternalJQElement.FadeIn();
+		/// <summary>
+		/// Fades in the control. For more control over the animation, call an overload of Control.InternalJQElement.FadeIn
+		/// </summary>
+		public void FadeIn() => InternalJQElement.FadeIn();
 
-        public void FadeOut() => InternalJQElement.FadeOut();
+        /// <summary>
+        /// Fades out the control. For more control over the animation, call an overload of Control.InternalJQElement.FadeOut
+        /// </summary>
+		public void FadeOut() => InternalJQElement.FadeOut();
 
-        public void Hide() => InternalJQElement.Hide();
+		/// <summary>
+		/// Hides the control. Is equivalent to settings Visible to False
+		/// </summary>
+		public void Hide() => InternalJQElement.Hide();
 
+		/// <summary>
+		/// Shows the control. Is equivalent to settings Visible to True
+		/// </summary>
         public void Show() => InternalJQElement.Show();
+
+		/// <summary>
+		/// Triggers the click event on the control
+		/// </summary>
+		public void SimulateClick() => InternalJQElement.Trigger("click");
 
         #endregion Public Methods
 

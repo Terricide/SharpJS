@@ -4,7 +4,7 @@
     {
         #region Public Methods
 
-        void Execute(object o);
+		void Execute(ICommandParameter args);
 
         #endregion Public Methods
     }

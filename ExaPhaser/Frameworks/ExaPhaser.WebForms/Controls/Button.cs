@@ -75,9 +75,8 @@ namespace ExaPhaser.WebForms.Controls
 
         private void OnClick(object sender, EventArgs e)
         {
-            var handler = Click;
-            handler?.Invoke(this, e);
-            Command?.Execute(CommandParameter);
+            Click?.Invoke(this, e);
+			Command?.Execute(new ICommandParameter(e));
         }
 
         private void SetText(string value)
@@ -90,9 +89,11 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Command
 
+		/// <summary>
+		/// The command fired when the button is clicked
+		/// </summary>
+		/// <value>The command.</value>
         public ICommand Command { get; set; }
-
-        public object CommandParameter { get; set; }
 
         #endregion Command
     }

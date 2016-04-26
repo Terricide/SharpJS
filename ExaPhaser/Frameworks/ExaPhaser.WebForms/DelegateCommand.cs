@@ -2,6 +2,9 @@
 
 namespace ExaPhaser.WebForms
 {
+	/// <summary>
+	/// A command that takes no parameter.
+	/// </summary>
     public class DelegateCommand : ICommand
     {
         #region Private Fields
@@ -21,12 +24,9 @@ namespace ExaPhaser.WebForms
 
         #region Public Methods
 
-        public void Execute(object o)
+		public void Execute(ICommandParameter param)
         {
-            if (_executeAction != null)
-            {
-                _executeAction();
-            }
+			_executeAction?.Invoke();
         }
 
         #endregion Public Methods
