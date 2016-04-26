@@ -29,23 +29,25 @@ namespace ExaPhaser.WebForms
 				FileOpened?.Invoke(this, eventArgs);
 				Command?.Execute(new ICommandParameter(eventArgs));
 			};
+
 			Action<object> changeAction = (object evt) =>
 			{
 				var input = Verbatim.Expression("evt.target");
 				var file = Verbatim.Expression("input.files[0]");
 				var reader = Verbatim.Expression("new FileReader()");
-				Verbatim.Expression(@"
-				reader.onload = function(){
-                      var callback = $1;
-                      var plainTextContentIfAny = '';
-                      var jsBlob = reader.result;
-                      if (file.type == 'text/plain'){
-                        plainTextContentIfAny = reader.result;
-                      }
-                      callback(jsBlob, plainTextContentIfAny);
-                    };
-                    reader.readAsText(file);
-				", InternalElement.DOMRepresentation, fileOpenAction);
+				Action onLoadAction = () =>
+				{
+					object textContent = "";
+					object jsBlob = Verbatim.Expression("$0.result", reader);
+					string fileType = (string)Verbatim.Expression("$0.type", file);
+					if (fileType == "text/plain")
+					{
+						textContent = jsBlob;
+					}
+					fileOpenAction(jsBlob, textContent as string);
+				};
+				Verbatim.Expression("$0.onload = $1", reader, onLoadAction);
+				Verbatim.Expression("$0.readAsText($1);", reader, file);
 			};
 			InternalJQElement.BindEventListener("change", changeAction);
 		}
