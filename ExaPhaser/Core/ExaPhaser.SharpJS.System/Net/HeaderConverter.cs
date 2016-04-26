@@ -2,7 +2,7 @@
 
 namespace SharpJS.System.Net
 {
-    internal static class CSharpHeaderToHtmlHeaderConverter
+    internal static class HeaderConverter
     {
         private static readonly Dictionary<string, string> _headerStringEquivalence = new Dictionary<string, string>
         {

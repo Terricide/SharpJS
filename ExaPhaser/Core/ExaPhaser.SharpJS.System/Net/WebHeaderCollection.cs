@@ -27,16 +27,16 @@ namespace SharpJS.System.Net
 
         public string this[HttpRequestHeader header]
         {
-            get { return _headers[CSharpHeaderToHtmlHeaderConverter.Convert(header)]; }
+            get { return _headers[HeaderConverter.Convert(header)]; }
 
-            set { _headers[CSharpHeaderToHtmlHeaderConverter.Convert(header)] = value; }
+            set { _headers[HeaderConverter.Convert(header)] = value; }
         }
 
         public string this[HttpResponseHeader header]
         {
-            get { return _headers[CSharpHeaderToHtmlHeaderConverter.Convert(header)]; }
+            get { return _headers[HeaderConverter.Convert(header)]; }
 
-            set { _headers[CSharpHeaderToHtmlHeaderConverter.Convert(header)] = value; }
+            set { _headers[HeaderConverter.Convert(header)] = value; }
         }
 
         public void Add(string header)
@@ -55,12 +55,12 @@ namespace SharpJS.System.Net
 
         public void Add(HttpRequestHeader header, string value)
         {
-            Add(CSharpHeaderToHtmlHeaderConverter.Convert(header), value);
+            Add(HeaderConverter.Convert(header), value);
         }
 
         public void Add(HttpResponseHeader header, string value)
         {
-            Add(CSharpHeaderToHtmlHeaderConverter.Convert(header), value);
+            Add(HeaderConverter.Convert(header), value);
         }
 
         public void Add(string name, string value)
@@ -90,12 +90,12 @@ namespace SharpJS.System.Net
 
         public void Remove(HttpRequestHeader header)
         {
-            Remove(CSharpHeaderToHtmlHeaderConverter.Convert(header));
+            Remove(HeaderConverter.Convert(header));
         }
 
         public void Remove(HttpResponseHeader header)
         {
-            Remove(CSharpHeaderToHtmlHeaderConverter.Convert(header));
+            Remove(HeaderConverter.Convert(header));
         }
 
         public void Remove(string name)
