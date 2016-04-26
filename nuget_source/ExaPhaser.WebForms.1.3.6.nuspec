@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ExaPhaser.WebForms</id>
-        <version>1.3.5</version>
+        <version>1.3.6</version>
         <title>SharpJS ExaPhaser.WebForms</title>
         <authors>ExaPhaser Industries,0xFireball</authors>
         <owners>ExaPhaser Industries,0xFireball</owners>
@@ -20,6 +20,7 @@
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
         <file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
+		<file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="jsil\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="jsil\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.xml" target="jsil\ICSharpCode.NRefactory.CSharp.xml" />
@@ -69,6 +70,7 @@
         <file src="..\bin\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />
         <file src="..\bin\Mono.Cecil.Pdb.dll" target="lib\Mono.Cecil.Pdb.dll" />
         <file src="..\bin\SharpJS.Dom.dll" target="lib\SharpJS.Dom.dll" />
+		<file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="lib\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
         <file src="tools\install.ps1" target="tools\install.ps1" />
     </files>
 </package>

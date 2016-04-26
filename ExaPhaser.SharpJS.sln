@@ -78,6 +78,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{0E591F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExaPhaser.SharpJS.Common", "ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj", "{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{F44768BD-EA5E-44DC-88CE-BD401972A60B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExaPhaser.WebForms.Extensions.WinFormsCompat", "ExaPhaser\Extensions\ExaPhaser.WebForms.Extensions.WinFormsCompat\ExaPhaser.WebForms.Extensions.WinFormsCompat.csproj", "{87883442-23CE-42BD-BB6E-D133A026CE0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -290,6 +294,14 @@ Global
 		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Release|NoXNA.ActiveCfg = Release|Any CPU
 		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72}.Release|NoXNA.Build.0 = Release|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Debug|NoXNA.ActiveCfg = Debug|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Debug|NoXNA.Build.0 = Debug|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Release|NoXNA.ActiveCfg = Release|Any CPU
+		{87883442-23CE-42BD-BB6E-D133A026CE0A}.Release|NoXNA.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -315,5 +327,7 @@ Global
 		{C42C2147-F124-4698-B4BD-558D8546C431} = {AB9B2023-A4C1-4334-90F9-AD65B4CB56F9}
 		{0E591F65-553D-44B9-BCF4-81040193A4AD} = {15FAFE7C-EC2B-401E-8652-638CE7B13B56}
 		{5C3B6AAC-AEA4-4FF3-9A9C-05A040F12E72} = {0E591F65-553D-44B9-BCF4-81040193A4AD}
+		{F44768BD-EA5E-44DC-88CE-BD401972A60B} = {15FAFE7C-EC2B-401E-8652-638CE7B13B56}
+		{87883442-23CE-42BD-BB6E-D133A026CE0A} = {F44768BD-EA5E-44DC-88CE-BD401972A60B}
 	EndGlobalSection
 EndGlobal
