@@ -63,12 +63,6 @@ namespace ExaPhaser.WebForms.Controls
             set { SetText(value); }
         }
 
-		public bool Enabled
-		{
-			get { return !InternalJQElement.Attr<bool>("disabled"); }
-			set { InternalJQElement.Attr<bool>("disabled", !value); }
-		}
-
         #endregion Public Properties
 
         #region Public Events
