@@ -3,7 +3,7 @@ html, body {
 	padding: 0px;
 }
 body {
-	overflow: hidden;
+	overflow: auto;
 }
 
 #canvas {
