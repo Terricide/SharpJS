@@ -22,7 +22,7 @@ namespace ExaPhaser.WebForms.Controls
             PerformLayout();
         }
 
-        public FileReaderEncoding FileEncoding = FileReaderEncoding.UTF8;
+        public FileReaderEncoding FileEncoding { get; set; } = FileReaderEncoding.UTF8;
 
         public override void PerformLayout()
         {
