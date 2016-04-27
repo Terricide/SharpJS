@@ -227,6 +227,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExaPhaser.SharpJS.System, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
