@@ -23,7 +23,7 @@ namespace ExaPhaser.WebForms.Controls
         /// <summary>
         /// Sets the file encoding if the UploadType is TextFile. The upload button must be reinitialized in order to change this property.
         /// </summary>
-        public FileReaderEncoding FileEncoding { get; set; } = FileReaderEncoding.UTF8;
+        public FileReaderEncoding FileEncoding { get; set; } = FileReaderEncoding.ASCII;
 
         /// <summary>
         /// Sets the type of the file being uploaded, and consequently, the type of parsing. The upload button must be reinitialized in order to change this property.
@@ -73,6 +73,9 @@ namespace ExaPhaser.WebForms.Controls
                         case FileUploadType.TextFile:
                             switch (FileEncoding)
                             {
+                                case FileReaderEncoding.ASCII:
+                                    textContent = jsBlob as string;
+                                    break;
                                 case FileReaderEncoding.UTF8:
                                     textContent = BufferConverter.ArrayBufferToStringUTF8(jsBlob);
                                     break;
@@ -93,7 +96,14 @@ namespace ExaPhaser.WebForms.Controls
                 {
                     case FileUploadType.TextFile:
                     case FileUploadType.BinaryFile:
-                        Verbatim.Expression("$0.readAsArrayBuffer($1);", reader, file);
+                        if (FileEncoding == FileReaderEncoding.ASCII)
+                        {
+                            Verbatim.Expression("$0.readAsText($1);", reader, file);
+                        }
+                        else
+                        {
+                            Verbatim.Expression("$0.readAsArrayBuffer($1);", reader, file);
+                        }
                         break;
 
                     case FileUploadType.ImageFile:
@@ -145,6 +155,7 @@ namespace ExaPhaser.WebForms.Controls
 
     public enum FileReaderEncoding
     {
+        ASCII,
         UTF8,
         UTF16
     }
