@@ -1,9 +1,9 @@
-﻿using JSIL;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using JSIL;
 using SharpJS.Dom.Elements;
 
-namespace ExaPhaser.WebForms
+namespace ExaPhaser.WebForms.Controls
 {
 	/// <summary>
 	/// A control that represents a file upload button
