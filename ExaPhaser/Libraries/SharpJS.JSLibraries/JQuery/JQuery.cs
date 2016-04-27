@@ -19,6 +19,13 @@ namespace SharpJS.JSLibraries.JQuery
 
         public static bool IsInitialized { get; private set; }
 
+        // ReSharper disable once ConvertToAutoPropertyWhenPossible
+        public static object JQueryStatic
+        {
+            get { return _jq; }
+            set { _jq = value; }
+        }
+
         public static void Initialize()
         {
             var jQueryHandle = Verbatim.Expression("jQuery.noConflict(true)");
