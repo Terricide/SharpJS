@@ -54,7 +54,7 @@ namespace SharpJS.JSLibraries.JQuery
             throw new RequiresJSILRuntimeException();
         }
 
-		private static object DynamicInvoke(string methodName, params object[] parameters)
+		public static object DynamicInvoke(string methodName, params object[] parameters)
 		{
 			object targetMethod = Verbatim.Expression("$0[$1]", _jq, methodName);
 			return Verbatim.Expression("$0.apply($1, $2)", null, parameters);
