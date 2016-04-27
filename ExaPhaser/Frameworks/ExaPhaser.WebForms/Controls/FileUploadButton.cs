@@ -22,9 +22,9 @@ namespace ExaPhaser.WebForms.Controls
             PerformLayout();
         }
 
-        public override void UpdateContent()
+        public override void PerformLayout()
         {
-            base.UpdateContent();
+            base.PerformLayout();
             Action<object, string> fileOpenAction = (jsBlob, textContent) =>
             {
                 var eventArgs = new FileUploadEventArgs(jsBlob, textContent);
@@ -35,7 +35,7 @@ namespace ExaPhaser.WebForms.Controls
             Action<object> changeAction = (object evt) =>
             {
                 var input = Verbatim.Expression("evt.target");
-                var file = Verbatim.Expression("input.files[0]");
+                var file = Verbatim.Expression("$0.files[0]", input);
                 var reader = Verbatim.Expression("new FileReader()");
                 Action onLoadAction = () =>
                 {
