@@ -22,6 +22,8 @@ namespace ExaPhaser.WebForms.Controls
             PerformLayout();
         }
 
+        public FileReaderEncoding FileEncoding = FileReaderEncoding.UTF8;
+
         public override void PerformLayout()
         {
             base.PerformLayout();
@@ -41,7 +43,16 @@ namespace ExaPhaser.WebForms.Controls
                 {
                     object jsBlob = Verbatim.Expression("$0.result", reader);
                     //string fileMimeType = (string)Verbatim.Expression("$0.type", file);
-                    string textContent = (BufferConverter.ArrayBufferToString(jsBlob) as string) ?? "";
+                    string textContent = "";
+                    switch (FileEncoding)
+                    {
+                        case FileReaderEncoding.UTF8:
+                            textContent = BufferConverter.ArrayBufferToStringUTF8(jsBlob);
+                            break;
+                        case FileReaderEncoding.UTF16:
+                            textContent = BufferConverter.ArrayBufferToStringUTF16(jsBlob);
+                            break;
+                    }
                     fileOpenAction(jsBlob, textContent);
                 };
                 Verbatim.Expression("$0.onload = $1", reader, onLoadAction);
@@ -95,6 +106,12 @@ namespace ExaPhaser.WebForms.Controls
         public ICommand Command { get; set; }
 
         #endregion Command
+    }
+
+    public enum FileReaderEncoding
+    {
+        UTF8,
+        UTF16,
     }
 
     public class FileUploadEventArgs : EventArgs
