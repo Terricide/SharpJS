@@ -83,10 +83,21 @@ namespace SharpJS.JSLibraries.JQuery
             throw new RequiresJSILRuntimeException();
         }
 
+		[JSReplacement("$this.JQObject.attr($name)")]
+		public T Attr<T>(string name)
+		{
+			throw new RequiresJSILRuntimeException();
+		}
+
         [JSReplacement("$this.JQObject.attr($name, $value)")]
         public void Attr(string name, string value)
         {
         }
+
+		[JSReplacement("$this.JQObject.attr($name, $value)")]
+		public void Attr<T>(string name, T value)
+		{
+		}
 
         [JSReplacement("$this.JQObject.on($eventName, $handler)")] //Using on because it is preferred to bind
         public void Bind(string eventName, Action<object> handler)

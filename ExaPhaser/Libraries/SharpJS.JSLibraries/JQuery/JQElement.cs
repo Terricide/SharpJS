@@ -99,7 +99,11 @@ namespace SharpJS.JSLibraries.JQuery
 
         public string Attr(string name) => JQueryObjectHandle.Attr(name);
 
+		public T Attr<T>(string name) => JQueryObjectHandle.Attr<T>(name);
+
         public void Attr(string name, string value) => JQueryObjectHandle.Attr(name, value);
+
+		public void Attr<T>(string name, T value) => JQueryObjectHandle.Attr<T>(name, value);
 
         public void BindEventListener(string eventName, Action<object> handler) => JQueryObjectHandle.Bind(eventName, handler);
 
