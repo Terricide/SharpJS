@@ -3,19 +3,24 @@ using ExaPhaser.WebForms.Themes;
 
 namespace System.Windows.Forms
 {
-    internal class Application
+    public class Application
     {
         private static CSSUITheme _theme = new CSSUITheme(CSSFramework.Kubism);
+        private static WebForm _mainForm;
+        private static WebApplication _sharpJSApp;
 
         public static void SetCSSUITheme(CSSUITheme theme)
         {
             _theme = theme;
         }
 
+        public static string HostElementId { get; set; } = "webform-container";
+
         public static void Run(Form form)
         {
-            var sharpJSapp = new WebApplication(_theme);
-            sharpJSapp.Run();
+            _sharpJSApp = new WebApplication(_theme);
+            _mainForm = form.UnderlyingWebForm;
+            _sharpJSApp.Run(_mainForm, HostElementId);
         }
     }
 }

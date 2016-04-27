@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Windows\Forms\Application.cs" />
+    <Compile Include="Windows\Forms\Control.cs" />
+    <Compile Include="Windows\Forms\ControlCollection.cs" />
     <Compile Include="Windows\Forms\Form.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
