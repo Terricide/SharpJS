@@ -35,7 +35,6 @@ namespace WebFormsTemplate
                 new Button
                 {
                     Text = "OK",
-                    CommandParameter = null,
                     Command = new DelegateCommand(() => JSLibrary.Alert("You clicked the button"))
                 },
                 new TextArea
