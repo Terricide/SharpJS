@@ -1,5 +1,4 @@
-﻿using SharpJS.Dom.JSLibraries;
-using SharpJS.Dom.Styles;
+﻿using SharpJS.Dom.Styles;
 
 namespace ExaPhaser.WebForms.Controls
 {

@@ -1,6 +1,7 @@
 ﻿using System;
+using SharpJS.Dom;
 
-namespace SharpJS.Dom.JSLibraries
+namespace SharpJS.JSLibraries.JQuery
 {
     /// <summary>
     ///     An enhanced version of the Element class that utilizes jQuery.
@@ -87,6 +88,14 @@ namespace SharpJS.Dom.JSLibraries
         public void Append(string elementHtml) => JQueryObjectHandle.Append(elementHtml);
 
         public void Append(JQElement jqElement) => JQueryObjectHandle.Append(jqElement);
+
+        public void Append(Element element) => JQueryObjectHandle.Append(element);
+
+        public void AppendTo(string elementHtml) => JQueryObjectHandle.AppendTo(elementHtml);
+
+        public void AppendTo(JQElement jqElement) => JQueryObjectHandle.AppendTo(jqElement);
+
+        public void AppendTo(Element element) => JQueryObjectHandle.AppendTo(element);
 
         public string Attr(string name) => JQueryObjectHandle.Attr(name);
 

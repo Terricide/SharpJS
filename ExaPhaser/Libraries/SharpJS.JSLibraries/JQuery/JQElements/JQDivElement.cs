@@ -1,4 +1,6 @@
-﻿namespace SharpJS.Dom.JSLibraries.JQElements
+﻿using SharpJS.Dom;
+
+namespace SharpJS.JSLibraries.JQuery.JQElements
 {
     /// <summary>
     ///     A managed wrapper for a DOM element representing a DIV node, with jQuery functionality enabled.

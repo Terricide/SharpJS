@@ -6,7 +6,7 @@
         {
         }
 
-        public string HREF
+        public string Href
         {
             get { return this["href"]; }
             set { this["href"] = value; }

@@ -1,8 +1,9 @@
 ﻿using System;
 using JSIL;
 using JSIL.Meta;
+using SharpJS.Dom;
 
-namespace SharpJS.Dom.JSLibraries
+namespace SharpJS.JSLibraries.JQuery
 {
     /// <summary>
     ///     A C# class that represents a jQuery object obtained by $(element) in JS. It redirects managed C# calls to jQuery.
@@ -13,14 +14,14 @@ namespace SharpJS.Dom.JSLibraries
 
         internal JQueryObject(object handle)
         {
-            _jqobject = handle;
+            JQObject = handle;
         }
 
         #endregion Internal Constructors
 
         #region Private Methods
 
-        [JSReplacement("$this._jqobject[0]")]
+        [JSReplacement("$this.JQObject[0]")]
         private object GetDomHandle()
         {
             throw new RequiresJSILRuntimeException();
@@ -30,71 +31,85 @@ namespace SharpJS.Dom.JSLibraries
 
         #region Public Properties
 
-        public object _jqobject { get; set; }
-
         public Element DomRepresentation
         {
             get { return new Element(GetDomHandle()); }
         }
 
+        public object JQObject { get; set; }
         #endregion Public Properties
 
         #region Public Methods
 
-        [JSReplacement("$this._jqobject.addClass($className)")]
+        [JSReplacement("$this.JQObject.addClass($className)")]
         public string AddClass(string className)
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._jqobject.append($elementHtml)")]
+        [JSReplacement("$this.JQObject.append($elementHtml)")]
         public void Append(string elementHtml)
         {
         }
 
-        [JSReplacement("$this._jqobject.append($jqElement.JQueryObjectHandle._jqobject)")]
+        [JSReplacement("$this.JQObject.append($jqElement.JQueryObjectHandle.JQObject)")]
         public void Append(JQElement jqElement)
         {
         }
 
-        [JSReplacement("$this._jqobject.append($element.DOMRepresentation)")]
+        [JSReplacement("$this.JQObject.append($element.DOMRepresentation)")]
         public void Append(Element element)
         {
         }
 
-        [JSReplacement("$this._jqobject.attr($name)")]
+        [JSReplacement("$this.JQObject.appendTo($elementHtml)")]
+        public void AppendTo(string elementHtml)
+        {
+        }
+
+        [JSReplacement("$this.JQObject.appendTo($jqElement.JQueryObjectHandle.JQObject)")]
+        public void AppendTo(JQElement jqElement)
+        {
+        }
+
+        [JSReplacement("$this.JQObject.appendTo($element.DOMRepresentation)")]
+        public void AppendTo(Element element)
+        {
+        }
+
+        [JSReplacement("$this.JQObject.attr($name)")]
         public string Attr(string name)
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._jqobject.attr($name, $value)")]
+        [JSReplacement("$this.JQObject.attr($name, $value)")]
         public void Attr(string name, string value)
         {
         }
 
-        [JSReplacement("$this._jqobject.on($eventName, $handler)")] //Using on because it is preferred to bind
+        [JSReplacement("$this.JQObject.on($eventName, $handler)")] //Using on because it is preferred to bind
         public void Bind(string eventName, Action<object> handler)
         {
         }
 
-        [JSReplacement("$this._jqobject.contents()")]
+        [JSReplacement("$this.JQObject.contents()")]
         public object Contents()
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._jqobject.css($name, $value)")]
+        [JSReplacement("$this.JQObject.css($name, $value)")]
         public void Css(string name, string value)
         {
         }
 
-        [JSReplacement("$this._jqobject.css($name, $value)")]
+        [JSReplacement("$this.JQObject.css($name, $value)")]
         public void Css<T>(string name, T value)
         {
         }
 
-        [JSReplacement("$this._jqobject.css($name)")]
+        [JSReplacement("$this.JQObject.css($name)")]
         public string Css(string name)
         {
             throw new RequiresJSILRuntimeException();
@@ -102,84 +117,84 @@ namespace SharpJS.Dom.JSLibraries
 
         public T Css<T>(string name)
         {
-            return (T)Verbatim.Expression("this._jqobject.css(name)");
+            return (T)Verbatim.Expression("this.JQObject.css(name)");
         }
 
-        [JSReplacement("$this._jqobject.fadeIn()")]
+        [JSReplacement("$this.JQObject.fadeIn()")]
         public void FadeIn()
         {
         }
 
-        [JSReplacement("$this._jqobject.fadeIn($timeout)")]
+        [JSReplacement("$this.JQObject.fadeIn($timeout)")]
         public void FadeIn(int timeout)
         {
         }
 
-        [JSReplacement("$this._jqobject.fadeIn($timeout, $finishedCallback)")]
+        [JSReplacement("$this.JQObject.fadeIn($timeout, $finishedCallback)")]
         public void FadeIn(int timeout, Action finishedCallback)
         {
         }
 
-        [JSReplacement("$this._jqobject.fadeOut()")]
+        [JSReplacement("$this.JQObject.fadeOut()")]
         public void FadeOut()
         {
         }
 
-        [JSReplacement("$this._jqobject.fadeOut($timeout)")]
+        [JSReplacement("$this.JQObject.fadeOut($timeout)")]
         public void FadeOut(int timeout)
         {
         }
 
-        [JSReplacement("$this._jqobject.fadeOut($timeout, $finishedCallback)")]
+        [JSReplacement("$this.JQObject.fadeOut($timeout, $finishedCallback)")]
         public void FadeOut(int timeout, Action finishedCallback)
         {
         }
 
-        [JSReplacement("$this._jqobject.find($selector)")]
+        [JSReplacement("$this.JQObject.find($selector)")]
         public object Find(string selector)
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._jqobject.hide()")]
+        [JSReplacement("$this.JQObject.hide()")]
         public void Hide()
         {
         }
 
-        [JSReplacement("$this._jqobject.html($htmlString)")]
+        [JSReplacement("$this.JQObject.html($htmlString)")]
         public void Html(string htmlString)
         {
         }
 
-        [JSReplacement("$this._jqobject.html()")]
+        [JSReplacement("$this.JQObject.html()")]
         public string Html()
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._jqobject.is($query)")]
+        [JSReplacement("$this.JQObject.is($query)")]
         public bool Is(string query)
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._jqobject.removeClass($className)")]
+        [JSReplacement("$this.JQObject.removeClass($className)")]
         public string RemoveClass(string className)
         {
             throw new RequiresJSILRuntimeException();
         }
 
-        [JSReplacement("$this._jqobject.show()")]
+        [JSReplacement("$this.JQObject.show()")]
         public void Show()
         {
         }
 
-        [JSReplacement("$this._jqobject.trigger($eventName)")]
+        [JSReplacement("$this.JQObject.trigger($eventName)")]
         public void Trigger(string eventName)
         {
         }
 
-        [JSReplacement("$this._jqobject.off($eventName)")] //Using off because it is preferred to unbind
+        [JSReplacement("$this.JQObject.off($eventName)")] //Using off because it is preferred to unbind
         public void Unbind(string eventName)
         {
         }

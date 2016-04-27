@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileLoadedEventArgs.cs" />
+    <Compile Include="BufferConverter.cs" />
+    <Compile Include="DocumentUtilities.cs" />
+    <Compile Include="FileDownloader.cs" />
     <Compile Include="JQuery\JQElement.cs" />
     <Compile Include="JQuery\JQElements\JQDivElement.cs" />
     <Compile Include="JQuery\JQuery.cs" />

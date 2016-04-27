@@ -1,8 +1,8 @@
 ﻿using ExaPhaser.WebForms.Themes;
 using JSIL;
 using SharpJS.Dom;
-using SharpJS.Dom.JSLibraries;
-using SharpJS.Dom.JSLibraries.JQElements;
+using SharpJS.JSLibraries.JQuery;
+using SharpJS.JSLibraries.JQuery.JQElements;
 
 namespace ExaPhaser.WebForms
 {

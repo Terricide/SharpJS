@@ -1,8 +1,9 @@
 ﻿using System;
 using JSIL;
 using JSIL.Meta;
+using SharpJS.Dom;
 
-namespace SharpJS.Dom.JSLibraries
+namespace SharpJS.JSLibraries.JQuery
 {
     /// <summary>
     /// A static jQuery class wrapping basic jQuery functionality, and providing access to static jQuery functions.

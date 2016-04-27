@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using ExaPhaser.WebForms.Drawing;
 using SharpJS.Dom;
-using SharpJS.Dom.JSLibraries;
+using SharpJS.JSLibraries.JQuery;
 
 namespace ExaPhaser.WebForms
 {
