@@ -1,0 +1,1 @@
+{".NET Framework 4.5":{"name":"SharpJS.JSLibraries.JQuery.JQElements","assembly":"SharpJS.JSLibraries","description":"","types":[{"id":"SharpJS.JSLibraries.JQuery.JQElements.JQDivElement","accessibility":"public","name":"JQDivElement","summary":"<p>A managed wrapper for a DOM element representing a DIV node, with jQuery functionality enabled.</p>"}]}}

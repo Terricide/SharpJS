@@ -195,68 +195,6 @@ sharpDox.navigationData = [
 		]
 	},
 	{
-		id: 'SharpJS.Dom.JSLibraries',
-		text: 'SharpJS.Dom.JSLibraries',
-		icon: './assets/icons/namespace_public.png',
-		a_attr: { href : '#!namespace/SharpJS.Dom.JSLibraries' },
-		children: [
-			
- 
-
-		{
-			id: 'SharpJS.Dom.JSLibraries.FileLoadedEventArgs',
-			text: 'FileLoadedEventArgs',
-			icon: './assets/icons/class_public.png',
-			a_attr: { href : '#!type/SharpJS.Dom.JSLibraries.FileLoadedEventArgs' }
-        },	
-		{
-			id: 'SharpJS.Dom.JSLibraries.FileReader',
-			text: 'FileReader',
-			icon: './assets/icons/class_public.png',
-			a_attr: { href : '#!type/SharpJS.Dom.JSLibraries.FileReader' }
-        },	
-		{
-			id: 'SharpJS.Dom.JSLibraries.JQElement',
-			text: 'JQElement',
-			icon: './assets/icons/class_public.png',
-			a_attr: { href : '#!type/SharpJS.Dom.JSLibraries.JQElement' }
-        },	
-		{
-			id: 'SharpJS.Dom.JSLibraries.JQuery',
-			text: 'JQuery',
-			icon: './assets/icons/class_public.png',
-			a_attr: { href : '#!type/SharpJS.Dom.JSLibraries.JQuery' }
-        },	
-		{
-			id: 'SharpJS.Dom.JSLibraries.JQueryObject',
-			text: 'JQueryObject',
-			icon: './assets/icons/class_public.png',
-			a_attr: { href : '#!type/SharpJS.Dom.JSLibraries.JQueryObject' }
-        },	
-
-
-		]
-	},
-	{
-		id: 'SharpJS.Dom.JSLibraries.JQElements',
-		text: 'SharpJS.Dom.JSLibraries.JQElements',
-		icon: './assets/icons/namespace_public.png',
-		a_attr: { href : '#!namespace/SharpJS.Dom.JSLibraries.JQElements' },
-		children: [
-			
- 
-
-		{
-			id: 'SharpJS.Dom.JSLibraries.JQElements.JQDivElement',
-			text: 'JQDivElement',
-			icon: './assets/icons/class_public.png',
-			a_attr: { href : '#!type/SharpJS.Dom.JSLibraries.JQElements.JQDivElement' }
-        },	
-
-
-		]
-	},
-	{
 		id: 'SharpJS.Dom.Styles',
 		text: 'SharpJS.Dom.Styles',
 		icon: './assets/icons/namespace_public.png',
