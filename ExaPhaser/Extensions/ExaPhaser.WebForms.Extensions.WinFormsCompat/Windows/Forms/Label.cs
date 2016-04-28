@@ -1,6 +1,6 @@
 ﻿namespace System.Windows.Forms
 {
-    public class Label : Control
+    public class Label : TextControl
     {
         public Label()
         {

@@ -1,6 +1,6 @@
 ﻿namespace System.Windows.Forms
 {
-    public class Button : Control
+    public class Button : TextControl
     {
         public Button()
         {

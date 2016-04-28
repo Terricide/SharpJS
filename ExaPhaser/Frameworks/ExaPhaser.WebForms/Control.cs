@@ -33,7 +33,7 @@ namespace ExaPhaser.WebForms
         private void OnLoaded(EventArgs e)
         {
             var handler = Loaded;
-			handler?.Invoke(this, e);
+            handler?.Invoke(this, e);
             UpdateContent();
         }
 
@@ -56,30 +56,30 @@ namespace ExaPhaser.WebForms
             InternalJQElement.JQueryObjectHandle.Css("height", "100%");
         }
 
-		/// <summary>
-		/// Fades in the control. For more control over the animation, call an overload of Control.InternalJQElement.FadeIn
-		/// </summary>
-		public void FadeIn() => InternalJQElement.FadeIn();
+        /// <summary>
+        /// Fades in the control. For more control over the animation, call an overload of Control.InternalJQElement.FadeIn
+        /// </summary>
+        public void FadeIn() => InternalJQElement.FadeIn();
 
         /// <summary>
         /// Fades out the control. For more control over the animation, call an overload of Control.InternalJQElement.FadeOut
         /// </summary>
 		public void FadeOut() => InternalJQElement.FadeOut();
 
-		/// <summary>
-		/// Hides the control. Is equivalent to settings Visible to False
-		/// </summary>
-		public void Hide() => InternalJQElement.Hide();
+        /// <summary>
+        /// Hides the control. Is equivalent to settings Visible to False
+        /// </summary>
+        public void Hide() => InternalJQElement.Hide();
 
-		/// <summary>
-		/// Shows the control. Is equivalent to settings Visible to True
-		/// </summary>
+        /// <summary>
+        /// Shows the control. Is equivalent to settings Visible to True
+        /// </summary>
         public void Show() => InternalJQElement.Show();
 
-		/// <summary>
-		/// Triggers the click event on the control
-		/// </summary>
-		public void SimulateClick() => InternalJQElement.Trigger("click");
+        /// <summary>
+        /// Triggers the click event on the control
+        /// </summary>
+        public void SimulateClick() => InternalJQElement.Trigger("click");
 
         #endregion Public Methods
 
@@ -168,6 +168,15 @@ namespace ExaPhaser.WebForms
             set { SetRelativePosition(value); }
         }
 
+        /// <summary>
+        /// Sets the text of controls that contain text.
+        /// <exception cref="NotImplementedException">Thrown if the control does not support setting/getting text.</exception>
+        /// </summary>
+        public virtual string Text
+        {
+            get { throw new System.NotImplementedException(); }
+            set { throw new System.NotImplementedException(); }
+        }
         public bool Visible
         {
             get { return InternalJQElement.Is(":visible"); }

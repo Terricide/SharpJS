@@ -57,7 +57,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Properties
 
-        public string Text
+        public override string Text
         {
             get { return _text; }
             set { SetText(value); }
