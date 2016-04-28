@@ -5,16 +5,24 @@ namespace System.Windows.Forms
 {
     public class Application
     {
-        private static CSSUITheme _theme = new CSSUITheme(CSSFramework.Kubism);
+        #region Private Fields
+
         private static WebForm _mainForm;
         private static WebApplication _sharpJSApp;
+        private static CSSUITheme _theme = new CSSUITheme(CSSFramework.Kubism);
 
-        public static void SetCSSUITheme(CSSUITheme theme)
-        {
-            _theme = theme;
-        }
+        #endregion Private Fields
+
+        #region Public Properties
 
         public static string HostElementId { get; set; } = "webform-container";
+
+        #endregion Public Properties
+
+        #region Public Methods
+
+        [WebFormsCompatStubOnly]
+        public static void EnableVisualStyles() { }
 
         public static void Run(Form form)
         {
@@ -23,5 +31,15 @@ namespace System.Windows.Forms
             _mainForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
             _sharpJSApp.Run(_mainForm, HostElementId);
         }
+
+        [WebFormsCompatStubOnly]
+        public static void SetCompatibleTextRenderingDefault(bool defaultValue) { }
+
+        public static void SetCSSUITheme(CSSUITheme theme)
+        {
+            _theme = theme;
+        }
+
+        #endregion Public Methods
     }
 }
