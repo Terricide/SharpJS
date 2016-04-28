@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using ExaPhaser.WebForms;
 
 namespace System.Windows.Forms
 {
@@ -11,6 +12,7 @@ namespace System.Windows.Forms
 
         private Size _clientSize;
         private Control _parent;
+
         #endregion Private Fields
 
         #region Public Constructors
@@ -31,7 +33,12 @@ namespace System.Windows.Forms
         }
 
         public ControlCollection Controls { get; set; }
-        public Point Location { get; set; }
+
+        public Point Location
+        {
+            get { return GetLocation(); }
+            set { SetLocation(value); }
+        }
 
         [WebFormsCompatStubOnly]
         public string Name { get; set; }
@@ -81,6 +88,18 @@ namespace System.Windows.Forms
         #endregion Protected Methods
 
         #region Private Methods
+
+        private Point GetLocation()
+        {
+            var wfLocation = WebFormsControl.ConstantPosition;
+            return new Point(wfLocation.X, wfLocation.Y);
+        }
+
+        private void SetLocation(Point location)
+        {
+            WebFormsControl.PositioningType = PositioningType.Relative;
+            WebFormsControl.ConstantPosition = new ExaPhaser.WebForms.Drawing.Point(location.X, location.Y);
+        }
 
         private void SetParent(Control control)
         {

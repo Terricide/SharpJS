@@ -119,6 +119,7 @@ namespace ExaPhaser.WebForms
         public Point ConstantPosition
         {
             set { SetConstantPosition(value); }
+            get { return GetConstantPosition(); }
         }
 
         public Element ContainerElement
@@ -177,6 +178,7 @@ namespace ExaPhaser.WebForms
             get { throw new System.NotImplementedException(); }
             set { throw new System.NotImplementedException(); }
         }
+
         public bool Visible
         {
             get { return InternalJQElement.Is(":visible"); }
@@ -211,12 +213,18 @@ namespace ExaPhaser.WebForms
 
         #region Private Methods
 
+        private Point GetConstantPosition()
+        {
+            var left = InternalJQElement.Css<int>("left");
+            var top = InternalJQElement.Css<int>("top");
+            return new Point(left, top);
+        }
+
         private void SetConstantPosition(Point position)
         {
             InternalJQElement.Css("left", position.X);
             InternalJQElement.Css("top", position.Y);
         }
-
         private void SetControls(Collection<Control> value)
         {
             if (_subControls.ParentControl == null)
