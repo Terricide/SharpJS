@@ -30,6 +30,7 @@ namespace System.Windows.Forms
             _mainForm = form.UnderlyingWebForm;
             _mainForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
             _sharpJSApp.Run(_mainForm, HostElementId);
+            _mainForm.InternalJQElement.AddClass("winform");
         }
 
         [WebFormsCompatStubOnly]
