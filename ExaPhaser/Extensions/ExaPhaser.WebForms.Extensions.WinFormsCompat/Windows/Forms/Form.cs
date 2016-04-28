@@ -13,6 +13,7 @@ namespace System.Windows.Forms
         public Form()
         {
             _webForm = new WebForm();
+            WebFormsControl = _webForm;
         }
 
         /// <summary>

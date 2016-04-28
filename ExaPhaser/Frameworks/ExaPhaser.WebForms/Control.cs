@@ -99,7 +99,7 @@ namespace ExaPhaser.WebForms
 
         #region Constructors
 
-        public Control()
+        protected Control()
         {
             InitializeControl();
         }

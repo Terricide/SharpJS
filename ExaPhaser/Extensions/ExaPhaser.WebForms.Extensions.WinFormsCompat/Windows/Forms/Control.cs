@@ -7,6 +7,12 @@ namespace System.Windows.Forms
     /// </summary>
     public abstract class Control
     {
+        #region Private Fields
+
+        private Control _parent;
+
+        #endregion Private Fields
+
         #region Public Constructors
 
         protected Control()
@@ -25,7 +31,7 @@ namespace System.Windows.Forms
         [WebFormsCompatStubOnly]
         public string Name { get; set; }
 
-        public Control Parent { get; set; }
+        public Control Parent { get { return _parent; } set { SetParent(value); } }
 
         [WebFormsCompatStubOnly]
         public Size Size { get; set; }
@@ -64,5 +70,15 @@ namespace System.Windows.Forms
         }
 
         #endregion Protected Methods
+
+        #region Private Methods
+
+        private void SetParent(Control control)
+        {
+            _parent = control;
+            WebFormsControl.Parent = _parent.WebFormsControl;
+        }
+
+        #endregion Private Methods
     }
 }
