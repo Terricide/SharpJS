@@ -8,11 +8,14 @@ If you feel restricted by the license, please purchase a commercial license from
 
 The runtime is powered by JSIL, an application that translates compiled IL to JavaScript. The SharpJS frameworks are built on top of JSIL and provide classes for building web applications that run in the browser.
 
+Since SharpJS compiles your applications directly to HTML5 and JavaScript, they can run offline in the browser, online served by a server, in a mobile app built with PhoneGap, in a desktop app built with Electron, or in any other technology that allows you to build applications with web technologies.
+
 # Getting Started
 My friend [daveho8888](https://github.com/daveho8888) and I, [0xFireball](https://github.com/0xFireball) have put together [samples and code demos for getting started with SharpJS](https://github.com/ZetaPhase/SharpJS-Demos). `daveho8888` has also put together lots of code with explanation to help even a beginner get started with SharpJS. The **[wiki of this project](https://github.com/exaphaser/SharpJS/wiki)** will contain information about this project, and on extending the project with your own APIs, and build instructions.
 
 # Currently supported APIs and Frameworks:
-- **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks such as Foundation and Bootstrap.
+- **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks.
+- **ExaPhaser.WebForms.Extensions.WinFormsCompat** - A new compatibility layer that can run Windows Forms designer-generated code by proxying calls to `ExaPhaser.WebForms`.
 - **SharpJS.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime.
 
 Open-Source project Acknowledgements
