@@ -40,6 +40,7 @@ namespace ExaPhaser.WebForms
         public void Run(WebForm webForm, JQElement hostElement)
         {
             CreateApplication(hostElement); //Create containers
+            webForm.InternalJQElement.AddClass("webform"); //Set class to allow user to style the form itself
             webForm.ContainerElement = _formHost.DomRepresentation; //Set container to new element
         }
 
@@ -70,7 +71,7 @@ namespace ExaPhaser.WebForms
                     formHostContainer.AddClass("wrap");
                     break;
             }
-            formHostContainer.AddClass("webform"); //In case user wants to style form container
+            _formHost.AddClass("webform-host-container"); //In case user wants to style form container
             formHostParent.Append(formHostContainer);
         }
     }
