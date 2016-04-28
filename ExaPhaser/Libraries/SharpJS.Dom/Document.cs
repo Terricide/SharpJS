@@ -16,14 +16,14 @@ namespace SharpJS.Dom
         public static Element[] GetElementsByTagName(string tagName)
         {
             return
-                ((object[]) Verbatim.Expression("Array.prototype.slice.call(document.getElementsByTagName(tagName))"))
+                ((object[])Verbatim.Expression("Array.prototype.slice.call(document.getElementsByTagName(tagName))"))
                     .Select(Element.GetElement).ToArray();
         }
 
         public static Element[] GetElementsByClassName(string tagName)
         {
             return
-                ((object[]) Verbatim.Expression("Array.prototype.slice.call(document.getElementsByClassName(tagName))"))
+                ((object[])Verbatim.Expression("Array.prototype.slice.call(document.getElementsByClassName(tagName))"))
                     .Select(Element.GetElement).ToArray();
         }
 
@@ -50,6 +50,15 @@ namespace SharpJS.Dom
         [JSReplacement("document.insertBefore($node.ElementHandle, $existingNode_element)")]
         public static void InsertBefore(Element node, Element existingNode)
         {
+        }
+
+        /// <summary>
+        /// Represents the title of the web page
+        /// </summary>
+        public static string Title
+        {
+            get { return (string)Verbatim.Expression("document.title"); }
+            set { Verbatim.Expression("document.title = $0", value); }
         }
     }
 }
