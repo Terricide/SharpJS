@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Target Name="JSILCompile" AfterTargets="Build">
         <Exec Command="echo Compiling output to HTML5/JavaScript" />
-        <Exec Command="&quot;$(MSBuildThisFileDirectory)..\jsil\JSILc.exe&quot; -o=&quot;$(TargetDir)html&quot; &quot;$(TargetPath)&quot;" />
+        <Exec Condition="'$(OS)' == 'Windows_NT'" Command="&quot;$(MSBuildThisFileDirectory)..\jsil\JSILc.exe&quot; -o=&quot;$(TargetDir)html&quot; &quot;$(TargetPath)&quot;" />
+        <Exec Condition="'$(OS)' != 'Windows_NT'" Command="mono &quot;$(MSBuildThisFileDirectory)..\jsil\JSILc.exe&quot; -o=&quot;$(TargetDir)html&quot; &quot;$(TargetPath)&quot;" />
     </Target>
 </Project>
