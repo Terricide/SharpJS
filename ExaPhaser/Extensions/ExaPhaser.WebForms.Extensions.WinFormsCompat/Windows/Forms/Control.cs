@@ -67,6 +67,11 @@ namespace System.Windows.Forms
         #region Public Methods
 
         [WebFormsCompatStubOnly]
+        public void PerformLayout()
+        {
+        }
+
+        [WebFormsCompatStubOnly]
         public void ResumeLayout(bool none)
         {
         }
@@ -75,7 +80,6 @@ namespace System.Windows.Forms
         public void SuspendLayout()
         {
         }
-
         #endregion Public Methods
 
         #region Protected Methods
