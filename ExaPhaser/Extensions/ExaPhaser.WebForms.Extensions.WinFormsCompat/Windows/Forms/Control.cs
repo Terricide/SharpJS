@@ -57,6 +57,8 @@ namespace System.Windows.Forms
 
         public virtual string Text { get; set; }
 
+        public virtual Font Font { get; set; }
+
         [WebFormsCompatStubOnly]
         public bool UseVisualStyleBackColor { get; set; }
 

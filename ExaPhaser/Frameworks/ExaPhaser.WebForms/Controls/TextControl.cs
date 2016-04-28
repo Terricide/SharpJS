@@ -26,7 +26,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Properties
 
-        public FontStyle FontStyle
+        public override FontStyle FontStyle
         {
             set { SetFontStyle(value); }
         }

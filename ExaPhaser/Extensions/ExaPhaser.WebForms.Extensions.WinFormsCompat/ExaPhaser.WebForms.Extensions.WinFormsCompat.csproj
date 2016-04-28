@@ -37,6 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\IContainer.cs" />
+    <Compile Include="Drawing\Font.cs" />
+    <Compile Include="Drawing\FontStyle.cs" />
+    <Compile Include="Drawing\GraphicsUnit.cs" />
     <Compile Include="Drawing\Point.cs" />
     <Compile Include="Drawing\Size.cs" />
     <Compile Include="Drawing\SizeF.cs" />

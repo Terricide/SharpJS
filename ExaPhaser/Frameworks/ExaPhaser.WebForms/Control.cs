@@ -134,6 +134,8 @@ namespace ExaPhaser.WebForms
             set { SetControls(value); }
         }
 
+        public virtual FontStyle FontStyle { get; set; }
+
         public int Height
         {
             get { return (int)InternalJQElement.Height(); }
@@ -190,7 +192,6 @@ namespace ExaPhaser.WebForms
             get { return (int)InternalJQElement.Width(); }
             set { InternalJQElement.Width(value); }
         }
-
         #endregion Properties
 
         #region Abstract Methods
