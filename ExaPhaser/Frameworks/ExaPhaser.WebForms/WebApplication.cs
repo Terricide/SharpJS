@@ -7,7 +7,8 @@ using SharpJS.JSLibraries.JQuery.JQElements;
 namespace ExaPhaser.WebForms
 {
     /// <summary>
-    /// The class responsible for displaying a form. This class handles initialization of the webpage and begins the layout process for a WebForm.
+    ///     The class responsible for displaying a form. This class handles initialization of the webpage and begins the layout
+    ///     process for a WebForm.
     /// </summary>
     public class WebApplication
     {
@@ -25,7 +26,11 @@ namespace ExaPhaser.WebForms
 
         public CSSUITheme UITheme { get; set; }
 
-        public static CSSUITheme CurrentTheme { get; private set; }
+        /// <summary>
+        ///     This is initialized to default to allow constructing custom controls that require CSS framework to be set. This can
+        ///     be overriden by setting WebApplication.CurrentTheme before starting the application or initializing any controls.
+        /// </summary>
+        public static CSSUITheme CurrentTheme { get; private set; } = new CSSUITheme(CSSFramework.Kubism);
 
         public void Run(WebForm webForm, string hostElementId)
         {

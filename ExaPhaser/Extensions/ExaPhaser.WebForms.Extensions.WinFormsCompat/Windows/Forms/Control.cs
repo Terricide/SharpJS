@@ -7,6 +7,15 @@ namespace System.Windows.Forms
     /// </summary>
     public abstract class Control
     {
+        #region Public Constructors
+
+        protected Control()
+        {
+            Controls = new ControlCollection { ParentControl = this };
+        }
+
+        #endregion Public Constructors
+
         #region Public Properties
 
         public Size ClientSize { get; set; }
@@ -16,7 +25,11 @@ namespace System.Windows.Forms
         [WebFormsCompatStubOnly]
         public string Name { get; set; }
 
+        public Control Parent { get; set; }
+
+        [WebFormsCompatStubOnly]
         public Size Size { get; set; }
+
         [WebFormsCompatStubOnly]
         public int TabIndex { get; set; }
 
@@ -24,6 +37,9 @@ namespace System.Windows.Forms
 
         [WebFormsCompatStubOnly]
         public bool UseVisualStyleBackColor { get; set; }
+
+        public ExaPhaser.WebForms.Control WebFormsControl { get; set; }
+
         #endregion Public Properties
 
         #region Public Methods

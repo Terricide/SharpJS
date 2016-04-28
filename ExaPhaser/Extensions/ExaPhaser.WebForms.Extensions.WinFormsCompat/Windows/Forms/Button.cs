@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace System.Windows.Forms
+﻿namespace System.Windows.Forms
 {
     public class Button : Control
     {
-
+        public Button()
+        {
+            WebFormsControl = new ExaPhaser.WebForms.Controls.Button();
+            
+        }
     }
 }
