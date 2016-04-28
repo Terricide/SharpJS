@@ -7,8 +7,8 @@
 
         public Size(int width, int height)
         {
-            Height = width;
-            Width = height;
+            Height = height;
+            Width = width;
         }
     }
 }

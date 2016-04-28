@@ -7,8 +7,8 @@
 
         public SizeF(float width, float height)
         {
-            Height = width;
-            Width = height;
+            Height = height;
+            Width = width;
         }
     }
 }
