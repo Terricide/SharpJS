@@ -43,6 +43,7 @@
 
     <script type="text/javascript">
         function runMain() {
+            $("html", "body").css("overflow", "auto");
             $("#canvas").remove(); //remove the canvas
             $('head').append('<link rel="stylesheet" href="kubism.min.css"></link>');
             var asm = JSIL.GetAssembly("WebFormsTemplate");
@@ -50,4 +51,5 @@
         };
     </script>
 </body>
+
 </html>
