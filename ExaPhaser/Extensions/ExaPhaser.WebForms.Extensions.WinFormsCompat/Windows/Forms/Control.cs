@@ -9,8 +9,8 @@ namespace System.Windows.Forms
     {
         #region Private Fields
 
+        private Size _clientSize;
         private Control _parent;
-
         #endregion Private Fields
 
         #region Public Constructors
@@ -24,7 +24,12 @@ namespace System.Windows.Forms
 
         #region Public Properties
 
-        public Size ClientSize { get; set; }
+        public Size ClientSize
+        {
+            get { return _clientSize; }
+            set { SetSize(value); }
+        }
+
         public ControlCollection Controls { get; set; }
         public Point Location { get; set; }
 
@@ -34,7 +39,11 @@ namespace System.Windows.Forms
         public Control Parent { get { return _parent; } set { SetParent(value); } }
 
         [WebFormsCompatStubOnly]
-        public Size Size { get; set; }
+        public Size Size
+        {
+            get { return ClientSize; }
+            set { ClientSize = value; }
+        }
 
         [WebFormsCompatStubOnly]
         public int TabIndex { get; set; }
@@ -77,6 +86,14 @@ namespace System.Windows.Forms
         {
             _parent = control;
             WebFormsControl.Parent = _parent.WebFormsControl;
+        }
+
+        private void SetSize(Size newSize)
+        {
+            _clientSize = newSize;
+            //Set client size through CSS
+            this.WebFormsControl.Height = newSize.Height;
+            this.WebFormsControl.Width = newSize.Width;
         }
 
         #endregion Private Methods

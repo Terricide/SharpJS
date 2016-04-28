@@ -70,6 +70,7 @@ namespace ExaPhaser.WebForms
                     formHostContainer.AddClass("wrap");
                     break;
             }
+            formHostContainer.AddClass("webform"); //In case user wants to style form container
             formHostParent.Append(formHostContainer);
         }
     }

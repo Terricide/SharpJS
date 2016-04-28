@@ -135,8 +135,8 @@ namespace ExaPhaser.WebForms
 
         public int Height
         {
-            get { return (int)InternalElement.Height; }
-            set { InternalElement.Height = value; }
+            get { return (int)InternalJQElement.Height(); }
+            set { InternalJQElement.Height(value); }
         }
 
         public Element InternalElement
@@ -176,8 +176,8 @@ namespace ExaPhaser.WebForms
 
         public int Width
         {
-            get { return (int)InternalElement.Width; }
-            set { InternalElement.Width = value; }
+            get { return (int)InternalJQElement.Width(); }
+            set { InternalJQElement.Width(value); }
         }
 
         #endregion Properties

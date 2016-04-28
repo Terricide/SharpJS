@@ -99,11 +99,11 @@ namespace SharpJS.JSLibraries.JQuery
 
         public string Attr(string name) => JQueryObjectHandle.Attr(name);
 
-		public T Attr<T>(string name) => JQueryObjectHandle.Attr<T>(name);
+        public T Attr<T>(string name) => JQueryObjectHandle.Attr<T>(name);
 
         public void Attr(string name, string value) => JQueryObjectHandle.Attr(name, value);
 
-		public void Attr<T>(string name, T value) => JQueryObjectHandle.Attr<T>(name, value);
+        public void Attr<T>(string name, T value) => JQueryObjectHandle.Attr<T>(name, value);
 
         public void BindEventListener(string eventName, Action<object> handler) => JQueryObjectHandle.Bind(eventName, handler);
 
@@ -129,6 +129,10 @@ namespace SharpJS.JSLibraries.JQuery
 
         public object Find(string selector) => JQueryObjectHandle.Find(selector);
 
+        public void Height(int value) => JQueryObjectHandle.Height(value);
+
+        public int Height() => JQueryObjectHandle.Height();
+
         public void Hide() => JQueryObjectHandle.Hide();
 
         public void Html(string htmlString) => JQueryObjectHandle.Html(htmlString);
@@ -143,10 +147,11 @@ namespace SharpJS.JSLibraries.JQuery
 
         public void Trigger(string eventName) => JQueryObjectHandle.Trigger(eventName);
 
-        public void UnbindEventListener(string eventName)
-        {
-            JQueryObjectHandle.Unbind(eventName);
-        }
+        public void UnbindEventListener(string eventName) => JQueryObjectHandle.Unbind(eventName);
+
+        public int Width() => JQueryObjectHandle.Width();
+
+        public void Width(int value) => JQueryObjectHandle.Width(value);
 
         #endregion Public Methods
     }

@@ -37,6 +37,7 @@ namespace SharpJS.JSLibraries.JQuery
         }
 
         public object JQObject { get; set; }
+
         #endregion Public Properties
 
         #region Public Methods
@@ -83,21 +84,21 @@ namespace SharpJS.JSLibraries.JQuery
             throw new RequiresJSILRuntimeException();
         }
 
-		[JSReplacement("$this.JQObject.attr($name)")]
-		public T Attr<T>(string name)
-		{
-			throw new RequiresJSILRuntimeException();
-		}
+        [JSReplacement("$this.JQObject.attr($name)")]
+        public T Attr<T>(string name)
+        {
+            throw new RequiresJSILRuntimeException();
+        }
 
         [JSReplacement("$this.JQObject.attr($name, $value)")]
         public void Attr(string name, string value)
         {
         }
 
-		[JSReplacement("$this.JQObject.attr($name, $value)")]
-		public void Attr<T>(string name, T value)
-		{
-		}
+        [JSReplacement("$this.JQObject.attr($name, $value)")]
+        public void Attr<T>(string name, T value)
+        {
+        }
 
         [JSReplacement("$this.JQObject.on($eventName, $handler)")] //Using on because it is preferred to bind
         public void Bind(string eventName, Action<object> handler)
@@ -167,6 +168,17 @@ namespace SharpJS.JSLibraries.JQuery
             throw new RequiresJSILRuntimeException();
         }
 
+        [JSReplacement("$this.JQObject.height($value)")]
+        public void Height(int value)
+        {
+        }
+
+        [JSReplacement("$this.JQObject.height()")]
+        public int Height()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
         [JSReplacement("$this.JQObject.hide()")]
         public void Hide()
         {
@@ -207,6 +219,17 @@ namespace SharpJS.JSLibraries.JQuery
 
         [JSReplacement("$this.JQObject.off($eventName)")] //Using off because it is preferred to unbind
         public void Unbind(string eventName)
+        {
+        }
+
+        [JSReplacement("$this.JQObject.width()")]
+        public int Width()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this.JQObject.width($value)")]
+        public void Width(int value)
         {
         }
 
