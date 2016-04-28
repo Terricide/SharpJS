@@ -2,14 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>ExaPhaser.WebForms</id>
-        <version>1.4.4</version>
+        <version>1.4.8</version>
         <title>SharpJS ExaPhaser.WebForms</title>
         <authors>ExaPhaser Industries,0xFireball</authors>
         <owners>ExaPhaser Industries,0xFireball</owners>
         <licenseUrl>https://github.com/exaphaser/SharpJS/blob/master/LICENSE.md</licenseUrl>
         <iconUrl>https://exaphaser.github.io/SharpJS/sharpjs.ico</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
-        <description>SharpJS - Create cross-platform HTML5/JS apps with C#/.NET</description>
+        <description>SharpJS is an open-source framework that compiles C# code into HTML and JavaScript to run anywhere. ExaPhaser.WebForms, the UI framework of SharpJS comes with support for multiple well-known CSS frameworks to give your applications an elegant style out-of the box. It also has managed wrapper classes for interacting with the DOM, and experimental jQuery support.
+
+Its .NET runtime engine is powered by JSIL. While JSIL was written to easily port XNA games to run on the Web, SharpJS adds a set of APIs and classes for building GUI applications, with C# classes that are later mapped to native HTML5 elements. The HTML5 applications also utilize modern CSS frameworks such as Foundation 6 and Bootstrap.
+
+SharpJS's simple structure makes it relatively straightforward to port existing Silverlight and Windows Forms applicaations directly to HTML5. You can view demos here.
+
+Since SharpJS compiles your applications directly to HTML5 and JavaScript, they can run offline in the browser, online served by a server, in a mobile app built with PhoneGap, in a desktop app built with Electron, or in any other technology that allows you to build applications with web technologies.</description>
         <summary>SharpJS with ExaPhaser.WebForms core libraries. This is the GPLv3-licensed version of SharpJS.</summary>
         <copyright>(c) 2016, ExaPhaser Industries, 0xFireball</copyright>
         <language>en-US</language>
@@ -20,7 +26,7 @@
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
         <file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
-		<file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="jsil\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
+        <file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="jsil\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="jsil\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.xml" target="jsil\ICSharpCode.NRefactory.CSharp.xml" />
@@ -55,11 +61,12 @@
         <file src="..\bin\nss3.dll" target="jsil\nss3.dll" />
         <file src="..\bin\pngquant.exe" target="jsil\pngquant.exe" />
         <file src="..\bin\SharpJS.Dom.dll" target="jsil\SharpJS.Dom.dll" />
-		<file src="..\bin\SharpJS.JSLibraries.dll" target="jsil\SharpJS.JSLibraries.dll" />
+        <file src="..\bin\SharpJS.JSLibraries.dll" target="jsil\SharpJS.JSLibraries.dll" />
         <file src="..\bin\Xap.dll" target="jsil\Xap.dll" />
         <file src="..\bin\zlib1.dll" target="jsil\zlib1.dll" />
         <file src="..\bin\ExaPhaser.SharpJS.System.dll" target="lib\ExaPhaser.SharpJS.System.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="lib\ExaPhaser.WebForms.dll" />
+        <file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="lib\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="lib\ICSharpCode.Decompiler.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.dll" target="lib\ICSharpCode.NRefactory.dll" />
@@ -69,8 +76,7 @@
         <file src="..\bin\Mono.Cecil.Mdb.dll" target="lib\Mono.Cecil.Mdb.dll" />
         <file src="..\bin\Mono.Cecil.Pdb.dll" target="lib\Mono.Cecil.Pdb.dll" />
         <file src="..\bin\SharpJS.Dom.dll" target="lib\SharpJS.Dom.dll" />
-		<file src="..\bin\SharpJS.JSLibraries.dll" target="lib\SharpJS.JSLibraries.dll" />
-		<file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="lib\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
+        <file src="..\bin\SharpJS.JSLibraries.dll" target="lib\SharpJS.JSLibraries.dll" />
         <file src="tools\install.ps1" target="tools\install.ps1" />
     </files>
 </package>
