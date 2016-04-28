@@ -97,7 +97,7 @@ namespace System.Windows.Forms
 
         private void SetLocation(Point location)
         {
-            WebFormsControl.PositioningType = PositioningType.Relative;
+            WebFormsControl.PositioningType = PositioningType.Absolute;
             WebFormsControl.ConstantPosition = new ExaPhaser.WebForms.Drawing.Point(location.X, location.Y);
         }
 

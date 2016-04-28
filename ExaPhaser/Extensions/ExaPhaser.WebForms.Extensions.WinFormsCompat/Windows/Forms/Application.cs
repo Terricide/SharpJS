@@ -20,6 +20,7 @@ namespace System.Windows.Forms
         {
             _sharpJSApp = new WebApplication(_theme);
             _mainForm = form.UnderlyingWebForm;
+            _mainForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
             _sharpJSApp.Run(_mainForm, HostElementId);
         }
     }
