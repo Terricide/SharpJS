@@ -1,4 +1,5 @@
-﻿using SharpJS.Dom.Elements;
+﻿using System;
+using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
 {
@@ -18,6 +19,7 @@ namespace ExaPhaser.WebForms.Controls
         public LinkLabel()
         {
             InternalElement = new AnchorElement();
+            InternalElement.Click += OnClick;
             PerformLayout();
         }
 
@@ -25,21 +27,33 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Properties
 
-        public string Text
-        {
-            get { return _text; }
-            set { SetText(value); }
-        }
-
         public string LinkLocation
         {
             get { return InternalElement["href"]; }
             set { InternalElement["href"] = value; }
         }
 
+        public string Text
+        {
+            get { return _text; }
+            set { SetText(value); }
+        }
+
         #endregion Public Properties
 
+        #region Public Events
+
+        public event EventHandler Click;
+
+        #endregion Public Events
+
         #region Private Methods
+
+        private void OnClick(object sender, EventArgs e)
+        {
+            Click?.Invoke(this, e);
+            Command?.Execute(new ICommandParameter(e));
+        }
 
         private void SetText(string value)
         {
@@ -48,5 +62,15 @@ namespace ExaPhaser.WebForms.Controls
         }
 
         #endregion Private Methods
+
+        #region Command
+
+        /// <summary>
+        /// The command fired when the button is clicked
+        /// </summary>
+        /// <value>The command.</value>
+        public ICommand Command { get; set; }
+
+        #endregion Command
     }
 }

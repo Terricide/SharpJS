@@ -26,6 +26,9 @@ namespace System.Windows.Forms
 
         #region Public Properties
 
+        [WebFormsCompatStubOnly]
+        public bool AutoSize { get; set; }
+
         public Size ClientSize
         {
             get { return _clientSize; }
@@ -33,6 +36,8 @@ namespace System.Windows.Forms
         }
 
         public ControlCollection Controls { get; set; }
+
+        public virtual Font Font { get; set; }
 
         public Point Location
         {
@@ -42,6 +47,9 @@ namespace System.Windows.Forms
 
         [WebFormsCompatStubOnly]
         public string Name { get; set; }
+
+        [WebFormsCompatStubOnly]
+        public Padding Margin { get; set; }
 
         public Control Parent { get { return _parent; } set { SetParent(value); } }
 
@@ -55,9 +63,10 @@ namespace System.Windows.Forms
         [WebFormsCompatStubOnly]
         public int TabIndex { get; set; }
 
-        public virtual string Text { get; set; }
+        [WebFormsCompatStubOnly]
+        public bool TabStop { get; set; }
 
-        public virtual Font Font { get; set; }
+        public virtual string Text { get; set; }
 
         [WebFormsCompatStubOnly]
         public bool UseVisualStyleBackColor { get; set; }
@@ -82,6 +91,7 @@ namespace System.Windows.Forms
         public void SuspendLayout()
         {
         }
+
         #endregion Public Methods
 
         #region Protected Methods

@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\IContainer.cs" />
+    <Compile Include="Diagnostics\Process.cs" />
     <Compile Include="Drawing\Font.cs" />
     <Compile Include="Drawing\FontStyle.cs" />
     <Compile Include="Drawing\GraphicsUnit.cs" />
@@ -53,7 +54,9 @@
     <Compile Include="Windows\Forms\Form.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windows\Forms\Label.cs" />
+    <Compile Include="Windows\Forms\LinkLabel.cs" />
     <Compile Include="Windows\Forms\MessageBox.cs" />
+    <Compile Include="Windows\Forms\Padding.cs" />
     <Compile Include="Windows\Forms\TextBox.cs" />
     <Compile Include="Windows\Forms\TextControl.cs" />
   </ItemGroup>

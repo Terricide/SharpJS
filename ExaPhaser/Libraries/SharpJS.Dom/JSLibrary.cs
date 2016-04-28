@@ -23,6 +23,11 @@ namespace SharpJS.Dom
             throw new RequiresJSILRuntimeException();
         }
 
+        [JSReplacement("window.open($url, '_blank')")]
+        public static void OpenLinkInNewTab(string url)
+        {
+        }
+
         #endregion Public Methods
     }
 }
