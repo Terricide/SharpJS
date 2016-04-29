@@ -6,3 +6,6 @@
     margin: auto;
 	background: rgba(250, 250, 250, .95);
 }
+.ui-resizable-helper { 
+	border: 1px solid gray; 
+}
