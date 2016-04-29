@@ -54,6 +54,7 @@
     <Compile Include="Windows\Forms\LinkLabel.cs" />
     <Compile Include="Windows\Forms\MessageBox.cs" />
     <Compile Include="Windows\Forms\Padding.cs" />
+    <Compile Include="Windows\Forms\RichTextBox.cs" />
     <Compile Include="Windows\Forms\TextBox.cs" />
     <Compile Include="Windows\Forms\TextControl.cs" />
     <Compile Include="Windows\Forms\WebBrowser.cs" />
