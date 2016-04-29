@@ -27,7 +27,6 @@ namespace System.Windows.Forms
 
         #region Public Properties
 
-        [WebFormsCompatStubOnly]
         public bool AutoSize { get; set; }
 
         public Size ClientSize
@@ -54,8 +53,7 @@ namespace System.Windows.Forms
 
         public Control Parent { get { return _parent; } set { SetParent(value); } }
 
-        [WebFormsCompatStubOnly]
-        public Size Size
+        public virtual Size Size
         {
             get { return ClientSize; }
             set { ClientSize = value; }

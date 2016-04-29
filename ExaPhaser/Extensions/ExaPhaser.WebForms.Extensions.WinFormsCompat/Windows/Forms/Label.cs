@@ -1,10 +1,24 @@
-﻿namespace System.Windows.Forms
+﻿using System.Drawing;
+
+namespace System.Windows.Forms
 {
     public class Label : TextControl
     {
         public Label()
         {
             WebFormsControl = new ExaPhaser.WebForms.Controls.TextBlock();
+        }
+
+        public override Size Size
+        {
+            get { return ClientSize; }
+            set
+            {
+                if (!AutoSize)
+                {
+                    ClientSize = value;
+                }
+            }
         }
     }
 }
