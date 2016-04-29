@@ -67,7 +67,7 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Public Events
 
-        public event EventHandler Click;
+        public override event EventHandler Click;
 
         #endregion Public Events
 

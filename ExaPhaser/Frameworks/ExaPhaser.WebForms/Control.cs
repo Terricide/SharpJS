@@ -41,6 +41,12 @@ namespace ExaPhaser.WebForms
 
         #region Public Events
 
+        public virtual event EventHandler Click
+        {
+            add { throw new NotImplementedException(); }
+            remove { throw new NotImplementedException(); }
+        }
+
         public event EventHandler Loaded;
 
         #endregion Public Events
@@ -192,6 +198,7 @@ namespace ExaPhaser.WebForms
             get { return (int)InternalJQElement.Width(); }
             set { InternalJQElement.Width(value); }
         }
+
         #endregion Properties
 
         #region Abstract Methods
@@ -226,6 +233,7 @@ namespace ExaPhaser.WebForms
             InternalJQElement.Css("left", position.X);
             InternalJQElement.Css("top", position.Y);
         }
+
         private void SetControls(Collection<Control> value)
         {
             if (_subControls.ParentControl == null)

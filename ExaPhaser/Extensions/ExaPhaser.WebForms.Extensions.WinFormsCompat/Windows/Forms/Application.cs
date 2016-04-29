@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using ExaPhaser.WebForms;
 using ExaPhaser.WebForms.Themes;
 using SharpJS.Dom;
@@ -67,6 +68,11 @@ namespace System.Windows.Forms
 
         private static void InitializeWebUIElement(Form newForm)
         {
+            //Add a close button
+            var closeButton = new Button { Text = "x", Location = new Point(5, 5)};
+            closeButton.Click += (s, e) => CloseForm(newForm);
+            newForm.Controls.Add(closeButton);
+            newForm.OnInitialized();
         }
 
         private static void InitializeWinFormWFStyles(WebForm mainWebForm)

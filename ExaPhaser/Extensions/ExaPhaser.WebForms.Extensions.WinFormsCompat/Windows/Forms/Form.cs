@@ -37,15 +37,21 @@ namespace System.Windows.Forms
 
         #endregion Public Properties
 
+        #region Public Methods
+
+        public void Show()
+        {
+            Application.ShowNewForm(this);
+        }
+
         [WebFormsCompatStubOnly]
         public void ShowDialog()
         {
             Show();
         }
 
-        public void Show()
-        {
-            Application.ShowNewForm(this);
-        }
+        #endregion Public Methods
+
+        
     }
 }

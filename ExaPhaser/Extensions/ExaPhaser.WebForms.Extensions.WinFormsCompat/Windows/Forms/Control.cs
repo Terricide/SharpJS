@@ -46,10 +46,10 @@ namespace System.Windows.Forms
         }
 
         [WebFormsCompatStubOnly]
-        public string Name { get; set; }
+        public Padding Margin { get; set; }
 
         [WebFormsCompatStubOnly]
-        public Padding Margin { get; set; }
+        public string Name { get; set; }
 
         public Control Parent { get { return _parent; } set { SetParent(value); } }
 
@@ -132,5 +132,16 @@ namespace System.Windows.Forms
         }
 
         #endregion Private Methods
+
+        #region Public Events
+
+        public event EventHandler Load;
+
+        #endregion Public Events
+
+        public void OnInitialized()
+        {
+            Load?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
