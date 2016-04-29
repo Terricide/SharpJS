@@ -8,6 +8,7 @@ namespace System.Windows.Forms
         #region Private Fields
 
         private readonly WebForm _webForm;
+        private string _title;
 
         #endregion Private Fields
 
@@ -28,7 +29,7 @@ namespace System.Windows.Forms
         /// </summary>
         public override string Text
         {
-            get { return Document.Title; }
+            get { return _title; }
             set { SetFormTitle(value); }
         }
 
@@ -66,6 +67,7 @@ namespace System.Windows.Forms
 
         private void SetFormTitle(string title)
         {
+            _title = title;
             Document.Title = title;
         }
 
