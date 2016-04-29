@@ -29,7 +29,7 @@ namespace System.Windows.Forms
         public override string Text
         {
             get { return Document.Title; }
-            set { Document.Title = value; }
+            set { SetFormTitle(value); }
         }
 
         // ReSharper disable once ConvertToAutoProperty
@@ -52,6 +52,23 @@ namespace System.Windows.Forms
 
         #endregion Public Methods
 
-        
+        #region Protected Methods
+
+        protected override void OnGotFocus(object sender, EventArgs e)
+        {
+            base.OnGotFocus(sender, e);
+            SetFormTitle(Text); //Set title when switching between forms
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        private void SetFormTitle(string title)
+        {
+            Document.Title = title;
+        }
+
+        #endregion Private Methods
     }
 }

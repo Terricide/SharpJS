@@ -41,11 +41,11 @@ namespace ExaPhaser.WebForms
 
         #region Public Events
 
-        public virtual event EventHandler Click
-        {
-            add { throw new NotImplementedException(); }
-            remove { throw new NotImplementedException(); }
-        }
+        public event EventHandler Click;
+
+        public event EventHandler Focus;
+
+        public event EventHandler LostFocus;
 
         public event EventHandler Loaded;
 
@@ -255,6 +255,9 @@ namespace ExaPhaser.WebForms
         {
             _internalElement = value;
             InternalJQElement = new JQElement(_internalElement);
+            InternalJQElement.Click += (sender, args) => Click?.Invoke(this, args);
+            InternalJQElement.Focus += (sender, args) => Focus?.Invoke(this, args);
+            InternalJQElement.LostFocus += (sender, args) => LostFocus?.Invoke(this, args);
         }
 
         private void SetParent(Control parentControl)

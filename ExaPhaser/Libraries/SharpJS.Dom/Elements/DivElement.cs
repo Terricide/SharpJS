@@ -7,6 +7,7 @@
     {
         public DivElement() : base("div")
         {
+            this["tabIndex"] = "-1";
         }
     }
 }

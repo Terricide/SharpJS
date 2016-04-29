@@ -9,6 +9,7 @@ namespace SharpJS.JSLibraries.JQuery.JQElements
     {
         public JQDivElement() : base(new Element("div"))
         {
+            this.Attr("tabIndex", -1);
         }
     }
 }

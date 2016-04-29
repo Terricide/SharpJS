@@ -49,7 +49,7 @@ namespace ExaPhaser.WebForms.Controls
                     };
                     break;
             }
-            InternalElement.Click += OnClick;
+            Click += OnClick;
             PerformLayout();
         }
 
@@ -65,18 +65,11 @@ namespace ExaPhaser.WebForms.Controls
 
         #endregion Public Properties
 
-        #region Public Events
-
-        public override event EventHandler Click;
-
-        #endregion Public Events
-
         #region Private Methods
 
         private void OnClick(object sender, EventArgs e)
         {
-            Click?.Invoke(this, e);
-			Command?.Execute(new ICommandParameter(e));
+            Command?.Execute(new ICommandParameter(e));
         }
 
         private void SetText(string value)
@@ -89,10 +82,10 @@ namespace ExaPhaser.WebForms.Controls
 
         #region Command
 
-		/// <summary>
-		/// The command fired when the button is clicked
-		/// </summary>
-		/// <value>The command.</value>
+        /// <summary>
+        /// The command fired when the button is clicked
+        /// </summary>
+        /// <value>The command.</value>
         public ICommand Command { get; set; }
 
         #endregion Command

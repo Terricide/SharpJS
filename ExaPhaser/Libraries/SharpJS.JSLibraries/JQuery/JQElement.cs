@@ -69,6 +69,20 @@ namespace SharpJS.JSLibraries.JQuery
             }
         }
 
+        public event EventHandler LostFocus
+        {
+            add
+            {
+                BindEventListener("focusout", e => { _focusout?.Invoke(this, new EventArgs()); });
+                _focusout += value;
+            }
+            remove
+            {
+                UnbindEventListener("focusout");
+                _focusout -= value;
+            }
+        }
+
         #endregion Public Events
 
         #region Private Events
@@ -78,6 +92,8 @@ namespace SharpJS.JSLibraries.JQuery
         private event EventHandler _enterKeyPressed;
 
         private event EventHandler _focus;
+
+        private event EventHandler _focusout;
 
         #endregion Private Events
 
