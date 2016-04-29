@@ -143,6 +143,8 @@ namespace SharpJS.JSLibraries.JQuery
 
         public bool Is(string query) => JQueryObjectHandle.Is(query);
 
+        public void Remove() => JQueryObjectHandle.Remove();
+
         public void RemoveClass(string className) => JQueryObjectHandle.RemoveClass(className);
 
         public void Show() => JQueryObjectHandle.Show();

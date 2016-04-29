@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <!--Files to copy to output HTML directory-->
+    <Content Include="html\jquery-ui.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="html\webforms.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

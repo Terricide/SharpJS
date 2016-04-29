@@ -1,4 +1,5 @@
-﻿using ExaPhaser.WebForms;
+﻿using System.Collections.Generic;
+using ExaPhaser.WebForms;
 using ExaPhaser.WebForms.Themes;
 using SharpJS.Dom;
 using SharpJS.Dom.Elements;
@@ -10,8 +11,7 @@ namespace System.Windows.Forms
     {
         #region Private Fields
 
-        private static WebForm _mainForm;
-        private static WebApplication _sharpJSApp;
+        private static List<WebForm> _forms;
         private static CSSUITheme _theme = new CSSUITheme(CSSFramework.Kubism);
 
         #endregion Private Fields
@@ -29,16 +29,17 @@ namespace System.Windows.Forms
 
         public static void Run(Form form)
         {
-            _sharpJSApp = new WebApplication(_theme);
-            _mainForm = form.UnderlyingWebForm;
-            _mainForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
+            WebApplication sharpJSApp = new WebApplication(_theme);
+            var mainWebForm = form.UnderlyingWebForm;
+            mainWebForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
             var hostElement = Document.GetElementById(HostElementId);
             var mainFormHost = new DivElement();
             var jqMainFormHost = new JQElement(mainFormHost);
             hostElement.AppendChild(mainFormHost);
-            _sharpJSApp.Run(_mainForm, jqMainFormHost);
-            _mainForm.InternalJQElement.AddClass("winform");
-            _mainForm.InternalJQElement.Draggable();
+            _forms = new List<WebForm> { mainWebForm };
+            sharpJSApp.Run(mainWebForm, jqMainFormHost);
+            mainWebForm.InternalJQElement.AddClass("winform");
+            mainWebForm.InternalJQElement.Draggable();
         }
 
         [WebFormsCompatStubOnly]
@@ -49,6 +50,27 @@ namespace System.Windows.Forms
             _theme = theme;
         }
 
+        internal static void CloseForm(Form formToClose)
+        {
+            _forms.Remove(formToClose.UnderlyingWebForm);
+            formToClose.UnderlyingWebForm.InternalJQElement.Remove();
+        }
+
+        /// <summary>
+        /// Creates and adds another newForm to the page.
+        /// </summary>
+        /// <param name="newForm"></param>
+        internal static void ShowNewForm(Form newForm)
+        {
+            WebApplication sharpJSApp = new WebApplication(_theme);
+            var hostElement = Document.GetElementById(HostElementId);
+            var newFormHost = new DivElement();
+            var jqMainFormHost = new JQElement(newFormHost);
+            hostElement.AppendChild(newFormHost);
+            var newWebForm = newForm.UnderlyingWebForm;
+            _forms.Add(newWebForm);
+            sharpJSApp.Run(newWebForm, jqMainFormHost);
+        }
         #endregion Public Methods
     }
 }

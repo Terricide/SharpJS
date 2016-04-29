@@ -206,12 +206,16 @@ namespace SharpJS.JSLibraries.JQuery
             throw new RequiresJSILRuntimeException();
         }
 
+        [JSReplacement("$this.JQObject.remove()")]
+        public void Remove()
+        {
+        }
+
         [JSReplacement("$this.JQObject.removeClass($className)")]
         public string RemoveClass(string className)
         {
             throw new RequiresJSILRuntimeException();
         }
-
         [JSReplacement("$this.JQObject.show()")]
         public void Show()
         {

@@ -36,5 +36,16 @@ namespace System.Windows.Forms
         public WebForm UnderlyingWebForm => _webForm;
 
         #endregion Public Properties
+
+        [WebFormsCompatStubOnly]
+        public void ShowDialog()
+        {
+            Show();
+        }
+
+        public void Show()
+        {
+            Application.ShowNewForm(this);
+        }
     }
 }
