@@ -17,10 +17,10 @@ namespace System.Windows.Forms
 
         #endregion Public Constructors
 
-        public string Url
+        public Uri Url
         {
-            get { return _internalWebView.SourceURI; }
-            set { _internalWebView.SourceURI = value; }
+            get { return new Uri(_internalWebView.SourceURI, UriKind.Absolute); }
+            set { _internalWebView.SourceURI = value.ToString(); }
         }
     }
 }

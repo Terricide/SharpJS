@@ -32,10 +32,6 @@
     <RootNamespace>System</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="ComponentModel\IContainer.cs" />
     <Compile Include="Diagnostics\Process.cs" />
     <Compile Include="Drawing\Font.cs" />
