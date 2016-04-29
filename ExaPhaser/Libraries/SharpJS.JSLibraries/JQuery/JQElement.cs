@@ -163,6 +163,10 @@ namespace SharpJS.JSLibraries.JQuery
 
         public void RemoveClass(string className) => JQueryObjectHandle.RemoveClass(className);
 
+        public void Resizable() => JQueryObjectHandle.Resizable();
+
+        public void ResizableAnimated() => JQueryObjectHandle.ResizableAnimated();
+
         public void Show() => JQueryObjectHandle.Show();
 
         public void Trigger(string eventName) => JQueryObjectHandle.Trigger(eventName);

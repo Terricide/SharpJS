@@ -89,6 +89,7 @@ namespace System.Windows.Forms
         {
             mainWebForm.InternalJQElement.AddClass("winform");
             mainWebForm.InternalJQElement.Draggable();
+            mainWebForm.InternalJQElement.ResizableAnimated();
         }
 
         #endregion Public Methods

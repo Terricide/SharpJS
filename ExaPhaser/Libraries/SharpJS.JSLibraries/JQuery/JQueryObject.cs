@@ -216,6 +216,17 @@ namespace SharpJS.JSLibraries.JQuery
         {
             throw new RequiresJSILRuntimeException();
         }
+
+        [JSReplacement("$this.JQObject.resizable()")]
+        public void Resizable()
+        {
+        }
+
+        [JSReplacement("$this.JQObject.resizable({animate: true})")]
+        public void ResizableAnimated()
+        {
+        }
+
         [JSReplacement("$this.JQObject.show()")]
         public void Show()
         {
