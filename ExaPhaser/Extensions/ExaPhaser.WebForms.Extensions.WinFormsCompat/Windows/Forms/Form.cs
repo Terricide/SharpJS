@@ -1,4 +1,5 @@
-﻿using ExaPhaser.WebForms;
+﻿using System.Drawing;
+using ExaPhaser.WebForms;
 using SharpJS.Dom;
 
 namespace System.Windows.Forms
@@ -59,6 +60,12 @@ namespace System.Windows.Forms
         {
             base.OnGotFocus(sender, e);
             SetFormTitle(Text); //Set title when switching between forms
+        }
+
+        protected override void SetLocation(Point location)
+        {
+            WebFormsControl.PositioningType = PositioningType.Relative;
+            WebFormsControl.ConstantPosition = new ExaPhaser.WebForms.Drawing.Point(location.X, location.Y);
         }
 
         #endregion Protected Methods

@@ -73,6 +73,7 @@ namespace System.Windows.Forms
             closeButton.Click += (s, e) => CloseForm(newForm);
             newForm.Controls.Add(closeButton);
             newForm.OnInitialized();
+            newForm.Location = new Point();
         }
 
         private static void InitializeWinFormWFStyles(WebForm mainWebForm)
