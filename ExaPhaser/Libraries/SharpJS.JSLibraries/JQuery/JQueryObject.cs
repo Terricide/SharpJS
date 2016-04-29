@@ -242,6 +242,17 @@ namespace SharpJS.JSLibraries.JQuery
         {
         }
 
+        [JSReplacement("$this.JQObject.zIndex()")]
+        public int ZIndex()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this.JQObject.zIndex($value)")]
+        public void ZIndex(int value)
+        {
+        }
+
         #endregion Public Methods
     }
 }

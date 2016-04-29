@@ -11,7 +11,7 @@ namespace System.Windows.Forms
     {
         #region Private Fields
 
-        private static List<WebForm> _forms;
+        private static List<WebForm> _forms = new List<WebForm>();
         private static CSSUITheme _theme = new CSSUITheme(CSSFramework.Kubism);
 
         #endregion Private Fields
@@ -29,17 +29,7 @@ namespace System.Windows.Forms
 
         public static void Run(Form form)
         {
-            WebApplication sharpJSApp = new WebApplication(_theme);
-            var mainWebForm = form.UnderlyingWebForm;
-            mainWebForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
-            var hostElement = Document.GetElementById(HostElementId);
-            var mainFormHost = new DivElement();
-            var jqMainFormHost = new JQElement(mainFormHost);
-            hostElement.AppendChild(mainFormHost);
-            _forms = new List<WebForm> { mainWebForm };
-            sharpJSApp.Run(mainWebForm, jqMainFormHost);
-            mainWebForm.InternalJQElement.AddClass("winform");
-            mainWebForm.InternalJQElement.Draggable();
+            ShowNewForm(form);
         }
 
         [WebFormsCompatStubOnly]
@@ -68,9 +58,23 @@ namespace System.Windows.Forms
             var jqMainFormHost = new JQElement(newFormHost);
             hostElement.AppendChild(newFormHost);
             var newWebForm = newForm.UnderlyingWebForm;
+            newWebForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
             _forms.Add(newWebForm);
             sharpJSApp.Run(newWebForm, jqMainFormHost);
+            InitializeWinFormWFStyles(newWebForm);
+            InitializeWebUIElement(newForm);
         }
+
+        private static void InitializeWebUIElement(Form newForm)
+        {
+        }
+
+        private static void InitializeWinFormWFStyles(WebForm mainWebForm)
+        {
+            mainWebForm.InternalJQElement.AddClass("winform");
+            mainWebForm.InternalJQElement.Draggable();
+        }
+
         #endregion Public Methods
     }
 }

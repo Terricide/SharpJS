@@ -157,6 +157,10 @@ namespace SharpJS.JSLibraries.JQuery
 
         public void Width(int value) => JQueryObjectHandle.Width(value);
 
+        public int ZIndex() => JQueryObjectHandle.ZIndex();
+
+        public void ZIndex(int value) => JQueryObjectHandle.ZIndex(value);
+
         #endregion Public Methods
     }
 }
