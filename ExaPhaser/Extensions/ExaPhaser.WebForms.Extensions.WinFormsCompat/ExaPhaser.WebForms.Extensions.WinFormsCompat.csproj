@@ -44,6 +44,7 @@
     <Compile Include="Drawing\Point.cs" />
     <Compile Include="Drawing\Size.cs" />
     <Compile Include="Drawing\SizeF.cs" />
+    <Compile Include="Uri.cs" />
     <Compile Include="WebFormsCompatStubOnlyAttribute.cs" />
     <Compile Include="Windows\Forms\Application.cs" />
     <Compile Include="Windows\Forms\AutoScaleMode.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Windows\Forms\Padding.cs" />
     <Compile Include="Windows\Forms\TextBox.cs" />
     <Compile Include="Windows\Forms\TextControl.cs" />
+    <Compile Include="Windows\Forms\WebBrowser.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Frameworks\ExaPhaser.WebForms\ExaPhaser.WebForms.csproj">

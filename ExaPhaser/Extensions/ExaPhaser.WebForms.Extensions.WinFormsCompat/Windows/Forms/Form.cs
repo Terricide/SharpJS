@@ -46,6 +46,11 @@ namespace System.Windows.Forms
             Application.ShowNewForm(this);
         }
 
+        public void Close()
+        {
+            Application.CloseForm(this);
+        }
+
         [WebFormsCompatStubOnly]
         public void ShowDialog()
         {
