@@ -62,6 +62,13 @@ namespace System.Windows.Forms
         }
 
         [WebFormsCompatStubOnly]
+        public Size MinimumSize
+        {
+            get { return ClientSize; }
+            set { ClientSize = value; }
+        }
+
+        [WebFormsCompatStubOnly]
         public int TabIndex { get; set; }
 
         [WebFormsCompatStubOnly]

@@ -13,13 +13,18 @@
         public LinkLabel()
         {
             var wfLinkLabel = new ExaPhaser.WebForms.Controls.LinkLabel();
-            wfLinkLabel.Click += (s, e) => LinkClicked?.Invoke(this, new LinkLabelLinkClickedEventArgs());
             WebFormsControl = wfLinkLabel;
         }
 
         #endregion Public Constructors
 
         #region Public Events
+
+        protected override void OnClick(object sender, EventArgs e)
+        {
+            base.OnClick(sender, e);
+            LinkClicked?.Invoke(this, new LinkLabelLinkClickedEventArgs());
+        }
 
         public event LinkLabelLinkClickedEventHandler LinkClicked;
 
