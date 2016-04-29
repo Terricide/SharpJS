@@ -5,16 +5,34 @@ namespace System.Windows.Forms
 {
     public class TextControl : Control
     {
+        #region Public Properties
+
+        public override Font Font
+        {
+            set { SetFont(value); }
+        }
+
+        public override Size Size
+        {
+            get { return ClientSize; }
+            set
+            {
+                if (!AutoSize) //If autosize, it should not be sized manually, client browser should take of it
+                {
+                    ClientSize = value;
+                }
+            }
+        }
+
         public override string Text
         {
             get { return WebFormsControl.Text; }
             set { WebFormsControl.Text = value; }
         }
 
-        public override Font Font
-        {
-            set { SetFont(value); }
-        }
+        #endregion Public Properties
+
+        #region Private Methods
 
         private void SetFont(Font newFont)
         {
@@ -34,5 +52,7 @@ namespace System.Windows.Forms
             }
             WebFormsControl.FontStyle = wfFontStyle;
         }
+
+        #endregion Private Methods
     }
 }
