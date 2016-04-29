@@ -12,7 +12,7 @@ namespace System.Windows.Forms
     {
         #region Private Fields
 
-        private static List<WebForm> _forms = new List<WebForm>();
+        private static Dictionary<WebForm, DivElement> _forms = new Dictionary<WebForm, DivElement>();
         private static CSSUITheme _theme = new CSSUITheme(CSSFramework.Kubism);
 
         #endregion Private Fields
@@ -43,8 +43,12 @@ namespace System.Windows.Forms
 
         internal static void CloseForm(Form formToClose)
         {
-            _forms.Remove(formToClose.UnderlyingWebForm);
+            var fWebForm = formToClose.UnderlyingWebForm;
+            var divHost = _forms[fWebForm];
+            _forms.Remove(fWebForm);
             formToClose.UnderlyingWebForm.InternalJQElement.Remove();
+            var hostElement = Document.GetElementById(HostElementId);
+            hostElement.RemoveChild(divHost);
         }
 
         /// <summary>
@@ -60,7 +64,7 @@ namespace System.Windows.Forms
             hostElement.AppendChild(newFormHost);
             var newWebForm = newForm.UnderlyingWebForm;
             newWebForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
-            _forms.Add(newWebForm);
+            _forms.Add(newWebForm, newFormHost);
             sharpJSApp.Run(newWebForm, jqMainFormHost);
             InitializeWinFormWFStyles(newWebForm);
             InitializeWebUIElement(newForm);
@@ -73,7 +77,12 @@ namespace System.Windows.Forms
             closeButton.Click += (s, e) => CloseForm(newForm);
             newForm.Controls.Add(closeButton);
             newForm.OnInitialized();
-            newForm.Location = new Point();
+            var halfWidth = Document.ClientWidth/2;
+            var halfHeight = Document.ClientHeight/2;
+            var newFormHalfWidth = newForm.Size.Width/2;
+            var newFormHalfHeight = newForm.Size.Height/2;
+            newForm.Location = new Point(halfWidth-newFormHalfWidth, halfHeight-newFormHalfHeight); //Center the form
+            newForm.Focus();
         }
 
         private static void InitializeWinFormWFStyles(WebForm mainWebForm)

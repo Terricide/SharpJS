@@ -62,12 +62,6 @@ namespace System.Windows.Forms
             SetFormTitle(Text); //Set title when switching between forms
         }
 
-        protected override void SetLocation(Point location)
-        {
-            WebFormsControl.PositioningType = PositioningType.Relative;
-            WebFormsControl.ConstantPosition = new ExaPhaser.WebForms.Drawing.Point(location.X, location.Y);
-        }
-
         #endregion Protected Methods
 
         #region Private Methods
@@ -79,5 +73,10 @@ namespace System.Windows.Forms
         }
 
         #endregion Private Methods
+
+        public void Focus()
+        {
+            WebFormsControl.InternalJQElement.Trigger("focus");
+        }
     }
 }
