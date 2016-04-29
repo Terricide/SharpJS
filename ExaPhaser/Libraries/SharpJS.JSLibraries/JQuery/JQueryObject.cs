@@ -132,6 +132,11 @@ namespace SharpJS.JSLibraries.JQuery
             return (T)Verbatim.Expression("this.JQObject.css(name)");
         }
 
+        [JSReplacement("$this.JQObject.draggable()")]
+        public void Draggable()
+        {
+        }
+
         [JSReplacement("$this.JQObject.fadeIn()")]
         public void FadeIn()
         {

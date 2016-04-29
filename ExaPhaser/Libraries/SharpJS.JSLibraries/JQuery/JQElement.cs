@@ -115,6 +115,8 @@ namespace SharpJS.JSLibraries.JQuery
 
         public T Css<T>(string name) => JQueryObjectHandle.Css<T>(name);
 
+        public void Draggable() => JQueryObjectHandle.Draggable();
+
         public void FadeIn() => JQueryObjectHandle.FadeIn();
 
         public void FadeIn(int timeout) => JQueryObjectHandle.FadeIn(timeout);

@@ -1,5 +1,8 @@
 ﻿using ExaPhaser.WebForms;
 using ExaPhaser.WebForms.Themes;
+using SharpJS.Dom;
+using SharpJS.Dom.Elements;
+using SharpJS.JSLibraries.JQuery;
 
 namespace System.Windows.Forms
 {
@@ -29,8 +32,13 @@ namespace System.Windows.Forms
             _sharpJSApp = new WebApplication(_theme);
             _mainForm = form.UnderlyingWebForm;
             _mainForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
-            _sharpJSApp.Run(_mainForm, HostElementId);
+            var hostElement = Document.GetElementById(HostElementId);
+            var mainFormHost = new DivElement();
+            var jqMainFormHost = new JQElement(mainFormHost);
+            hostElement.AppendChild(mainFormHost);
+            _sharpJSApp.Run(_mainForm, jqMainFormHost);
             _mainForm.InternalJQElement.AddClass("winform");
+            _mainForm.InternalJQElement.Draggable();
         }
 
         [WebFormsCompatStubOnly]
