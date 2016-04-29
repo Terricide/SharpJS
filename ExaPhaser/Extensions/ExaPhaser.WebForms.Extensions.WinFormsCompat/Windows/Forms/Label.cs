@@ -14,7 +14,7 @@ namespace System.Windows.Forms
             get { return ClientSize; }
             set
             {
-                if (!AutoSize)
+                if (!AutoSize) //If autosize, it should not be sized manually, client browser should take of it
                 {
                     ClientSize = value;
                 }
