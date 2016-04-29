@@ -132,6 +132,11 @@ namespace SharpJS.JSLibraries.JQuery
             return (T)Verbatim.Expression("this.JQObject.css(name)");
         }
 
+        [JSReplacement("$this.JQObject.draggable()")]
+        public void Draggable()
+        {
+        }
+
         [JSReplacement("$this.JQObject.fadeIn()")]
         public void FadeIn()
         {
@@ -201,12 +206,16 @@ namespace SharpJS.JSLibraries.JQuery
             throw new RequiresJSILRuntimeException();
         }
 
+        [JSReplacement("$this.JQObject.remove()")]
+        public void Remove()
+        {
+        }
+
         [JSReplacement("$this.JQObject.removeClass($className)")]
         public string RemoveClass(string className)
         {
             throw new RequiresJSILRuntimeException();
         }
-
         [JSReplacement("$this.JQObject.show()")]
         public void Show()
         {
@@ -230,6 +239,17 @@ namespace SharpJS.JSLibraries.JQuery
 
         [JSReplacement("$this.JQObject.width($value)")]
         public void Width(int value)
+        {
+        }
+
+        [JSReplacement("$this.JQObject.zIndex()")]
+        public int ZIndex()
+        {
+            throw new RequiresJSILRuntimeException();
+        }
+
+        [JSReplacement("$this.JQObject.zIndex($value)")]
+        public void ZIndex(int value)
         {
         }
 

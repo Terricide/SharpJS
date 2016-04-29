@@ -60,5 +60,9 @@ namespace SharpJS.Dom
             get { return (string)Verbatim.Expression("document.title"); }
             set { Verbatim.Expression("document.title = $0", value); }
         }
+
+        public static int ClientWidth => (int)Verbatim.Expression("document.documentElement.clientWidth");
+
+        public static int ClientHeight => (int)Verbatim.Expression("document.documentElement.clientHeight");
     }
 }

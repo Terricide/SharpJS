@@ -41,6 +41,12 @@ namespace ExaPhaser.WebForms
 
         #region Public Events
 
+        public event EventHandler Click;
+
+        public event EventHandler Focus;
+
+        public event EventHandler LostFocus;
+
         public event EventHandler Loaded;
 
         #endregion Public Events
@@ -192,6 +198,7 @@ namespace ExaPhaser.WebForms
             get { return (int)InternalJQElement.Width(); }
             set { InternalJQElement.Width(value); }
         }
+
         #endregion Properties
 
         #region Abstract Methods
@@ -226,6 +233,7 @@ namespace ExaPhaser.WebForms
             InternalJQElement.Css("left", position.X);
             InternalJQElement.Css("top", position.Y);
         }
+
         private void SetControls(Collection<Control> value)
         {
             if (_subControls.ParentControl == null)
@@ -247,6 +255,9 @@ namespace ExaPhaser.WebForms
         {
             _internalElement = value;
             InternalJQElement = new JQElement(_internalElement);
+            InternalJQElement.Click += (sender, args) => Click?.Invoke(this, args);
+            InternalJQElement.Focus += (sender, args) => Focus?.Invoke(this, args);
+            InternalJQElement.LostFocus += (sender, args) => LostFocus?.Invoke(this, args);
         }
 
         private void SetParent(Control parentControl)

@@ -12,6 +12,7 @@ namespace System.Windows.Forms
 
         private Size _clientSize;
         private Control _parent;
+        private ExaPhaser.WebForms.Control _webFormsControl;
 
         #endregion Private Fields
 
@@ -46,10 +47,10 @@ namespace System.Windows.Forms
         }
 
         [WebFormsCompatStubOnly]
-        public string Name { get; set; }
+        public Padding Margin { get; set; }
 
         [WebFormsCompatStubOnly]
-        public Padding Margin { get; set; }
+        public string Name { get; set; }
 
         public Control Parent { get { return _parent; } set { SetParent(value); } }
 
@@ -71,11 +72,20 @@ namespace System.Windows.Forms
         [WebFormsCompatStubOnly]
         public bool UseVisualStyleBackColor { get; set; }
 
-        public ExaPhaser.WebForms.Control WebFormsControl { get; set; }
+        public ExaPhaser.WebForms.Control WebFormsControl
+        {
+            get { return _webFormsControl; }
+            set { SetWebFormsControl(value); }
+        }
 
         #endregion Public Properties
 
         #region Public Methods
+
+        public void OnInitialized()
+        {
+            Load?.Invoke(this, EventArgs.Empty);
+        }
 
         [WebFormsCompatStubOnly]
         public void PerformLayout()
@@ -101,6 +111,23 @@ namespace System.Windows.Forms
         {
         }
 
+        protected virtual void OnClick(object sender, EventArgs e)
+        {
+            Click?.Invoke(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnGotFocus(object sender, EventArgs e)
+        {
+            Activated?.Invoke(this, EventArgs.Empty);
+            Enter?.Invoke(this, EventArgs.Empty);
+        }
+
+        protected virtual void OnLostFocus(object sender, EventArgs e)
+        {
+            Deactivate?.Invoke(this, EventArgs.Empty);
+            Leave?.Invoke(this, EventArgs.Empty);
+        }
+
         #endregion Protected Methods
 
         #region Private Methods
@@ -111,7 +138,7 @@ namespace System.Windows.Forms
             return new Point(wfLocation.X, wfLocation.Y);
         }
 
-        private void SetLocation(Point location)
+        protected virtual void SetLocation(Point location)
         {
             WebFormsControl.PositioningType = PositioningType.Absolute;
             WebFormsControl.ConstantPosition = new ExaPhaser.WebForms.Drawing.Point(location.X, location.Y);
@@ -131,6 +158,32 @@ namespace System.Windows.Forms
             this.WebFormsControl.Width = newSize.Width;
         }
 
+        private void SetWebFormsControl(ExaPhaser.WebForms.Control wfControl)
+        {
+            _webFormsControl = wfControl;
+            WebFormsControl.Focus += OnGotFocus;
+            WebFormsControl.LostFocus += OnLostFocus;
+            WebFormsControl.Click += OnClick;
+        }
+
         #endregion Private Methods
+
+        #region Public Events
+
+        [WebFormsCompatStubOnly]
+        public event EventHandler Activated;
+
+        public virtual event EventHandler Click;
+
+        [WebFormsCompatStubOnly]
+        public event EventHandler Deactivate;
+
+        public event EventHandler Enter;
+
+        public event EventHandler Leave;
+
+        public event EventHandler Load;
+
+        #endregion Public Events
     }
 }

@@ -69,6 +69,20 @@ namespace SharpJS.JSLibraries.JQuery
             }
         }
 
+        public event EventHandler LostFocus
+        {
+            add
+            {
+                BindEventListener("focusout", e => { _focusout?.Invoke(this, new EventArgs()); });
+                _focusout += value;
+            }
+            remove
+            {
+                UnbindEventListener("focusout");
+                _focusout -= value;
+            }
+        }
+
         #endregion Public Events
 
         #region Private Events
@@ -78,6 +92,8 @@ namespace SharpJS.JSLibraries.JQuery
         private event EventHandler _enterKeyPressed;
 
         private event EventHandler _focus;
+
+        private event EventHandler _focusout;
 
         #endregion Private Events
 
@@ -115,6 +131,8 @@ namespace SharpJS.JSLibraries.JQuery
 
         public T Css<T>(string name) => JQueryObjectHandle.Css<T>(name);
 
+        public void Draggable() => JQueryObjectHandle.Draggable();
+
         public void FadeIn() => JQueryObjectHandle.FadeIn();
 
         public void FadeIn(int timeout) => JQueryObjectHandle.FadeIn(timeout);
@@ -141,6 +159,8 @@ namespace SharpJS.JSLibraries.JQuery
 
         public bool Is(string query) => JQueryObjectHandle.Is(query);
 
+        public void Remove() => JQueryObjectHandle.Remove();
+
         public void RemoveClass(string className) => JQueryObjectHandle.RemoveClass(className);
 
         public void Show() => JQueryObjectHandle.Show();
@@ -152,6 +172,10 @@ namespace SharpJS.JSLibraries.JQuery
         public int Width() => JQueryObjectHandle.Width();
 
         public void Width(int value) => JQueryObjectHandle.Width(value);
+
+        public int ZIndex() => JQueryObjectHandle.ZIndex();
+
+        public void ZIndex(int value) => JQueryObjectHandle.ZIndex(value);
 
         #endregion Public Methods
     }

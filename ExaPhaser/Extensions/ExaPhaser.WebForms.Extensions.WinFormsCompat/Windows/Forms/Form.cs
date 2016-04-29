@@ -1,4 +1,5 @@
-﻿using ExaPhaser.WebForms;
+﻿using System.Drawing;
+using ExaPhaser.WebForms;
 using SharpJS.Dom;
 
 namespace System.Windows.Forms
@@ -8,6 +9,7 @@ namespace System.Windows.Forms
         #region Private Fields
 
         private readonly WebForm _webForm;
+        private string _title;
 
         #endregion Private Fields
 
@@ -28,13 +30,53 @@ namespace System.Windows.Forms
         /// </summary>
         public override string Text
         {
-            get { return Document.Title; }
-            set { Document.Title = value; }
+            get { return _title; }
+            set { SetFormTitle(value); }
         }
 
         // ReSharper disable once ConvertToAutoProperty
         public WebForm UnderlyingWebForm => _webForm;
 
         #endregion Public Properties
+
+        #region Public Methods
+
+        public void Show()
+        {
+            Application.ShowNewForm(this);
+        }
+
+        [WebFormsCompatStubOnly]
+        public void ShowDialog()
+        {
+            Show();
+        }
+
+        #endregion Public Methods
+
+        #region Protected Methods
+
+        protected override void OnGotFocus(object sender, EventArgs e)
+        {
+            base.OnGotFocus(sender, e);
+            SetFormTitle(Text); //Set title when switching between forms
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        private void SetFormTitle(string title)
+        {
+            _title = title;
+            Document.Title = title;
+        }
+
+        #endregion Private Methods
+
+        public void Focus()
+        {
+            WebFormsControl.InternalJQElement.Trigger("focus");
+        }
     }
 }
