@@ -4,7 +4,7 @@ namespace System.Windows.Forms
 {
     public class WebBrowser : Control
     {
-        private WebView _internalWebView;
+        private readonly WebView _internalWebView;
 
         #region Public Constructors
 
@@ -21,6 +21,12 @@ namespace System.Windows.Forms
         {
             get { return new Uri(_internalWebView.SourceURI, UriKind.Absolute); }
             set { _internalWebView.SourceURI = value.ToString(); }
+        }
+
+        public string DocumentSource
+        {
+            get { return _internalWebView.DocumentSource; }
+            set { _internalWebView.DocumentSource = value; }
         }
     }
 }

@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\IContainer.cs" />
+    <Compile Include="ComponentModel\ISupportInitialize.cs" />
     <Compile Include="Diagnostics\Process.cs" />
     <Compile Include="Drawing\Font.cs" />
     <Compile Include="Drawing\FontStyle.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Windows\Forms\MessageBox.cs" />
     <Compile Include="Windows\Forms\OpenFileDialog.cs" />
     <Compile Include="Windows\Forms\Padding.cs" />
+    <Compile Include="Windows\Forms\PictureBox.cs" />
     <Compile Include="Windows\Forms\RichTextBox.cs" />
     <Compile Include="Windows\Forms\SaveFileDialog.cs" />
     <Compile Include="Windows\Forms\TextBox.cs" />
@@ -75,9 +77,6 @@
       <Project>{d7f84a77-7a04-4fae-87d6-c4a3f58418fb}</Project>
       <Name>SharpJS.JSLibraries</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

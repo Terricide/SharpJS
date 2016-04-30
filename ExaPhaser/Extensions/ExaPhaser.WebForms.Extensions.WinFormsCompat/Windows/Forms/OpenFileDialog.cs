@@ -32,6 +32,8 @@ namespace System.Windows.Forms
             set { _fileUpload.FileName = value; }
         }
 
+        public FileUploadButton FileUploadButton => _fileUpload;
+
         #endregion Public Properties
 
         #region Public Methods
