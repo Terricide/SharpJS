@@ -57,6 +57,7 @@
     <Compile Include="Windows\Forms\OpenFileDialog.cs" />
     <Compile Include="Windows\Forms\Padding.cs" />
     <Compile Include="Windows\Forms\RichTextBox.cs" />
+    <Compile Include="Windows\Forms\SaveFileDialog.cs" />
     <Compile Include="Windows\Forms\TextBox.cs" />
     <Compile Include="Windows\Forms\TextControl.cs" />
     <Compile Include="Windows\Forms\WebBrowser.cs" />

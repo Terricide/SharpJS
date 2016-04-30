@@ -3,7 +3,7 @@ using JSIL;
 
 namespace SharpJS.JSLibraries
 {
-    public class FileDownloader
+    public static class FileDownloader
     {
         #region Public Methods
 
