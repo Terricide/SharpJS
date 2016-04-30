@@ -6,11 +6,27 @@ using SharpJS.JSLibraries;
 
 namespace ExaPhaser.WebForms.Controls
 {
+    public enum FileReaderEncoding
+    {
+        ASCII,
+        UTF8,
+        UTF16
+    }
+
+    public enum FileUploadType
+    {
+        TextFile,
+        ImageFile,
+        BinaryFile
+    }
+
     /// <summary>
     ///     A control that represents a file upload button
     /// </summary>
     public sealed class FileUploadButton : Control
     {
+        #region Public Constructors
+
         public FileUploadButton()
         {
             InternalElement = new InputElement
@@ -20,20 +36,32 @@ namespace ExaPhaser.WebForms.Controls
             PerformLayout();
         }
 
+        #endregion Public Constructors
+
+        #region Public Events
+
+        public event EventHandler<FileUploadEventArgs> FileOpened;
+
+        #endregion Public Events
+
+        #region Public Properties
+
         /// <summary>
         /// Sets the file encoding if the UploadType is TextFile. The upload button must be reinitialized in order to change this property.
         /// </summary>
         public FileReaderEncoding FileEncoding { get; set; } = FileReaderEncoding.ASCII;
+
+        public string Filter
+        {
+            set { SetFilter(value); }
+        }
 
         /// <summary>
         /// Sets the type of the file being uploaded, and consequently, the type of parsing. The upload button must be reinitialized in order to change this property.
         /// </summary>
         public FileUploadType UploadType { get; set; } = FileUploadType.TextFile;
 
-        public string Filter
-        {
-            set { SetFilter(value); }
-        }
+        #endregion Public Properties
 
         #region Command
 
@@ -43,9 +71,11 @@ namespace ExaPhaser.WebForms.Controls
         /// <value>The command.</value>
         public ICommand Command { get; set; }
 
+        public string FileName { get; set; }
+
         #endregion Command
 
-        public event EventHandler<FileUploadEventArgs> FileOpened;
+        #region Public Methods
 
         public override void PerformLayout()
         {
@@ -61,6 +91,7 @@ namespace ExaPhaser.WebForms.Controls
             {
                 var input = Verbatim.Expression("evt.target");
                 var file = Verbatim.Expression("$0.files[0]", input);
+                FileName = (string)Verbatim.Expression("$0.name", file);
                 var reader = Verbatim.Expression("new FileReader()");
                 Action onLoadAction = () =>
                 {
@@ -76,6 +107,7 @@ namespace ExaPhaser.WebForms.Controls
                                 case FileReaderEncoding.ASCII:
                                     textContent = jsBlob as string;
                                     break;
+
                                 case FileReaderEncoding.UTF8:
                                     textContent = BufferConverter.ArrayBufferToStringUTF8(jsBlob);
                                     break;
@@ -85,6 +117,7 @@ namespace ExaPhaser.WebForms.Controls
                                     break;
                             }
                             break;
+
                         case FileUploadType.ImageFile:
                             dataUrl = jsBlob as string;
                             break;
@@ -113,6 +146,10 @@ namespace ExaPhaser.WebForms.Controls
             };
             InternalJQElement.BindEventListener("change", changeAction);
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         private void SetFilter(string filter)
         {
@@ -144,20 +181,8 @@ namespace ExaPhaser.WebForms.Controls
                 Verbatim.Expression(@"$0.accept = """"", InternalElement.DOMRepresentation);
             }
         }
-    }
 
-    public enum FileUploadType
-    {
-        TextFile,
-        ImageFile,
-        BinaryFile
-    }
-
-    public enum FileReaderEncoding
-    {
-        ASCII,
-        UTF8,
-        UTF16
+        #endregion Private Methods
     }
 
     /// <summary>
@@ -165,6 +190,8 @@ namespace ExaPhaser.WebForms.Controls
     /// </summary>
     public class FileUploadEventArgs : EventArgs
     {
+        #region Public Fields
+
         /// <summary>
         ///     If the UploadType of the UploadButton was ImageFile, this contains the data URL representation of the file
         ///     uploaded. Otherwise, it is null.
@@ -182,11 +209,17 @@ namespace ExaPhaser.WebForms.Controls
         /// </summary>
         public readonly string PlainTextContent;
 
+        #endregion Public Fields
+
+        #region Public Constructors
+
         public FileUploadEventArgs(object jsBlob, string plainTextContent, string dataUrl)
         {
             JSBlob = jsBlob;
             PlainTextContent = plainTextContent;
             DataURL = dataUrl;
         }
+
+        #endregion Public Constructors
     }
 }
