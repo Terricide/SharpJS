@@ -41,6 +41,10 @@ namespace System.Windows.Forms
             _theme = theme;
         }
 
+        #endregion Public Methods
+
+        #region Internal Methods
+
         internal static void CloseForm(Form formToClose)
         {
             var fWebForm = formToClose.UnderlyingWebForm;
@@ -70,28 +74,35 @@ namespace System.Windows.Forms
             InitializeWebUIElement(newForm);
         }
 
+        #endregion Internal Methods
+
+        #region Private Methods
+
         private static void InitializeWebUIElement(Form newForm)
         {
             //Add a close button
-            var closeButton = new Button { Text = "x", Location = new Point(5, 5)};
+            var closeButton = new Button { Text = "x", Location = new Point(5, 5) };
             closeButton.Click += (s, e) => CloseForm(newForm);
             newForm.Controls.Add(closeButton);
             newForm.OnInitialized();
-            var halfWidth = Document.ClientWidth/2;
-            var halfHeight = Document.ClientHeight/2;
-            var newFormHalfWidth = newForm.Size.Width/2;
-            var newFormHalfHeight = newForm.Size.Height/2;
-            newForm.Location = new Point(halfWidth-newFormHalfWidth, halfHeight-newFormHalfHeight); //Center the form
+            var halfWidth = Document.ClientWidth / 2;
+            var halfHeight = Document.ClientHeight / 2;
+            var newFormHalfWidth = newForm.Size.Width / 2;
+            var newFormHalfHeight = newForm.Size.Height / 2;
+            newForm.Location = new Point(halfWidth - newFormHalfWidth, halfHeight - newFormHalfHeight); //Center the form
             newForm.Focus();
+            if (newForm.FormBorderStyle == FormBorderStyle.Sizable)
+            {
+                newForm.UnderlyingWebForm.InternalJQElement.ResizableAnimated();
+            }
         }
 
         private static void InitializeWinFormWFStyles(WebForm mainWebForm)
         {
             mainWebForm.InternalJQElement.AddClass("winform");
             mainWebForm.InternalJQElement.Draggable();
-            mainWebForm.InternalJQElement.ResizableAnimated();
         }
 
-        #endregion Public Methods
+        #endregion Private Methods
     }
 }

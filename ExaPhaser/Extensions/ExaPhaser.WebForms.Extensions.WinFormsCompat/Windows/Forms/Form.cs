@@ -8,7 +8,6 @@ namespace System.Windows.Forms
     {
         #region Private Fields
 
-        private readonly WebForm _webForm;
         private string _title;
 
         #endregion Private Fields
@@ -17,8 +16,8 @@ namespace System.Windows.Forms
 
         public Form()
         {
-            _webForm = new WebForm();
-            WebFormsControl = _webForm;
+            UnderlyingWebForm = new WebForm();
+            WebFormsControl = UnderlyingWebForm;
         }
 
         #endregion Public Constructors
@@ -34,8 +33,9 @@ namespace System.Windows.Forms
             set { SetFormTitle(value); }
         }
 
-        // ReSharper disable once ConvertToAutoProperty
-        public WebForm UnderlyingWebForm => _webForm;
+        public WebForm UnderlyingWebForm { get; }
+
+        public FormBorderStyle FormBorderStyle { get; set; }
 
         #endregion Public Properties
 

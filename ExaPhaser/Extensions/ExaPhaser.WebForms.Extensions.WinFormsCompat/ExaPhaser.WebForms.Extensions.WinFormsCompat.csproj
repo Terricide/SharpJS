@@ -52,6 +52,7 @@
     <Compile Include="Windows\Forms\DialogResult.cs" />
     <Compile Include="Windows\Forms\Form.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\Forms\FormBorderStyle.cs" />
     <Compile Include="Windows\Forms\Label.cs" />
     <Compile Include="Windows\Forms\LinkLabel.cs" />
     <Compile Include="Windows\Forms\MessageBox.cs" />
@@ -77,6 +78,9 @@
       <Project>{d7f84a77-7a04-4fae-87d6-c4a3f58418fb}</Project>
       <Name>SharpJS.JSLibraries</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
