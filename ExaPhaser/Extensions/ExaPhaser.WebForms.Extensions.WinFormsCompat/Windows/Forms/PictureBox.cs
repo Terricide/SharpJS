@@ -5,7 +5,7 @@ namespace System.Windows.Forms
 {
     public class PictureBox : Control, ISupportInitialize
     {
-        private ImageView _imageView;
+        private readonly ImageView _imageView;
 
         public PictureBox()
         {
