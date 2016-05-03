@@ -10,6 +10,8 @@ namespace WebFormsTemplate
     /// </summary>
     public class MainForm : WebForm
     {
+        #region Public Constructors
+
         public MainForm()
         {
             Controls = new Layout
@@ -44,5 +46,7 @@ namespace WebFormsTemplate
                 }
             };
         }
+
+        #endregion Public Constructors
     }
 }
