@@ -11,7 +11,15 @@ The runtime is powered by JSIL, an application that translates compiled IL to Ja
 Since SharpJS compiles your applications directly to HTML5 and JavaScript, they can run offline in the browser, online served by a server, in a mobile app built with PhoneGap, in a desktop app built with Electron, or in any other technology that allows you to build applications with web technologies.
 
 # Getting Started
-My friend [daveho8888](https://github.com/daveho8888) and I, [0xFireball](https://github.com/0xFireball) have put together [samples and code demos for getting started with SharpJS](https://github.com/ZetaPhase/SharpJS-Demos). `daveho8888` has also put together lots of code with explanation to help even a beginner get started with SharpJS. The **[wiki of this project](https://github.com/exaphaser/SharpJS/wiki)** will contain information about this project, and on extending the project with your own APIs, and build instructions.
+- [Samples and code demos for getting started with SharpJS](https://github.com/ZetaPhase/SharpJS-Demos).
+- The **[wiki of this project](https://github.com/exaphaser/SharpJS/wiki)** will contain information about this project, and on extending the project with your own APIs, and build instructions.
+
+# How does it work?
+- You write your C# source in any IDE, such Visual Studio
+- Your source links to the `ExaPhaser.WebForms` and `SharpJS.Dom` libraries
+- An MSBuild post-build event runs the JSIL compiler to translate your source into JS
+- At runtime, the `ExaPhaser.WebForms` library constructs a layout based on your source and renders it using `SharpJS.Dom`, which bridges the translated C# source to native JavaScript DOM manipulation code. `ExaPhaser.WebForms` provides a simple, managed abstraction layer over `SharpJS.Dom`, which directly manipulates the DOM of the webpage.
+
 
 # Currently supported APIs and Frameworks:
 - **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks.
