@@ -14,11 +14,12 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
 - [Samples and code demos for getting started with SharpJS](https://github.com/ZetaPhase/SharpJS-Demos).
 - The **[wiki of this project](https://github.com/exaphaser/SharpJS/wiki)** will contain information about this project, and on extending the project with your own APIs, and build instructions.
 
-# How does it work?
+# How it works
 - You write your C# source in any IDE, such Visual Studio
 - Your source links to the `ExaPhaser.WebForms` and `SharpJS.Dom` libraries
 - An MSBuild post-build event runs the JSIL compiler to translate your source into JS
 - At runtime, the `ExaPhaser.WebForms` library constructs a layout based on your source and renders it using `SharpJS.Dom`, which bridges the translated C# source to native JavaScript DOM manipulation code. `ExaPhaser.WebForms` provides a simple, managed abstraction layer over `SharpJS.Dom`, which directly manipulates the DOM of the webpage.
+- C# Bindings for a number of common libraries such as jQuery are included, allowing you to invoke jQuery methods directly from C#. They are later translated into native JavaScript calls at runtime.
 
 
 # Currently supported APIs and Frameworks:
