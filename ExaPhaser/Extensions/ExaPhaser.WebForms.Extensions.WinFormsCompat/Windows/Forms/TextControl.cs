@@ -5,22 +5,13 @@ namespace System.Windows.Forms
 {
     public class TextControl : Control
     {
-        #region Public Constructors
-
-        public TextControl()
-        {
-            Font = new Font("sans-serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-        }
-
-        #endregion Public Constructors
-
         #region Private Methods
 
         private void SetFont(Font newFont)
         {
             var wfFontStyle = new ExaPhaser.WebForms.FontStyle
             {
-                FontSize = (int) newFont.FontSize
+                FontSize = (int)newFont.FontSize
             };
             switch (newFont.FontStyle)
             {
@@ -32,6 +23,7 @@ namespace System.Windows.Forms
                     wfFontStyle.FontWeight = FontWeight.Normal;
                     break;
             }
+            WebFormsControl.InternalJQElement.Css("font-family", newFont.FontName);
             WebFormsControl.FontStyle = wfFontStyle;
         }
 
@@ -39,14 +31,23 @@ namespace System.Windows.Forms
 
         #region Public Properties
 
-        public sealed override Font Font
+        public override Font Font
         {
             set { SetFont(value); }
         }
 
+        protected override void OnSetWebFormsControl()
+        {
+            base.OnSetWebFormsControl();
+            Font = new Font("sans-serif", 8.25F);
+        }
+
         public override Size Size
         {
-            get { return ClientSize; }
+            get
+            {
+                return ClientSize;
+            }
             set
             {
                 if (!AutoSize) //If autosize, it should not be sized manually, client browser should take of it

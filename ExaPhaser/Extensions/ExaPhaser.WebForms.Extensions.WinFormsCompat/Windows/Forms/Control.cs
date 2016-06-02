@@ -12,7 +12,7 @@ namespace System.Windows.Forms
 
         protected Control()
         {
-            Controls = new ControlCollection {ParentControl = this};
+            Controls = new ControlCollection { ParentControl = this };
         }
 
         #endregion Public Constructors
@@ -173,6 +173,11 @@ namespace System.Windows.Forms
             WebFormsControl.Focus += OnGotFocus;
             WebFormsControl.LostFocus += OnLostFocus;
             WebFormsControl.Click += OnClick;
+            OnSetWebFormsControl();
+        }
+
+        protected virtual void OnSetWebFormsControl()
+        {
         }
 
         #endregion Private Methods
