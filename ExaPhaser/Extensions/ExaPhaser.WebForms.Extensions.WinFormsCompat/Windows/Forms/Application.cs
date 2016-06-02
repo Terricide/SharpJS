@@ -65,21 +65,15 @@ namespace System.Windows.Forms
             newWebForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
             Forms.Add(newWebForm, newFormHost);
             sharpJSApp.Run(newWebForm, jqMainFormHost);
-            InitializeWinFormWFStyles(newWebForm);
-            InitializeWebUIElement(newForm);
+            InitializeWebUIElement(newForm, newWebForm);
         }
 
         #endregion Internal Methods
 
         #region Private Methods
 
-        private static void InitializeWebUIElement(Form newForm)
+        private static void InitializeWebUIElement(Form newForm, WebForm mainWebForm)
         {
-            //Add a close button
-            var closeButton = new Button { Text = "x", Location = new Point(5, 5) };
-            closeButton.Click += (s, e) => CloseForm(newForm);
-            newForm.Controls.Add(closeButton);
-
             //Call the initialized event
             newForm.OnInitialized();
             var halfWidth = Document.ClientWidth / 2;
@@ -92,12 +86,14 @@ namespace System.Windows.Forms
             {
                 newForm.UnderlyingWebForm.InternalJQElement.ResizableAnimated();
             }
-        }
 
-        private static void InitializeWinFormWFStyles(WebForm mainWebForm)
-        {
             mainWebForm.InternalJQElement.AddClass("winform");
             mainWebForm.InternalJQElement.Draggable();
+
+            //Add a close button
+            var btnClose = new AnchorElement { Href = "#", Class = "close webform-close-btn", Style = "color: #000000;", TextContent = "×" };
+            btnClose.Click += (s, e) => CloseForm(newForm);
+            mainWebForm.InternalJQElement.Append(btnClose);
         }
 
         #endregion Private Methods
