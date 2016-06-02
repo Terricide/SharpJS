@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using ExaPhaser.WebForms;
+﻿using ExaPhaser.WebForms;
 using SharpJS.Dom;
 
 namespace System.Windows.Forms
@@ -22,10 +21,35 @@ namespace System.Windows.Forms
 
         #endregion Public Constructors
 
+        #region Protected Methods
+
+        protected override void OnGotFocus(object sender, EventArgs e)
+        {
+            base.OnGotFocus(sender, e);
+            SetFormTitle(Text); //Set title when switching between forms
+        }
+
+        #endregion Protected Methods
+
+        #region Private Methods
+
+        private void SetFormTitle(string title)
+        {
+            _title = title;
+            Document.Title = title;
+        }
+
+        #endregion Private Methods
+
+        public void Focus()
+        {
+            WebFormsControl.InternalJQElement.Trigger("focus");
+        }
+
         #region Public Properties
 
         /// <summary>
-        /// The title of the form. Maps to the title of the webpage in SharpJS.
+        ///     The title of the form. Maps to the title of the webpage in SharpJS.
         /// </summary>
         public override string Text
         {
@@ -58,30 +82,5 @@ namespace System.Windows.Forms
         }
 
         #endregion Public Methods
-
-        #region Protected Methods
-
-        protected override void OnGotFocus(object sender, EventArgs e)
-        {
-            base.OnGotFocus(sender, e);
-            SetFormTitle(Text); //Set title when switching between forms
-        }
-
-        #endregion Protected Methods
-
-        #region Private Methods
-
-        private void SetFormTitle(string title)
-        {
-            _title = title;
-            Document.Title = title;
-        }
-
-        #endregion Private Methods
-
-        public void Focus()
-        {
-            WebFormsControl.InternalJQElement.Trigger("focus");
-        }
     }
 }

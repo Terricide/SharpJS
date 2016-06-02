@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using ExaPhaser.WebForms.Controls;
 
 namespace System.Windows.Forms
 {
@@ -6,7 +6,7 @@ namespace System.Windows.Forms
     {
         public Label()
         {
-            WebFormsControl = new ExaPhaser.WebForms.Controls.TextBlock();
+            WebFormsControl = new TextBlock();
         }
     }
 }

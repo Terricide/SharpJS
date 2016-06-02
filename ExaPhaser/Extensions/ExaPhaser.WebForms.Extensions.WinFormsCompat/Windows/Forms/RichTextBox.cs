@@ -1,3 +1,5 @@
+using ExaPhaser.WebForms.Controls;
+
 namespace System.Windows.Forms
 {
     public class RichTextBox : TextControl
@@ -6,7 +8,7 @@ namespace System.Windows.Forms
 
         public RichTextBox()
         {
-            WebFormsControl = new ExaPhaser.WebForms.Controls.TextArea();
+            WebFormsControl = new TextArea();
         }
 
         #endregion Public Constructors

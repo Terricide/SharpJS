@@ -7,7 +7,7 @@ namespace System.Diagnostics
         #region Public Methods
 
         /// <summary>
-        /// Opens a URL in a popup window.
+        ///     Opens a URL in a popup window.
         /// </summary>
         /// <param name="url"></param>
         public static void Start(string url)

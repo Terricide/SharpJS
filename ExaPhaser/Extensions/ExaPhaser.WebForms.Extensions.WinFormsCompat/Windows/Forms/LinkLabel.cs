@@ -2,9 +2,9 @@
 {
     [WebFormsCompatStubOnly]
     public delegate void LinkLabelLinkClickedEventHandler(
-            object sender,
-            LinkLabelLinkClickedEventArgs e
-            );
+        object sender,
+        LinkLabelLinkClickedEventArgs e
+        );
 
     public class LinkLabel : TextControl
     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace System.Drawing
+﻿namespace System.Drawing
 {
     public struct Point
     {

@@ -10,6 +10,49 @@ namespace System.Windows.Forms
 {
     public class Application
     {
+        #region Public Properties
+
+        public static string HostElementId { get; set; } = "webform-container";
+
+        #endregion Public Properties
+
+        #region Private Methods
+
+        private static void InitializeWebUIElement(Form newForm, WebForm mainWebForm)
+        {
+            //Call the initialized event
+            newForm.OnInitialized();
+            var halfWidth = Document.ClientWidth/2;
+            var halfHeight = Document.ClientHeight/2;
+            var newFormHalfWidth = newForm.Size.Width/2;
+            var newFormHalfHeight = newForm.Size.Height/2;
+            newForm.Location = new Point(halfWidth - newFormHalfWidth, halfHeight - newFormHalfHeight);
+                //Center the form
+            newForm.Focus();
+            JQuery.FromSelector(".winform").ZIndex(1);
+            mainWebForm.InternalJQElement.ZIndex(1000);
+            if (newForm.FormBorderStyle == FormBorderStyle.Sizable)
+            {
+                newForm.UnderlyingWebForm.InternalJQElement.ResizableAnimated();
+            }
+
+            mainWebForm.InternalJQElement.AddClass("winform");
+            mainWebForm.InternalJQElement.Draggable();
+
+            //Add a close button
+            var btnClose = new AnchorElement
+            {
+                Href = "#",
+                Class = "close webform-close-btn",
+                Style = "color: #000000;",
+                TextContent = "×"
+            };
+            btnClose.Click += (s, e) => CloseForm(newForm);
+            mainWebForm.InternalJQElement.Append(btnClose);
+        }
+
+        #endregion Private Methods
+
         #region Private Fields
 
         private static readonly Dictionary<WebForm, DivElement> Forms = new Dictionary<WebForm, DivElement>();
@@ -17,16 +60,12 @@ namespace System.Windows.Forms
 
         #endregion Private Fields
 
-        #region Public Properties
-
-        public static string HostElementId { get; set; } = "webform-container";
-
-        #endregion Public Properties
-
         #region Public Methods
 
         [WebFormsCompatStubOnly]
-        public static void EnableVisualStyles() { }
+        public static void EnableVisualStyles()
+        {
+        }
 
         public static void Run(Form form)
         {
@@ -34,7 +73,9 @@ namespace System.Windows.Forms
         }
 
         [WebFormsCompatStubOnly]
-        public static void SetCompatibleTextRenderingDefault(bool defaultValue) { }
+        public static void SetCompatibleTextRenderingDefault(bool defaultValue)
+        {
+        }
 
         #endregion Public Methods
 
@@ -51,7 +92,7 @@ namespace System.Windows.Forms
         }
 
         /// <summary>
-        /// Creates and adds another newForm to the page.
+        ///     Creates and adds another newForm to the page.
         /// </summary>
         /// <param name="newForm"></param>
         internal static void ShowNewForm(Form newForm)
@@ -69,35 +110,5 @@ namespace System.Windows.Forms
         }
 
         #endregion Internal Methods
-
-        #region Private Methods
-
-        private static void InitializeWebUIElement(Form newForm, WebForm mainWebForm)
-        {
-            //Call the initialized event
-            newForm.OnInitialized();
-            var halfWidth = Document.ClientWidth / 2;
-            var halfHeight = Document.ClientHeight / 2;
-            var newFormHalfWidth = newForm.Size.Width / 2;
-            var newFormHalfHeight = newForm.Size.Height / 2;
-            newForm.Location = new Point(halfWidth - newFormHalfWidth, halfHeight - newFormHalfHeight); //Center the form
-            newForm.Focus();
-            JQuery.FromSelector(".winform").ZIndex(1);
-            mainWebForm.InternalJQElement.ZIndex(1000);
-            if (newForm.FormBorderStyle == FormBorderStyle.Sizable)
-            {
-                newForm.UnderlyingWebForm.InternalJQElement.ResizableAnimated();
-            }
-
-            mainWebForm.InternalJQElement.AddClass("winform");
-            mainWebForm.InternalJQElement.Draggable();
-
-            //Add a close button
-            var btnClose = new AnchorElement { Href = "#", Class = "close webform-close-btn", Style = "color: #000000;", TextContent = "×" };
-            btnClose.Click += (s, e) => CloseForm(newForm);
-            mainWebForm.InternalJQElement.Append(btnClose);
-        }
-
-        #endregion Private Methods
     }
 }

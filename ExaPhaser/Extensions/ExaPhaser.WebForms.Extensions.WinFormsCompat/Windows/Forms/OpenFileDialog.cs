@@ -7,15 +7,13 @@ namespace System.Windows.Forms
     {
         #region Private Fields
 
-        private readonly FileUploadButton _fileUpload;
-
         #endregion Private Fields
 
         #region Public Constructors
 
         public OpenFileDialog()
         {
-            _fileUpload = new FileUploadButton
+            FileUploadButton = new FileUploadButton
             {
                 UploadType = FileUploadType.TextFile,
                 FileEncoding = FileReaderEncoding.ASCII
@@ -24,24 +22,16 @@ namespace System.Windows.Forms
 
         #endregion Public Constructors
 
-        #region Public Properties
-
-        public string FileName
-        {
-            get { return _fileUpload.FileName; }
-            set { _fileUpload.FileName = value; }
-        }
-
-        public FileUploadButton FileUploadButton => _fileUpload;
-
-        #endregion Public Properties
-
         #region Public Methods
 
         public DialogResult ShowDialog()
         {
-            _fileUpload.SimulateClick();
-            _fileUpload.Command = new ParameterizedCommand((parameter) => FileUploaded?.Invoke(this, new OpenFileDialogEventArgs(parameter.Parameter as FileUploadEventArgs)));
+            FileUploadButton.SimulateClick();
+            FileUploadButton.Command =
+                new ParameterizedCommand(
+                    parameter =>
+                        FileUploaded?.Invoke(this,
+                            new OpenFileDialogEventArgs(parameter.Parameter as FileUploadEventArgs)));
             return DialogResult.Unspecified;
         }
 
@@ -52,6 +42,18 @@ namespace System.Windows.Forms
         public event EventHandler<OpenFileDialogEventArgs> FileUploaded;
 
         #endregion Public Events
+
+        #region Public Properties
+
+        public string FileName
+        {
+            get { return FileUploadButton.FileName; }
+            set { FileUploadButton.FileName = value; }
+        }
+
+        public FileUploadButton FileUploadButton { get; }
+
+        #endregion Public Properties
     }
 
     public class OpenFileDialogEventArgs
@@ -66,7 +68,7 @@ namespace System.Windows.Forms
 
         public OpenFileDialogEventArgs(FileUploadEventArgs fileUploadEventArgs)
         {
-            this._fileUploadEventArgs = fileUploadEventArgs;
+            _fileUploadEventArgs = fileUploadEventArgs;
         }
 
         #endregion Public Constructors

@@ -4,10 +4,19 @@ using ExaPhaser.WebForms;
 namespace System.Windows.Forms
 {
     /// <summary>
-    /// Represents the base class for controls on the SharpJS WinForms Compatibility Layer
+    ///     Represents the base class for controls on the SharpJS WinForms Compatibility Layer
     /// </summary>
     public abstract class Control
     {
+        #region Public Constructors
+
+        protected Control()
+        {
+            Controls = new ControlCollection {ParentControl = this};
+        }
+
+        #endregion Public Constructors
+
         #region Private Fields
 
         private Size _clientSize;
@@ -15,15 +24,6 @@ namespace System.Windows.Forms
         private ExaPhaser.WebForms.Control _webFormsControl;
 
         #endregion Private Fields
-
-        #region Public Constructors
-
-        protected Control()
-        {
-            Controls = new ControlCollection { ParentControl = this };
-        }
-
-        #endregion Public Constructors
 
         #region Public Properties
 
@@ -51,7 +51,11 @@ namespace System.Windows.Forms
         [WebFormsCompatStubOnly]
         public string Name { get; set; }
 
-        public Control Parent { get { return _parent; } set { SetParent(value); } }
+        public Control Parent
+        {
+            get { return _parent; }
+            set { SetParent(value); }
+        }
 
         public virtual Size Size
         {
@@ -159,8 +163,8 @@ namespace System.Windows.Forms
         {
             _clientSize = newSize;
             //Set client size through CSS
-            this.WebFormsControl.Height = newSize.Height;
-            this.WebFormsControl.Width = newSize.Width;
+            WebFormsControl.Height = newSize.Height;
+            WebFormsControl.Width = newSize.Width;
         }
 
         private void SetWebFormsControl(ExaPhaser.WebForms.Control wfControl)

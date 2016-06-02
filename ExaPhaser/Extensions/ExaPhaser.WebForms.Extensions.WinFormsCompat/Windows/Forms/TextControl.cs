@@ -5,9 +5,41 @@ namespace System.Windows.Forms
 {
     public class TextControl : Control
     {
+        #region Public Constructors
+
+        public TextControl()
+        {
+            Font = new Font("sans-serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+        }
+
+        #endregion Public Constructors
+
+        #region Private Methods
+
+        private void SetFont(Font newFont)
+        {
+            var wfFontStyle = new ExaPhaser.WebForms.FontStyle
+            {
+                FontSize = (int) newFont.FontSize
+            };
+            switch (newFont.FontStyle)
+            {
+                case FontStyle.Bold:
+                    wfFontStyle.FontWeight = FontWeight.Bold;
+                    break;
+
+                case FontStyle.Regular:
+                    wfFontStyle.FontWeight = FontWeight.Normal;
+                    break;
+            }
+            WebFormsControl.FontStyle = wfFontStyle;
+        }
+
+        #endregion Private Methods
+
         #region Public Properties
 
-        public override Font Font
+        public sealed override Font Font
         {
             set { SetFont(value); }
         }
@@ -31,28 +63,5 @@ namespace System.Windows.Forms
         }
 
         #endregion Public Properties
-
-        #region Private Methods
-
-        private void SetFont(Font newFont)
-        {
-            var wfFontStyle = new ExaPhaser.WebForms.FontStyle
-            {
-                FontSize = (int)newFont.FontSize,
-            };
-            switch (newFont.FontStyle)
-            {
-                case FontStyle.Bold:
-                    wfFontStyle.FontWeight = FontWeight.Bold;
-                    break;
-
-                case FontStyle.Regular:
-                    wfFontStyle.FontWeight = FontWeight.Normal;
-                    break;
-            }
-            WebFormsControl.FontStyle = wfFontStyle;
-        }
-
-        #endregion Private Methods
     }
 }
