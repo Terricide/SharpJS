@@ -56,7 +56,7 @@ namespace System.Windows.Forms
         /// <param name="newForm"></param>
         internal static void ShowNewForm(Form newForm)
         {
-            WebApplication sharpJSApp = new WebApplication(Theme);
+            var sharpJSApp = new WebApplication(Theme);
             var hostElement = Document.GetElementById(HostElementId);
             var newFormHost = new DivElement();
             var jqMainFormHost = new JQElement(newFormHost);

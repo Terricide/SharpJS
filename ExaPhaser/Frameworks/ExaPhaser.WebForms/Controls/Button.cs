@@ -45,9 +45,10 @@ namespace ExaPhaser.WebForms.Controls
                 case CSSFramework.Bootstrap:
                     InternalElement = new AnchorElement
                     {
-                        Class = "btn btn-primary"
+                        Class = "btn btn-default"
                     };
                     break;
+
                 default:
                     InternalElement = new AnchorElement
                     {
