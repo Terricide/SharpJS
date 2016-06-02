@@ -70,6 +70,11 @@ namespace ExaPhaser.WebForms
                 case CSSFramework.Kubism:
                     formHostContainer.AddClass("wrap");
                     break;
+
+                case CSSFramework.Bootstrap:
+                    formHostContainer.AddClass("row");
+                    _formHost.AddClass("col-lg-12 col-md-12");
+                    break;
             }
             _formHost.AddClass("webform-host-container"); //In case user wants to style form container
             formHostParent.Append(formHostContainer);

@@ -13,7 +13,7 @@ namespace System.Windows.Forms
         #region Private Fields
 
         private static Dictionary<WebForm, DivElement> _forms = new Dictionary<WebForm, DivElement>();
-        private static CSSUITheme _theme = new CSSUITheme(CSSFramework.Kubism);
+        private static readonly CSSUITheme _theme = new CSSUITheme(CSSFramework.Bootstrap);
 
         #endregion Private Fields
 
@@ -35,11 +35,6 @@ namespace System.Windows.Forms
 
         [WebFormsCompatStubOnly]
         public static void SetCompatibleTextRenderingDefault(bool defaultValue) { }
-
-        public static void SetCSSUITheme(CSSUITheme theme)
-        {
-            _theme = theme;
-        }
 
         #endregion Public Methods
 
@@ -84,6 +79,8 @@ namespace System.Windows.Forms
             var closeButton = new Button { Text = "x", Location = new Point(5, 5) };
             closeButton.Click += (s, e) => CloseForm(newForm);
             newForm.Controls.Add(closeButton);
+
+            //Call the initialized event
             newForm.OnInitialized();
             var halfWidth = Document.ClientWidth / 2;
             var halfHeight = Document.ClientHeight / 2;

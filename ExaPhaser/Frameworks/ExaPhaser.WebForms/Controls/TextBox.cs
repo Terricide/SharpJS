@@ -1,4 +1,5 @@
 ﻿using System;
+using ExaPhaser.WebForms.Themes;
 using SharpJS.Dom.Elements;
 
 namespace ExaPhaser.WebForms.Controls
@@ -16,6 +17,12 @@ namespace ExaPhaser.WebForms.Controls
             {
                 Type = "text"
             };
+            switch (WebApplication.CurrentTheme.Stylesheet)
+            {
+                case CSSFramework.Bootstrap:
+                    InternalElement.Class = "form-control";
+                    break;
+            }
             InternalElement.Change += OnTextChanged;
             InternalJQElement.EnterKeyPressed += OnEnterPressed;
             InternalJQElement.Focus += OnFocus;
@@ -47,6 +54,7 @@ namespace ExaPhaser.WebForms.Controls
             get { return GetText(); } //We are using GetText because the text
             set { SetText(value); }
         }
+
         public InputType TextInputType
         {
             get { return GetInputType(); }
