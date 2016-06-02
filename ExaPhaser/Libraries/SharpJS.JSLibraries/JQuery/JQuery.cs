@@ -45,7 +45,13 @@ namespace SharpJS.JSLibraries.JQuery
 
         public static JQueryObject FromSelector(string selector)
         {
-            return GetJQueryObject(Document.GetElementById(selector));
+            return new JQueryObject(GetJQuerySelectorGroup(_jq, selector));
+        }
+
+        [JSReplacement("$jqHandle($rawDoMobject)")]
+        private static object GetJQuerySelectorGroup(object jqHandle, string jqSelector)
+        {
+            throw new RequiresJSILRuntimeException();
         }
 
         [JSReplacement("$jqHandle($rawDoMobject)")]
@@ -54,10 +60,10 @@ namespace SharpJS.JSLibraries.JQuery
             throw new RequiresJSILRuntimeException();
         }
 
-		public static object DynamicInvoke(string methodName, params object[] parameters)
-		{
-			object targetMethod = Verbatim.Expression("$0[$1]", _jq, methodName);
-			return Verbatim.Expression("$0.apply($1, $2)", null, parameters);
-		}
+        public static object DynamicInvoke(string methodName, params object[] parameters)
+        {
+            object targetMethod = Verbatim.Expression("$0[$1]", _jq, methodName);
+            return Verbatim.Expression("$0.apply($1, $2)", null, parameters);
+        }
     }
 }

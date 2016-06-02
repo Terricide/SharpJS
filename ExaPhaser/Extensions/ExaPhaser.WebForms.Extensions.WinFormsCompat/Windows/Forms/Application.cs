@@ -82,6 +82,8 @@ namespace System.Windows.Forms
             var newFormHalfHeight = newForm.Size.Height / 2;
             newForm.Location = new Point(halfWidth - newFormHalfWidth, halfHeight - newFormHalfHeight); //Center the form
             newForm.Focus();
+            JQuery.FromSelector(".winform").ZIndex(1);
+            mainWebForm.InternalJQElement.ZIndex(1000);
             if (newForm.FormBorderStyle == FormBorderStyle.Sizable)
             {
                 newForm.UnderlyingWebForm.InternalJQElement.ResizableAnimated();
