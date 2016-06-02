@@ -30,7 +30,7 @@ namespace ExaPhaser.WebForms
         ///     This is initialized to default to allow constructing custom controls that require CSS framework to be set. This can
         ///     be overriden by setting WebApplication.CurrentTheme before starting the application or initializing any controls.
         /// </summary>
-        public static CSSUITheme CurrentTheme { get; private set; } = new CSSUITheme(CSSFramework.Kubism);
+        public static CSSUITheme CurrentTheme { get; private set; } = new CSSUITheme(CSSFramework.Bootstrap);
 
         public void Run(WebForm webForm, string hostElementId)
         {

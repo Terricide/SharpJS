@@ -12,8 +12,8 @@ namespace System.Windows.Forms
     {
         #region Private Fields
 
-        private static Dictionary<WebForm, DivElement> _forms = new Dictionary<WebForm, DivElement>();
-        private static readonly CSSUITheme _theme = new CSSUITheme(CSSFramework.Bootstrap);
+        private static readonly Dictionary<WebForm, DivElement> Forms = new Dictionary<WebForm, DivElement>();
+        private static readonly CSSUITheme Theme = new CSSUITheme(CSSFramework.Bootstrap);
 
         #endregion Private Fields
 
@@ -43,8 +43,8 @@ namespace System.Windows.Forms
         internal static void CloseForm(Form formToClose)
         {
             var fWebForm = formToClose.UnderlyingWebForm;
-            var divHost = _forms[fWebForm];
-            _forms.Remove(fWebForm);
+            var divHost = Forms[fWebForm];
+            Forms.Remove(fWebForm);
             formToClose.UnderlyingWebForm.InternalJQElement.Remove();
             var hostElement = Document.GetElementById(HostElementId);
             hostElement.RemoveChild(divHost);
@@ -56,14 +56,14 @@ namespace System.Windows.Forms
         /// <param name="newForm"></param>
         internal static void ShowNewForm(Form newForm)
         {
-            WebApplication sharpJSApp = new WebApplication(_theme);
+            WebApplication sharpJSApp = new WebApplication(Theme);
             var hostElement = Document.GetElementById(HostElementId);
             var newFormHost = new DivElement();
             var jqMainFormHost = new JQElement(newFormHost);
             hostElement.AppendChild(newFormHost);
             var newWebForm = newForm.UnderlyingWebForm;
             newWebForm.InternalJQElement.Css("position", "relative"); //To allow child control positioning
-            _forms.Add(newWebForm, newFormHost);
+            Forms.Add(newWebForm, newFormHost);
             sharpJSApp.Run(newWebForm, jqMainFormHost);
             InitializeWinFormWFStyles(newWebForm);
             InitializeWebUIElement(newForm);
