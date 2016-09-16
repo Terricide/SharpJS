@@ -33,7 +33,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>sharpjs.ico</ApplicationIcon>
+    <ApplicationIcon>jsil.ico</ApplicationIcon>
   </PropertyGroup>
   <!-- Set platform specific defines to allow basic feature detection. -->
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
@@ -87,6 +87,9 @@
       <Project>{D68133BD-1E63-496E-9EDE-4FBDBF77B486}</Project>
       <Name>Mono.Cecil</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jsil.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

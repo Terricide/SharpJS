@@ -250,6 +250,16 @@ JSIL.ImplementExternals(
       }
     );
 
+    $.Method({ Public: true, Static: false }, "IsInstanceOfType",
+      new JSIL.MethodSignature($.Boolean, [$.Object]),
+      function (obj) {
+        if (obj === null)
+          return false;
+
+        return this.IsAssignableFrom(JSIL.GetType(obj));
+      }
+    );
+
     $.Method({ Public: true, Static: false }, "GetMembers",
       new JSIL.MethodSignature(memberArray, []),
       function () {

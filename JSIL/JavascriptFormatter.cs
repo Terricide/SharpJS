@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+
 using ICSharpCode.Decompiler.ILAst;
 using JSIL.Ast;
-using JSIL.Internal;
 using JSIL.Translator;
+using JSIL.Transforms;
 using Mono.Cecil;
-using System.Globalization;
-using JSIL;
 
 namespace JSIL.Internal {
     public enum ListValueType {
@@ -181,7 +180,6 @@ namespace JSIL.Internal {
 
         protected readonly HashSet<string> DeclaredNamespaces = new HashSet<string>();
         protected readonly bool Stubbed;
-        protected readonly string AssemblyDeclarationReplacement;
 
         protected uint _IndentLevel = 0;
         protected bool _IndentNeeded = false;
@@ -197,7 +195,6 @@ namespace JSIL.Internal {
             TextWriter output, SourceMapBuilder sourceMapBuilder, ITypeInfoSource typeInfo, 
             AssemblyManifest manifest, AssemblyDefinition assembly,
             Configuration configuration,
-            string assemblyDeclarationReplacement,
             bool stubbed
         ) {
             if (sourceMapBuilder != null)
@@ -216,17 +213,11 @@ namespace JSIL.Internal {
             Assembly = assembly;
             Configuration = configuration;
             Stubbed = stubbed;
-            AssemblyDeclarationReplacement = assemblyDeclarationReplacement;
 
             PrivateToken = Manifest.GetPrivateToken(assembly);
             Manifest.AssignIdentifiers();
         }
 
-        public bool PreviousWasLineBreak {
-            get {
-                return _IndentNeeded;
-            }
-        }
 
         protected void WriteToken (AssemblyManifest.Token token) {
             if (Stubbed && Configuration.GenerateSkeletonsForStubbedAssemblies.GetValueOrDefault(false)) {
@@ -728,6 +719,11 @@ namespace JSIL.Internal {
         }
 
         public void TypeReference (TypeReference type, TypeReferenceContext context) {
+            if (SignatureCacher.IsTypeArgument(type)) {
+                WriteRaw(type.Name);
+                return;
+            }
+
             if (
                 (context != null) &&
                 (context.EnclosingType != null) &&
@@ -882,6 +878,11 @@ namespace JSIL.Internal {
         }
 
         protected void TypeIdentifier (TypeReference type, TypeReferenceContext context, bool includeParens) {
+            if (SignatureCacher.IsTypeArgument(type)) {
+                WriteRaw(type.Name);
+                return;
+            }
+
             if (type.FullName == "JSIL.Proxy.AnyType") {
                 WriteRaw("JSIL.AnyType");
                 return;
@@ -1153,7 +1154,7 @@ namespace JSIL.Internal {
             RPar();
         }
 
-        public void DeclareAssembly () {
+        public void DeclareAssembly (string assemblyDeclarationReplacement) {
             if (Stubbed && Configuration.GenerateSkeletonsForStubbedAssemblies.GetValueOrDefault(false)) {
                 WriteRaw("var ${0} = new JSIL.AssemblyCollection", Configuration.AssemblyCollectionName ?? "asms");
                 LPar();
@@ -1183,7 +1184,7 @@ namespace JSIL.Internal {
                 Space();
                 Identifier(PrivateToken.IDString);
                 WriteRaw(" = ");
-                if (AssemblyDeclarationReplacement == null)
+                if (string.IsNullOrEmpty(assemblyDeclarationReplacement))
                 {
                     WriteRaw("JSIL.DeclareAssembly");
                     LPar();
@@ -1192,7 +1193,10 @@ namespace JSIL.Internal {
                 }
                 else
                 {
-                    WriteRaw(AssemblyDeclarationReplacement);
+                    WriteRaw("JSIL.GetAssembly");
+                    LPar();
+                    Value(assemblyDeclarationReplacement);
+                    RPar();
                 }
                 Semicolon();
             }
@@ -1206,7 +1210,10 @@ namespace JSIL.Internal {
                 Space();
                 Identifier(reference.Key.IDString);
                 WriteRaw(" = ");
-                WriteRaw(reference.Value);
+                WriteRaw("JSIL.GetAssembly");
+                LPar();
+                Value(reference.Value);
+                RPar();
                 Semicolon();
             }
         }
@@ -1255,7 +1262,7 @@ namespace JSIL.Internal {
             Signature(method, signature, context, false, true);
         }
 
-        public void Signature (MethodReference method, MethodSignature signature, TypeReferenceContext context, bool forConstructor, bool allowCache) {
+        public void Signature (MethodReference method, MethodSignature signature, TypeReferenceContext context, bool forConstructor, bool allowCache, bool alwaysUseIdentifiers = false) {
             // Reduce method signature heap usage
             if (
                 !forConstructor &&
@@ -1303,14 +1310,22 @@ namespace JSIL.Internal {
 
             try {
                 if (forConstructor) {
-                    TypeReference(method.DeclaringType, context);
+                    var returnType =
+                        (signature.ReturnType == null || signature.ReturnType.FullName == "System.Void")
+                            ? method.DeclaringType
+                            : signature.ReturnType;
+
+                    if ((alwaysUseIdentifiers || context.EnclosingMethod != null) && !TypeUtil.IsOpenType(returnType, gp => !SignatureCacher.IsTypeArgument(gp)))
+                        TypeIdentifier(returnType as dynamic, context, false);
+                    else
+                        TypeReference(returnType, context);
 
                     Comma();
                 } else {
                     if ((signature.ReturnType == null) || (signature.ReturnType.FullName == "System.Void"))
                         WriteRaw("null");
                     else {
-                        if ((context.EnclosingMethod != null) && !TypeUtil.IsOpenType(signature.ReturnType))
+                        if ((alwaysUseIdentifiers || context.EnclosingMethod != null) && !TypeUtil.IsOpenType(signature.ReturnType, gp => !SignatureCacher.IsTypeArgument(gp)))
                             TypeIdentifier(signature.ReturnType as dynamic, context, false);
                         else
                             TypeReference(signature.ReturnType, context);
@@ -1323,7 +1338,7 @@ namespace JSIL.Internal {
                     OpenBracket(false);
                     CommaSeparatedListCore(
                         signature.ParameterTypes, (pt) => {
-                            if ((context.EnclosingMethod != null) && !TypeUtil.IsOpenType(pt))
+                            if ((alwaysUseIdentifiers || context.EnclosingMethod != null) && !TypeUtil.IsOpenType(pt, gp => !SignatureCacher.IsTypeArgument(gp)))
                                 TypeIdentifier(pt as dynamic, context, false);
                             else
                                 TypeReference(pt, context);

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ICSharpCode.Decompiler;
 using JSIL.Ast;
 using JSIL.Compiler.Extensibility;
@@ -16,16 +14,13 @@ namespace JSIL {
     class JavascriptAssemblyEmitter : IAssemblyEmitter {
         public readonly AssemblyTranslator  Translator;
         public readonly JavascriptFormatter Formatter;
-        private readonly IDictionary<AssemblyManifest.Token, string> _referenceOverrides;
 
         public JavascriptAssemblyEmitter (
             AssemblyTranslator assemblyTranslator,
-            JavascriptFormatter formatter,
-            IDictionary<AssemblyManifest.Token, string> referenceOverrides
+            JavascriptFormatter formatter
         ) {
             Translator = assemblyTranslator;
             Formatter = formatter;
-            _referenceOverrides = referenceOverrides;
         }
 
         // HACK
@@ -41,7 +36,7 @@ namespace JSIL {
             }
         }
 
-        public void EmitHeader (bool stubbed) {
+        public void EmitHeader (bool stubbed, bool iife) {
             Formatter.Comment(AssemblyTranslator.GetHeaderText());
             Formatter.NewLine();
 
@@ -53,22 +48,26 @@ namespace JSIL {
                 Formatter.NewLine();
             }
 
-            if (_referenceOverrides != null)
+            if (iife)
             {
                 Formatter.LPar();
                 Formatter.OpenFunction(string.Empty, null);
             }
 
-            Formatter.DeclareAssembly();
+        }
+
+        public void EmitAssemblyReferences (string assemblyDeclarationReplacement, Dictionary<AssemblyManifest.Token, string> assemblies) {
+            Formatter.DeclareAssembly(assemblyDeclarationReplacement);
             Formatter.NewLine();
 
-            if (_referenceOverrides != null) {
-                Formatter.WriteReferencesOverrides(_referenceOverrides);
+            if (assemblies != null)
+            {
+                Formatter.WriteReferencesOverrides(assemblies);
             }
         }
 
-        public void EmitFooter () {
-            if (_referenceOverrides != null)
+        public void EmitFooter (bool iife) {
+            if (iife)
             {
                 Formatter.CloseBrace();
                 Formatter.RPar();
@@ -1237,14 +1236,46 @@ namespace JSIL {
             var css = signatureCacher.Global.Signatures.OrderBy((cs) => cs.Value).ToArray();
             if (css.Length > 0) {
                 foreach (var cs in css) {
-                    Formatter.WriteRaw("var $S{0:X2} = function () ", cs.Value);
-                    Formatter.OpenBrace();
-                    Formatter.WriteRaw("return ($S{0:X2} = JSIL.Memoize(", cs.Value);
-                    Formatter.Signature(cs.Key.Method, cs.Key.Signature, astEmitter.ReferenceContext, cs.Key.IsConstructor, false);
-                    Formatter.WriteRaw(")) ()");
-                    Formatter.Semicolon(true);
-                    Formatter.CloseBrace(false);
-                    Formatter.Semicolon(true);
+                    if (cs.Key.RewritenGenericParametersCount == 0)
+                    {
+                        Formatter.WriteRaw("var $S{0:X2} = function () ", cs.Value);
+                        Formatter.OpenBrace();
+                        Formatter.WriteRaw("return ($S{0:X2} = JSIL.Memoize(", cs.Value);
+                        Formatter.Signature(cs.Key.Method, cs.Key.Signature, astEmitter.ReferenceContext,
+                            cs.Key.IsConstructor, false, true);
+                        Formatter.WriteRaw(")) ()");
+                        Formatter.Semicolon(true);
+                        Formatter.CloseBrace(false);
+                        Formatter.Semicolon(true);
+                    }
+                    else
+                    {
+                        Formatter.WriteRaw("var $S{0:X2} = function ", cs.Value);
+                        Formatter.LPar();
+                        Formatter.CommaSeparatedList(
+                            Enumerable.Range(1, cs.Key.RewritenGenericParametersCount).Select(item => "arg" + item),
+                            astEmitter.ReferenceContext,
+                            ListValueType.Raw);
+                        Formatter.RPar();
+                        Formatter.Space();
+
+                        Formatter.OpenBrace();
+                        Formatter.WriteRaw("return JSIL.MemoizeTypes($S{0:X2}, function() {{return ", cs.Value);
+                        Formatter.Signature(cs.Key.Method, cs.Key.Signature, astEmitter.ReferenceContext,
+                            cs.Key.IsConstructor, false, true);
+                        Formatter.WriteRaw(";}");
+                        Formatter.Comma();
+                        Formatter.OpenBracket();
+                        Formatter.CommaSeparatedList(
+                            Enumerable.Range(1, cs.Key.RewritenGenericParametersCount).Select(item => "arg" + item),
+                            astEmitter.ReferenceContext,
+                            ListValueType.Raw);
+                        Formatter.CloseBracket();
+                        Formatter.WriteRaw(")");
+                        Formatter.Semicolon(true);
+                        Formatter.CloseBrace(false);
+                        Formatter.Semicolon(true);
+                    }
                 }
             }
 
@@ -1266,16 +1297,48 @@ namespace JSIL {
             var cims = signatureCacher.Global.InterfaceMembers.OrderBy((cim) => cim.Value).ToArray();
             if (cims.Length > 0) {
                 foreach (var cim in cims) {
-                    Formatter.WriteRaw("var $IM{0:X2} = function () ", cim.Value);
-                    Formatter.OpenBrace();
-                    Formatter.WriteRaw("return ($IM{0:X2} = JSIL.Memoize(", cim.Value);
-                    Formatter.Identifier(cim.Key.InterfaceType, astEmitter.ReferenceContext, false);
-                    Formatter.Dot();
-                    Formatter.Identifier(cim.Key.InterfaceMember, EscapingMode.MemberIdentifier);
-                    Formatter.WriteRaw(")) ()");
-                    Formatter.Semicolon(true);
-                    Formatter.CloseBrace(false);
-                    Formatter.Semicolon(true);
+                    if (cim.Key.RewritenGenericParametersCount == 0)
+                    {
+                        Formatter.WriteRaw("var $IM{0:X2} = function () ", cim.Value);
+                        Formatter.OpenBrace();
+                        Formatter.WriteRaw("return ($IM{0:X2} = JSIL.Memoize(", cim.Value);
+                        Formatter.Identifier(cim.Key.InterfaceType, astEmitter.ReferenceContext, false);
+                        Formatter.Dot();
+                        Formatter.Identifier(cim.Key.InterfaceMember, EscapingMode.MemberIdentifier);
+                        Formatter.WriteRaw(")) ()");
+                        Formatter.Semicolon(true);
+                        Formatter.CloseBrace(false);
+                        Formatter.Semicolon(true);
+                    }
+                    else
+                    {
+                        Formatter.WriteRaw("var $IM{0:X2} = function ", cim.Value);
+                        Formatter.LPar();
+                        Formatter.CommaSeparatedList(
+                            Enumerable.Range(1, cim.Key.RewritenGenericParametersCount).Select(item => "arg" + item),
+                            astEmitter.ReferenceContext,
+                            ListValueType.Raw);
+                        Formatter.RPar();
+                        Formatter.Space();
+
+                        Formatter.OpenBrace();
+                        Formatter.WriteRaw("return JSIL.MemoizeTypes($IM{0:X2}, function() {{return ", cim.Value);
+                        Formatter.Identifier(cim.Key.InterfaceType, astEmitter.ReferenceContext, false);
+                        Formatter.Dot();
+                        Formatter.Identifier(cim.Key.InterfaceMember, EscapingMode.MemberIdentifier);
+                        Formatter.WriteRaw(";}");
+                        Formatter.Comma();
+                        Formatter.OpenBracket();
+                        Formatter.CommaSeparatedList(
+                            Enumerable.Range(1, cim.Key.RewritenGenericParametersCount).Select(item => "arg" + item),
+                            astEmitter.ReferenceContext,
+                            ListValueType.Raw);
+                        Formatter.CloseBracket();
+                        Formatter.WriteRaw(")");
+                        Formatter.Semicolon(true);
+                        Formatter.CloseBrace(false);
+                        Formatter.Semicolon(true);
+                    }
                 }
             }
 

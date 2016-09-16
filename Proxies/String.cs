@@ -84,8 +84,16 @@ namespace JSIL.Proxies {
         public abstract string[] Split (AnyType[] dividers);
 
         [JSIsPure]
-        [JSReplacement("JSIL.SplitString($this, $dividers, $options)")]
+        [JSReplacement("JSIL.SplitString($this, $dividers, -1, $options)")]
         public abstract string[] Split (AnyType[] dividers, StringSplitOptions options);
+
+        [JSIsPure]
+        [JSReplacement("JSIL.SplitString($this, $dividers, $count, $options)")]
+        public abstract string[] Split (AnyType[] dividers, int count, StringSplitOptions options);
+
+        [JSIsPure]
+        [JSReplacement("JSIL.SplitString($this, $dividers, $count)")]
+        public abstract string[] Split (AnyType[] dividers, int count);
 
         [JSIsPure]
         [JSReplacement("JSIL.JoinEnumerable($separator, $values)")]
@@ -158,16 +166,27 @@ namespace JSIL.Proxies {
             throw new InvalidOperationException();
         }
 
-        // FIXME: Are ECMAScript strings always normalized?
-        [JSReplacement("$this")]
+        [JSReplacement("($this.normalize ? $this.normalize() : $this)")]
         [JSIsPure]
         public string Normalize () {
             throw new InvalidOperationException();
         }
       
+        [JSReplacement("System.String.Normalize($this, $form)")]
+        [JSIsPure]
+        public string Normalize (System.Text.NormalizationForm form) {
+            throw new InvalidOperationException();
+        }
+
         [JSReplacement("System.String.StartsWith($this, $text)")]
         [JSIsPure]
         public bool StartsWith (string text) {
+            throw new InvalidOperationException();
+        }
+
+        [JSReplacement("System.String.StartsWith($this, $text, $comparisonType)")]
+        [JSIsPure]
+        public bool StartsWith (string text, StringComparison comparisonType) {
             throw new InvalidOperationException();
         }
 
@@ -321,6 +340,12 @@ namespace JSIL.Proxies {
         [JSReplacement("$this.substr(0, $startIndex)")]
         [JSIsPure]
         public string Remove (int startIndex) {
+            throw new InvalidOperationException();
+        }
+
+        [JSReplacement("System.String.Insert($this, $index, $str)")]
+        [JSIsPure]
+        public string Insert(int index, string str) {
             throw new InvalidOperationException();
         }
 

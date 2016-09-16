@@ -1,0 +1,5 @@
+C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\bin\ExaPhaser.SharpJS.System.dll
+C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\bin\ExaPhaser.SharpJS.System.pdb
+C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\ExaPhaser\Core\ExaPhaser.SharpJS.System\obj\Debug\ExaPhaser.SharpJS.System.csprojResolveAssemblyReference.cache
+C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\ExaPhaser\Core\ExaPhaser.SharpJS.System\obj\Debug\ExaPhaser.SharpJS.System.dll
+C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\ExaPhaser\Core\ExaPhaser.SharpJS.System\obj\Debug\ExaPhaser.SharpJS.System.pdb

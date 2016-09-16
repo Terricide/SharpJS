@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile />
-    <LangVersion>5</LangVersion>
+    <LangVersion>5</LangVersion>    
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -34,14 +34,13 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>sharpjs.ico</ApplicationIcon>
+    <ApplicationIcon>jsil.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Executor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="jsil.ico" />
-    <Content Include="sharpjs.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
