@@ -47,10 +47,6 @@
     <Compile Include="WebSocket.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
-      <Project>{5c3b6aac-aea4-4ff3-9a9c-05a040f12e72}</Project>
-      <Name>ExaPhaser.SharpJS.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\Meta\Meta.csproj">
       <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
       <Name>Meta</Name>
