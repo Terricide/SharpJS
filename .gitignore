@@ -117,7 +117,7 @@ JSIL.Libraries/node_modules
 JSIL.Libraries/obj
 JSIL.Libraries/Generated
 JSIL.Libraries/bin
-Libraries/
+./Libraries/
 .vs/
 /mono
 JSIL.mscorlib/obj/

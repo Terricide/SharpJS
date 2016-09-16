@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60AC246F-639D-453C-99E7-B59093A4F0DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SharpJS.Dom</RootNamespace>
+    <AssemblyName>SharpJS.Dom</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\InputType.cs" />
+    <Compile Include="Document.cs" />
+    <Compile Include="Element.cs" />
+    <Compile Include="Elements\AnchorElement.cs" />
+    <Compile Include="Elements\ButtonElement.cs" />
+    <Compile Include="Elements\CanvasElement.cs" />
+    <Compile Include="Elements\DivElement.cs" />
+    <Compile Include="Elements\FormElement.cs" />
+    <Compile Include="Elements\HeaderElement.cs" />
+    <Compile Include="Elements\IFrameElement.cs" />
+    <Compile Include="Elements\ImageElement.cs" />
+    <Compile Include="Elements\FileUploadElement.cs" />
+    <Compile Include="Elements\InputElement.cs" />
+    <Compile Include="Elements\LinkElement.cs" />
+    <Compile Include="Elements\TextAreaElement.cs" />
+    <Compile Include="Elements\ParagraphElement.cs" />
+    <Compile Include="Elements\PreformattedElement.cs" />
+    <Compile Include="Elements\ScriptElement.cs" />
+    <Compile Include="IntervalDispatcher.cs" />
+    <Compile Include="JSConsole.cs" />
+    <Compile Include="JSLibrary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RgbStyle.cs" />
+    <Compile Include="StringStyle.cs" />
+    <Compile Include="Style.cs" />
+    <Compile Include="StyleCollection.cs" />
+    <Compile Include="Styles\FontStyles.cs" />
+    <Compile Include="Styles\TextStyles.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Meta\Meta.csproj">
+      <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
+      <Name>Meta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
+      <Project>{5c3b6aac-aea4-4ff3-9a9c-05a040f12e72}</Project>
+      <Name>ExaPhaser.SharpJS.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
