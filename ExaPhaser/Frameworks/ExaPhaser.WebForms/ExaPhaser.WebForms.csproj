@@ -74,6 +74,10 @@
       <Project>{37c67c73-1f58-49b8-a39e-768ac88c2447}</Project>
       <Name>Meta</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Common\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
+      <Project>{5c3b6aac-aea4-4ff3-9a9c-05a040f12e72}</Project>
+      <Name>ExaPhaser.SharpJS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Libraries\SharpJS.Dom\SharpJS.Dom.csproj">
       <Project>{60ac246f-639d-453c-99e7-b59093a4f0de}</Project>
       <Name>SharpJS.Dom</Name>

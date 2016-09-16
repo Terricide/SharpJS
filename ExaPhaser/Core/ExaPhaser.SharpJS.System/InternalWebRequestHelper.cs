@@ -44,7 +44,7 @@ namespace SharpJS.System
             return _xmlHttpRequest;
         }
 
-        public string MakeRequest(SharpJS.System.Uri address, string method, Dictionary<string, string> headers, string body,
+        public string MakeRequest(Uri address, string method, Dictionary<string, string> headers, string body,
             DownloadStringCompletedEventHandler callbackMethod, bool isAsync)
         {
             _xmlHttpRequest = GetWebRequest();

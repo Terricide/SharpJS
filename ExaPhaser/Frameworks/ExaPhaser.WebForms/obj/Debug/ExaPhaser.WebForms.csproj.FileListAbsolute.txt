@@ -1,5 +1,0 @@
-C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\bin\ExaPhaser.WebForms.dll
-C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\bin\ExaPhaser.WebForms.pdb
-C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\ExaPhaser\Frameworks\ExaPhaser.WebForms\obj\Debug\ExaPhaser.WebForms.csprojResolveAssemblyReference.cache
-C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\ExaPhaser\Frameworks\ExaPhaser.WebForms\obj\Debug\ExaPhaser.WebForms.dll
-C:\Users\Nihal.Talur19\Documents\GitHub\SharpJS\ExaPhaser\Frameworks\ExaPhaser.WebForms\obj\Debug\ExaPhaser.WebForms.pdb
