@@ -7,44 +7,45 @@
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="stylesheet" href="assets/css/browser.css" />
     <link rel="stylesheet" href="assets/css/webforms.css" />
+    <link rel="stylesheet" href="assets/css/loaders.min.css" />
     <link rel="icon" href="sharpjs.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <!--SharpJS Dependencies-->
     <script src="jquery.min.js"></script>
     <script src="jquery-ui.min.js"></script>
     <script src="jquery.ui.touch-punch.min.js"></script>
     <script src="FileSaver.min.js"></script>
     <script src="webforms.js"></script>
+    <script src="index.js" type="text/javascript"></script>
 </head>
 
-<body onload="onLoad()">
+<body>
     <script type="text/javascript">
         var jsilConfig = {
             manifests: [
                 "WebFormsTemplate.exe",
             ],
             libraryRoot: "../Libraries/",
-            showProgressBar: true
+            updateProgressBar: updateSleekProgressBar
         };
     </script>
 
-    <canvas id="canvas" width="0" height="0">
-        <!--It will be resized by index.js-->
-    </canvas><br>
 
     <!--Uncomment the log div to see Console output.-->
     <!--<div id="log"></div>-->
-    <div class="container">
+    <div class="container sharpjs-ccontainer">
         <div id="webform-container"></div>
     </div>
 
     <script src="../Libraries/JSIL.js" type="text/javascript"></script>
-    <script src="index.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         function runMain() {
             $("html", "body").css("overflow", "auto");
-            $("#canvas").remove(); //remove the canvas
-            $('head').append('<link rel="stylesheet" href="assets/css/bootstrap.min.css"></link>');
             var asm = JSIL.GetAssembly("WebFormsTemplate");
             JSIL.InvokeEntryPoint(asm, []);
         };
