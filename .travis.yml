@@ -10,6 +10,8 @@ before_install:
 install:
   - export NODEJS=$(dirname `nvm which $NODEJS_VERSION`)
   - export FSHARPINSTALLDIR=$PWD/packages/FSharp.Compiler.Tools.4.0.0.1/tools/
+  - pwd
+  - ls
   - nuget restore ExaPhaser.JSIL.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory packages 
   - nuget install FSharp.Compiler.Tools -Version 4.0.0.1 -OutputDirectory packages 
@@ -22,7 +24,7 @@ script:
   - mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe ./bin/Tests.DCE.dll ./bin/SimpleTests.dll ./bin/Tests.dll --run:$TestRun  --exclude:FailsOnMono\|\(FailsOnMonoWhenStubbed+Stubbed\)\|\(FailsOnMonoWhenStubbed+Translated\)
 
 before_cache:
-  - mv "/tmp/JSIL Tests" /tmp/JSIL_Tests  
+  - mv "/tmp/JSIL Tests" /tmp/JSIL_Tests
   
 after_script:
   - export BUILD_FINISH_TIME=$(date --utc +%Y%m%d_%H%M%SZ)
