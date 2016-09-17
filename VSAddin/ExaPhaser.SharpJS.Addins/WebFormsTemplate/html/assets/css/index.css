@@ -12,6 +12,10 @@
     /*z-index:1000;*/
 }
 
+#loader-header {
+	font-size: 32pt;
+}
+
 #canvas {
 	left: 2px;
 	top: 2px;
