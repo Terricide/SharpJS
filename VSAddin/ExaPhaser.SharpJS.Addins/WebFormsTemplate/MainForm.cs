@@ -18,7 +18,7 @@ namespace WebFormsTemplate
             {
                 new TextBlock
                 {
-                    Text = "ExaPhaser.WebForms Demo",
+                    Text = "SharpJS - ExaPhaser.WebForms Demo",
                     TextAlign = TextAlign.Center,
                     FontStyle = new FontStyle
                     {
