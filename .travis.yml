@@ -19,7 +19,7 @@ before_script:
 
 script:
   - xbuild /p:Configuration=Release /p:Platform=NoXna /v:m ExaPhaser.SharpJS.sln
-  - mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe ./bin/Tests.DCE.dll ./bin/SimpleTests.dll ./bin/Tests.dll --run:$TestRun  --exclude:FailsOnMono\|\(FailsOnMonoWhenStubbed+Stubbed\)\|\(FailsOnMonoWhenStubbed+Translated\)
+  # - mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe ./bin/Tests.DCE.dll ./bin/SimpleTests.dll ./bin/Tests.dll --run:$TestRun  --exclude:FailsOnMono\|\(FailsOnMonoWhenStubbed+Stubbed\)\|\(FailsOnMonoWhenStubbed+Translated\)
 
 before_cache:
   - mv "/tmp/JSIL Tests" /tmp/JSIL_Tests
@@ -41,18 +41,18 @@ after_script:
 env:
   global:
     - NODEJS_VERSION=0.10
-  matrix:
-    - TestRun=JSIL.Tests.DeadCodeEliminationTest,JSIL.Tests.APITests,JSIL.Tests.AnalysisTests,JSIL.Tests.ComparisonTests,JSIL.Tests.ConfigurationTests,JSIL.Tests.DependencyTests,JSIL.Tests.FailingTests,JSIL.Tests.FormattingTests,JSIL.Tests.GenericsTests,JSIL.Tests.MetadataTests,JSIL.Tests.PerformanceTests,JSIL.Tests.TypeInformationTests,JSIL.Tests.UnsafeTests,JSIL.Tests.VerbatimTests,JSIL.Tests.XMLTests,JSIL.Tests.ThreadingTests
-      JSIL_STORAGE_TAG=misc-tests
-    - TestRun=JSIL.SimpleTests.SimpleTests
-      JSIL_STORAGE_TAG=simple-tests
-      SKIP_BINARIES=TRUE
-    - TestRun=JSIL.SimpleTests.SimpleTestCasesForStubbedBcl
-      JSIL_STORAGE_TAG=stubbed-tests
-      SKIP_BINARIES=TRUE
-    - TestRun=JSIL.SimpleTests.SimpleTestCasesForTranslatedBcl
-      JSIL_STORAGE_TAG=translated-tests
-      SKIP_BINARIES=TRUE
+  # matrix:
+  #   - TestRun=JSIL.Tests.DeadCodeEliminationTest,JSIL.Tests.APITests,JSIL.Tests.AnalysisTests,JSIL.Tests.ComparisonTests,JSIL.Tests.ConfigurationTests,JSIL.Tests.DependencyTests,JSIL.Tests.FailingTests,JSIL.Tests.FormattingTests,JSIL.Tests.GenericsTests,JSIL.Tests.MetadataTests,JSIL.Tests.PerformanceTests,JSIL.Tests.TypeInformationTests,JSIL.Tests.UnsafeTests,JSIL.Tests.VerbatimTests,JSIL.Tests.XMLTests,JSIL.Tests.ThreadingTests
+  #     JSIL_STORAGE_TAG=misc-tests
+  #   - TestRun=JSIL.SimpleTests.SimpleTests
+  #     JSIL_STORAGE_TAG=simple-tests
+  #     SKIP_BINARIES=TRUE
+  #   - TestRun=JSIL.SimpleTests.SimpleTestCasesForStubbedBcl
+  #     JSIL_STORAGE_TAG=stubbed-tests
+  #     SKIP_BINARIES=TRUE
+  #   - TestRun=JSIL.SimpleTests.SimpleTestCasesForTranslatedBcl
+  #     JSIL_STORAGE_TAG=translated-tests
+  #     SKIP_BINARIES=TRUE
 
 cache:
   directories:
