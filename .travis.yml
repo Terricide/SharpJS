@@ -10,8 +10,6 @@ before_install:
 install:
   - export NODEJS=$(dirname `nvm which $NODEJS_VERSION`)
   - export FSHARPINSTALLDIR=$PWD/packages/FSharp.Compiler.Tools.4.0.0.1/tools/
-  - pwd
-  - ls
   - nuget restore ExaPhaser.SharpJS.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory packages 
   - nuget install FSharp.Compiler.Tools -Version 4.0.0.1 -OutputDirectory packages 
