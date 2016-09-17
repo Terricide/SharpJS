@@ -21,8 +21,9 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
 - At runtime, the `ExaPhaser.WebForms` library constructs a layout based on your source and renders it using `SharpJS.Dom`, which bridges the translated C# source to native JavaScript DOM manipulation code. `ExaPhaser.WebForms` provides a simple, managed abstraction layer over `SharpJS.Dom`, which directly manipulates the DOM of the webpage.
 - C# Bindings for a number of common libraries such as jQuery are included, allowing you to invoke jQuery methods directly from C#. They are later translated into native JavaScript calls at runtime.
 
-## Coming Soon
-- A completely new, sleek UI with Material Design. Powered by [FezVrasta's awesome Bootstrap Material Design](https://fezvrasta.github.io/bootstrap-material-design/) library!
+## New/Coming Soon
+- New: A beautiful, modern new loading UI!
+- Coming soon: A completely new, sleek UI with Material Design. Powered by [FezVrasta's awesome Bootstrap Material Design](https://fezvrasta.github.io/bootstrap-material-design/) library!
 
 ## Currently supported APIs and Frameworks:
 - **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks.
