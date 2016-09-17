@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>ExaPhaser.WebForms</id>
-        <version>1.6.0</version>
-        <title>SharpJS ExaPhaser.WebForms</title>
-        <authors>ExaPhaser Industries,0xFireball</authors>
-        <owners>ExaPhaser Industries,0xFireball</owners>
+        <id>SharpJS</id>
+        <version>1.6.1</version>
+        <title>SharpJS Complete Pack</title>
+        <authors>ExaPhaser Industries,0xFireball,IridiumIon Software</authors>
+        <owners>ExaPhaser Industries,0xFireball,IridiumIon Software</owners>
         <licenseUrl>https://github.com/exaphaser/SharpJS/blob/master/LICENSE.md</licenseUrl>
         <iconUrl>https://exaphaser.github.io/SharpJS/sharpjs.ico</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -17,9 +17,10 @@ SharpJS's simple structure makes it relatively straightforward to port existing 
 
 Since SharpJS compiles your applications directly to HTML5 and JavaScript, they can run offline in the browser, online served by a server, in a mobile app built with PhoneGap, in a desktop app built with Electron, or in any other technology that allows you to build applications with web technologies.</description>
         <summary>SharpJS with ExaPhaser.WebForms core libraries. This is the GPLv3-licensed version of SharpJS.</summary>
-        <copyright>(c) 2016, ExaPhaser Industries, 0xFireball</copyright>
+        <releaseNotes>The old SharpJS.ExaPhaser.WebForms package will no longer be supported!</releaseNotes>
+        <copyright>(c) 2016 0xFireball, ExaPhaser Industries, IridiumIon Software</copyright>
         <language>en-US</language>
-        <tags>SharpJS, ExaPhaser, OmniBean, WebForms, ExaPhaser.WebForms, 0xFireball</tags>
+        <tags>SharpJS, ExaPhaser, IridiumIon Software, WebForms, ExaPhaser.WebForms, 0xFireball, C#, JavaScript, HTML5</tags>
     </metadata>
     <files>
         <file src="build\ExaPhaser.WebForms.targets" target="build\ExaPhaser.WebForms.targets" />
