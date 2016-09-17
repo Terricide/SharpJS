@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SharpJS</id>
-        <version>1.6.1</version>
+        <version>1.6.2</version>
         <title>SharpJS Complete Pack</title>
         <authors>ExaPhaser Industries,0xFireball,IridiumIon Software</authors>
         <owners>ExaPhaser Industries,0xFireball,IridiumIon Software</owners>
@@ -23,7 +23,7 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
         <tags>SharpJS, ExaPhaser, IridiumIon Software, WebForms, ExaPhaser.WebForms, 0xFireball, C#, JavaScript, HTML5</tags>
     </metadata>
     <files>
-        <file src="build\ExaPhaser.WebForms.targets" target="build\ExaPhaser.WebForms.targets" />
+        <file src="build\SharpJS.targets" target="build\SharpJS.targets" />
         <file src="..\bin\defaults.jsilconfig" target="jsil\defaults.jsilconfig" />
         <file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
