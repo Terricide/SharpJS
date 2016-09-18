@@ -1,4 +1,4 @@
-<img src="sharpjs.png" alt="SharpJS Logo" width="256" height="256" /> SharpJS
+<img src="sharpjs.png" alt="SharpJS Logo" width="140" height="140" /> SharpJS
 ====
 
 A set of frameworks for writing HTML5/JavaScript applications with C#.
