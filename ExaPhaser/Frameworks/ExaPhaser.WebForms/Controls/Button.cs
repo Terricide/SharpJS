@@ -1,6 +1,6 @@
-﻿using System;
-using ExaPhaser.WebForms.Themes;
+﻿using ExaPhaser.WebForms.Themes;
 using SharpJS.Dom.Elements;
+using System;
 
 namespace ExaPhaser.WebForms.Controls
 {
