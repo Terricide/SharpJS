@@ -1,0 +1,17 @@
+{
+    "name": "sharpjs-website",
+    "version": "1.0.0",
+    "description": "Website for SharpJS",
+    "directories": {
+        "doc": "docs"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "0xFireball",
+    "private": true,
+    "license": "none",
+    "bugs": {
+        "url": "https://github.com/exaphaser/SharpJS/issues"
+    }
+}

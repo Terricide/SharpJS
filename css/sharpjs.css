@@ -1,0 +1,6 @@
+img.tutorial-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    padding: 10px 10px 10px 10px;
+}

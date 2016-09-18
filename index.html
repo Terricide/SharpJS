@@ -16,11 +16,13 @@
 
         <!-- Custom CSS -->
         <link href="css/grayscale.css" rel="stylesheet">
+        <link href="css/sharpjs.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,6 +62,10 @@
                         </li>
                         <li>
                             <a class="page-scroll" href="#see-license">Download</a>
+                        </li>
+
+                        <li>
+                            <a class="page-scroll" href="#quickstart">Quick Start</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#documentation">Documentation</a>
@@ -116,7 +122,7 @@
                 </div>
         </section>
 
-        <!-- License Section -->
+        <!-- License/Download Section -->
         <section id="see-license" class="container content-section">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -168,6 +174,40 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Quick Start Section -->
+        <section id="quickstart" class="container content-section">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="text-center">
+                        <h2>Quick Start!</h2>
+                        <h4>Get started super fast with SharpJS!</h4>
+                    </div>
+                    <h3>A brief overview</h3>
+                    <p>
+                        SharpJS is an open source framework for creating powerful HTML5/JS applications with C#. As of right now, SharpJS uses <code>ExaPhaser.WebForms</code>, a library that is a core part of SharpJS, to render a HTML5 UI in the browser.
+                        This in turn is built on top of <code>SharpJS.Dom</code> and <code>SharpJS.JSLibraries</code>, a bridge between JavaScript and C#. These libraries contain bindings for HTML5 DOM and jQuery, respectively. Right now, UI is defined
+                        in C# code through property initializers, in a manner similar to how Xamarin.Forms's non-XAML layout works, if you're familiar with that. Unlike WinForms, your UI code is still neat and easy to visualize. It looks somewhat like
+                        JSON, too.
+                        <b>Before you ask, yes, a XAML-inspired UI framework with Material Design is coming soon!</b>
+                    </p>
+                    <h3>Step 1 - Getting set up</h3>
+                    <p>
+                        If you haven't already, <a target="_blank" href="#see-license" class="page-scroll">download the Visual Studio 2015 extension</a>. This will give you the templates and JS libraries, so you can start working a project very quickly.
+                        Be sure to restart VS after installing the extension.
+                    </p>
+                    <p>
+                        Once you have Visual Studio 2015 ready and open with the SharpJS extension, create a new ExaPhaser.WebForms project. You can find the SharpJS template under <code>Visual C# 
+                            &gt; SharpJS &gt ExaPhaser.WebForms Application</code>.
+                    </p>
+                    <img class="img-fluid tutorial-img" src="img/screenshots/1-creatingproject.png" />
+                    <p>
+                    </p>
+                    <div class="text-center">
+                        <a href="#documentation" class="page-scroll btn btn-primary btn-lg">View the Docs</a>
+                    </div>
+                </div>
         </section>
 
         <!-- Documentation Section -->
