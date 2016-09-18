@@ -40,9 +40,14 @@ function createProgressBarOverlay() {
 
 // Remove the overlay when everything's done loading (if it worked!)
 function removeProgressOverlay() {
-    overlay.fadeOut(400, "swing", function () {
+    /*
+	overlay.fadeOut(400, "swing", function () {
         $j(".sharpjs-ccontainer").show();
     });
+	*/
+	overlay.animate({opacity: 0}, 1000, function() {
+		$j(".sharpjs-ccontainer").show();
+	});	
 }
 
 

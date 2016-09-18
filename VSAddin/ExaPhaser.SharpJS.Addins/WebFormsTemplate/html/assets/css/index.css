@@ -1,3 +1,7 @@
+.sharpjs-container {
+	padding-top: 10%;
+}
+
 #sjs-loader-overlay {
 	background-color: #17B085;
     position:fixed;
