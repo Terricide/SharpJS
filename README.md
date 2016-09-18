@@ -5,6 +5,8 @@ A set of frameworks for writing HTML5/JavaScript applications with C#.
 
 [![Build Status](https://travis-ci.org/exaphaser/SharpJS.svg?branch=master)](https://travis-ci.org/exaphaser/SharpJS)
 
+## **[Quick Start](https://exaphaser.github.io/SharpJS/#quickstart)** (recommended)
+
 ## About
 
 SharpJS is open-source software licensed under the GPLv3, which can be found in the [LICENSE.md](LICENSE.md) file.
