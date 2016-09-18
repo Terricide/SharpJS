@@ -20,6 +20,7 @@ namespace ExaPhaser.WebForms.Controls
             switch (WebApplication.CurrentTheme.Stylesheet)
             {
                 case CSSFramework.Bootstrap:
+                case CSSFramework.MaterialBootstrap:
                     InternalElement.Class = "form-control";
                     break;
             }

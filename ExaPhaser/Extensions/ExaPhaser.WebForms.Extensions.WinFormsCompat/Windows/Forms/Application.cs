@@ -56,7 +56,7 @@ namespace System.Windows.Forms
         #region Private Fields
 
         private static readonly Dictionary<WebForm, DivElement> Forms = new Dictionary<WebForm, DivElement>();
-        private static readonly CSSUITheme Theme = new CSSUITheme(CSSFramework.Bootstrap);
+        private static readonly CSSUITheme Theme = new CSSUITheme(CSSFramework.MaterialBootstrap);
 
         #endregion Private Fields
 

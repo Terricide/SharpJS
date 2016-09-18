@@ -62,7 +62,7 @@ namespace ExaPhaser.WebForms
                     _formHost.AddClass("columns");
                     break;
 
-                case CSSFramework.PolyUI:
+                case CSSFramework.PolyUi:
                     formHostContainer.AddClass("grid");
                     _formHost.AddClass("centered grid__col--12");
                     break;
@@ -72,6 +72,7 @@ namespace ExaPhaser.WebForms
                     break;
 
                 case CSSFramework.Bootstrap:
+                case CSSFramework.MaterialBootstrap:
                     formHostContainer.AddClass("row");
                     _formHost.AddClass("col-lg-12 col-md-12");
                     break;

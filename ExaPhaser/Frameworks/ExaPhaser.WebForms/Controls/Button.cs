@@ -28,7 +28,7 @@ namespace ExaPhaser.WebForms.Controls
                     };
                     break;
 
-                case CSSFramework.PolyUI:
+                case CSSFramework.PolyUi:
                     InternalElement = new AnchorElement
                     {
                         Class = "btn--default"
@@ -43,6 +43,7 @@ namespace ExaPhaser.WebForms.Controls
                     break;
 
                 case CSSFramework.Bootstrap:
+                case CSSFramework.MaterialBootstrap:
                     InternalElement = new AnchorElement
                     {
                         Class = "btn btn-default"

@@ -6,9 +6,21 @@
     public enum CSSFramework
     {
         Foundation6,
+
+        /// <summary>
+        /// The Bootstrap CSS Framework
+        /// </summary>
         Bootstrap,
+
+        /// <summary>
+        /// A Material Design framework by FezVrasta based on Bootstrap. Currently, ExaPhaser.WebForms treats this just like Bootstrap,
+        /// but as this behavior may change in the future, you are highly encouraged to select one or the other rather than
+        /// using them interchangeably.
+        /// </summary>
+        MaterialBootstrap,
+
         Materialize,
-        PolyUI,
+        PolyUi,
         Kubism,
     }
 }
