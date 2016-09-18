@@ -17,7 +17,7 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
 ## Getting Started
 - [Download the template extension](https://exaphaser.github.io/SharpJS/#see-license) (Highly recommended for a super-quick start)
 - [Documentation](https://exaphaser.github.io/SharpJS/#documentation)
-- **[Quick Start](https://exaphaser.github.io/SharpJS/)**
+- **[Quick Start](https://exaphaser.github.io/SharpJS/)** (recommended)
 - The **[wiki of this project](https://github.com/exaphaser/SharpJS/wiki)** will contain information about this project, and on extending the project with your own APIs, and build instructions.
 
 ## How it works
