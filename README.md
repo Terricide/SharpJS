@@ -29,11 +29,12 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
 
 ## New/Coming Soon
 - New: A beautiful, modern new loading UI!
-- Coming soon: A completely new, sleek UI with Material Design. Powered by [FezVrasta's awesome Bootstrap Material Design](https://fezvrasta.github.io/bootstrap-material-design/) library!
+- Coming soon: NeptuniumKit: A completely new, sleek UI with Material Design. Powered by [FezVrasta's awesome Bootstrap Material Design](https://fezvrasta.github.io/bootstrap-material-design/) library!
 
 ## Currently supported APIs and Frameworks:
+- **IridiumIon.NeptuniumKit** - (**In Progress/Coming Soon**) A XAML-inspired UI framework based on Material Design. It will be a complete reimplementation of ExaPhaser.WebForms with a focus on extensibility, features, and modern UI.
 - **ExaPhaser.WebForms** - A GUI framework for creating HTML5 applications styled with modern CSS frameworks.
-- **ExaPhaser.WebForms.Extensions.WinFormsCompat** - A new compatibility layer that can run Windows Forms designer-generated code by proxying calls to `ExaPhaser.WebForms`.
+- **ExaPhaser.WebForms.Extensions.WinFormsCompat** - (**Alpha!**) A new compatibility layer that can run Windows Forms designer-generated code by proxying calls to `ExaPhaser.WebForms`. Yes, it can actually [run recompiled WinForms apps in your browser](https://github.com/exaphaser/SharpJS/wiki/Running-Windows-Forms-in-browser-with-WinFormsCompat)!
 - **SharpJS.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime.
 
 Open-Source project Acknowledgements
