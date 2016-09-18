@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExaPhaser.WebForms", "ExaPhaser.WebForms", "{B67E29C8-C01A-4FFE-856F-684531830CA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExaPhaser.WebForms.Addin", "ExaPhaser.WebForms.Addin\ExaPhaser.WebForms.Addin.csproj", "{56CF5D44-7B7F-4621-83EF-2262CFABB56D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsTemplate", "WebFormsTemplate\WebFormsTemplate.csproj", "{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpJS.Addin", "SharpJS.Addin\SharpJS.Addin.csproj", "{56CF5D44-7B7F-4621-83EF-2262CFABB56D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,19 +15,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56CF5D44-7B7F-4621-83EF-2262CFABB56D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56CF5D44-7B7F-4621-83EF-2262CFABB56D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56CF5D44-7B7F-4621-83EF-2262CFABB56D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56CF5D44-7B7F-4621-83EF-2262CFABB56D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{56CF5D44-7B7F-4621-83EF-2262CFABB56D} = {B67E29C8-C01A-4FFE-856F-684531830CA5}
 		{EDC5BC7A-FA48-42B3-85B6-D641D4E2A22D} = {B67E29C8-C01A-4FFE-856F-684531830CA5}
+		{56CF5D44-7B7F-4621-83EF-2262CFABB56D} = {B67E29C8-C01A-4FFE-856F-684531830CA5}
 	EndGlobalSection
 EndGlobal

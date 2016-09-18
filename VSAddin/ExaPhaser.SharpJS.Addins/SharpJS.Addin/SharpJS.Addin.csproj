@@ -15,8 +15,8 @@
     <ProjectGuid>{56CF5D44-7B7F-4621-83EF-2262CFABB56D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExaPhaser.WebForms.Addin</RootNamespace>
-    <AssemblyName>ExaPhaser.WebForms.Addin</AssemblyName>
+    <RootNamespace>SharpJS.Addin</RootNamespace>
+    <AssemblyName>SharpJS.Addin</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
