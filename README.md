@@ -15,6 +15,8 @@ The runtime is powered by JSIL, an application that translates compiled IL to Ja
 Since SharpJS compiles your applications directly to HTML5 and JavaScript, they can run offline in the browser, online served by a server, in a mobile app built with PhoneGap, in a desktop app built with Electron, or in any other technology that allows you to build applications with web technologies.
 
 ## Getting Started
+- [Download the template extension](https://exaphaser.github.io/SharpJS/#see-license) (Highly recommended for a super-quick start)
+- [Documentation](https://exaphaser.github.io/SharpJS/#documentation)
 - [Samples and code demos for getting started with SharpJS](https://github.com/ZetaPhase/SharpJS-Demos).
 - The **[wiki of this project](https://github.com/exaphaser/SharpJS/wiki)** will contain information about this project, and on extending the project with your own APIs, and build instructions.
 
