@@ -44,7 +44,7 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
         <file src="..\bin\JSIL.ExpressionInterpreter.dll.jsilconfig" target="jsil\JSIL.ExpressionInterpreter.dll.jsilconfig" />
         <file src="..\bin\JSIL.Meta.dll" target="jsil\JSIL.Meta.dll" />
         <file src="..\bin\JSIL.Meta.xml" target="jsil\JSIL.Meta.xml" />
-        <file src="..\bin\JSIL.Profiles.XNA4.dll" target="jsil\JSIL.Profiles.XNA4.dll" />
+        <!--<file src="..\bin\JSIL.Profiles.XNA4.dll" target="jsil\JSIL.Profiles.XNA4.dll" />--> <!--Not used, so removed along with XapParse-->
         <file src="..\bin\JSIL.Proxies.4.0.dll" target="jsil\JSIL.Proxies.4.0.dll" />
         <file src="..\bin\JSIL.Proxies.Bcl.dll" target="jsil\JSIL.Proxies.Bcl.dll" />
         <file src="..\bin\JSIL.Proxies.XNA4.dll" target="jsil\JSIL.Proxies.XNA4.dll" />
