@@ -47,22 +47,7 @@
     <Compile Include="IO\WebStorage\SessionStorageHandle.cs" />
     <Compile Include="IO\WebStorage\StorageBase.cs" />
     <Compile Include="IO\WebStorage\WebStorageType.cs" />
-    <Compile Include="InternalWebRequestHelper.cs" />
-    <Compile Include="Net\HeaderConverter.cs" />
-    <Compile Include="Net\DownloadStringCompletedEventArgs.cs" />
-    <Compile Include="Net\DownloadStringCompletedEventHandler.cs" />
-    <Compile Include="Net\HttpRequestHeader.cs" />
-    <Compile Include="Net\HttpResponseHeader.cs" />
-    <Compile Include="Net\HttpStatusCode.cs" />
-    <Compile Include="Net\HttpWebResponse.cs" />
-    <Compile Include="Net\Security\ProtectionLevel.cs" />
-    <Compile Include="Net\UploadStringCompletedEventArgs.cs" />
-    <Compile Include="Net\UploadStringCompletedEventHandler.cs" />
-    <Compile Include="Net\WebClient.cs" />
-    <Compile Include="Net\WebHeaderCollection.cs" />
-    <Compile Include="Net\WebResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Uri.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
