@@ -1,4 +1,6 @@
-# SharpJS
+<img src="sharpjs.png" alt="SharpJS Logo" width="256" height="256" /> SharpJS
+====
+
 A set of frameworks for writing HTML5/JavaScript applications with C#.
 
 [![Build Status](https://travis-ci.org/exaphaser/SharpJS.svg?branch=master)](https://travis-ci.org/exaphaser/SharpJS)
