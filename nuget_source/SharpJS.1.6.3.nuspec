@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SharpJS</id>
-        <version>1.6.2</version>
+        <version>1.6.3</version>
         <title>SharpJS Complete Pack</title>
         <authors>ExaPhaser Industries,0xFireball,IridiumIon Software</authors>
         <owners>ExaPhaser Industries,0xFireball,IridiumIon Software</owners>
@@ -28,6 +28,7 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
         <file src="..\bin\ExaPhaser.SharpJS.Common.dll" target="jsil\ExaPhaser.SharpJS.Common.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="jsil\ExaPhaser.WebForms.dll" />
         <file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="jsil\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
+		<file src="..\bin\IridiumIon.NeptuniumKit.dll" target="jsil\IridiumIon.NeptuniumKit.dll" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="jsil\ICSharpCode.Decompiler.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="jsil\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.xml" target="jsil\ICSharpCode.NRefactory.CSharp.xml" />
@@ -68,6 +69,7 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
         <file src="..\bin\ExaPhaser.SharpJS.System.dll" target="lib\ExaPhaser.SharpJS.System.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="lib\ExaPhaser.WebForms.dll" />
         <file src="..\bin\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" target="lib\ExaPhaser.WebForms.Extensions.WinFormsCompat.dll" />
+		<file src="..\bin\IridiumIon.NeptuniumKit.dll" target="lib\IridiumIon.NeptuniumKit.dll" />
         <file src="..\bin\ICSharpCode.Decompiler.dll" target="lib\ICSharpCode.Decompiler.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.CSharp.dll" target="lib\ICSharpCode.NRefactory.CSharp.dll" />
         <file src="..\bin\ICSharpCode.NRefactory.dll" target="lib\ICSharpCode.NRefactory.dll" />

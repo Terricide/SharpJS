@@ -8,7 +8,7 @@ namespace WebFormsTemplate
         public static void Main(string[] args)
         {
             //Run the application
-            new WebApplication(new CSSUITheme(CSSFramework.Bootstrap)).Run(new MainForm(), "webform-container");
+            new WebApplication(new CSSUITheme(CSSFramework.BootstrapMaterial)).Run(new MainForm(), "webform-container");
         }
     }
 }
