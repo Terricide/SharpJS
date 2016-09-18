@@ -64,7 +64,7 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
         <file src="..\bin\pngquant.exe" target="jsil\pngquant.exe" />
         <file src="..\bin\SharpJS.Dom.dll" target="jsil\SharpJS.Dom.dll" />
         <file src="..\bin\SharpJS.JSLibraries.dll" target="jsil\SharpJS.JSLibraries.dll" />
-        <file src="..\bin\Xap.dll" target="jsil\Xap.dll" />
+        <!--<file src="..\bin\Xap.dll" target="jsil\Xap.dll" />--> <!--Removed along with XapParse as it was unused-->
         <file src="..\bin\zlib1.dll" target="jsil\zlib1.dll" />
         <file src="..\bin\ExaPhaser.SharpJS.System.dll" target="lib\ExaPhaser.SharpJS.System.dll" />
         <file src="..\bin\ExaPhaser.WebForms.dll" target="lib\ExaPhaser.WebForms.dll" />
