@@ -17,7 +17,6 @@ function resizeOverlay() {
 }
 window.onresize = resizeOverlay;
 
-
 // Create a large overlay for progress
 function createProgressBarOverlay() {
     resizeOverlay();
@@ -45,11 +44,11 @@ function removeProgressOverlay() {
         $j(".sharpjs-ccontainer").show();
     });
 	*/
-	overlay.animate({opacity: 0}, 1000, function() {
-		$j(".sharpjs-ccontainer").show();
-	});	
+    overlay.animate({ opacity: 0 }, 1000, function () {
+        overlay.remove();
+        $j(".sharpjs-ccontainer").show();
+    });
 }
-
 
 // A really nice-looking progress bar alternative
 function updateSleekProgressBar(prefix, suffix, bytesLoaded, bytesTotal) {
