@@ -700,6 +700,7 @@ namespace JSIL.Compiler {
             } catch (Exception exc) {
                 Console.WriteLine(exc);
                 Environment.ExitCode = 1024;
+                throw exc;
                 return;
             }
         }

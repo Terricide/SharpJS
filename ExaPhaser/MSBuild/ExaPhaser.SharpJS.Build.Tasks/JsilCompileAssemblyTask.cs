@@ -1,5 +1,4 @@
-﻿using ExaPhaser.SharpJS.Build.Tasks.Utilities;
-using Microsoft.Build.Framework;
+﻿using Microsoft.Build.Framework;
 using System;
 
 namespace ExaPhaser.SharpJS.Build.Tasks
@@ -26,9 +25,9 @@ namespace ExaPhaser.SharpJS.Build.Tasks
             //Hijack stdout and stderr for JSIL execution
             var originalStdout = Console.Out;
             var originalStderr = Console.Error;
-            Console.SetOut(new ConsoleToMSBuildLogger(Log, TaskLoggerType.Log));
-            Console.SetError(new ConsoleToMSBuildLogger(Log, TaskLoggerType.Error));
-            var jsilRunArgs = new[] { $"-o=\"{OutputPath}\"", $"\"{InputAssemblyPath}\"" };
+            //Console.SetOut(new ConsoleToMSBuildLogger(Log, TaskLoggerType.Log));
+            //Console.SetError(new ConsoleToMSBuildLogger(Log, TaskLoggerType.Error));
+            var jsilRunArgs = new[] { $"-o={OutputPath}", $"{InputAssemblyPath}" };
             Log.LogCommandLine($"JSILc parameters: {string.Join(" ", jsilRunArgs)}");
             JSIL.Compiler.Program.Main(jsilRunArgs);
             Log.LogCommandLine($"JSILc exit code: {Environment.ExitCode}");
