@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ContainerView.cs" />
+    <Compile Include="Controls\INKView.cs" />
     <Compile Include="Controls\NKView.cs" />
     <Compile Include="NKApplication.cs" />
     <Compile Include="NKBootstrapper.cs" />
@@ -54,6 +56,18 @@
     <ProjectReference Include="..\..\Common\ExaPhaser.SharpJS.Common\ExaPhaser.SharpJS.Common.csproj">
       <Project>{5c3b6aac-aea4-4ff3-9a9c-05a040f12e72}</Project>
       <Name>ExaPhaser.SharpJS.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\ExaPhaser.SharpJS.System\ExaPhaser.SharpJS.System.csproj">
+      <Project>{c0660a86-c3b3-4db3-8646-e573ef8fc97d}</Project>
+      <Name>ExaPhaser.SharpJS.System</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\SharpJS.Dom\SharpJS.Dom.csproj">
+      <Project>{60ac246f-639d-453c-99e7-b59093a4f0de}</Project>
+      <Name>SharpJS.Dom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\SharpJS.JSLibraries\SharpJS.JSLibraries.csproj">
+      <Project>{d7f84a77-7a04-4fae-87d6-c4a3f58418fb}</Project>
+      <Name>SharpJS.JSLibraries</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
