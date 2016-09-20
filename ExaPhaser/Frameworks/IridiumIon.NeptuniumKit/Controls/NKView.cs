@@ -1,11 +1,11 @@
 ﻿using SharpJS.JSLibraries.JQuery;
-using System.Collections.Generic;
 
 namespace IridiumIon.NeptuniumKit.Controls
 {
-    public abstract class NKView : INKView
+    public abstract class NKView
     {
-        public List<INKView> Children { get; set; } = new List<INKView>();
-        public JQElement UnderlyingElement;// = new JQElement(JQuery.FromSelector("<div />").DomRepresentation);
+        public NKView Parent { get; set; }
+        public NKViewCollection Children { get; set; } = new NKViewCollection();
+        public JQElement UnderlyingElement { get; set; }// = new JQElement(JQuery.FromSelector("<div />").DomRepresentation);
     }
 }

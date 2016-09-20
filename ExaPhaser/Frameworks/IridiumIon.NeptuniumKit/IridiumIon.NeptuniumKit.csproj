@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ContainerView.cs" />
-    <Compile Include="Controls\INKView.cs" />
     <Compile Include="Controls\NKView.cs" />
+    <Compile Include="Controls\NKViewCollection.cs" />
     <Compile Include="Controls\TextView.cs" />
     <Compile Include="NKApplication.cs" />
     <Compile Include="NKBootstrapper.cs" />

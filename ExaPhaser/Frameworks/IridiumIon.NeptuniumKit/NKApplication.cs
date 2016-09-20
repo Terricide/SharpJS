@@ -16,6 +16,7 @@ namespace IridiumIon.NeptuniumKit
         public virtual void Create()
         {
             RootView = new ContainerView();
+            HostElement.Append(RootView.UnderlyingElement); //Add the root view to the host element
         }
 
         public JQElement HostElement { get; set; }
