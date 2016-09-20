@@ -19,6 +19,6 @@ namespace IridiumIon.NeptuniumKit
         }
 
         public JQElement HostElement { get; set; }
-        public INKView RootView { get; private set; }
+        public ContainerView RootView { get; private set; }
     }
 }
