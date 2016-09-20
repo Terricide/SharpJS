@@ -38,7 +38,9 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
 - **ExaPhaser.WebForms.Extensions.WinFormsCompat** - (**Alpha!**) A new compatibility layer that can run Windows Forms designer-generated code by proxying calls to `ExaPhaser.WebForms`. Yes, it can actually [run recompiled WinForms apps in your browser](https://github.com/exaphaser/SharpJS/wiki/Running-Windows-Forms-in-browser-with-WinFormsCompat)!
 - **SharpJS.Dom** - A set of extensions that provide JavaScript and jQuery bindings to C# for manipulating DOM from the .NET runtime.
 
-Open-Source project Acknowledgements
+## Acknowledgements
+
+## Open Source
 
 ExaPhaser.SharpJS depends upon or is based on the following open source projects:
 
@@ -50,3 +52,7 @@ ExaPhaser.SharpJS depends upon or is based on the following open source projects
  * printStackTrace: Public Domain (Eric Wendelin and others)
  * webgl-2d: MIT (Corban Brook, Bobby Richter, Charles J. Cliffe, and others)
  * S3TC DXT1 / DXT5 Texture Decompression Routines (Benjamin Dobell)
+
+## Tools
+
+![ReSharper logo](img/icon_ReSharper.png) SharpJS is developed with the help of ReSharper.
