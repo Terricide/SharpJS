@@ -51,6 +51,7 @@
     <Compile Include="Controls\Properties\FontWeight.cs" />
     <Compile Include="Controls\Properties\InputType.cs" />
     <Compile Include="Controls\TextView.cs" />
+    <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="NKApplication.cs" />
     <Compile Include="NKBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
