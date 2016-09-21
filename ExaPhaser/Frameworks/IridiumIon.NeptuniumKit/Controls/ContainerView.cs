@@ -20,7 +20,7 @@ namespace IridiumIon.NeptuniumKit.Controls
             switch (LayoutStyle)
             {
                 case LayoutStyle.Absolute:
-                    UnderlyingJQElement.Css("position", "absolute");
+                    UnderlyingJQElement.Css("position", "relative");
                     break;
             }
         }

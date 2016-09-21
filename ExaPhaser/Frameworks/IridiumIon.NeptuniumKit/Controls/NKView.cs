@@ -38,7 +38,7 @@ namespace IridiumIon.NeptuniumKit.Controls
         /// </summary>
         protected virtual void UpdateLayoutStyles()
         {
-            UnderlyingJQElement.Css("position", "relative");
+            UnderlyingJQElement.Css("position", "absolute");
             UnderlyingJQElement.Css("left", margin.Left);
             UnderlyingJQElement.Css("top", margin.Top);
             UnderlyingJQElement.Css("right", margin.Right);
