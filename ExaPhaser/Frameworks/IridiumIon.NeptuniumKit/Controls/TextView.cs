@@ -1,17 +1,30 @@
 ﻿using SharpJS.Dom.Elements;
-using SharpJS.JSLibraries.JQuery;
 
 namespace IridiumIon.NeptuniumKit.Controls
 {
     public class TextView : NKView
     {
+        private string _text;
+
         public TextView() : base()
         {
             //Text = ""; //Don't set text to null?
-            //Set underlying element to an INPUT
-            UnderlyingElement = new JQElement(new InputElement());
+            //Create <p> as underlying element
+            UnderlyingElement = new ParagraphElement();
         }
 
-        public string Text { get; set; }
+        public string Text
+        {
+            get
+            {
+                return _text;
+            }
+
+            set
+            {
+                _text = value;
+                (UnderlyingElement as ParagraphElement).TextContent = _text;
+            }
+        }
     }
 }

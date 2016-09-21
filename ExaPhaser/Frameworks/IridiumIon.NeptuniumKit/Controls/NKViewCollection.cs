@@ -46,7 +46,7 @@ namespace IridiumIon.NeptuniumKit.Controls
         public void Add(NKView item) //TODO: Maybe a visualizer using a TreeView could be implemented in the future?
         {
             item.Parent = ParentView; //Set the parent of the child view
-            item.Parent.UnderlyingElement.Append(item.UnderlyingElement); //Add the child underlying element to DOM tree
+            item.Parent.UnderlyingJQElement.Append(item.UnderlyingElement); //Add the child underlying element to DOM tree
             _list.Add(item);
         }
 
@@ -83,7 +83,7 @@ namespace IridiumIon.NeptuniumKit.Controls
         public bool Remove(NKView item)
         {
             //TODO: ?
-            item.UnderlyingElement.Remove(); //Remove the underlying element of the item from DOM
+            item.UnderlyingJQElement.Remove(); //Remove the underlying element of the item from DOM
             return _list.Remove(item);
         }
 

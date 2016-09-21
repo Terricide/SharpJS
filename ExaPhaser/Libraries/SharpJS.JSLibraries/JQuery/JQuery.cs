@@ -28,7 +28,7 @@ namespace SharpJS.JSLibraries.JQuery
 
         public static void Initialize()
         {
-            var jQueryHandle = Verbatim.Expression("jQuery.noConflict(true)");
+            var jQueryHandle = Verbatim.Expression("jQuery.noConflict()");
             if (jQueryHandle == null)
             {
                 throw new InvalidOperationException("Cannot use jQuery with SharpJS if the jQuery library has not been loaded.");

@@ -1,4 +1,4 @@
-﻿using SharpJS.JSLibraries.JQuery.JQElements;
+﻿using SharpJS.Dom.Elements;
 
 namespace IridiumIon.NeptuniumKit.Controls
 {
@@ -11,7 +11,7 @@ namespace IridiumIon.NeptuniumKit.Controls
         {
             //Any child views will have this view as parent
             Children.ParentView = this;
-            UnderlyingElement = new JQDivElement();
+            UnderlyingElement = new DivElement();
         }
     }
 }

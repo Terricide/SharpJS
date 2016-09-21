@@ -58,7 +58,7 @@ namespace SharpJS.JSLibraries.JQuery
         {
         }
 
-        [JSReplacement("$this.JQObject.append($element.DOMRepresentation)")]
+        [JSReplacement("$this.JQObject.append($element.DomObjectHandle)")]
         public void Append(Element element)
         {
         }
@@ -73,7 +73,7 @@ namespace SharpJS.JSLibraries.JQuery
         {
         }
 
-        [JSReplacement("$this.JQObject.appendTo($element.DOMRepresentation)")]
+        [JSReplacement("$this.JQObject.appendTo($element.DomObjectHandle)")]
         public void AppendTo(Element element)
         {
         }

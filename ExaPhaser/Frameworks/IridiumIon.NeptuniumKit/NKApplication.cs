@@ -1,4 +1,5 @@
 ﻿using IridiumIon.NeptuniumKit.Controls;
+using SharpJS.Dom;
 using SharpJS.JSLibraries.JQuery;
 
 namespace IridiumIon.NeptuniumKit

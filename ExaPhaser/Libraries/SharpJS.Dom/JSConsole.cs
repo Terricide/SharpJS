@@ -8,5 +8,15 @@ namespace SharpJS.Dom
         public static void Log(params object[] args)
         {
         }
+
+        [JSReplacement("console.error($args)")]
+        public static void Error(params object[] args)
+        {
+        }
+
+        [JSReplacement("console.assert($args)")]
+        public static void Debug(params object[] args)
+        {
+        }
     }
 }
