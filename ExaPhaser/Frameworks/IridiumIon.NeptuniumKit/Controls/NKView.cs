@@ -9,6 +9,11 @@ namespace IridiumIon.NeptuniumKit.Controls
     {
         private Margin margin;
 
+        public NKView()
+        {
+            UpdateMarginLayout();
+        }
+
         public NKView Parent { get; set; }
         public NKViewCollection Children { get; set; } = new NKViewCollection();
         public Element UnderlyingElement { get; set; }// = new JQElement(JQuery.FromSelector("<div />").DomRepresentation);
@@ -29,14 +34,14 @@ namespace IridiumIon.NeptuniumKit.Controls
             set
             {
                 margin = value;
-                UpdateLayoutStyles();
+                UpdateMarginLayout();
             }
         }
 
         /// <summary>
         /// Updates the element's layout styles
         /// </summary>
-        protected virtual void UpdateLayoutStyles()
+        private void UpdateMarginLayout()
         {
             UnderlyingJQElement.Css("position", "absolute");
             UnderlyingJQElement.Css("left", margin.Left);

@@ -42,8 +42,6 @@ namespace IridiumIon.NeptuniumKit.Controls
                         childView.UnderlyingJQElement.Css("margin", "0px");
                         childView.UnderlyingJQElement.Css("padding", "0px");
                     }
-                    //Set all child margins to zero
-                    childView.Margin = new Margin(0, 0);
                     break;
             }
         }
