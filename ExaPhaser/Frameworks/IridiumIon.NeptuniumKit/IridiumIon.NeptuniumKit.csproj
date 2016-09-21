@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComponentModel\ICommand.cs" />
-    <Compile Include="ComponentModel\INotifyPropertyChanged.cs" />
+    <Compile Include="ComponentModel\IRaisePropertyChanged.cs" />
     <Compile Include="Controls\Button.cs" />
     <Compile Include="Controls\ContainerView.cs" />
     <Compile Include="Controls\NKView.cs" />

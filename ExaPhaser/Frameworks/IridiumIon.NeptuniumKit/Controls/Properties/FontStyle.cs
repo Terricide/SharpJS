@@ -3,7 +3,7 @@ using System;
 
 namespace IridiumIon.NeptuniumKit.Controls.Properties
 {
-    public class FontStyle : INotifyPropertyChanged
+    public class FontStyle : IRaisePropertyChanged
     {
         private int _textSize = 12;
         private FontWeight _weight;
