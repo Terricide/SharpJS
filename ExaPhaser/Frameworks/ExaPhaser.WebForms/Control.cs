@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using ExaPhaser.WebForms.Drawing;
+﻿using ExaPhaser.WebForms.Drawing;
 using SharpJS.Dom;
 using SharpJS.JSLibraries.JQuery;
+using System;
+using System.Collections.ObjectModel;
 
 namespace ExaPhaser.WebForms
 {

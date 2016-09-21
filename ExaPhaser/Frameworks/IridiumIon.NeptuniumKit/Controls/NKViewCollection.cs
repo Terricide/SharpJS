@@ -47,6 +47,11 @@ namespace IridiumIon.NeptuniumKit.Controls
         {
             item.Parent = ParentView; //Set the parent of the child view
             item.Parent.UnderlyingJQElement.Append(item.UnderlyingElement); //Add the child underlying element to DOM tree
+            if (item.Parent is ContainerView) //Apply child styles
+            {
+                var containerParent = (item.Parent as ContainerView);
+                containerParent.ApplyChildStyle(item);
+            }
             _list.Add(item);
         }
 

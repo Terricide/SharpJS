@@ -1,6 +1,6 @@
 ﻿namespace IridiumIon.NeptuniumKit.ComponentModel
 {
-    public interface IRaisePropertyChanged
+    public interface IRaisePropertyChanged : INotifyPropertyChanged
     {
         void OnPropertyChanged(string propertyName);
     }

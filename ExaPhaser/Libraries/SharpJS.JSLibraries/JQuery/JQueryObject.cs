@@ -12,7 +12,11 @@ namespace SharpJS.JSLibraries.JQuery
     {
         #region Internal Constructors
 
-        internal JQueryObject(object handle)
+        /// <summary>
+        /// Creates a JQueryObject from a native JS jQuery object
+        /// </summary>
+        /// <param name="handle"></param>
+        public JQueryObject(object handle)
         {
             JQObject = handle;
         }
@@ -225,6 +229,12 @@ namespace SharpJS.JSLibraries.JQuery
         [JSReplacement("$this.JQObject.resizable({animate: true})")]
         public void ResizableAnimated()
         {
+        }
+
+        internal object DynamicInvoke(string methodName, object[] parameters)
+        {
+            object targetMethod = Verbatim.Expression("$0[$1]", JQObject, methodName);
+            return Verbatim.Expression("$0.apply($1, $2)", null, parameters);
         }
 
         [JSReplacement("$this.JQObject.show()")]

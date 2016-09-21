@@ -1,5 +1,5 @@
-﻿using System;
-using SharpJS.Dom;
+﻿using SharpJS.Dom;
+using System;
 
 namespace SharpJS.JSLibraries.JQuery
 {
@@ -180,6 +180,8 @@ namespace SharpJS.JSLibraries.JQuery
         public int ZIndex() => JQueryObjectHandle.ZIndex();
 
         public void ZIndex(int value) => JQueryObjectHandle.ZIndex(value);
+
+        public object DynamicInvoke(string method, params object[] args) => JQueryObjectHandle.DynamicInvoke(method, args);
 
         #endregion Public Methods
     }
