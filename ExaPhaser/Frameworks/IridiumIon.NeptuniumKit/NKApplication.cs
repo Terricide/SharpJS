@@ -10,6 +10,7 @@ namespace IridiumIon.NeptuniumKit
         {
             //Initialize Root View (It won't be on the DOM yet)
             RootView = new ContainerView();
+            RootView.UnderlyingJQElement.AddClass("container"); //Materialize container
         }
 
         /// <summary>
