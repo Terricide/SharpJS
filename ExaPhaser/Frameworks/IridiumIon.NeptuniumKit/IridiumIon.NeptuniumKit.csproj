@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComponentModel\ICommand.cs" />
     <Compile Include="ComponentModel\INotifyPropertyChanged.cs" />
+    <Compile Include="Controls\Button.cs" />
     <Compile Include="Controls\ContainerView.cs" />
     <Compile Include="Controls\NKView.cs" />
     <Compile Include="Controls\NKViewCollection.cs" />

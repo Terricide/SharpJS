@@ -13,6 +13,13 @@ namespace IridiumIon.NeptuniumKit.Controls
             //Text = ""; //Don't set text to null?
             //Create <p> as underlying element
             UnderlyingElement = new ParagraphElement();
+        }
+
+        /// <summary>
+        /// Utility method for sharing construction code.
+        /// </summary>
+        protected void Create()
+        {
             Style = new FontStyle(); //Trigger UpdateStyles()
         }
 
@@ -41,7 +48,7 @@ namespace IridiumIon.NeptuniumKit.Controls
             set
             {
                 _text = value;
-                (UnderlyingElement as ParagraphElement).TextContent = _text;
+                UnderlyingElement.TextContent = _text;
             }
         }
 
