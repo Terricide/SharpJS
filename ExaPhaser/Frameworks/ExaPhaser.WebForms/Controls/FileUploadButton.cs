@@ -174,11 +174,11 @@ namespace ExaPhaser.WebForms.Controls
             // Apply the filter:
             if (!string.IsNullOrWhiteSpace(htmlFilter))
             {
-                Verbatim.Expression(@"$0.accept = $1", InternalElement.DOMRepresentation, htmlFilter);
+                Verbatim.Expression(@"$0.accept = $1", InternalElement.DomObjectHandle, htmlFilter);
             }
             else
             {
-                Verbatim.Expression(@"$0.accept = """"", InternalElement.DOMRepresentation);
+                Verbatim.Expression(@"$0.accept = """"", InternalElement.DomObjectHandle);
             }
         }
 

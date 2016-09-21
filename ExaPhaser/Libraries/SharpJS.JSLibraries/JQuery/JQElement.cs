@@ -19,7 +19,7 @@ namespace SharpJS.JSLibraries.JQuery
 
         #region Public Properties
 
-        public Element DomRepresentation => JQueryObjectHandle.DomRepresentation;
+        public Element DomElement => JQueryObjectHandle.DomElement;
 
         public JQueryObject JQueryObjectHandle { get; set; }
 

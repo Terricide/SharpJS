@@ -1,4 +1,5 @@
-﻿using SharpJS.JSLibraries.JQuery;
+﻿using SharpJS.Dom.Elements;
+using SharpJS.JSLibraries.JQuery;
 
 namespace IridiumIon.NeptuniumKit.Controls
 {
@@ -8,7 +9,7 @@ namespace IridiumIon.NeptuniumKit.Controls
         {
             //Text = ""; //Don't set text to null?
             //Set underlying element to an INPUT
-            UnderlyingElement = new JQElement(JQuery.FromSelector("<input />").DomRepresentation);
+            UnderlyingElement = new JQElement(new InputElement());
         }
 
         public string Text { get; set; }

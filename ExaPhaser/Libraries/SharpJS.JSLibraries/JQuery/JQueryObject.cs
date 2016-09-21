@@ -1,7 +1,7 @@
-﻿using System;
-using JSIL;
+﻿using JSIL;
 using JSIL.Meta;
 using SharpJS.Dom;
+using System;
 
 namespace SharpJS.JSLibraries.JQuery
 {
@@ -31,7 +31,7 @@ namespace SharpJS.JSLibraries.JQuery
 
         #region Public Properties
 
-        public Element DomRepresentation
+        public Element DomElement
         {
             get { return new Element(GetDomHandle()); }
         }

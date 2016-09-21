@@ -7,7 +7,8 @@ namespace IridiumIon.NeptuniumKit
     {
         public NKApplication()
         {
-            //Initializer logic
+            //Initialize Root View (It won't be on the DOM yet)
+            RootView = new ContainerView();
         }
 
         /// <summary>
@@ -15,7 +16,6 @@ namespace IridiumIon.NeptuniumKit
         /// </summary>
         public virtual void Create()
         {
-            RootView = new ContainerView();
             HostElement.Append(RootView.UnderlyingElement); //Add the root view to the host element
         }
 

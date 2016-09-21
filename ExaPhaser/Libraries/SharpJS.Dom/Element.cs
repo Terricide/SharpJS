@@ -254,7 +254,7 @@ namespace SharpJS.Dom
             }
         }
 
-        public object DOMRepresentation
+        public object DomObjectHandle
         {
             get { return ElementHandle; }
         }

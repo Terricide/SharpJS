@@ -13,7 +13,7 @@ namespace IridiumIon.NeptuniumKit
                 throw new RequiresJSILRuntimeException();
             }
             //TODO: Initialize DOM host object with jQuery
-            var targetElement = new JQElement(JQuery.FromSelector(targetElementSelector).DomRepresentation);
+            var targetElement = new JQElement(JQuery.FromSelector(targetElementSelector).DomElement);
             app.HostElement = targetElement;
             app.Create();
         }
