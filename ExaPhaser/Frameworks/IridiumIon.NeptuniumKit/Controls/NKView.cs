@@ -82,7 +82,7 @@ namespace IridiumIon.NeptuniumKit.Controls
         /// <summary>
         /// Updates the element's layout styles
         /// </summary>
-        private void UpdateMarginLayout()
+        protected virtual void UpdateMarginLayout()
         {
             UnderlyingJQElement.Css("position", "absolute");
             UnderlyingJQElement.Css("left", _margin.Left);
@@ -91,7 +91,7 @@ namespace IridiumIon.NeptuniumKit.Controls
             UnderlyingJQElement.Css("bottom", _margin.Bottom);
         }
 
-        private void UpdateSizeLayout()
+        protected virtual void UpdateSizeLayout()
         {
             UnderlyingJQElement.Css("width", Size.Width);
             UnderlyingJQElement.Css("height", Size.Height);
