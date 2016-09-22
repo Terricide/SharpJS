@@ -53,6 +53,8 @@
     <Compile Include="Controls\Properties\InputType.cs" />
     <Compile Include="Controls\Properties\LayoutStyle.cs" />
     <Compile Include="Controls\Properties\Margin.cs" />
+    <Compile Include="Controls\Properties\Size.cs" />
+    <Compile Include="Controls\Properties\SizeMode.cs" />
     <Compile Include="Controls\TextView.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="NKApplication.cs" />

@@ -42,6 +42,8 @@ namespace IridiumIon.NeptuniumKit.Controls
                         childView.UnderlyingJQElement.Css("margin", "0px");
                         childView.UnderlyingJQElement.Css("padding", "0px");
                     }
+                    //Trigger the UpdateLayout on child margins
+                    childView.Margin = childView.Margin; //hack to trigger setter :(
                     break;
             }
         }
