@@ -30,7 +30,7 @@ Since SharpJS compiles your applications directly to HTML5 and JavaScript, they 
 
 ## New/Coming Soon
 - New: A beautiful, modern new loading UI!
-- Coming soon: NeptuniumKit: A completely new, sleek UI with Material Design. Powered by [FezVrasta's awesome Bootstrap Material Design](https://fezvrasta.github.io/bootstrap-material-design/) library!
+- Coming soon: NeptuniumKit: A completely new, sleek UI with Material Design. Powered by Materialize.css
 
 ## Currently supported APIs and Frameworks:
 - **IridiumIon.NeptuniumKit** - (**In Progress/Coming Soon**) A XAML-inspired UI framework based on Material Design. It will be a complete reimplementation of ExaPhaser.WebForms with a focus on extensibility, features, and modern UI.
