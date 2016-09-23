@@ -1,5 +1,4 @@
 ﻿using IridiumIon.NeptuniumKit.Controls;
-using SharpJS.Dom;
 using SharpJS.JSLibraries.JQuery;
 
 namespace IridiumIon.NeptuniumKit
@@ -10,7 +9,9 @@ namespace IridiumIon.NeptuniumKit
         {
             //Initialize Root View (It won't be on the DOM yet)
             RootView = new ContainerView();
-            RootView.UnderlyingJQElement.AddClass("container"); //Materialize container
+            RootView.UnderlyingJQElement.AddClass("nk-app-container");
+            //Don't add another container, too much spacing
+            //RootView.UnderlyingJQElement.AddClass("container"); //Materialize container
         }
 
         /// <summary>

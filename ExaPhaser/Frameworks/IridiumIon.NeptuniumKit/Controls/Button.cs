@@ -37,7 +37,7 @@ namespace IridiumIon.NeptuniumKit.Controls
         {
             base.UpdateSizeLayout();
 
-            //TODO: Add padding to the button to make it look less weird
+            //Add padding to the button to make it look less weird
             var topSpacing = Size.Height / 2 - Style.TextSize / 2; //optimal top padding
             UnderlyingJQElement.Css("padding-top", topSpacing);
         }
