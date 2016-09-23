@@ -27,5 +27,26 @@ namespace IridiumIon.NeptuniumKit.Controls
         {
             Command?.Execute(CommandParameter);
         }
+
+        /// <summary>
+        /// We call the standard update size layout, but we also need to add some padding
+        /// to the top/?bottom too???? of the button to keep it looking normal
+        /// Also take into account the text style and size.
+        /// </summary>
+        protected override void UpdateSizeLayout()
+        {
+            base.UpdateSizeLayout();
+
+            //TODO: Add padding to the button to make it look less weird
+            var topSpacing = Size.Height / 2 - Style.TextSize / 2; //optimal top padding
+            UnderlyingJQElement.Css("padding-top", topSpacing);
+        }
+
+        public override void UpdateStyles(object sender, string propertyName)
+        {
+            base.UpdateStyles(sender, propertyName);
+
+            UpdateSizeLayout(); //The text size affects size layout
+        }
     }
 }
